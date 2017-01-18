@@ -18,3 +18,46 @@
 18. Enemy that charges at you when it sees you(a bit like a bull)
 19. Regular meele type enemies, tries to meele you to death(speed of the enemy attack will depend on the type of item that the enemy is wielding)
 20. Enemy that can shoot different types of debuff.
+21. Enemies that can create a pool of some sort(fire, poison, water, etc) these enemies may debuff you or do damage to your components.
+22. Turret enemies(stand still enemies that shoot some kind of projectile, can have hp/shield)
+23. Vision inhibitor enemy(field of vision, fog of war, blurr, etc)
+24. Duplication enemy(starts with 2, multiplies if you hit the wrong one)
+25. Summoning enemy(Enemy summons a bear, turtle, bird, anything that helps the enemy fight)
+26. Ninja/Samurai type enemy(Enemy throws a projectile that once it hits a certain distance, explodes into random surikens)
+27. Sun summoning enemy, the enemy summons a sun-like ball that damages any players that get too close to it. 
+28. Moon summoning enemy, creates several "moons" that attempt to suck the player into the moon and the player must avoid it.
+29. Tank enemy(takes a long time to kill, has a one hit kill, but very slow. While player focuses on killing the tank, other enemies spawn)
+30. Pattern enemy(player must type/move a certain pattern to destroy this enemy)
+31. Typical lightning enemy(travels in a path so that the enemy creates a lighting path. Players must dodge the lighting path + meele required)
+32. Set movement enemy(enemy has a set "pattern" it moves in, square, circle etc, can attack in any specific pattern.)
+33. Terrain creation enemy, the enemy can create specific terrarin that the player must move around/evade.
+34. Terrain destruction enemy, the enemy can destroy parts of the terrain/walls/etc.
+35. Leaping/ground slam enemy. Enemy sees the player, and has a set leaping distance. When the enemy lands, they stun the ground/stun.
+36. Pirate type enemy(not sure what attack it will do, but if it hits you, you lose an item.)
+37. Wackamole enemy(enemy moves underground, and pops up once in a while)
+38. Growth enemy(enemy kills other enemies and steals their abilities, and also tries to kill you || most likely an end-game enemy)
+39. Screen slice enemy(player must dodge a certain pattern of slices on the screen.)
+40. Bomber enemy(enemy sends bombs from the sky that the player must dodge || speed of the bombs dependson the level)
+41. Splash/Ocean wave enemy(Enemies that creates a "splash" or a "wave" that will knock the player back/dmg/do something)
+42. Teleportation creation enemy(enemy creates random teleporting portals that can teleport people else where)
+43. Quadra portal enemy, the enemy creates multiple different portals that the player must choose wisely.
+44. Parasite enemy(enemy can spawn "parasites" that infect your items, reduces cooldowns)
+45. Boulder summon enemy(catch the clownesque, the boulder bounces around and you must dodge it, 5 boulders defeated to kill this one)
+46. Sound disabling enemy, disables your sound
+47. Enemy that can swap out your loadout(he can make you use a loadout that can heal the enemies, make them stronger, etc)
+48. Typical projectiles(single shot, multiple(3,4,5,etc), split shot, whirling ball of death, machine gun, V shaped, W shaped, looping, etc)
+49. Disc/Boomerang throwing enemy(can have multiple set of discs)
+50. Adaptive enemy(Very, very hard to code, depending on how you move, create a certain action that will inhibit you from doing so.)
+51. Radar enemy(harmless to you, but signals enemies that you are nearby and brings them in)
+52. Increase spawn becon(being around it will increase enemy spawn, debuff)
+53. Mirror enemy(HARD, enemy that copies all the items you have)
+54. Boxing enemy(enemy forces you to fight in a confined 16x16, meele only)
+55. Hover based enemy(enemy hovers in the air while doing some random stuff, and when it lands, thats the only time you can attack it)
+56. Terrain riding enemy(enemy that rides the walls, circles around the rocks, etc, some kind of attack)
+57. Transformation enemy(you thought that was terrain? You guessed wrong, you die.)
+58. Typical whirlwind enemy(spins around and if it hits you, you are thrown in some direction)
+59. Tree of growth enemy(enemy has a core center, but keeps growing until you kill it, hard to code, even harder to kill)
+60. Butterfly enemy(flight path is random, poisons you)
+61. Cookie clicker enemy(you click it X times and it dies)
+62. Lucky dice enemy(now this enemy you can have a lot of variation. Enemy rolls 1-9, you can only use that type of weapon. Enemy rolls two dice, enemies attribues grow, etc)
+63. 
