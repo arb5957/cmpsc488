@@ -1,0 +1,20 @@
+1. Enemy sees you and follows you.
+2. Enemy sees you, follows you, if you're in enemy range, it latches onto you and does dmg/sec or something like that.
+3. Enemy sees you, follows you, but to kill it you have to kill the enemy shield.
+4. Enemy sees you, follows you, if it hits you, you get debuffed.
+5. Enemy sees you, follows you, if it hits you, you die(hmmm..)
+6. Enemy sees you, follows you, shoots out random projectiles all around.
+7. Enemy sees you, follows you, enemy begins to spin towards you.
+8. Enemy that shoots you. 
+9. Enemy that throws magic projectiles at you.
+10. Enemy that can shoot different types of weapons(bow, gun, laser, yo-yo, etc)
+11. Enemy shoots a projectile that can break or create a hole in the terrarain that the player must dodge.
+12. Enemy shoots a projectile that if you get hit, you are confused and movements are slowed.
+13. Enemy that can teleport around and shoot you.
+14. Enemy that can teleport around and meele you to death if you're in range.
+15. Rotating flame breath enemy, shoots a flame in a cone in a certain range.
+16. Hydra based enemy, if you shoot the enemy, it breaks apart into pieces. The enemy from this point can either follow youor shoot random projectiles at you.
+17. Terrarin based enemy, if you are in that terrain, the player may get some type of debuff(spider).
+18. Enemy that charges at you when it sees you(a bit like a bull)
+19. Regular meele type enemies, tries to meele you to death(speed of the enemy attack will depend on the type of item that the enemy is wielding)
+20. Enemy that can shoot different types of debuff.
