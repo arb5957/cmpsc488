@@ -28,7 +28,7 @@
 28. Moon summoning enemy, creates several "moons" that attempt to suck the player into the moon and the player must avoid it.
 29. Tank enemy(takes a long time to kill, has a one hit kill, but very slow. While player focuses on killing the tank, other enemies spawn)
 30. Pattern enemy(player must type/move a certain pattern to destroy this enemy)
-31. Typical lightning enemy(travels in a path so that the enemy creates a lighting path. Players must dodge the lighting path + meele required)
+31. Typical lightning enemy(travels in a path so that the enemy creates a lightning path. Players must dodge the lighting path + meele required)
 32. Set movement enemy(enemy has a set "pattern" it moves in, square, circle etc, can attack in any specific pattern.)
 33. Terrain creation enemy, the enemy can create specific terrarin that the player must move around/evade.
 34. Terrain destruction enemy, the enemy can destroy parts of the terrain/walls/etc.
@@ -41,11 +41,11 @@
 41. Splash/Ocean wave enemy(Enemies that creates a "splash" or a "wave" that will knock the player back/dmg/do something)
 42. Teleportation creation enemy(enemy creates random teleporting portals that can teleport people else where)
 43. Quadra portal enemy, the enemy creates multiple different portals that the player must choose wisely.
-44. Parasite enemy(enemy can spawn "parasites" that infect your items, reduces cooldowns)
+44. Parasite enemy(enemy can spawn "parasites" that infect your items, increases cooldowns)
 45. Boulder summon enemy(catch the clownesque, the boulder bounces around and you must dodge it, 5 boulders defeated to kill this one)
 46. Sound disabling enemy, disables your sound
 47. Enemy that can swap out your loadout(he can make you use a loadout that can heal the enemies, make them stronger, etc)
-48. Typical projectiles(single shot, multiple(3,4,5,etc), split shot, whirling ball of death, machine gun, V shaped, W shaped, looping, etc)
+48. Typical projectiles(single shot, multiple(3,4,5,etc), split shot, whirling ball of death, machine gun, V shaped, W shaped, looping,homing missisle/projectile,  etc)
 49. Disc/Boomerang throwing enemy(can have multiple set of discs)
 50. Adaptive enemy(Very, very hard to code, depending on how you move, create a certain action that will inhibit you from doing so.)
 51. Radar enemy(harmless to you, but signals enemies that you are nearby and brings them in)
@@ -66,5 +66,11 @@
 66. Raging volanic lion of the 4th(sratch the name, summons a volcano that shoots out fruit)
 67. Blink spear enemy(meele attack, blinks around as movement(very quick), spear is shot out then expanded to the sides)
 68. Ice path/Fire path/etc creator enemy(Enemy that's harmless but moves around creating "mini" spots that can do stuff)
-69. Pump based/cannon charing enemy(it's attack is slow because of charge time, but you better have a tp gem or you're dead)
-70.
+69. Pump based/cannon charging enemy(it's attack is slow because of charge time, but you better have a tp gem or you're dead)
+70. 4 tower enemy(must defeat all 4 towers to fight the enemy, good loot)
+71. Environment block that can slow you when you step on them (slow enemies too)
+72. Healing enemy/Buffing enemy (enemy buffs/heals other enemies)
+73. Dr.Who esque enemy (only moves when you're not looking at it)
+74. Timed explosion enemy (enemy explodes if you don't hit it within a certain quantity of time)
+75. On/Off invis enemy (enemy can decide to invis if it wants to)
+76. Second mirror enemy, reflects all shots/melee until certain hits and then shatters
