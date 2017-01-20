@@ -1,0 +1,12 @@
+
+Player Saves and Quits the game
+
+BASIC COURSE:
+
+Player presses the escape key and the game shows the escape overlay. From the escape overlay the player presses the Save and Quit button. The game saves the game data and stores it into the local database. The game finishes saving and displays the title screen. 
+
+ALTERNATIVE COURSE:
+
+Player clicks the cancel button: The game exits the escape overlay and the player plays on.
+
+Player force quits the game somehow: The game exits without saving progression (possible modification later)
