@@ -1,0 +1,13 @@
+Player Views Credits
+
+BASIC COURSE:
+
+The Player clicks the Credits button on the title screen and the game brings them to the credits screen. The user finishes reading the page and clicks close. The game brings them back to the title screen.
+
+ALTERNATIVE COURSE:
+
+The player clicks the exit button on the top-right corner: The game exits.
+
+The player pressures alt+f4 while reading credits: The game exits. 
+
+The player highlights information on the screen: The game highlights the text that the user highlighted. 
