@@ -1,0 +1,11 @@
+Player views Personal Best
+
+BASIC COURSE:
+
+Player clicks the Personal Best button on the Title Screen. The game displays the Personal Best Overlay. The Player views his/her scores then clicks the Exit button.
+
+ALTERNATIVE COURSE:
+
+Player has not played games yet: The Personal Best overlay does not show and the player and a “PLAY THE GAME” pop-up is displayed. 
+
+
