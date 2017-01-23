@@ -103,9 +103,14 @@ space = true;
             <string>if(keyboard_check(ord("W"))){
     if(!place_meeting(x, y-4, object4)){
         if(keyboard_check_pressed(vk_space) &amp;&amp; space == true){
-            y-=64;
-            space = false;
-            alarm[2] = 30;
+            if(!place_meeting(x, y-64, object4)){
+                y-=64;
+                space = false;
+                alarm[2] = 30;
+            }
+            else{
+                y = y - distance_to_object(object4) + 4;
+            }
         }   
         else y-=4;
     }
@@ -114,9 +119,14 @@ space = true;
 if(keyboard_check(ord("S"))){
     if(!place_meeting(x, y+4, object4)){
         if(keyboard_check_pressed(vk_space) &amp;&amp; space == true){
-            y+=64;
-            space = false;
-            alarm[2] = 30;
+            if(!place_meeting(x, y+64, object4)){
+                y+=64;
+                space = false;
+                alarm[2] = 30;
+            }
+            else{
+                y= y + distance_to_object(object4) -4;
+            }
         }   
         else y+=4;
     }
@@ -125,9 +135,14 @@ if(keyboard_check(ord("S"))){
 if(keyboard_check(ord("A"))){
     if(!place_meeting(x-4, y, object4)){
         if(keyboard_check_pressed(vk_space) &amp;&amp; space == true){
-            x-=64;
-            space = false;
-            alarm[2] = 30;
+            if(!place_meeting(x-64, y, object4)){
+                x-=64;
+                space = false;
+                alarm[2] = 30;
+            }
+            else{
+                x= x - distance_to_object(object4) + 4;
+            }
         }   
         else x-=4;
     }
@@ -136,9 +151,14 @@ if(keyboard_check(ord("A"))){
 if(keyboard_check(ord("D"))){
     if(!place_meeting(x+4, y, object4)){
         if(keyboard_check_pressed(vk_space) &amp;&amp; space == true){
-            x+=64;
-            space = false;
-            alarm[2] = 30;
+            if(!place_meeting(x+64, y, object4)){
+                x+=64;
+                space = false;
+                alarm[2] = 30;
+            }
+            else{
+                x= x + distance_to_object(object4) - 4;
+            }
         }   
         else x+=4;
     }
