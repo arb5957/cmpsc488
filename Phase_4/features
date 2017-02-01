@@ -1,0 +1,60 @@
+Title Screen
+Settings Screen
+Character Select Screen
+New Character Overlay
+Credits Screen
+
+Aspect Ratio/Resolution Independence
+(handle views)
+
+Game Screen
+Inventory
+Inventory Overlay
+
+Item base class
+Enemy base class
+
+Character
+
+Terrain/Walls
+
+Local Database/Settings
+Implement Statistics
+
+Loadouts
+
+HUD(hotbar, hp, map, etc)
+
+World Generation hardcoded
+
+Town
+Transition between levels/Worlds
+(Organize Game Levels)
+(Balancing)
+Gameover
+Winning Temple
+Go to new world
+
+Implement many items
+	-Weapons
+	-Buffs
+	-Passives
+	-etc
+Implement many enemies
+	-Movement
+	-Choose Weapons
+	-Choose Items
+	-Other Behavior
+Implement Bosses
+
+Item Pickup Overlay
+
+Escape Overlay
+
+(hard)World Generation randomized
+----------------------------
+Bonus
+Personal Best Overlay
+Controller
+Screen Shake
+Lighting
