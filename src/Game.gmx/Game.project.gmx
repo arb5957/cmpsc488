@@ -5,9 +5,34 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\spr_btn</sprite>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scr_drawbtn.gml</script>
+  </scripts>
+  <fonts name="fonts">
+    <font>fonts\font_menu</font>
+  </fonts>
+  <objects name="objects">
+    <object>objects\obj_play_btn</object>
+    <object>objects\obj_settings_btn</object>
+    <object>objects\obj_credits</object>
+    <object>objects\obj_exit_btn</object>
+    <object>objects\obj_back_btn</object>
+    <objects name="draw_titles">
+      <object>objects\obj_draw_title</object>
+    </objects>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\rm_titlescreen</room>
+    <room>rooms\rm_settings</room>
+    <room>rooms\rm_charselect</room>
+    <room>rooms\rm_gamescreen</room>
+    <room>rooms\rm_credits</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
