@@ -1,0 +1,11 @@
+Sprite - spr_
+Sound - sfx_
+		mus_
+Backgrounds - bg_
+Path - path_
+Scripts - scr_
+Shaders - sh_
+Fonts - font_
+Time Lines - time_
+Objects - obj_
+Rooms - rm_
