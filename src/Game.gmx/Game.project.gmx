@@ -10,6 +10,8 @@
       <sprite>sprites\spr_text_box</sprite>
       <sprite>sprites\spr_btn</sprite>
     </sprites>
+    <sprite>sprites\spr_char</sprite>
+    <sprite>sprites\spr_held_item</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Menu">
@@ -30,6 +32,8 @@
     </fonts>
   </fonts>
   <objects name="objects">
+    <object>objects\obj_char</object>
+    <object>objects\obj_held_item</object>
     <objects name="Menu">
       <objects name="textbox">
         <object>objects\obj_text</object>
@@ -63,7 +67,7 @@
     <rtf>help.rtf</rtf>
   </help>
   <TutorialState>
-    <IsTutorial>-1</IsTutorial>
+    <IsTutorial>0</IsTutorial>
     <TutorialName>C:\Users\Drew\AppData\Local\gamemaker_studio\tutorials\08_Levels_And_Saving\</TutorialName>
     <TutorialPage>2</TutorialPage>
   </TutorialState>
