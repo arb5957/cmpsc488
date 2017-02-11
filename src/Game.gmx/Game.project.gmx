@@ -25,6 +25,10 @@
       <script>scripts\scr_drawbtn.gml</script>
       <script>scripts\draw_text_outline.gml</script>
     </scripts>
+    <scripts name="Character">
+      <script>scripts\scr_char_move.gml</script>
+      <script>scripts\scr_char_takedamage.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <fonts name="Menu">
