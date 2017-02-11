@@ -10,6 +10,13 @@
       <sprite>sprites\spr_text_box</sprite>
       <sprite>sprites\spr_btn</sprite>
     </sprites>
+    <sprites name="Character">
+      <sprite>sprites\spr_char_temp</sprite>
+    </sprites>
+    <sprites name="Terrain">
+      <sprite>sprites\spr_stickyfloor</sprite>
+      <sprite>sprites\spr_slippery</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Menu">
@@ -22,6 +29,9 @@
     <scripts name="Menu">
       <script>scripts\scr_drawbtn.gml</script>
       <script>scripts\draw_text_outline.gml</script>
+    </scripts>
+    <scripts name="Character">
+      <script>scripts\scr_char_move.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -50,12 +60,22 @@
         <object>objects\obj_draw_settings</object>
       </objects>
     </objects>
+    <objects name="Character">
+      <object>objects\obj_char</object>
+    </objects>
+    <objects name="Terrain">
+      <objects name="Base Class">
+        <object>objects\obj_terrain</object>
+      </objects>
+      <object>objects\obj_stickyfloor</object>
+      <object>objects\obj_slippery</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_gamescreen</room>
     <room>rooms\rm_titlescreen</room>
     <room>rooms\rm_settings</room>
     <room>rooms\rm_charselect</room>
-    <room>rooms\rm_gamescreen</room>
     <room>rooms\rm_credits</room>
     <room>rooms\rm_create_char</room>
   </rooms>
