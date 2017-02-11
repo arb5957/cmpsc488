@@ -14,8 +14,13 @@
       <sprite>sprites\spr_char_temp</sprite>
     </sprites>
     <sprites name="Terrain">
-      <sprite>sprites\spr_stickyfloor</sprite>
-      <sprite>sprites\spr_slippery</sprite>
+      <sprite>sprites\spr_terrain_stickyfloor</sprite>
+      <sprite>sprites\spr_terrain_slippery</sprite>
+      <sprite>sprites\spr_terrain_spikes</sprite>
+      <sprites name="Wall">
+        <sprite>sprites\spr_terrain_wall</sprite>
+        <sprite>sprites\spr_terrain_invisible</sprite>
+      </sprites>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -32,6 +37,8 @@
     </scripts>
     <scripts name="Character">
       <script>scripts\scr_char_move.gml</script>
+      <script>scripts\scr_char_takedamage.gml</script>
+      <script>scripts\scr_char_collision_solid.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -67,8 +74,13 @@
       <objects name="Base Class">
         <object>objects\obj_terrain</object>
       </objects>
-      <object>objects\obj_stickyfloor</object>
-      <object>objects\obj_slippery</object>
+      <object>objects\obj_terrain_stickyfloor</object>
+      <object>objects\obj_terrain_slippery</object>
+      <object>objects\obj_terrain_spikes</object>
+      <objects name="Wall">
+        <object>objects\obj_terrain_wall</object>
+        <object>objects\obj_terrain_invisible</object>
+      </objects>
     </objects>
   </objects>
   <rooms name="rooms">

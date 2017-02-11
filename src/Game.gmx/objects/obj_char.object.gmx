@@ -25,22 +25,87 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>player_speed = 2;
+            <string>///Create Player
+
+//Health and Invulnerability variables:
+hp = 10;
+invulnerable = false;
+invulnerable_time = room_speed;
+
+//Player speed variables:
+player_speed = 2;
 original_player_speed = player_speed;
 
+//Player movement variables:
+going_up = false;
+going_down = false;
+going_left = false;
+going_right = false;
+
+//Keyboard mappings:
+
+//Mappings for Movement:
 move_up = ord('W');
 move_down = ord('S');
 move_left = ord('A');
 move_right = ord('D');
 
+
+//States the player can be in.
+//Currently only affects movement.
+//The default state is normal.
+//The state slip restricts movement for a certain amount of time.
 enum states
 {
     normal,
-    slow,
     slip
 }
 
 state = states.normal;
+
+//All the alarms for obj_char are here. Only use one alarm for one thing.
+//When you make a new alarm, change the name below to something descriptive,
+//and only use that alarm for that purpose.
+enum alarms
+{
+    alarm0,
+    alarm1,
+    alarm2,
+    alarm3,
+    alarm4,
+    alarm5,
+    alarm6,
+    alarm7,
+    alarm8,
+    alarm9,
+    alarm10,
+    invulnerability
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Invulnerability expiration alarm: Player is vulnerable again.
+
+invulnerable = false;
 </string>
           </argument>
         </arguments>
@@ -63,18 +128,84 @@ state = states.normal;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch(state)
+            <string>///Set the player's state. Currently only moves player.
+
+switch(state)
 {
+    //Be sure to set the state back to normal when changing rooms.
     case states.normal:
         script_execute(scr_char_move);
-        break;
-    case states.slow:
-        script_execute(scr_char_slow);
         break;
     case states.slip:
         script_execute(scr_char_slip);
         break;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>601</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_execute_script</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>9</kind>
+            <script>scr_char_collision_solid</script>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw self and hp. (This is probably temporary)
+
+draw_self();
+draw_text(room_width - 100,10,"hp: " + string(hp));
 </string>
           </argument>
         </arguments>
