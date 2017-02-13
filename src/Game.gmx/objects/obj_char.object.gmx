@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>-1</persistent>
-  <parentName>self</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -30,7 +30,7 @@
 //Health and Invulnerability variables:
 hp = 10;
 invulnerable = false;
-invulnerable_time = room_speed;
+invulnerable_time = room_speed/2;
 
 //Player speed variables:
 player_speed = 2;
@@ -202,10 +202,35 @@ switch(state)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw self and hp. (This is probably temporary)
+            <string>///Draw self.
 
 draw_self();
-draw_text(room_width - 100,10,"hp: " + string(hp));
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw circle around player when invulnerable.
+if(invulnerable)
+{
+    draw_set_color(c_red);
+    draw_circle(x,y,sprite_width*1.5,true);
+}
 </string>
           </argument>
         </arguments>

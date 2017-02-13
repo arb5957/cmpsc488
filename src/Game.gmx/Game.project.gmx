@@ -17,11 +17,13 @@
       <sprite>sprites\spr_terrain_stickyfloor</sprite>
       <sprite>sprites\spr_terrain_slippery</sprite>
       <sprite>sprites\spr_terrain_spikes</sprite>
+      <sprite>sprites\spr_terrain_makeinvulnerable</sprite>
       <sprites name="Wall">
         <sprite>sprites\spr_terrain_wall</sprite>
         <sprite>sprites\spr_terrain_invisible</sprite>
       </sprites>
     </sprites>
+    <sprite>sprites\spr_invisible</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Menu">
@@ -69,21 +71,32 @@
     </objects>
     <objects name="Character">
       <object>objects\obj_char</object>
+      <object>objects\obj_hud</object>
     </objects>
     <objects name="Terrain">
       <objects name="Base Class">
         <object>objects\obj_terrain</object>
       </objects>
-      <object>objects\obj_terrain_stickyfloor</object>
-      <object>objects\obj_terrain_slippery</object>
-      <object>objects\obj_terrain_spikes</object>
       <objects name="Wall">
         <object>objects\obj_terrain_wall</object>
         <object>objects\obj_terrain_invisible</object>
       </objects>
+      <object>objects\obj_terrain_stickyfloor</object>
+      <object>objects\obj_terrain_slippery</object>
+      <object>objects\obj_terrain_spikes</object>
+      <object>objects\INCOMPLETEobj_terrain_makeinvulnerable</object>
+    </objects>
+    <objects name="Display">
+      <object>objects\obj_scaling</object>
+      <object>objects\obj_view</object>
+    </objects>
+    <objects name="Initialization">
+      <object>objects\obj_initall</object>
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_initialization</room>
+    <room>rooms\rm_testroom</room>
     <room>rooms\rm_gamescreen</room>
     <room>rooms\rm_titlescreen</room>
     <room>rooms\rm_settings</room>
