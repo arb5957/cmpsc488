@@ -83,12 +83,15 @@ alarm [0] = 30;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(selected == true){
+            <string>if(selected == true)
+{
 
-    if(string_width(keyboard_string) &lt; max_width){
+    if(string_width(keyboard_string) &lt; max_width)
+    {
         txt = keyboard_string;
     }
-    else{
+    else
+    {
         keyboard_string = txt;
     }
 
