@@ -10,6 +10,20 @@
       <sprite>sprites\spr_text_box</sprite>
       <sprite>sprites\spr_btn</sprite>
     </sprites>
+    <sprites name="Character">
+      <sprite>sprites\spr_char_temp</sprite>
+    </sprites>
+    <sprites name="Terrain">
+      <sprite>sprites\spr_terrain_stickyfloor</sprite>
+      <sprite>sprites\spr_terrain_slippery</sprite>
+      <sprite>sprites\spr_terrain_spikes</sprite>
+      <sprite>sprites\spr_terrain_makeinvulnerable</sprite>
+      <sprites name="Wall">
+        <sprite>sprites\spr_terrain_wall</sprite>
+        <sprite>sprites\spr_terrain_invisible</sprite>
+      </sprites>
+    </sprites>
+    <sprite>sprites\spr_invisible</sprite>
     <sprite>sprites\spr_char</sprite>
     <sprite>sprites\spr_held_item</sprite>
   </sprites>
@@ -28,6 +42,7 @@
     <scripts name="Character">
       <script>scripts\scr_char_move.gml</script>
       <script>scripts\scr_char_takedamage.gml</script>
+      <script>scripts\scr_char_collision_solid.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -58,12 +73,38 @@
         <object>objects\obj_draw_settings</object>
       </objects>
     </objects>
+    <objects name="Character">
+      <object>objects\obj_char</object>
+      <object>objects\obj_hud</object>
+    </objects>
+    <objects name="Terrain">
+      <objects name="Base Class">
+        <object>objects\obj_terrain</object>
+      </objects>
+      <objects name="Wall">
+        <object>objects\obj_terrain_wall</object>
+        <object>objects\obj_terrain_invisible</object>
+      </objects>
+      <object>objects\obj_terrain_stickyfloor</object>
+      <object>objects\obj_terrain_slippery</object>
+      <object>objects\obj_terrain_spikes</object>
+      <object>objects\INCOMPLETEobj_terrain_makeinvulnerable</object>
+    </objects>
+    <objects name="Display">
+      <object>objects\obj_scaling</object>
+      <object>objects\obj_view</object>
+    </objects>
+    <objects name="Initialization">
+      <object>objects\obj_initall</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_initialization</room>
+    <room>rooms\rm_testroom</room>
+    <room>rooms\rm_gamescreen</room>
     <room>rooms\rm_titlescreen</room>
     <room>rooms\rm_settings</room>
     <room>rooms\rm_charselect</room>
-    <room>rooms\rm_gamescreen</room>
     <room>rooms\rm_credits</room>
     <room>rooms\rm_create_char</room>
   </rooms>

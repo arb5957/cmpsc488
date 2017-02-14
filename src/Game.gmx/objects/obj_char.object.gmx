@@ -25,13 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Health and character name
-hp = 10;
-name = "";
+            <string>///Create Player
 
-//Invulnerability variables:
+//Health and Invulnerability variables:
+hp = 10;
 invulnerable = false;
-invulnerable_time = room_speed;
+invulnerable_time = room_speed/2;
 
 //Player speed variables:
 player_speed = 2;
@@ -58,7 +57,8 @@ move_right = ord('D');
 //The state slip restricts movement for a certain amount of time.
 enum states
 {
-    normal
+    normal,
+    slip
 }
 
 state = states.normal;
@@ -81,7 +81,6 @@ enum alarms
     alarm10,
     invulnerability
 }
-
 </string>
           </argument>
         </arguments>
@@ -104,7 +103,9 @@ enum alarms
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>invulnerable = false;
+            <string>///Invulnerability expiration alarm: Player is vulnerable again.
+
+invulnerable = false;
 </string>
           </argument>
         </arguments>
@@ -127,12 +128,108 @@ enum alarms
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch(state)
+            <string>///Set the player's state. Currently only moves player.
+
+switch(state)
 {
     //Be sure to set the state back to normal when changing rooms.
     case states.normal:
         script_execute(scr_char_move);
         break;
+    case states.slip:
+        script_execute(scr_char_slip);
+        break;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>601</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_execute_script</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>9</kind>
+            <script>scr_char_collision_solid</script>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw self.
+
+draw_self();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw circle around player when invulnerable.
+if(invulnerable)
+{
+    draw_set_color(c_red);
+    draw_circle(x,y,sprite_width*1.5,true);
 }
 </string>
           </argument>
