@@ -1,5 +1,9 @@
+#define scr_char_move
+///Move the Character.
+//*
 vspeed = 0;
 hspeed = 0;
+
 
 if keyboard_check_pressed(move_up)
 {
@@ -114,3 +118,6 @@ if(going_right)
 {
     hspeed = player_speed;
 }
+
+
+//*/
