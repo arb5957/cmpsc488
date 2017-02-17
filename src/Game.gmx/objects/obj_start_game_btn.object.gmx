@@ -48,7 +48,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(rm_gamescreen);
+            <string>txt = obj_text_box.txt;
+character = instance_create(room_width/2, room_height/2, obj_char);
+if instance_exists(character)
+{
+    character.name = txt;
+}
+else 
+{
+    show_debug_message("Character does not exist");
+}
+room_goto(rm_gamescreen);
+room_instance_add(rm_gamescreen, character.x, character.y, obj_held_item);
 </string>
           </argument>
         </arguments>
