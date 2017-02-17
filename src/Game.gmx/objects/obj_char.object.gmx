@@ -255,7 +255,8 @@ switch(state)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(can_shoot == true)
+            <string>/*
+if(can_shoot == true)
 {
     inst = instance_create(obj_held_item.x, obj_held_item.y, obj_bullet);
     with(inst)
@@ -268,6 +269,7 @@ switch(state)
     can_shoot = false;
     alarm[0] = 20;
 }
+//*/
 </string>
           </argument>
         </arguments>

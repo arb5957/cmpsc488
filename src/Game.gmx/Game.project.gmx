@@ -12,6 +12,7 @@
     </sprites>
     <sprites name="Character">
       <sprite>sprites\spr_char_temp</sprite>
+      <sprite>sprites\spr_char</sprite>
     </sprites>
     <sprites name="Terrain">
       <sprite>sprites\spr_terrain_stickyfloor</sprite>
@@ -22,16 +23,19 @@
         <sprite>sprites\spr_terrain_wall</sprite>
         <sprite>sprites\spr_terrain_invisible</sprite>
       </sprites>
+      <sprite>sprites\spr_invisible</sprite>
     </sprites>
-    <sprite>sprites\spr_invisible</sprite>
-    <sprite>sprites\spr_char</sprite>
-    <sprite>sprites\spr_held_item</sprite>
     <sprites name="Enemy">
       <sprite>sprites\spr_enemy1</sprite>
     </sprites>
-    <sprites name="Weapons">
+    <sprites name="Projectile">
       <sprite>sprites\spr_bullet</sprite>
+      <sprite>sprites\spr_arrow</sprite>
+    </sprites>
+    <sprites name="Weapons">
       <sprite>sprites\spr_weapon</sprite>
+      <sprite>sprites\spr_held_item</sprite>
+      <sprite>sprites\spr_bow</sprite>
     </sprites>
     <sprites name="Items">
       <sprite>sprites\spr_potion</sprite>
@@ -68,6 +72,9 @@
       </scripts>
       <script>scripts\set_enemy_attr.gml</script>
       <script>scripts\scr_enemy_takedamage.gml</script>
+    </scripts>
+    <scripts name="Projectile">
+      <script>scripts\scr_char_fire_projectile.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -129,11 +136,15 @@
         <object>objects\obj_enemy_avoid</object>
       </objects>
     </objects>
-    <objects name="Weapons">
-      <object>objects\obj_bullet</object>
+    <objects name="Projectile">
       <object>objects\obj_bullet_base</object>
+      <object>objects\obj_bullet</object>
+      <object>objects\obj_arrow</object>
+    </objects>
+    <objects name="Weapons">
       <object>objects\obj_weapon_1</object>
       <object>objects\obj_weapon_base</object>
+      <object>objects\obj_bow</object>
     </objects>
     <objects name="Item">
       <object>objects\obj_item</object>

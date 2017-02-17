@@ -59,7 +59,8 @@ else
     show_debug_message("Character does not exist");
 }
 room_goto(rm_gamescreen);
-room_instance_add(rm_gamescreen, character.x, character.y, obj_held_item);
+//room_instance_add(rm_gamescreen, character.x, character.y, obj_held_item);
+room_instance_add(rm_gamescreen, character.x, character.y, obj_bow);
 </string>
           </argument>
         </arguments>
