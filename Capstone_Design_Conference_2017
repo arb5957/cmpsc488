@@ -1,13 +1,13 @@
 PROGRAM: Computer Science
 PROJECT TITLE: Consilium Path(Chose this for now, it's the latin word for decide. The player gets to decide what they want to play with.)
-GROUP MEMBERS: Andrew Brady | Manik Sinah | Mathew Hare | Paul Lee
+GROUP MEMBERS: Andrew Brady | Manik Sinha | Mathew Hare | Paul Lee
 ADVISOR: Dr. Na
 PROJECT DESCRIPTION: Consilium Path is a 2D rougelike game where the player plays from a top-down birds-eye view perspective. The player
-begins with a single item and from there builds their own adventure towards the eventual goal of beating the game. Hoards of unique and
+begins with a single item and from there builds their own adventure towards the eventual goal of beating the game. Hordes of unique and
 interesting monsters spawn and the player must use the items obtained to defeat these monsters. The unique aspect of enemies is that
-they are allowed to use the same equipment as the player. Each enemy has it's own inventory and depending on the difficulty, this leads
+they are allowed to use the same equipment as the player. Each enemy has its own inventory and depending on the difficulty, this leads
 to a plethora of different gameplay each time. For the player to win, they must travel across the harsh monster infected land and 
-eventualy reach the end point of the world to face the final boss. Upon succesful completion, the player is allowed to keep one item
+eventually reach the end point of the world to face the final boss. Upon succesful completion, the player is allowed to keep one item
 from their inventory obtained in their run through and use it for the next play through. A fun, challenging game, where a bit of skill 
 and good decision making is needed to obtain the honor and glory of beating Consilium Path. 
 SPONSERS: None.
