@@ -143,7 +143,6 @@
     </objects>
     <objects name="Weapons">
       <object>objects\obj_weapon_1</object>
-      <object>objects\obj_weapon_base</object>
       <object>objects\obj_bow</object>
     </objects>
     <objects name="Item">
