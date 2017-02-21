@@ -27,12 +27,8 @@
             <kind>1</kind>
             <string>///Create Bullet. Set damage = 0. Set owner.
 damage = 0;
-owner = origin.CHARACTER;
-enum origin
-{
-    ENEMY,
-    CHARACTER
-}
+owner = owners.CHARACTER;
+
 </string>
           </argument>
         </arguments>
@@ -56,7 +52,7 @@ enum origin
           <argument>
             <kind>1</kind>
             <string>///Bullet collides with Enemy.
-if(owner == origin.CHARACTER)
+if(owner == owners.CHARACTER)
 {
     with(other)
     {
@@ -111,7 +107,7 @@ instance_destroy();
           <argument>
             <kind>1</kind>
             <string>///Bullet collides with Character.
-if(owner == origin.ENEMY){
+if(owner == owners.ENEMY){
     with(other) {
         script_execute(scr_char_takedamage, other.damage);
     }
