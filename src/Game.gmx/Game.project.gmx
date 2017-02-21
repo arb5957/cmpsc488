@@ -35,6 +35,7 @@
     <sprites name="Weapons">
       <sprite>sprites\spr_weapon</sprite>
       <sprite>sprites\spr_held_item</sprite>
+      <sprite>sprites\spr_dagger</sprite>
       <sprite>sprites\spr_bow</sprite>
     </sprites>
     <sprites name="Items">
@@ -145,6 +146,7 @@
       <object>objects\obj_weapon_1</object>
       <object>objects\obj_weapon_base</object>
       <object>objects\obj_bow</object>
+      <object>objects\obj_dagger</object>
     </objects>
     <objects name="Item">
       <object>objects\obj_item</object>
@@ -168,7 +170,7 @@
     <rtf>help.rtf</rtf>
   </help>
   <TutorialState>
-    <IsTutorial>-1</IsTutorial>
+    <IsTutorial>0</IsTutorial>
     <TutorialName>C:\Users\Drew\AppData\Local\gamemaker_studio\tutorials\08_Levels_And_Saving\</TutorialName>
     <TutorialPage>2</TutorialPage>
   </TutorialState>
