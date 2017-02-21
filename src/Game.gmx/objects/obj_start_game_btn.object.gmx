@@ -49,7 +49,8 @@
           <argument>
             <kind>1</kind>
             <string>txt = obj_text_box.txt;
-character = instance_create(room_width/2, room_height/2, obj_char);
+character = instance_create(rm_gamescreen.room_width/2, rm_gamescreen.room_height/2, obj_char);
+// character = instance_create(960, 416, obj_char);
 if instance_exists(character)
 {
     character.name = txt;

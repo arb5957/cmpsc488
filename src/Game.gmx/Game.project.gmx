@@ -24,6 +24,8 @@
         <sprite>sprites\spr_terrain_invisible</sprite>
       </sprites>
       <sprite>sprites\spr_invisible</sprite>
+      <sprite>sprites\spr_building_h</sprite>
+      <sprite>sprites\spr_building_v</sprite>
     </sprites>
     <sprites name="Enemy">
       <sprite>sprites\spr_enemy1</sprite>
@@ -122,6 +124,7 @@
       <object>objects\obj_terrain_stickyfloor</object>
       <object>objects\obj_terrain_slippery</object>
       <object>objects\obj_terrain_spikes</object>
+      <object>objects\obj_building</object>
     </objects>
     <objects name="Display">
       <object>objects\obj_scaling</object>
