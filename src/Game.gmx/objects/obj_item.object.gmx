@@ -34,8 +34,27 @@ stack_size = 0;
 level = 1;
 script = "";
 sprite = "";
+can_activate = true;
 activated = false;
-enum type {passive, active};
+enum type {PASSIVE, ACTIVE};
+item_type = type.PASSIVE;
+owner = owners.CHARACTER;
+
+//For Weapons
+
+damage = 0;
+
+//The cooldown time.
+cooldown = room_speed;
+
+//The direction the weapons shoots.
+angle = 0;
+
+enum item_alarms
+{
+    //Alarm used for finishing a cooldown.
+    COOLDOWN
+}
 </string>
           </argument>
         </arguments>

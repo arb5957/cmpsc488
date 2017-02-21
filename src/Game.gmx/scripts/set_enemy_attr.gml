@@ -25,3 +25,6 @@ switch(name)
 drop_rate = irandom_range(1, 100);
 attack_pattern = attack_pattern_array[irandom_range(1, 2)];
 weapon_inst = instance_create(x + 16, y, asset_get_index(weapon));
+
+//Set the owner of the weapon to enemy.
+weapon_inst.owner = owners.ENEMY;

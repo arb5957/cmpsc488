@@ -12,7 +12,7 @@ if(obj_char.can_shoot == true)
         speed = other.projectile_speed;
         direction = other.image_angle;
         damage = other.damage;
-        owner = origin.CHARACTER;
+        owner = owners.CHARACTER;
         image_angle = other.image_angle;
     }
     obj_char.can_shoot = false;

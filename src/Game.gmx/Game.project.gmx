@@ -33,7 +33,7 @@
       <sprite>sprites\spr_arrow</sprite>
     </sprites>
     <sprites name="Weapons">
-      <sprite>sprites\spr_weapon</sprite>
+      <sprite>sprites\spr_blue_gun</sprite>
       <sprite>sprites\spr_held_item</sprite>
       <sprite>sprites\spr_dagger</sprite>
       <sprite>sprites\spr_bow</sprite>
@@ -143,8 +143,7 @@
       <object>objects\obj_arrow</object>
     </objects>
     <objects name="Weapons">
-      <object>objects\obj_weapon_1</object>
-      <object>objects\obj_weapon_base</object>
+      <object>objects\obj_blue_gun</object>
       <object>objects\obj_bow</object>
       <object>objects\obj_dagger</object>
     </objects>
