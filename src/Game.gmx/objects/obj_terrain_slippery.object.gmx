@@ -57,7 +57,7 @@ duration = room_speed;
 with(obj_char)
 {
     //player_speed = original_player_speed;
-    state = states.normal;
+    state = states.NORMAL;
 }
 activated = false;
 </string>
@@ -110,7 +110,7 @@ if(not activated)
             vspeed = -player_speed * other.factor;
         }*/
         
-        state = states.slip;
+        state = states.SLIP;
     }
     activated = true;
     alarm[0] = duration;

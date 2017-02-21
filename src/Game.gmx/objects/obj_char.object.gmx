@@ -61,29 +61,29 @@ move_right = ord('D');
 //The state slip restricts movement for a certain amount of time.
 enum states
 {
-    normal,
-    slip
+    NORMAL,
+    SLIP
 }
 
-state = states.normal;
+state = states.NORMAL;
 
 //All the alarms for obj_char are here. Only use one alarm for one thing.
 //When you make a new alarm, change the name below to something descriptive,
 //and only use that alarm for that purpose.
 enum alarms
 {
-    alarm0,
-    alarm1,
-    alarm2,
-    alarm3,
-    alarm4,
-    alarm5,
-    alarm6,
-    alarm7,
-    alarm8,
-    alarm9,
-    alarm10,
-    invulnerability
+    ALARM0,
+    ALARM1,
+    ALARM2,
+    ALARM3,
+    ALARM4,
+    ALARM5,
+    ALARM6,
+    ALARM7,
+    ALARM8,
+    ALARM9,
+    ALARM10,
+    INVULNERABILITY
 }
 </string>
           </argument>
@@ -186,10 +186,10 @@ invulnerable = false;
 switch(state)
 {
     //Be sure to set the state back to normal when changing rooms.
-    case states.normal:
+    case states.NORMAL:
         script_execute(scr_char_move);
         break;
-    case states.slip:
+    case states.SLIP:
         script_execute(scr_char_slip);
         break;
 }
