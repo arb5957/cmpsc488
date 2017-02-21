@@ -35,7 +35,7 @@ level = 1;
 script = "";
 sprite = "spr_potion";
 activated = false;
-item_type = type.active;
+item_type = type.ACTIVE;
 </string>
           </argument>
         </arguments>

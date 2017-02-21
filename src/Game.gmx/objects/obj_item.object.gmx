@@ -36,8 +36,8 @@ script = "";
 sprite = "";
 can_activate = true;
 activated = false;
-enum type {passive, active};
-item_type = type.passive;
+enum type {PASSIVE, ACTIVE};
+item_type = type.PASSIVE;
 owner = owners.CHARACTER;
 
 //For Weapons
