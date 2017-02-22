@@ -1,3 +1,4 @@
+randomize();
 switch(name)
 {
     case "enemy1" : 
@@ -7,11 +8,11 @@ switch(name)
         item = items_array[1];
         break;
     
-    case "medium" :
+    case "enemy2" :
         hp = irandom_range(6, 10);
-        weapon = weap_array[2];
-        movement = enemy_movements[2];
-        item = items_array[2];
+        weapon = weap_array[1];
+        movement = enemy_movements[irandom_range(3, 4)];
+        item = items_array[1];
         break;
     
     case "heavy" :
