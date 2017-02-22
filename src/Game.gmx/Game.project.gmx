@@ -166,7 +166,6 @@
       <object>objects\obj_bullet_base</object>
       <object>objects\obj_bullet</object>
       <object>objects\obj_arrow</object>
-      <object>objects\obj_bullet_base_new</object>
     </objects>
     <objects name="Weapons">
       <object>objects\obj_blue_gun</object>
