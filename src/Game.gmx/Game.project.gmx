@@ -50,6 +50,11 @@
     </sprites>
     <sprites name="Items">
       <sprite>sprites\spr_potion</sprite>
+      <sprite>sprites\spr_bow2</sprite>
+      <sprite>sprites\spr_dagger2</sprite>
+      <sprite>sprites\spr_stone</sprite>
+      <sprite>sprites\spr_wood</sprite>
+      <sprite>sprites\spr_nothing</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -94,10 +99,24 @@
       <script>scripts\src_test_load.gml</script>
       <script>scripts\src_test_save.gml</script>
     </scripts>
+    <scripts name="Inventory">
+      <script>scripts\scr_addList.gml</script>
+      <script>scripts\scr_addToInv.gml</script>
+      <script>scripts\scr_clickSlot.gml</script>
+      <script>scripts\scr_drawInvSprite.gml</script>
+      <script>scripts\scr_manageObjects.gml</script>
+      <script>scripts\scr_mouseOver.gml</script>
+      <script>scripts\scr_realeaseSlot.gml</script>
+      <script>scripts\scr_startingvalues.gml</script>
+      <script>scripts\scr_transferItems.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <fonts name="Menu">
       <font>fonts\font_menu</font>
+    </fonts>
+    <fonts name="Inventory">
+      <font>fonts\font_inventory</font>
     </fonts>
   </fonts>
   <objects name="objects">
@@ -175,6 +194,13 @@
     <objects name="Item">
       <object>objects\obj_item</object>
       <object>objects\obj_potion</object>
+      <object>objects\obj_bow2</object>
+      <object>objects\obj_dagger2</object>
+      <object>objects\obj_stone</object>
+      <object>objects\obj_wood</object>
+    </objects>
+    <objects name="Inventory">
+      <object>objects\obj_inventory</object>
     </objects>
   </objects>
   <rooms name="rooms">

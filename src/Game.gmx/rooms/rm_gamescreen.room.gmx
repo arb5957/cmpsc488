@@ -11,7 +11,22 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>obj_char.x = room_width/2;
-obj_char.y = room_height/2;</code>
+obj_char.y = room_height/2;
+
+if(inven[0] == obj_dagger){
+    instance_create(obj_char.x, obj_char.y, obj_dagger2);
+}else{
+    instance_create(obj_char.x, obj_char.y, obj_bow2);
+}
+
+
+/*
+var name = object_get_name(inven[0]);
+if(name == "obj_dagger"){
+    global.slot[15] = "dagger2"; 
+    instance_create(obj_char.x, obj_char.y, obj_dagger);
+}
+*/</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -166,6 +181,26 @@ obj_char.y = room_height/2;</code>
     <instance objName="obj_building" x="1696" y="704" name="inst_1C28724A" locked="0" code="sprite_index = spr_building_hb;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_building" x="1856" y="1248" name="inst_20B9ACBE" locked="0" code="sprite_index = spr_building_ht;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hud" x="0" y="0" name="inst_2C2B4A4A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_inventory" x="32" y="32" name="inst_FACA4DA0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_stone" x="1696" y="1376" name="inst_6CC2274F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_stone" x="2176" y="1376" name="inst_77AAA670" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_stone" x="2368" y="1184" name="inst_C8313E15" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_stone" x="2336" y="832" name="inst_AB415F56" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_stone" x="1888" y="928" name="inst_03D46210" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_stone" x="2016" y="928" name="inst_F66950A6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_potion" x="1728" y="1184" name="inst_E0CE12D8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_potion" x="1760" y="1056" name="inst_EE2FE577" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_potion" x="1792" y="1184" name="inst_487F8F72" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wood" x="1728" y="1568" name="inst_5B05EAC7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wood" x="1344" y="1152" name="inst_EAD8E9C9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wood" x="1504" y="832" name="inst_823D520C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wood" x="1504" y="1440" name="inst_3D727F4C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_dagger2" x="1568" y="1344" name="inst_934DDD90" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_bow2" x="1824" y="1408" name="inst_F6999A85" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy1" x="1440" y="1024" name="inst_CD6C2A2E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy1" x="1408" y="1536" name="inst_1C6CDBDE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy2" x="2336" y="1536" name="inst_D211FDCD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy2" x="2464" y="800" name="inst_7A71426F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
