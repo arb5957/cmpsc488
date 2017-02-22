@@ -30,6 +30,7 @@ image_speed = 0;
 projectile_speed = 5;
 strength = 1;
 pull_time = 0;
+name = "Bow";
 </string>
           </argument>
         </arguments>
