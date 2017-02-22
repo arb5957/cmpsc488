@@ -9,6 +9,9 @@
     <sprites name="Menu">
       <sprite>sprites\spr_text_box</sprite>
       <sprite>sprites\spr_btn</sprite>
+      <sprite>sprites\spr_overlay_weapon</sprite>
+      <sprite>sprites\spr_overlay_weapon_2</sprite>
+      <sprite>sprites\spr_overlay_wht</sprite>
     </sprites>
     <sprites name="Character">
       <sprite>sprites\spr_char_temp</sprite>
@@ -67,6 +70,7 @@
       <script>scripts\scr_char_collision_solid.gml</script>
     </scripts>
     <scripts name="Globals">
+      <script>scripts\Globals_saving.gml</script>
       <script>scripts\Globals_script.gml</script>
     </scripts>
     <scripts name="Enemy">
@@ -77,12 +81,18 @@
       <scripts name="Movement">
         <script>scripts\movement_circle.gml</script>
         <script>scripts\movement_speed.gml</script>
+        <script>scripts\movement_stalker.gml</script>
+        <script>scripts\movement_teleport.gml</script>
       </scripts>
-      <script>scripts\set_enemy_attr.gml</script>
       <script>scripts\scr_enemy_takedamage.gml</script>
+      <script>scripts\set_enemy_attr.gml</script>
     </scripts>
     <scripts name="Projectile">
       <script>scripts\scr_char_fire_projectile.gml</script>
+    </scripts>
+    <scripts name="Saving">
+      <script>scripts\src_test_load.gml</script>
+      <script>scripts\src_test_save.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -98,17 +108,23 @@
       </objects>
       <objects name="buttons">
         <object>objects\obj_play_btn</object>
-        <object>objects\obj_start_game_btn</object>
         <object>objects\obj_settings_btn</object>
         <object>objects\obj_credits</object>
         <object>objects\obj_exit_btn</object>
         <object>objects\obj_back_btn</object>
         <object>objects\obj_back_char_btn</object>
         <object>objects\obj_create_char_btn</object>
+        <object>objects\obj_start_game_btn</object>
       </objects>
       <objects name="draw_titles">
         <object>objects\obj_draw_title</object>
         <object>objects\obj_draw_settings</object>
+      </objects>
+      <objects name="Overlays">
+        <object>objects\obj_char1_overlay</object>
+        <object>objects\obj_str_weapon_back</object>
+        <object>objects\obj_str_weapon_overlay</object>
+        <object>objects\obj_str_weapon_overlay2</object>
       </objects>
     </objects>
     <objects name="Character">
@@ -139,16 +155,18 @@
       <object>objects\obj_initall</object>
     </objects>
     <objects name="Enemy">
-      <object>objects\obj_enemy1</object>
-      <object>objects\obj_enemy_base</object>
       <objects name="Avoid">
         <object>objects\obj_enemy_avoid</object>
       </objects>
+      <object>objects\obj_enemy_base</object>
+      <object>objects\obj_enemy1</object>
+      <object>objects\obj_enemy2</object>
     </objects>
     <objects name="Projectile">
       <object>objects\obj_bullet_base</object>
       <object>objects\obj_bullet</object>
       <object>objects\obj_arrow</object>
+      <object>objects\obj_bullet_base_new</object>
     </objects>
     <objects name="Weapons">
       <object>objects\obj_blue_gun</object>
@@ -164,20 +182,20 @@
     <room>rooms\rm_titlescreen</room>
     <room>rooms\rm_gamescreen</room>
     <room>rooms\rm_settings</room>
-    <room>rooms\rm_charselect</room>
     <room>rooms\rm_credits</room>
-    <room>rooms\rm_create_char</room>
     <rooms name="scaling_test">
       <room>rooms\rm_testroom</room>
       <room>rooms\rm_initialization</room>
     </rooms>
     <room>rooms\rm_gameover</room>
+    <room>rooms\rm_charselect</room>
+    <room>rooms\rm_create_char</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
   <TutorialState>
-    <IsTutorial>0</IsTutorial>
+    <IsTutorial>-1</IsTutorial>
     <TutorialName>C:\Users\Drew\AppData\Local\gamemaker_studio\tutorials\08_Levels_And_Saving\</TutorialName>
     <TutorialPage>2</TutorialPage>
   </TutorialState>
