@@ -24,8 +24,13 @@
         <sprite>sprites\spr_terrain_invisible</sprite>
       </sprites>
       <sprite>sprites\spr_invisible</sprite>
-      <sprite>sprites\spr_building_h</sprite>
-      <sprite>sprites\spr_building_v</sprite>
+      <sprites name="Building">
+        <sprite>sprites\spr_building_vl</sprite>
+        <sprite>sprites\spr_building_hb</sprite>
+        <sprite>sprites\spr_building_round</sprite>
+        <sprite>sprites\spr_building_vr</sprite>
+        <sprite>sprites\spr_building_ht</sprite>
+      </sprites>
     </sprites>
     <sprites name="Enemy">
       <sprite>sprites\spr_enemy1</sprite>
