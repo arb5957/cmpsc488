@@ -80,19 +80,55 @@ draw_text(width,0,message);
             <kind>1</kind>
             <string>///Draw Loadout bar
 
+//This code assumes we will always use view[0].
 view_width = view_wview[0];
 view_height = view_hview[0];
 
-var bar_height = 48;
+//Cell variables:
+var cell_size = 48;
+
+//The padding between cells.
+var x_padding = 16;
+var y_padding = 8;
+
+var cell_alpha = 0.95;
+
+//Border variables:
+var border_height = cell_size+(2*y_padding);
+var border_width = view_width;
+
+var border_alpha = 0.55;
 
 var x1 = view_xview[0];
-var y1 = view_yview[0] + (view_height - bar_height);
+var y1 = view_yview[0] + (view_height - border_height);
 var x2 = view_xview[0] + view_width;
 var y2 = view_yview[0] + view_height;
 
-draw_set_alpha(0.55);
+//Draw border.
+draw_set_alpha(border_alpha);
 draw_set_color(c_black);
 draw_rectangle(x1,y1,x2,y2,false);
+
+//Draw cells
+
+//Update starting position of cells.
+x1 += x_padding/2;
+y1 += y_padding;
+x2 = x1 + cell_size;
+y2 = y1 + cell_size;
+
+//Draw all cells.
+for(var i = 0; i &lt; 12; i++)
+{
+    draw_set_alpha(cell_alpha);
+    draw_set_color(c_gray);
+    draw_rectangle(x1,y1,x2,y2,false);
+    
+    x1 += cell_size + x_padding;
+    x2 += cell_size + x_padding;
+}
+
+//Set alpha back to normal so everything else draws properly.
 draw_set_alpha(1.0);
 
 </string>
