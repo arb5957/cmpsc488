@@ -100,15 +100,18 @@
       <script>scripts\src_test_save.gml</script>
     </scripts>
     <scripts name="Inventory">
-      <script>scripts\scr_addList.gml</script>
-      <script>scripts\scr_addToInv.gml</script>
-      <script>scripts\scr_clickSlot.gml</script>
-      <script>scripts\scr_drawInvSprite.gml</script>
-      <script>scripts\scr_manageObjects.gml</script>
-      <script>scripts\scr_mouseOver.gml</script>
-      <script>scripts\scr_realeaseSlot.gml</script>
-      <script>scripts\scr_startingvalues.gml</script>
-      <script>scripts\scr_transferItems.gml</script>
+      <scripts name="old">
+        <script>scripts\scr_addToInv.gml</script>
+        <script>scripts\scr_addList.gml</script>
+        <script>scripts\scr_clickSlot.gml</script>
+        <script>scripts\scr_drawInvSprite.gml</script>
+        <script>scripts\scr_mouseOver.gml</script>
+        <script>scripts\scr_realeaseSlot.gml</script>
+        <script>scripts\scr_startingvalues.gml</script>
+        <script>scripts\scr_manageObjects.gml</script>
+        <script>scripts\scr_transferItems.gml</script>
+      </scripts>
+      <script>scripts\scr_inventory_add.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

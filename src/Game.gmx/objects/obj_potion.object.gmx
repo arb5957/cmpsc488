@@ -25,17 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>name = "potion";
-description = "Heals the player for 5 HP.";
-attack = 0;
-defense = 0;
+            <string>event_inherited();
+name = "Potion";
+description = "Restores 5 HP.";
 one_time_use = true;
-stack_size = 100;
-level = 1;
-script = "";
-sprite = "spr_potion";
-activated = false;
 item_type = type.ACTIVE;
+stackable = true;
+//cooldown = ?
 </string>
           </argument>
         </arguments>

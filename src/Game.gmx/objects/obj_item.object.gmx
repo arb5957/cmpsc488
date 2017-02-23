@@ -30,7 +30,8 @@ description = "";
 attack = 0;
 defense = 0;
 one_time_use = false;
-stack_size = 0;
+stack_size = 1;
+stackable = false;
 level = 1;
 script = "";
 sprite = "";
@@ -39,6 +40,11 @@ activated = false;
 enum type {PASSIVE, ACTIVE};
 item_type = type.PASSIVE;
 owner = owners.CHARACTER;
+
+//For now items start on the ground.
+//Later we make this false as usually items
+//only fall after killing enemies.
+on_ground = true;
 
 //For Weapons
 

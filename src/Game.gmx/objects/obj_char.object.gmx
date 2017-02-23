@@ -286,9 +286,20 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(other.name != "Blue Gun"){
-    scr_addToInv(other.name);
-    with(other) instance_destroy();
+            <string>///Try to add item to the Inventory.
+//If the item the player collided with
+//is on the ground,
+if(other.on_ground)
+{
+    //Save its id otherwise we will lose it
+    //in the following 'with' clause.
+    var id_of_item = other.id;
+    
+    //Call inventory.add(id).
+    with(obj_inventory)
+    {
+        scr_inventory_add(id_of_item);
+    }
 }
 </string>
           </argument>

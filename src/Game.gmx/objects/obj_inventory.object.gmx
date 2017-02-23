@@ -68,6 +68,7 @@ hotbar_capacity = loadout_capacity + persistent_item_capacity;
 //Inventory capacity (for now).
 rows = 4;
 cols = 8;
+inventory_capacity = rows * cols;
 
 //Inventory width and height.
 inventory_width = (cols * cell_size) + ((cols+1) * x_padding);
@@ -82,7 +83,19 @@ var available_space_height = (view_height - hotbar_height);
 inventory_center_x = available_space_width/2;
 inventory_center_y = available_space_height/2;
 
-//*
+//Initialize the inventory.
+
+//We use the inventory's id to represent
+//that we have no items in that slot
+//because it is a unique value guaranteed
+//not to be taken by any other instance.
+empty = id;
+for(var i = 0; i &lt; inventory_capacity; i++)
+{
+    inventory[i] = empty;
+}
+
+/*
 //Create the starting inventory.
 
 totalSlots = 17;
@@ -135,7 +148,7 @@ slotTaken = -1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>canUse = true;
+            <string>//canUse = true;
 </string>
           </argument>
         </arguments>
@@ -158,7 +171,8 @@ slotTaken = -1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Switch between inventory on and off
+            <string>/*
+///Switch between inventory on and off
 if(!canDraw &amp;&amp; keyboard_check_pressed(vk_lshift)){
     canDraw = true;
     return 0;
@@ -168,7 +182,7 @@ if(canDraw &amp;&amp; keyboard_check_pressed(vk_lshift)){
     spr = spr_nothing;
     return 0;
 }
-
+//*/
 
 
 //Check if the dagger is equipped
@@ -185,7 +199,7 @@ if(global.slot[15] != "dagger2"){
 
 
 
-
+/*
 if(global.slot[15] == "dagger2" &amp;&amp; !equipped[0]){
     instance_create(obj_char.x, obj_char.y, obj_dagger);
     equipped[0] = true;
@@ -203,6 +217,7 @@ if(global.slot[15] != "bow2" &amp;&amp; equipped[1]){
     with(obj_bow) instance_destroy();
     equipped[1] = false;
 }
+//*/
 </string>
           </argument>
         </arguments>
@@ -288,7 +303,7 @@ draw_set_alpha(1.0);
           <argument>
             <kind>1</kind>
             <string>///Draw Inventory
-
+/*
 //Calculate top left of the Inventory.
 var x1 = view_xview[0] + (inventory_center_x - (inventory_width/2));
 var y1 = view_yview[0] + (inventory_center_y - (inventory_height/2));
@@ -338,6 +353,7 @@ for(var i = 0; i &lt; rows; i++)
 
 //Set alpha back to normal so everything else draws properly.
 draw_set_alpha(1.0);
+//*/
 </string>
           </argument>
         </arguments>
@@ -549,6 +565,7 @@ if(canDraw){
             <kind>1</kind>
             <string>///Drink potion
 
+/*
 if(canUse == true)
 {
     alarm[0] = cooldown;
@@ -561,6 +578,7 @@ if(canUse == true)
 
     canUse = false;   
 }
+//*/
 </string>
           </argument>
         </arguments>
