@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>-30</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,7 +25,65 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Create the starting inventory.
+            <string>///Initialize Inventory and Hotbar
+
+//I am using hotbar instead of loadout because
+//we might have items down there, which are
+//not part of a loadout.
+
+//This code assumes we will always use view[0].
+view_width = view_wview[0];
+view_height = view_hview[0];
+
+//Size of each cell in inventory and hotbar.
+cell_size = 48;
+
+//The padding between cells.
+x_padding = 8;
+y_padding = 8;
+
+//Cell color.
+cell_alpha = 0.95;
+cell_color = c_gray;
+
+//Background color.
+bg_alpha = 0.55;
+bg_color = c_black;
+
+//Size of the hotbar when we draw it.
+hotbar_height = cell_size+(2*y_padding);
+hotbar_width = view_width;
+
+//The number of items each loadout can have.
+loadout_capacity = 10;
+
+//These slots are used for items that are not
+//swapped out when the player switches loadouts,
+//such as health potions.
+persistent_item_capacity = 3;
+
+//The total number of cells we draw for the hotbar.
+hotbar_capacity = loadout_capacity + persistent_item_capacity;
+
+//Inventory capacity (for now).
+rows = 4;
+cols = 8;
+
+//Inventory width and height.
+inventory_width = (cols * cell_size) + ((cols+1) * x_padding);
+inventory_height = (rows * cell_size) + ((rows+1) * y_padding);
+
+//The space available for the inventory
+//after we draw the hotbar.
+var available_space_width = view_width;
+var available_space_height = (view_height - hotbar_height);
+//The center of the available space.
+//This will be the center of the inventory.
+inventory_center_x = available_space_width/2;
+inventory_center_y = available_space_height/2;
+
+//*
+//Create the starting inventory.
 
 totalSlots = 17;
 curSlot = 0;
@@ -54,6 +112,7 @@ scr_startingvalues();
 
 spr = spr_nothing;
 slotTaken = -1;
+//*/
 </string>
           </argument>
         </arguments>
@@ -166,10 +225,259 @@ if(global.slot[15] != "bow2" &amp;&amp; equipped[1]){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//How big do we want our inventory to be?
+            <string>///Draw hotbar
+
+//Top left coordinates of hotbar:
+var x1 = view_xview[0];
+var y1 = view_yview[0] + (view_height - hotbar_height);
+//Bottom right coordinates of hotbar:
+var x2 = view_xview[0] + view_width;
+var y2 = view_yview[0] + view_height;
+
+//Draw hotbar background.
+draw_set_alpha(bg_alpha);
+draw_set_color(bg_color);
+draw_rectangle(x1,y1,x2,y2,false);
+
+//Prepare to draw hotbar cells
+
+//Update starting position of cells.
+x1 += x_padding/2;
+y1 += y_padding;
+x2 = x1 + cell_size;
+y2 = y1 + cell_size;
+
+//Set cell color.
+draw_set_alpha(cell_alpha);
+draw_set_color(cell_color);
+
+//Draw hotbar cells.
+
+//Currently loadout capacity is 10 and
+//persistent_item_capacity is 3.
+//hotbar capacity = loadout_capacity + persistent_item_capacity.
+for(var i = 0; i &lt; hotbar_capacity; i++)
+{
+    //Draw cell.
+    draw_rectangle(x1,y1,x2,y2,false);
+    
+    //Go to next cell.
+    x1 += cell_size + x_padding;
+    x2 += cell_size + x_padding;
+}
+//Set alpha back to normal so everything else draws properly.
+draw_set_alpha(1.0);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw Inventory
+
+//Calculate top left of the Inventory.
+var x1 = view_xview[0] + (inventory_center_x - (inventory_width/2));
+var y1 = view_yview[0] + (inventory_center_y - (inventory_height/2));
+//Calculate bottom right of inventory.
+var x2 = x1 + inventory_width;
+var y2 = y1 + inventory_height;
+
+//Draw the inventory background.
+draw_set_alpha(bg_alpha);
+draw_set_color(bg_color);
+draw_rectangle(x1,y1,x2,y2,false);
+
+//Set x1,y1,x2,y2 to the first cell.
+x1 += x_padding;
+y1 += y_padding
+x2 = x1 + cell_size;
+y2 = y1 + cell_size;
+
+//Save the starting x values so we can
+//remember where the first columns are drawn.
+var original_x1 = x1;
+var original_x2 = x2;
+
+//Set inventory cell color.
+draw_set_alpha(cell_alpha);
+draw_set_color(cell_color);
+
+//Draw inventory cells.
+for(var i = 0; i &lt; rows; i++)
+{
+    for(var j = 0; j &lt; cols; j++)
+    {
+        //Draw cell.
+        draw_rectangle(x1,y1,x2,y2,false);
+
+        //Draw next cell in the current row.    
+        x1 += cell_size + x_padding;
+        x2 += cell_size + x_padding;
+    }
+    //Go to next row.
+    y1 += cell_size + y_padding;
+    y2 += cell_size + y_padding;
+    //Start drawing at first cell.
+    x1 = original_x1;
+    x2 = original_x2;
+}
+
+//Set alpha back to normal so everything else draws properly.
+draw_set_alpha(1.0);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/*
+///Draw Loadout bar
+
+//This code assumes we will always use view[0].
+view_width = view_wview[0];
+view_height = view_hview[0];
+
+//Cell variables:
+var cell_size = 48;
+
+//The padding between cells.
+var x_padding = 8;
+var y_padding = 8;
+
+var cell_alpha = 0.95;
+var cell_color = c_gray;
+
+//Border variables:
+var border_height = cell_size+(2*y_padding);
+var border_width = view_width;
+
+var border_alpha = 0.55;
+var border_color = c_black;
+
+//Top left coordinates of border:
+var x1 = view_xview[0];
+var y1 = view_yview[0] + (view_height - border_height);
+//Bottom right coordinates of border:
+var x2 = view_xview[0] + view_width;
+var y2 = view_yview[0] + view_height;
+
+//Draw border.
+draw_set_alpha(border_alpha);
+draw_set_color(border_color);
+draw_rectangle(x1,y1,x2,y2,false);
+
+//Draw cells
+
+//Update starting position of cells.
+x1 += x_padding/2;
+y1 += y_padding;
+x2 = x1 + cell_size;
+y2 = y1 + cell_size;
+
+draw_set_alpha(cell_alpha);
+draw_set_color(cell_color);
+
+//Draw all cells.
+for(var i = 0; i &lt; 12; i++)
+{
+
+    draw_rectangle(x1,y1,x2,y2,false);
+    
+    x1 += cell_size + x_padding;
+    x2 += cell_size + x_padding;
+}
+
+//Set alpha back to normal so everything else draws properly.
+draw_set_alpha(1.0);
+
+//Draw Inventory
+
+var rows = 4;
+var cols = 8;
+
+x_padding = 8;
+y_padding = x_padding;
+
+var inventory_width = (cols * cell_size) + ((cols+1) * x_padding);
+var inventory_height = (rows * cell_size) + ((rows+1) * y_padding);
+
+//Calculate center of screen if we exclude the Loadout bar.
+var available_area_height = (view_height - border_height);
+var available_area_width = view_width;
+var center_x = available_area_width/2;
+var center_y = available_area_height/2;
+
+//Calculate top left of the Inventory.
+x1 = view_xview[0] + (center_x - (inventory_width/2));
+y1 = view_yview[0] + (center_y - (inventory_height/2));
+//Calculate bottom right of inventory.
+x2 = x1 + inventory_width;
+y2 = y1 + inventory_height;
+
+draw_set_alpha(border_alpha);
+draw_set_color(border_color);
+draw_rectangle(x1,y1,x2,y2,false);
+
+//Update starting position of cells.
+x1 += x_padding;
+y1 += y_padding
+x2 = x1 + cell_size;
+y2 = y1 + cell_size;
+
+var original_x1 = x1;
+var original_x2 = x2;
+
+draw_set_alpha(cell_alpha);
+draw_set_color(cell_color);
+for(var i = 0; i &lt; rows; i++)
+{
+    for(var j = 0; j &lt; cols; j++)
+    {
+        draw_rectangle(x1,y1,x2,y2,false);
+    
+        x1 += cell_size + x_padding;
+        x2 += cell_size + x_padding;
+    }
+    y1 += cell_size + y_padding;
+    y2 += cell_size + y_padding;
+    x1 = original_x1;
+    x2 = original_x2;
+}
+//*/
 
 
 
+
+//How big do we want our inventory to be?
+/*
 if(canDraw){
     var cellWidth = 48;
     var cellHeight = 48;
@@ -216,6 +524,7 @@ if(canDraw){
     draw_set_alpha(1);
     draw_set_color(c_white);
 }
+//*/
 </string>
           </argument>
         </arguments>

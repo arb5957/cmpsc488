@@ -203,6 +203,7 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_test_inventory</room>
     <room>rooms\rm_titlescreen</room>
     <room>rooms\rm_gamescreen</room>
     <room>rooms\rm_settings</room>
