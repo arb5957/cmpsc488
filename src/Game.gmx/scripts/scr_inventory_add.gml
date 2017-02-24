@@ -16,7 +16,7 @@ if(item.stackable)
         if(inventory[i].object_index == item.object_index)
         {
             //Increase the item's stack_size.
-            inventory[i].stack_size++;
+            inventory[i].stack_size += item.stack_size;
             
             show_debug_message(string(inventory[i].name) + " stack size: " + string(inventory[i].stack_size));
             
