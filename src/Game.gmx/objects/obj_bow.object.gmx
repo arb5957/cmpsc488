@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_held_item</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -31,6 +31,41 @@ projectile_speed = 5;
 strength = 1;
 pull_time = 0;
 name = "Bow";
+
+depth = -1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Position bow in front of character
+
+if instance_exists(obj_char)
+{
+    image_angle = obj_char.image_angle;
+    pos_x = obj_char.x + lengthdir_x(18, obj_char.image_angle); 
+    pos_y = obj_char.y + lengthdir_y(18, obj_char.image_angle); 
+    
+    x = pos_x;
+    y = pos_y;  
+}
 </string>
           </argument>
         </arguments>
@@ -53,7 +88,9 @@ name = "Bow";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
+            <string>///Draw bow
+
+//event_inherited(); // old method - inherited from obj_held_item
 if mouse_check_button(mb_left)
 {
     if(pull_time &lt;= 60)

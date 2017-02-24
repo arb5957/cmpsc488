@@ -133,7 +133,7 @@ else
             <kind>1</kind>
             <string>if(text != "Empty")
 {
-    draw_sprite(object_get_sprite(inven[0]), 0, x - 16, y + 32);
+    draw_sprite(object_get_sprite(inven[0]), 0, x, y + 32);
 }
 else
 {

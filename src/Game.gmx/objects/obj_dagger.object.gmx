@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_held_item</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -53,6 +53,35 @@ can_damage = true;
             <string>can_damage = false;
 image_speed = 0;
 image_index = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Position dagger in front of character
+if instance_exists(obj_char)
+{
+    image_angle = obj_char.image_angle;
+    x = obj_char.x + lengthdir_x(15, obj_char.image_angle - 40);
+    y = obj_char.y + lengthdir_y(15, obj_char.image_angle - 40);
+}
 </string>
           </argument>
         </arguments>

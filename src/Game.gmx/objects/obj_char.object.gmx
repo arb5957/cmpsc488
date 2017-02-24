@@ -184,6 +184,8 @@ invulnerable = false;
             <kind>1</kind>
             <string>///Set the player's state. Currently only moves player.
 
+image_angle = point_direction(x, y, mouse_x, mouse_y);
+
 switch(state)
 {
     //Be sure to set the state back to normal when changing rooms.
