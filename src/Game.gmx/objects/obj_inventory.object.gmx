@@ -104,7 +104,23 @@ inventory_visible = false;
 
 //This hashmap is used to store object names
 //of stackable items.
-stackables = ds_map_create();
+//stackables = ds_map_create();
+
+//This is the item we have selected and are dragging.
+dragging_item = empty;
+
+//The index of that item in the inventory.
+dragging_item_index = -1;
+
+//Initialize array of x,y coordinates used for collision
+//detection of each cell.
+for(var i = 0; i &lt; inventory_capacity; i++)
+{
+    inventory_cell_x[i] = 0;
+    inventory_cell_y[i] = 0;
+}
+
+//TODO: add array for hotbar as well.
 
 /*
 //Create the starting inventory.
@@ -363,12 +379,18 @@ draw_set_alpha(1.0);
 
 if(inventory_visible)
 {
+    //We need these coordinates later for collision detection.
     //Calculate top left of the Inventory.
-    var x1 = view_xview[0] + (inventory_center_x - (inventory_width/2));
-    var y1 = view_yview[0] + (inventory_center_y - (inventory_height/2));
+    var inventory_x1 = view_xview[0] + (inventory_center_x - (inventory_width/2));
+    var inventory_y1 = view_yview[0] + (inventory_center_y - (inventory_height/2));
     //Calculate bottom right of inventory.
-    var x2 = x1 + inventory_width;
-    var y2 = y1 + inventory_height;
+    var inventory_x2 = inventory_x1 + inventory_width;
+    var inventory_y2 = inventory_y1 + inventory_height;
+    
+    var x1 = inventory_x1;
+    var y1 = inventory_y1;
+    var x2 = inventory_x2;
+    var y2 = inventory_y2;
     
     //Draw the inventory background.
     draw_set_alpha(bg_alpha);
@@ -398,15 +420,28 @@ if(inventory_visible)
             //Draw cell.
             draw_rectangle(x1,y1,x2,y2,false);
             
+            //Current slot.
             var slot = i * cols + j;
+            //Current item.
+            var item = inventory[slot];
+            
+            //Save top left x,y of current slot for
+            //collision detection later.
+            inventory_cell_x[slot] = x1;
+            inventory_cell_y[slot] = y1;
+                        
             //Draw sprite at cell
             //if the current slot has an item,
-            if(inventory[slot] != empty)
+            if(item != empty)
             {
                 //If that item has a sprite,
-                if(inventory[slot].sprite_index != -1)
+                if(item.sprite_index != -1)
                 {
-                    scr_inventory_draw_sprite(inventory[slot],x1,y1);
+                    //If we're not dragging this item,
+                    if(slot != dragging_item_index)
+                    {
+                        scr_inventory_draw_sprite(item,x1,y1);
+                    }
                 }
             }
             
@@ -424,7 +459,105 @@ if(inventory_visible)
     
     //Set alpha back to normal so everything else draws properly.
     draw_set_alpha(1.0);
+
+    if(mouse_check_button_pressed(mb_left))
+    {
+        //If we clicked inside the inventory,
+        if(point_in_rectangle(mouse_x,mouse_y,inventory_x1,inventory_y1,inventory_x2,inventory_y2))
+        {
+            show_debug_message("clicked in inventory.");
+            //We check every slot if it was clicked,
+            for(var i = 0; i &lt; inventory_capacity; i++)
+            {
+                var x1 = inventory_cell_x[i];
+                var y1 = inventory_cell_y[i];
+                var x2 = x1 + cell_size;
+                var y2 = y1 + cell_size;
+                //If we click on slot i,
+                if(point_in_rectangle(mouse_x,mouse_y,x1,y1,x2,y2))
+                {
+                    show_debug_message("clicked on inventory slot " + string(i));
+                    
+                    //If we're already dragging something,
+                    if(dragging_item_index &gt; -1)
+                    {
+                        //If the slot is not empty,
+                        if(inventory[i] != empty)
+                        {
+                            
+                            //Swap the two slots.
+                            var temp_item = inventory[i];
+                            inventory[i] = inventory[dragging_item_index];
+                            inventory[dragging_item_index] = temp_item;
+                            
+                            //If this is the same slot as the item we're dragging,
+                            //then we 'place it back' and stop dragging.
+                            if(dragging_item_index == i)
+                            {
+                                dragging_item_index = -1;
+                            }
+                            //otherwise, we're now dragging the item we clicked on.
+                            break;
+                        }
+                        else
+                        {//If it's an empty slot, we drop the item into this slot.
+                            inventory[i] = inventory[dragging_item_index];
+                            inventory[dragging_item_index] = empty;
+                            
+                            //Don't drag anything now.
+                            dragging_item_index = -1;
+                        }
+                    }
+                    else
+                    {//If we're not dragging anything,
+                        //If it's not an empty slot,
+                        if(inventory[i] != empty)
+                        {
+                            //We are now dragging this item.
+                            dragging_item_index = i;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {//If we clicked outside the inventory,
+            //If we're dragging an item,
+            if(dragging_item_index &gt; -1)
+            {
+                //This should never happen but it's good to check.
+                if(inventory[dragging_item_index] == empty)
+                {
+                    show_debug_message("dragging empty");
+                }
+                
+                var item = inventory[dragging_item_index];
+                //Drop the item.
+                item.on_ground = true;
+                item.visible = true;
+                //We are using 16 because sprite_width/2 = 16 for sprites 32x32.
+                //If we use a different sprite size we need to change the following.
+                item.x = mouse_x-16
+                item.y = mouse_y-16
+                //Remove the item from the inventory.
+                inventory[dragging_item_index] = empty;
+                //We're no longer dragging it.
+                dragging_item_index = -1;
+            }
+        }
+    }
+    
+    //If we're dragging an item,
+    if(dragging_item_index &gt; -1)
+    {
+        scr_inventory_draw_sprite(inventory[dragging_item_index],mouse_x-(cell_size/2),mouse_y-(cell_size/2));
+    }
 }
+//else
+//{//We're dragging this item, so draw it at the mouse.
+//    scr_inventory_draw_sprite(item, mouse_x, mouse_y);                     
+//}
 </string>
           </argument>
         </arguments>

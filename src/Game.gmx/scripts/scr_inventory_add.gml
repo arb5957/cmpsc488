@@ -1,3 +1,5 @@
+///scr_inventory_add(instance_id)
+
 var item = argument0; //This is an instance_id
 
 //Naively search to find the next empty slot in the inventory.
