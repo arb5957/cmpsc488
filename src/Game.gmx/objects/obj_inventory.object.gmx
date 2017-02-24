@@ -50,6 +50,10 @@ cell_color = c_gray;
 bg_alpha = 0.55;
 bg_color = c_black;
 
+//Text color.
+text_color = c_black;
+text_alpha = 1.0;
+
 //Size of the hotbar when we draw it.
 hotbar_height = cell_size+(2*y_padding);
 hotbar_width = view_width;
@@ -98,6 +102,10 @@ for(var i = 0; i &lt; inventory_capacity; i++)
 //Whether we draw the inventory or not.
 inventory_visible = false;
 
+//This hashmap is used to store object names
+//of stackable items.
+stackables = ds_map_create();
+
 /*
 //Create the starting inventory.
 
@@ -129,6 +137,46 @@ scr_startingvalues();
 spr = spr_nothing;
 slotTaken = -1;
 //*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Uncomment this if using data structures.
+///We need to destroy Inventory data structures: stackables and the stacks it contains
+
+/*
+//This is untested.
+var size = ds_map_size(stackables);
+var key = ds_map_find_first(stackables);
+for (var i = 0; i &lt; size; i++;)
+{
+    var value = ds_map_find_value(stackables, key);
+    key = ds_map_find_next(stackables, key);
+    if(not is_undefined(value))
+    {
+        ds_stack_destroy(value);
+    }
+}
+ds_map_destroy(stackables);
+*/
 </string>
           </argument>
         </arguments>
@@ -338,26 +386,38 @@ if(inventory_visible)
     var original_x1 = x1;
     var original_x2 = x2;
     
-    //Set inventory cell color.
-    draw_set_alpha(cell_alpha);
-    draw_set_color(cell_color);
-    
     //Draw inventory cells.
     for(var i = 0; i &lt; rows; i++)
     {
         for(var j = 0; j &lt; cols; j++)
         {
+            //Set inventory cell color.
+            draw_set_alpha(cell_alpha);
+            draw_set_color(cell_color);
+            
             //Draw cell.
             draw_rectangle(x1,y1,x2,y2,false);
-    
-            //Draw next cell in the current row.    
+            
+            var slot = i * cols + j;
+            //Draw sprite at cell
+            //if the current slot has an item,
+            if(inventory[slot] != empty)
+            {
+                //If that item has a sprite,
+                if(inventory[slot].sprite_index != -1)
+                {
+                    scr_inventory_draw_sprite(inventory[slot],x1,y1);
+                }
+            }
+            
+            //Move to next cell in the current row.    
             x1 += cell_size + x_padding;
             x2 += cell_size + x_padding;
         }
         //Go to next row.
         y1 += cell_size + y_padding;
         y2 += cell_size + y_padding;
-        //Start drawing at first cell.
+        //Move back to first column.
         x1 = original_x1;
         x2 = original_x2;
     }
