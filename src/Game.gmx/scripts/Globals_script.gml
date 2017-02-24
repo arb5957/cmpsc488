@@ -22,6 +22,8 @@ enum owners
     CHARACTER
 }
 
+script_execute(Globals_input);
+
 //Testing section
 
 script_execute(Globals_saving);

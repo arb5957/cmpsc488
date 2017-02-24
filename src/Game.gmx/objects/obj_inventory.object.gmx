@@ -95,6 +95,9 @@ for(var i = 0; i &lt; inventory_capacity; i++)
     inventory[i] = empty;
 }
 
+//Whether we draw the inventory or not.
+inventory_visible = false;
+
 /*
 //Create the starting inventory.
 
@@ -171,7 +174,13 @@ slotTaken = -1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
+            <string>///Currently only toggles inventory visibility.
+if(keyboard_check_pressed(global.key_toggle_inventory))
+{
+    inventory_visible = not inventory_visible;
+}
+
+/*
 ///Switch between inventory on and off
 if(!canDraw &amp;&amp; keyboard_check_pressed(vk_lshift)){
     canDraw = true;
@@ -303,57 +312,59 @@ draw_set_alpha(1.0);
           <argument>
             <kind>1</kind>
             <string>///Draw Inventory
-/*
-//Calculate top left of the Inventory.
-var x1 = view_xview[0] + (inventory_center_x - (inventory_width/2));
-var y1 = view_yview[0] + (inventory_center_y - (inventory_height/2));
-//Calculate bottom right of inventory.
-var x2 = x1 + inventory_width;
-var y2 = y1 + inventory_height;
 
-//Draw the inventory background.
-draw_set_alpha(bg_alpha);
-draw_set_color(bg_color);
-draw_rectangle(x1,y1,x2,y2,false);
-
-//Set x1,y1,x2,y2 to the first cell.
-x1 += x_padding;
-y1 += y_padding
-x2 = x1 + cell_size;
-y2 = y1 + cell_size;
-
-//Save the starting x values so we can
-//remember where the first columns are drawn.
-var original_x1 = x1;
-var original_x2 = x2;
-
-//Set inventory cell color.
-draw_set_alpha(cell_alpha);
-draw_set_color(cell_color);
-
-//Draw inventory cells.
-for(var i = 0; i &lt; rows; i++)
+if(inventory_visible)
 {
-    for(var j = 0; j &lt; cols; j++)
+    //Calculate top left of the Inventory.
+    var x1 = view_xview[0] + (inventory_center_x - (inventory_width/2));
+    var y1 = view_yview[0] + (inventory_center_y - (inventory_height/2));
+    //Calculate bottom right of inventory.
+    var x2 = x1 + inventory_width;
+    var y2 = y1 + inventory_height;
+    
+    //Draw the inventory background.
+    draw_set_alpha(bg_alpha);
+    draw_set_color(bg_color);
+    draw_rectangle(x1,y1,x2,y2,false);
+    
+    //Set x1,y1,x2,y2 to the first cell.
+    x1 += x_padding;
+    y1 += y_padding
+    x2 = x1 + cell_size;
+    y2 = y1 + cell_size;
+    
+    //Save the starting x values so we can
+    //remember where the first columns are drawn.
+    var original_x1 = x1;
+    var original_x2 = x2;
+    
+    //Set inventory cell color.
+    draw_set_alpha(cell_alpha);
+    draw_set_color(cell_color);
+    
+    //Draw inventory cells.
+    for(var i = 0; i &lt; rows; i++)
     {
-        //Draw cell.
-        draw_rectangle(x1,y1,x2,y2,false);
-
-        //Draw next cell in the current row.    
-        x1 += cell_size + x_padding;
-        x2 += cell_size + x_padding;
+        for(var j = 0; j &lt; cols; j++)
+        {
+            //Draw cell.
+            draw_rectangle(x1,y1,x2,y2,false);
+    
+            //Draw next cell in the current row.    
+            x1 += cell_size + x_padding;
+            x2 += cell_size + x_padding;
+        }
+        //Go to next row.
+        y1 += cell_size + y_padding;
+        y2 += cell_size + y_padding;
+        //Start drawing at first cell.
+        x1 = original_x1;
+        x2 = original_x2;
     }
-    //Go to next row.
-    y1 += cell_size + y_padding;
-    y2 += cell_size + y_padding;
-    //Start drawing at first cell.
-    x1 = original_x1;
-    x2 = original_x2;
+    
+    //Set alpha back to normal so everything else draws properly.
+    draw_set_alpha(1.0);
 }
-
-//Set alpha back to normal so everything else draws properly.
-draw_set_alpha(1.0);
-//*/
 </string>
           </argument>
         </arguments>
