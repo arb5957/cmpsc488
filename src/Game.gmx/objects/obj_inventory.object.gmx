@@ -99,6 +99,10 @@ for(var i = 0; i &lt; inventory_capacity; i++)
     inventory[i] = empty;
 }
 
+//This is the extra slot in the inventory 
+//we use for when we split an item from a stack.
+inventory[inventory_capacity] = empty;
+
 //Whether we draw the inventory or not.
 inventory_visible = false;
 
@@ -460,7 +464,7 @@ if(inventory_visible)
     //Set alpha back to normal so everything else draws properly.
     draw_set_alpha(1.0);
 
-    if(mouse_check_button_pressed(mb_left))
+    if(mouse_check_button_pressed(mb_left) || mouse_check_button_pressed(mb_right))
     {
         //If we clicked inside the inventory,
         if(point_in_rectangle(mouse_x,mouse_y,inventory_x1,inventory_y1,inventory_x2,inventory_y2))
@@ -476,47 +480,203 @@ if(inventory_visible)
                 //If we click on slot i,
                 if(point_in_rectangle(mouse_x,mouse_y,x1,y1,x2,y2))
                 {
-                    show_debug_message("clicked on inventory slot " + string(i));
-                    
-                    //If we're already dragging something,
-                    if(dragging_item_index &gt; -1)
-                    {
-                        //If the slot is not empty,
-                        if(inventory[i] != empty)
+                    if(mouse_check_button_pressed(mb_left))
+                    {//If we left clicked.
+                        show_debug_message("left clicked on inventory slot " + string(i));
+                        //If we're already dragging something,
+                        if(dragging_item_index &gt; -1)
                         {
-                            
-                            //Swap the two slots.
-                            var temp_item = inventory[i];
-                            inventory[i] = inventory[dragging_item_index];
-                            inventory[dragging_item_index] = temp_item;
-                            
-                            //If this is the same slot as the item we're dragging,
-                            //then we 'place it back' and stop dragging.
-                            if(dragging_item_index == i)
+                            //If the slot is not empty,
+                            if(inventory[i] != empty)
                             {
+                                //If the item in the slot is stackable, it's the same object
+                                //we're dragging, but
+                                if(inventory[i].stackable &amp;&amp;
+                                inventory[i].object_index == inventory[dragging_item_index].object_index &amp;&amp;
+                                i != dragging_item_index
+                                )
+                                {
+                                    //We merge the items together.
+                                    
+                                    //Save the stack_size of the item we will destroy.
+                                    var merge_stack_size = inventory[dragging_item_index].stack_size;
+                                    
+                                    //Destroy the instance
+                                    with(inventory[dragging_item_index])
+                                    {
+                                        instance_destroy();
+                                    }
+                                    
+                                    //Update the stack value of the item in the slot.
+                                    inventory[i].stack_size += merge_stack_size;
+                                    
+                                    //We need to set that slot to empty.
+                                    inventory[dragging_item_index] = empty;
+                                    //We're not dragging anything now.
+                                    dragging_item_index = -1;
+                                    
+                                    
+                                }
+                                else
+                                {//Otherwise we swap,
+                                    //Swap the two slots.
+                                    var temp_item = inventory[i];
+                                    inventory[i] = inventory[dragging_item_index];
+                                    inventory[dragging_item_index] = temp_item;
+                                    
+                                    //If this is the same slot as the item we're dragging,
+                                    //then we 'place it back' and stop dragging.
+                                    if(dragging_item_index == i)
+                                    {
+                                        dragging_item_index = -1;
+                                    }
+                                    //otherwise, we're now dragging the item we clicked on.
+                                    break;
+                                }
+                            }
+                            else
+                            {//If it's an empty slot, we drop the item into this slot.
+                                inventory[i] = inventory[dragging_item_index];
+                                inventory[dragging_item_index] = empty;
+                                
+                                //Don't drag anything now.
                                 dragging_item_index = -1;
                             }
-                            //otherwise, we're now dragging the item we clicked on.
-                            break;
                         }
                         else
-                        {//If it's an empty slot, we drop the item into this slot.
-                            inventory[i] = inventory[dragging_item_index];
-                            inventory[dragging_item_index] = empty;
-                            
-                            //Don't drag anything now.
-                            dragging_item_index = -1;
+                        {//If we're not dragging anything,
+                            //If it's not an empty slot,
+                            if(inventory[i] != empty)
+                            {
+                                //dragging_item_index = i;
+                                
+                                //Start dragging this item.
+                                
+                                //Put it into the extra slot.
+                                inventory[inventory_capacity] = inventory[i];
+                                
+                                //Set its old slot to empty.
+                                inventory[i] = empty;
+                                
+                                dragging_item_index = inventory_capacity;
+                                //break;
+                            }
                         }
                     }
-                    else
-                    {//If we're not dragging anything,
-                        //If it's not an empty slot,
+                    else //If we right clicked.
+                    {
+                        show_debug_message("right clicked on inventory slot " + string(i));
+                        
+                        //If we right clicked on an item,
                         if(inventory[i] != empty)
                         {
-                            //We are now dragging this item.
-                            dragging_item_index = i;
-                            break;
+                            //If it's stackable,
+                            if(inventory[i].stackable)
+                            {   
+                                //If we're not dragging anything already,
+                                if(dragging_item_index &lt; 0)
+                                {
+                                    if(inventory[i].stack_size == 1)
+                                    {
+                                        //Pick up the stack and put it in the extra slot.
+                                        
+                                        //inventory[inventory_capacity] = inventory[i];
+                                        //inventory[i] = empty;
+                                        //dragging_item_index = inventory_capacity;
+                                    }
+                                    else
+                                    {//Stack size &gt; 1.
+                                        //Reduce the stack_size of the item we're taking
+                                        //out from.
+                                        inventory[i].stack_size--;
+                                        
+                                        //Create a new instance of this item.
+                                        var new_stack_item = instance_create(0,0,inventory[i].object_index);
+                                        new_stack_item.on_ground = false;
+                                        new_stack_item.visible = false;
+                                        //This line isn't necessary because by default items
+                                        //start with a stack_size of 1.
+                                        //new_stack.stack_size = 1;
+                                        
+                                        //Add this new item to the extra inventory slot.
+                                        inventory[inventory_capacity] = new_stack_item;
+                                        
+                                        //Start dragging it(in the extra slot),
+                                        dragging_item_index = inventory_capacity;
+                                    }
+                                }
+                                else
+                                {//If we're already dragging something,
+                                    //If the item we're dragging is stackable,
+                                    if(inventory[dragging_item_index].stackable)
+                                    {
+                                        //If the item we're dragging is the same
+                                        //item as the one we clicked on,
+                                        if(inventory[i].object_index == inventory[dragging_item_index].object_index)
+                                        {
+                                            //Reduce its stack_size.
+                                            inventory[i].stack_size--;
+                                            //Increase the dragging item's stack_size.
+                                            inventory[dragging_item_index].stack_size++;
+                                            
+                                            //If we picked up the entire stack,
+                                            if(inventory[i].stack_size &lt; 1)
+                                            {
+                                                with(inventory[i])
+                                                {
+                                                    instance_destroy();
+                                                }
+                                                inventory[i] = empty;
+                                            }
+                                        }
+                                        
+                                    }
+                                }
+                            }
                         }
+                        /*else
+                        {//If it's an empty slot.
+                            //If we're dragging an item,
+                            if(dragging_item_index &gt; -1)
+                            {
+                                //If it's stackable,
+                                if(inventory[dragging_item_index].stackable)
+                                {
+                                    //If there is only one item in the stack we are dragging,
+                                    if(inventory[dragging_item_index].stack_size == 1)
+                                    {
+                                        //Just drop it into this slot.
+                                        inventory[i] = inventory[dragging_item_index];
+                                        inventory[dragging_item_index] = empty;
+                                        dragging_item_index = -1;
+                                    }
+                                    else
+                                    {//Otherwise, we drop one of it into the slot.
+                                        //Make a new item.
+                                        var new_stack_item = instance_create(0,0,inventory[dragging_item_index].object_index);
+                                        new_stack_item.on_ground = false;
+                                        new_stack_item.visible = false;
+                                        
+                                        //Put it into this slot.
+                                        inventory[i] = new_stack_item;
+                                        
+                                        //The new item's stack size is automatically 1 because 
+                                        //of obj_item's create event.
+                                        
+                                        //Reduce the dragging_item's stack.
+                                        inventory[dragging_item_index].stack_size--;
+                                        
+                                        //d/fd/f
+                                        //Add this new item to the extra inventory slot.
+                                        //inventory[inventory_capacity] = new_stack_item;
+                                        
+                                        //Start dragging it(in the extra slot),
+                                        //dragging_item_index = inventory_capacity;
+                                    }                                    
+                                }
+                            }
+                               
+                        }*/
                     }
                 }
             }
