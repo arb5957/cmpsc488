@@ -12,11 +12,6 @@ with(inst)
     image_angle = other.image_angle;
     alarm[0] = other.strength * 25;
 }
-can_activate = false;
-
-alarm_set(item_alarms.COOLDOWN,cooldown);
-
-
 
 strength = 1;
 pull_time = 0;
