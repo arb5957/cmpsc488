@@ -33,7 +33,7 @@ name = "Blue Gun";
 description = "Fire blue bullets.";
 sprite = spr_blue_gun;
 damage = 1;
-item_type = type.ACTIVE;
+//item_type = type.ACTIVE;
 activated = false;
 </string>
           </argument>

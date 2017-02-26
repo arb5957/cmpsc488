@@ -28,6 +28,7 @@
             <string>event_inherited();
 name = "wood";
 stackable = true;
+passive = true;
 </string>
           </argument>
         </arguments>

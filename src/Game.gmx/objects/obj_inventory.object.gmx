@@ -64,10 +64,10 @@ loadout_capacity = 10;
 //These slots are used for items that are not
 //swapped out when the player switches loadouts,
 //such as health potions.
-persistent_item_capacity = 3;
+persistent_items_capacity = 3;
 
 //The total number of cells we draw for the hotbar.
-hotbar_capacity = loadout_capacity + persistent_item_capacity;
+hotbar_capacity = loadout_capacity + persistent_items_capacity;
 
 //Inventory capacity (for now).
 rows = 4;
@@ -89,42 +89,80 @@ inventory_center_y = available_space_height/2;
 
 //Initialize the inventory.
 
-//We use the inventory's id to represent
-//that we have no items in that slot
-//because it is a unique value guaranteed
-//not to be taken by any other instance.
-empty = id;
+//Use obj_empty to represent nothing in that slot.
+empty = instance_create(0,0,obj_empty);
 for(var i = 0; i &lt; inventory_capacity; i++)
 {
+    //Set each slot to be empty intially.
     inventory[i] = empty;
+    
+    //Initialize array of x,y coordinates used for collision
+    //detection of each cell.
+    inventory_cell_x[i] = 0;
+    inventory_cell_y[i] = 0;
+    
 }
 
-//This is the extra slot in the inventory 
-//we use for when we split an item from a stack.
+//This is the extra slot we use for holding an item.
 inventory[inventory_capacity] = empty;
 
 //Whether we draw the inventory or not.
-inventory_visible = false;
+inventory_open = false;
 
-//This hashmap is used to store object names
-//of stackable items.
-//stackables = ds_map_create();
+//This is the extra slot for what the player
+//is holding.
+cubby = empty;
 
-//This is the item we have selected and are dragging.
-dragging_item = empty;
+//Initialize the loadouts.
 
-//The index of that item in the inventory.
-dragging_item_index = -1;
+//We have four passive slots.
+first_passive_cell = loadout_capacity - 4;
 
-//Initialize array of x,y coordinates used for collision
-//detection of each cell.
-for(var i = 0; i &lt; inventory_capacity; i++)
+//How many loadouts we have.
+max_loadouts = 4;
+
+//The loadout we are currently using.
+current_loadout = 0;
+
+//Initialize Loadouts.
+for(var i = 0; i &lt; max_loadouts; i++)
 {
-    inventory_cell_x[i] = 0;
-    inventory_cell_y[i] = 0;
+    for(var j = 0; j &lt; loadout_capacity; j++)
+    {
+        //Set each slot of the loadout to be empty initially.
+        loadout[i,j] = empty;
+        
+        if(i == 0)
+        {
+            //Initialize array of x,y coordinates used for collision
+            //detection of each cell.
+            loadout_cell_x[j] = 0;
+            loadout_cell_y[j] = 0;
+        }
+    }
 }
 
-//TODO: add array for hotbar as well.
+//Initialize persistent items.
+persistent_items[persistent_items_capacity-1] = 0;
+for(var i = 0; i &lt; persistent_items_capacity; i++)
+{
+    //Set each slot to be empty initially.
+    persistent_items[i] = empty;
+    
+    //Initialize array of x,y coordinates used for collision
+    //detection of each cell.
+    persistent_items_cell_x[i] = 0;
+    persistent_items_cell_y[i] = 0;
+}
+
+//This enum represents where the cell we clicked on is from.
+enum region
+{
+    INVENTORY,
+    LOADOUT,
+    PERSIST,
+    NONE //Do not use this to mean we clicked outside the inventory.
+}
 
 /*
 //Create the starting inventory.
@@ -245,7 +283,7 @@ ds_map_destroy(stackables);
             <string>///Currently only toggles inventory visibility.
 if(keyboard_check_pressed(global.key_toggle_inventory))
 {
-    inventory_visible = not inventory_visible;
+    inventory_open = not inventory_open;
 }
 
 /*
@@ -326,6 +364,12 @@ var y1 = view_yview[0] + (view_height - hotbar_height);
 var x2 = view_xview[0] + view_width;
 var y2 = view_yview[0] + view_height;
 
+//We need to save these coordinates for collision detection.
+hotbar_x1 = x1;
+hotbar_y1 = y1;
+hotbar_x2 = x2;
+hotbar_y2 = y2;
+
 //Draw hotbar background.
 draw_set_alpha(bg_alpha);
 draw_set_color(bg_color);
@@ -345,13 +389,66 @@ draw_set_color(cell_color);
 
 //Draw hotbar cells.
 
-//Currently loadout capacity is 10 and
-//persistent_item_capacity is 3.
-//hotbar capacity = loadout_capacity + persistent_item_capacity.
-for(var i = 0; i &lt; hotbar_capacity; i++)
+//Draw the Loadout cells.
+for(var i = 0; i &lt; loadout_capacity; i++)
 {
     //Draw cell.
     draw_rectangle(x1,y1,x2,y2,false);
+    
+    //Save it's collision information.
+    loadout_cell_x[i] = x1;
+    loadout_cell_y[i] = y1;
+    
+    var item = loadout[current_loadout,i];
+    if(item != empty)
+    {
+        //If that item has a sprite,
+        if(item.sprite_index != -1)
+        {
+            //If we're not dragging this item,
+            //if(slot != dragging_item_index)
+            {
+                scr_inventory_draw_sprite(item,x1,y1);
+            }
+        }
+    }
+    
+    //Go to next cell.
+    x1 += cell_size + x_padding;
+    x2 += cell_size + x_padding;
+    
+    //Draw the passive slots shifted a little from
+    //the active items.
+    if(i == (first_passive_cell-1))
+    {
+        x1 += cell_size + x_padding;
+        x2 += cell_size + x_padding;
+    }
+}
+
+//Shift persistent slots by a little to show they 
+//are different from loadout slots.
+x1 += 3 * (cell_size + x_padding);
+x2 += 3 * (cell_size + x_padding);
+for(var i = 0; i &lt; persistent_items_capacity; i++)
+{
+    //Draw cell.
+    draw_rectangle(x1,y1,x2,y2,false);
+    
+    //Save it's collision information.
+    persistent_items_cell_x[i] = x1;
+    persistent_items_cell_y[i] = y1;
+    
+    var item = persistent_items[i];
+    
+    if(item != empty)
+    {
+        //If that item has a sprite,
+        if(item.sprite_index != -1)
+        {
+            scr_inventory_draw_sprite(item,x1,y1);
+        }
+    }
     
     //Go to next cell.
     x1 += cell_size + x_padding;
@@ -381,15 +478,15 @@ draw_set_alpha(1.0);
             <kind>1</kind>
             <string>///Draw Inventory
 
-if(inventory_visible)
+if(inventory_open)
 {
     //We need these coordinates later for collision detection.
     //Calculate top left of the Inventory.
-    var inventory_x1 = view_xview[0] + (inventory_center_x - (inventory_width/2));
-    var inventory_y1 = view_yview[0] + (inventory_center_y - (inventory_height/2));
+    inventory_x1 = view_xview[0] + (inventory_center_x - (inventory_width/2));
+    inventory_y1 = view_yview[0] + (inventory_center_y - (inventory_height/2));
     //Calculate bottom right of inventory.
-    var inventory_x2 = inventory_x1 + inventory_width;
-    var inventory_y2 = inventory_y1 + inventory_height;
+    inventory_x2 = inventory_x1 + inventory_width;
+    inventory_y2 = inventory_y1 + inventory_height;
     
     var x1 = inventory_x1;
     var y1 = inventory_y1;
@@ -442,7 +539,7 @@ if(inventory_visible)
                 if(item.sprite_index != -1)
                 {
                     //If we're not dragging this item,
-                    if(slot != dragging_item_index)
+                    //if(slot != dragging_item_index)
                     {
                         scr_inventory_draw_sprite(item,x1,y1);
                     }
@@ -461,263 +558,336 @@ if(inventory_visible)
         x2 = original_x2;
     }
     
-    //Set alpha back to normal so everything else draws properly.
-    draw_set_alpha(1.0);
+    
+}
 
-    if(mouse_check_button_pressed(mb_left) || mouse_check_button_pressed(mb_right))
+//Draw cubby
+
+
+//else
+//{//We're dragging this item, so draw it at the mouse.
+//    scr_inventory_draw_sprite(item, mouse_x, mouse_y);                     
+//}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Interact with items in inventory and hotbar.
+
+var mouse_press = "none";
+
+if(mouse_check_button_pressed(mb_left))
+{
+    mouse_press = "left";
+}
+else if(mouse_check_button_pressed(mb_right))
+{
+    mouse_press = "right";
+}
+
+if(mouse_press == "left" || mouse_press == "right")
+{
+    //Do not use NONE to mean we clicked outside the inventory.
+    var clicked_on = region.NONE;
+    var item = empty;
+    var item_index = -1;
+    
+    //These variables are used to tell if we clicked outside the inventory or hotbar.
+    //They are used to determine if we will drop items outside back to the gamescreen.
+    var clicked_on_hotbar = false;
+    var clicked_on_inventory = false;
+    
+    //Check Loadout.
+    //If we clicked on hotbar.
+    if(point_in_rectangle(mouse_x,mouse_y,hotbar_x1,hotbar_y1,hotbar_x2,hotbar_y2))
     {
-        //If we clicked inside the inventory,
+        clicked_on_hotbar = true;
+        show_debug_message("Clicked in hotbar");
+        
+        //Check if we clicked on any cell in the loadout.
+        for(var i = 0; i &lt; loadout_capacity; i++)
+        {
+            var x1 = loadout_cell_x[i];
+            var y1 = loadout_cell_y[i];
+            var x2 = x1 + cell_size;
+            var y2 = y1 + cell_size;
+            
+            if(point_in_rectangle(mouse_x,mouse_y,x1,y1,x2,y2))
+            {
+                clicked_on = region.LOADOUT;
+                item = loadout[current_loadout, i];
+                item_index = i;
+            }
+        }
+        
+        //Check if we clicked on any of the persistent cells.
+        for(var i = 0; i &lt; persistent_items_capacity; i++)
+        {
+            var x1 = persistent_items_cell_x[i];
+            var y1 = persistent_items_cell_y[i];
+            var x2 = x1 + cell_size;
+            var y2 = y1 + cell_size;
+            
+            if(point_in_rectangle(mouse_x,mouse_y,x1,y1,x2,y2))
+            {
+                clicked_on = region.PERSIST;
+                item = persistent_items[i];
+                item_index = i;
+            }
+        }
+    }
+    
+    //Check Inventory collision, only if inventory is open.
+    if(inventory_open)
+    { 
         if(point_in_rectangle(mouse_x,mouse_y,inventory_x1,inventory_y1,inventory_x2,inventory_y2))
         {
-            show_debug_message("clicked in inventory.");
-            //We check every slot if it was clicked,
+            clicked_on_inventory = true;
+            show_debug_message("Clicked in inventory.");
+            
             for(var i = 0; i &lt; inventory_capacity; i++)
             {
                 var x1 = inventory_cell_x[i];
                 var y1 = inventory_cell_y[i];
                 var x2 = x1 + cell_size;
                 var y2 = y1 + cell_size;
-                //If we click on slot i,
+                
                 if(point_in_rectangle(mouse_x,mouse_y,x1,y1,x2,y2))
                 {
-                    if(mouse_check_button_pressed(mb_left))
-                    {//If we left clicked.
-                        show_debug_message("left clicked on inventory slot " + string(i));
-                        //If we're already dragging something,
-                        if(dragging_item_index &gt; -1)
-                        {
-                            //If the slot is not empty,
-                            if(inventory[i] != empty)
+                    clicked_on = region.INVENTORY;
+                    item = inventory[i];
+                    item_index = i;
+                }
+            }
+        }
+    }
+    
+    var area = "";
+    switch(clicked_on)
+    {
+        case region.LOADOUT: area = "loadout"; break;
+        case region.PERSIST: area = "persistent"; break;
+        case region.INVENTORY: area = "inventory"; break;
+    }
+    
+    if(clicked_on != region.NONE)
+    {
+        show_debug_message("Clicked on " + string(area) + " at index " + string(item_index));
+    }
+    
+    //If we clicked on a slot.
+    if(clicked_on != region.NONE)
+    {
+        //Left Click
+        
+        //We are either dropping an item into a slot,
+        //or we are picking an item up.
+        if(mouse_press == "left")
+        {
+            //If the cubby is empty, we're picking up an item.
+            if(cubby == empty)
+            {
+                //swap(cubby,item)
+                cubby = item;
+                switch(clicked_on)
+                {
+                    case region.LOADOUT:
+                        loadout[current_loadout, item_index] = empty;
+                        break;
+                    case region.PERSIST:
+                        persistent_items[item_index] = empty;
+                        break;
+                    case region.INVENTORY:
+                        inventory[item_index] = empty;
+                        break;
+                }
+            }
+            else //We're already holding an item in the cubby.
+            {//So we're going to drop it into a slot.
+                 
+                //If the slot is empty. 
+                if(item == empty)
+                {
+                    //We just drop the cubby in the slot
+                    switch(clicked_on)
+                    {
+                        case region.LOADOUT:
+                            if((item_index &lt; first_passive_cell and cubby.passive == false) or
+                               (item_index &gt;= first_passive_cell and cubby.passive == true))
                             {
-                                //If the item in the slot is stackable, it's the same object
-                                //we're dragging, but
-                                if(inventory[i].stackable &amp;&amp;
-                                inventory[i].object_index == inventory[dragging_item_index].object_index &amp;&amp;
-                                i != dragging_item_index
-                                )
+                                loadout[current_loadout, item_index] = cubby;
+                                cubby = empty;
+                            }
+                            break;
+                        case region.PERSIST:
+                            persistent_items[item_index] = cubby;
+                            cubby = empty;
+                            break;
+                        case region.INVENTORY:
+                            inventory[item_index] = cubby;
+                            cubby = empty;
+                            break;
+                    }
+                }
+                else
+                {
+                    //We're holding an item in the cubby, and the slot where
+                    //we're dropping it has an item.
+                    //So we either merge the stacks (if they are the same item),
+                    //or we swap the item and the cubby (if they are different items).
+                    
+                    var swapping = true;
+                    if(item.stackable and (item.object_index == cubby.object_index))
+                    {
+                        swapping = false;
+                    }
+                    
+                    switch(clicked_on)
+                    {
+                        case region.LOADOUT:
+                            if((item_index &lt; first_passive_cell and cubby.passive == false) or
+                               (item_index &gt;= first_passive_cell and cubby.passive == true))
+                            {
+                                if(swapping)
                                 {
-                                    //We merge the items together.
-                                    
-                                    //Save the stack_size of the item we will destroy.
-                                    var merge_stack_size = inventory[dragging_item_index].stack_size;
-                                    
-                                    //Destroy the instance
-                                    with(inventory[dragging_item_index])
-                                    {
-                                        instance_destroy();
-                                    }
-                                    
-                                    //Update the stack value of the item in the slot.
-                                    inventory[i].stack_size += merge_stack_size;
-                                    
-                                    //We need to set that slot to empty.
-                                    inventory[dragging_item_index] = empty;
-                                    //We're not dragging anything now.
-                                    dragging_item_index = -1;
-                                    
-                                    
+                                    var temp = cubby;
+                                    cubby = item;
+                                    loadout[current_loadout,item_index] = temp;
                                 }
                                 else
-                                {//Otherwise we swap,
-                                    //Swap the two slots.
-                                    var temp_item = inventory[i];
-                                    inventory[i] = inventory[dragging_item_index];
-                                    inventory[dragging_item_index] = temp_item;
-                                    
-                                    //If this is the same slot as the item we're dragging,
-                                    //then we 'place it back' and stop dragging.
-                                    if(dragging_item_index == i)
-                                    {
-                                        dragging_item_index = -1;
-                                    }
-                                    //otherwise, we're now dragging the item we clicked on.
-                                    break;
+                                {
+                                    item.stack_size += cubby.stack_size;
+                                    with(cubby) instance_destroy();
+                                    cubby = empty;
                                 }
+                            }
+                            break;
+                        case region.PERSIST:
+                            if(swapping)
+                            {
+                                var temp = cubby;
+                                cubby = item;
+                                persistent_items[item_index] = temp;
                             }
                             else
-                            {//If it's an empty slot, we drop the item into this slot.
-                                inventory[i] = inventory[dragging_item_index];
-                                inventory[dragging_item_index] = empty;
-                                
-                                //Don't drag anything now.
-                                dragging_item_index = -1;
-                            }
-                        }
-                        else
-                        {//If we're not dragging anything,
-                            //If it's not an empty slot,
-                            if(inventory[i] != empty)
                             {
-                                //dragging_item_index = i;
-                                
-                                //Start dragging this item.
-                                
-                                //Put it into the extra slot.
-                                inventory[inventory_capacity] = inventory[i];
-                                
-                                //Set its old slot to empty.
-                                inventory[i] = empty;
-                                
-                                dragging_item_index = inventory_capacity;
-                                //break;
+                                item.stack_size += cubby.stack_size;
+                                with(cubby) instance_destroy();
+                                cubby = empty;
                             }
-                        }
-                    }
-                    else //If we right clicked.
-                    {
-                        show_debug_message("right clicked on inventory slot " + string(i));
-                        
-                        //If we right clicked on an item,
-                        if(inventory[i] != empty)
-                        {
-                            //If it's stackable,
-                            if(inventory[i].stackable)
-                            {   
-                                //If we're not dragging anything already,
-                                if(dragging_item_index &lt; 0)
-                                {
-                                    if(inventory[i].stack_size == 1)
-                                    {
-                                        //Pick up the stack and put it in the extra slot.
-                                        
-                                        //inventory[inventory_capacity] = inventory[i];
-                                        //inventory[i] = empty;
-                                        //dragging_item_index = inventory_capacity;
-                                    }
-                                    else
-                                    {//Stack size &gt; 1.
-                                        //Reduce the stack_size of the item we're taking
-                                        //out from.
-                                        inventory[i].stack_size--;
-                                        
-                                        //Create a new instance of this item.
-                                        var new_stack_item = instance_create(0,0,inventory[i].object_index);
-                                        new_stack_item.on_ground = false;
-                                        new_stack_item.visible = false;
-                                        //This line isn't necessary because by default items
-                                        //start with a stack_size of 1.
-                                        //new_stack.stack_size = 1;
-                                        
-                                        //Add this new item to the extra inventory slot.
-                                        inventory[inventory_capacity] = new_stack_item;
-                                        
-                                        //Start dragging it(in the extra slot),
-                                        dragging_item_index = inventory_capacity;
-                                    }
-                                }
-                                else
-                                {//If we're already dragging something,
-                                    //If the item we're dragging is stackable,
-                                    if(inventory[dragging_item_index].stackable)
-                                    {
-                                        //If the item we're dragging is the same
-                                        //item as the one we clicked on,
-                                        if(inventory[i].object_index == inventory[dragging_item_index].object_index)
-                                        {
-                                            //Reduce its stack_size.
-                                            inventory[i].stack_size--;
-                                            //Increase the dragging item's stack_size.
-                                            inventory[dragging_item_index].stack_size++;
-                                            
-                                            //If we picked up the entire stack,
-                                            if(inventory[i].stack_size &lt; 1)
-                                            {
-                                                with(inventory[i])
-                                                {
-                                                    instance_destroy();
-                                                }
-                                                inventory[i] = empty;
-                                            }
-                                        }
-                                        
-                                    }
-                                }
-                            }
-                        }
-                        /*else
-                        {//If it's an empty slot.
-                            //If we're dragging an item,
-                            if(dragging_item_index &gt; -1)
+                            break;
+                        case region.INVENTORY:
+                            if(swapping)
                             {
-                                //If it's stackable,
-                                if(inventory[dragging_item_index].stackable)
-                                {
-                                    //If there is only one item in the stack we are dragging,
-                                    if(inventory[dragging_item_index].stack_size == 1)
-                                    {
-                                        //Just drop it into this slot.
-                                        inventory[i] = inventory[dragging_item_index];
-                                        inventory[dragging_item_index] = empty;
-                                        dragging_item_index = -1;
-                                    }
-                                    else
-                                    {//Otherwise, we drop one of it into the slot.
-                                        //Make a new item.
-                                        var new_stack_item = instance_create(0,0,inventory[dragging_item_index].object_index);
-                                        new_stack_item.on_ground = false;
-                                        new_stack_item.visible = false;
-                                        
-                                        //Put it into this slot.
-                                        inventory[i] = new_stack_item;
-                                        
-                                        //The new item's stack size is automatically 1 because 
-                                        //of obj_item's create event.
-                                        
-                                        //Reduce the dragging_item's stack.
-                                        inventory[dragging_item_index].stack_size--;
-                                        
-                                        //d/fd/f
-                                        //Add this new item to the extra inventory slot.
-                                        //inventory[inventory_capacity] = new_stack_item;
-                                        
-                                        //Start dragging it(in the extra slot),
-                                        //dragging_item_index = inventory_capacity;
-                                    }                                    
-                                }
+                                var temp = cubby;
+                                cubby = item;
+                                inventory[item_index] = temp;
                             }
-                               
-                        }*/
+                            else
+                            {
+                                item.stack_size += cubby.stack_size;
+                                with(cubby) instance_destroy();
+                                cubby = empty;
+                            }
+                            break;
                     }
                 }
             }
         }
         else
-        {//If we clicked outside the inventory,
-            //If we're dragging an item,
-            if(dragging_item_index &gt; -1)
+        {//We right clicked.
+            //We pick up from a stack, but only if the item is stackable.
+            if(item.stackable)
             {
-                //This should never happen but it's good to check.
-                if(inventory[dragging_item_index] == empty)
+                //If we're not holding anything.
+                if(cubby == empty)
                 {
-                    show_debug_message("dragging empty");
+                    //If the stack size &gt; 1, we break the stack,
+                    //so we need a new instance of the item to be in the cubby.
+                    if(item.stack_size &gt; 1)
+                    {
+                        cubby = instance_create(0,0,item.object_index);
+                        cubby.visible = false;
+                        cubby.on_ground = false;
+                        item.stack_size--;
+                    }
+                    else
+                    {//If the stack size is 1, we're picking up the item.
+                        cubby = item;
+                        switch(clicked_on)
+                        {
+                            case region.LOADOUT:
+                                loadout[current_loadout,item_index] = empty;
+                                break;
+                            case region.PERSIST:
+                                persistent_items[item_index] = empty;
+                                break;
+                            case region.INVENTORY:
+                                inventory[item_index] = empty;
+                                break;
+                        }
+                    }
                 }
-                
-                var item = inventory[dragging_item_index];
-                //Drop the item.
-                item.on_ground = true;
-                item.visible = true;
-                //We are using 16 because sprite_width/2 = 16 for sprites 32x32.
-                //If we use a different sprite size we need to change the following.
-                item.x = mouse_x-16
-                item.y = mouse_y-16
-                //Remove the item from the inventory.
-                inventory[dragging_item_index] = empty;
-                //We're no longer dragging it.
-                dragging_item_index = -1;
+                else
+                {//We're already holding an item, and we right clicked on a stackable item.
+                    //We need to check that we're holding the same item.
+                    if(cubby.stackable and (cubby.object_index == item.object_index))
+                    {
+                        cubby.stack_size++;
+                        item.stack_size--;
+                        if(item.stack_size &lt; 1)
+                        {
+                            with(item) instance_destroy();
+                            switch(clicked_on)
+                            {
+                                case region.LOADOUT:
+                                    loadout[current_loadout,item_index] = empty;
+                                    break;
+                                case region.PERSIST:
+                                    persistent_items[item_index] = empty;
+                                    break;
+                                case region.INVENTORY:
+                                    inventory[item_index] = empty;
+                                    break;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
-    
-    //If we're dragging an item,
-    if(dragging_item_index &gt; -1)
+    //Check if we clicked outside.
+    if(not(clicked_on_inventory or clicked_on_hotbar))
     {
-        scr_inventory_draw_sprite(inventory[dragging_item_index],mouse_x-(cell_size/2),mouse_y-(cell_size/2));
+        cubby.on_ground = true;
+        cubby.visible = true;
+        cubby.x = mouse_x-16
+        cubby.y = mouse_y-16
+        cubby = empty;
     }
 }
-//else
-//{//We're dragging this item, so draw it at the mouse.
-//    scr_inventory_draw_sprite(item, mouse_x, mouse_y);                     
-//}
+
+//Draw cubby.
+if(cubby != empty and cubby.sprite_index != -1)
+{
+    scr_inventory_draw_sprite(cubby,mouse_x-(cell_size/2),mouse_y-(cell_size/2));
+}
 </string>
           </argument>
         </arguments>

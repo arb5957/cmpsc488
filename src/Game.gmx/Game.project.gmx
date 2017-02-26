@@ -197,6 +197,7 @@
     </objects>
     <objects name="Item">
       <object>objects\obj_item</object>
+      <object>objects\obj_empty</object>
       <object>objects\obj_potion</object>
       <object>objects\obj_bow2</object>
       <object>objects\obj_dagger2</object>

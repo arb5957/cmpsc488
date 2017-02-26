@@ -10,9 +10,17 @@ draw_sprite(item.sprite_index,-1,xx+8,yy+8);
 //Draw stack size.
 if(item.stackable)
 {
+    //Save the previous color
+    var color = draw_get_color();
+    var alpha = draw_get_alpha();
+    
     //Set text color.
     draw_set_color(text_color);
     draw_set_alpha(text_alpha);
 
     draw_text(xx, yy, string(item.stack_size));
+    
+    //Restore the previous color.
+    draw_set_color(color);
+    draw_set_alpha(alpha);
 }
