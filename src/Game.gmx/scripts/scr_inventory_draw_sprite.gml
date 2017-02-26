@@ -5,7 +5,13 @@ var xx = argument1;
 var yy = argument2;
 
 //Draw the sprite.
-draw_sprite(item.sprite_index,-1,xx+8,yy+8);
+draw_sprite(item.sprite_index,0,xx+24,yy+24);
+//with(item)
+//{
+//    x = xx+8;
+//    y = yy+8;
+//    draw_self();
+//}
 
 //Draw stack size.
 if(item.stackable)

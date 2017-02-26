@@ -73,6 +73,7 @@
       <script>scripts\scr_char_move.gml</script>
       <script>scripts\scr_char_takedamage.gml</script>
       <script>scripts\scr_char_collision_solid.gml</script>
+      <script>scripts\scr_char_activate_items.gml</script>
     </scripts>
     <scripts name="Globals">
       <script>scripts\Globals_saving.gml</script>
@@ -81,6 +82,7 @@
     </scripts>
     <scripts name="Enemy">
       <scripts name="Attacks">
+        <script>scripts\scr_enemy_default_attack.gml</script>
         <script>scripts\attack_aggressive.gml</script>
         <script>scripts\attack_within_range.gml</script>
       </scripts>
@@ -92,6 +94,7 @@
       </scripts>
       <script>scripts\scr_enemy_takedamage.gml</script>
       <script>scripts\set_enemy_attr.gml</script>
+      <script>scripts\scr_enemy_hold_item.gml</script>
     </scripts>
     <scripts name="Projectile">
       <script>scripts\scr_char_fire_projectile.gml</script>
@@ -114,6 +117,17 @@
       </scripts>
       <script>scripts\scr_inventory_add.gml</script>
       <script>scripts\scr_inventory_draw_sprite.gml</script>
+      <script>scripts\scr_empty.gml</script>
+      <script>scripts\scr_default_item_position.gml</script>
+    </scripts>
+    <scripts name="Item">
+      <script>scripts\scr_potion.gml</script>
+      <script>scripts\scr_blue_gun.gml</script>
+      <script>scripts\scr_dagger.gml</script>
+      <script>scripts\scr_dagger_position.gml</script>
+      <script>scripts\scr_bow.gml</script>
+      <script>scripts\scr_bow_position.gml</script>
+      <script>scripts\scr_bow_release.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

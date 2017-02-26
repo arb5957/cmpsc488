@@ -82,8 +82,8 @@ target = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>weapon_inst.x = x;
-weapon_inst.y = y;
+            <string>//weapon_inst.x = x;
+//weapon_inst.y = y;
 </string>
           </argument>
         </arguments>

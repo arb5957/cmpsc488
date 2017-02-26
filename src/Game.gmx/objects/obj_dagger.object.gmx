@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>self</parentName>
+  <parentName>obj_item</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,9 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>damage = 1;
+            <string>event_inherited();
+damage = 1;
 image_speed = 0;
-can_damage = true;
+//can_damage = true;
+
+cooldown = room_speed / 3;
+script = scr_dagger;
+position_script = scr_dagger_position;
+
+name = "Dagger";
+description = "A simple dagger.";
 </string>
           </argument>
         </arguments>
@@ -50,9 +58,12 @@ can_damage = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>can_damage = false;
-image_speed = 0;
-image_index = 0;
+            <string>//can_damage = false;
+//image_speed = 0;
+//image_index = 0;
+//can_activate = false;
+event_inherited();
+
 </string>
           </argument>
         </arguments>
@@ -76,12 +87,15 @@ image_index = 0;
           <argument>
             <kind>1</kind>
             <string>///Position dagger in front of character
+/*
 if instance_exists(obj_char)
 {
     image_angle = obj_char.image_angle;
     x = obj_char.x + lengthdir_x(15, obj_char.image_angle - 40);
     y = obj_char.y + lengthdir_y(15, obj_char.image_angle - 40);
 }
+//*/
+
 </string>
           </argument>
         </arguments>
@@ -104,12 +118,44 @@ if instance_exists(obj_char)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if can_damage 
+            <string>///Damage Enemy
+if(activated and owner == owners.CHARACTER)
 {
-    can_damage = false;
+    activated = false;
     with(other)
     {
            script_execute(scr_enemy_takedamage, other.damage);
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_char">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Damage Player
+if(activated and (owner == owners.ENEMY))
+{
+    activated = false;
+    with(other)
+    {
+           script_execute(scr_char_takedamage, other.damage);
     }
 }
 </string>
@@ -134,9 +180,9 @@ if instance_exists(obj_char)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = .4;
-can_damage = true;
-alarm[0] = 20;
+            <string>//image_speed = .4;
+//can_damage = true;
+//alarm[0] = 20;
 </string>
           </argument>
         </arguments>

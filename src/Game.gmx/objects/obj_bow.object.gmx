@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>self</parentName>
+  <parentName>obj_item</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,14 +25,28 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>damage = 1;
+            <string>/*damage = 1;
 image_speed = 0;
 projectile_speed = 5;
 strength = 1;
 pull_time = 0;
 name = "Bow";
 
+depth = -1;*/
+event_inherited();
+script = scr_bow;
+position_script = scr_bow_position;
+release_script = scr_bow_release;
+damage = 1;
+image_speed = 0;
+projectile_speed = 5;
+strength = 1;
+pull_time = 0;
+name = "Bow";
+description = "A simple bow. Hold it longer to fire further.";
+can_shoot = true;
 depth = -1;
+cool_down = room_speed / 3;
 </string>
           </argument>
         </arguments>
@@ -56,7 +70,7 @@ depth = -1;
           <argument>
             <kind>1</kind>
             <string>///Position bow in front of character
-
+/*
 if instance_exists(obj_char)
 {
     image_angle = obj_char.image_angle;
@@ -65,7 +79,7 @@ if instance_exists(obj_char)
     
     x = pos_x;
     y = pos_y;  
-}
+}*/
 </string>
           </argument>
         </arguments>
@@ -89,7 +103,7 @@ if instance_exists(obj_char)
           <argument>
             <kind>1</kind>
             <string>///Draw bow
-
+/*
 //event_inherited(); // old method - inherited from obj_held_item
 if mouse_check_button(mb_left)
 {
@@ -107,7 +121,7 @@ if mouse_check_button(mb_left)
         strength++;
         image_index = 3;
     }
-}
+}*/
 </string>
           </argument>
         </arguments>
@@ -130,10 +144,10 @@ if mouse_check_button(mb_left)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>script_execute(scr_char_fire_projectile, obj_arrow);
+            <string>/*script_execute(scr_char_fire_projectile, obj_arrow);
 strength = 1;
 pull_time = 0;
-image_index = 0;
+image_index = 0;*/
 </string>
           </argument>
         </arguments>
@@ -156,7 +170,7 @@ image_index = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_index = 1;
+            <string>//image_index = 1;
 </string>
           </argument>
         </arguments>

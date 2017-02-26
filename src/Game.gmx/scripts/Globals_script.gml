@@ -5,6 +5,7 @@ globalvar attack_pattern_array;
 
 
 weap_array[1] = "obj_blue_gun";
+weap_array[2] = "obj_dagger";
 
 items_array[1] = 1;
 

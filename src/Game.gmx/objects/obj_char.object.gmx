@@ -35,6 +35,7 @@ can_shoot = true;
 
 //Health and Invulnerability variables:
 hp = 1000;
+max_hp = 1040;
 invulnerable = false;
 name="";
 invulnerable_time = room_speed/2;
@@ -297,11 +298,12 @@ if(other.on_ground)
     //Save its id otherwise we will lose it
     //in the following 'with' clause.
     var id_of_item = other.id;
+    var char_id = id;
     
     //Call inventory.add(id).
     with(obj_inventory)
     {
-        scr_inventory_add(id_of_item);
+        scr_inventory_add(id_of_item,char_id);
     }
 }
 </string>
@@ -393,6 +395,46 @@ if(invulnerable)
     draw_circle(x,y,sprite_width*1.5,true);
 }
 </string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>601</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_execute_script</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>9</kind>
+            <script>scr_char_activate_items</script>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
           </argument>
         </arguments>
       </action>

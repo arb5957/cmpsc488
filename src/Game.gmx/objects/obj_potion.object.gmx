@@ -29,9 +29,9 @@
 name = "Potion";
 description = "Restores 5 HP.";
 one_time_use = true;
-//item_type = type.ACTIVE;
 stackable = true;
-//cooldown = ?
+cooldown = 2 * room_speed;
+script = scr_potion;
 </string>
           </argument>
         </arguments>

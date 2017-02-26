@@ -33,7 +33,9 @@ one_time_use = false;
 stack_size = 1;
 stackable = false;
 level = 1;
-script = "";
+script = scr_empty;
+position_script = scr_default_item_position;
+release_script = scr_empty;
 sprite = "";
 can_activate = true;
 activated = false;
@@ -41,6 +43,10 @@ activated = false;
 //item_type = type.PASSIVE;
 passive = false;
 owner = owners.CHARACTER;
+//We use the id to know what used this item.
+owner_id = obj_char;
+
+equipped = false;
 
 //For now items start on the ground.
 //Later we make this false as usually items
@@ -88,6 +94,32 @@ enum item_alarms
 {
     show_debug_message("Destroying " + string(name) + " instance with stack_size " + string(stack_size));
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Cooldown complete.
+image_speed = 0;
+image_index = 0;
+can_activate = true;
 </string>
           </argument>
         </arguments>
