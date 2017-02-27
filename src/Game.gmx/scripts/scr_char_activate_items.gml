@@ -73,11 +73,11 @@ with(obj_inventory)
         }
         else if(mouse_check_button_released(mb_right))
         {
-            if(keyboard_check_released(vk_shift))
+            if(keyboard_check(vk_shift) or keyboard_check_released(vk_shift))
             {
                 loadout_release[3] = true;
             }
-            else if(keyboard_check_released(vk_control))
+            else if(keyboard_check(vk_control) or keyboard_check_released(vk_control))
             {
                 loadout_release[5] = true;
             }

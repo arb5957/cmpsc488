@@ -1,7 +1,7 @@
 //script_execute(scr_char_fire_projectile, obj_arrow);
 
-var fireX = x + lengthdir_x(20, image_angle);
-var fireY = y + lengthdir_y(20, image_angle);
+var fireX = owner_id.x + lengthdir_x(20, image_angle);
+var fireY = owner_id.y + lengthdir_y(20, image_angle);
 var inst = instance_create(fireX, fireY, obj_arrow);
 with(inst)
 {
