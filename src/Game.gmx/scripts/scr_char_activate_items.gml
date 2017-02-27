@@ -190,10 +190,13 @@ with(obj_inventory)
     
     with(most_recent_item)
     {
-        if(equipped and (not always_invisible))
+        if(equipped)
         {
             script_execute(position_script);
-            draw_self();
+            if(not always_invisible)
+            {
+                draw_self();
+            }
         }
     }
 }
