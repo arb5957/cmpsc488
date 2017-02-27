@@ -190,7 +190,7 @@ with(obj_inventory)
     
     with(most_recent_item)
     {
-        if(equipped)
+        if(equipped and (not always_invisible))
         {
             script_execute(position_script);
             draw_self();

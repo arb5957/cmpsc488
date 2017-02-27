@@ -32,6 +32,7 @@ one_time_use = true;
 stackable = true;
 cooldown = 2 * room_speed;
 script = scr_potion;
+always_invisible = true;
 </string>
           </argument>
         </arguments>

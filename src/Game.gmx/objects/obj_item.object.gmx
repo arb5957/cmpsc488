@@ -47,6 +47,7 @@ owner = owners.CHARACTER;
 owner_id = obj_char;
 
 equipped = false;
+always_invisible = false;
 
 //For now items start on the ground.
 //Later we make this false as usually items
