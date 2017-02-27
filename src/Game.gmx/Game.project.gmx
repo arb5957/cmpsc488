@@ -55,6 +55,9 @@
       <sprite>sprites\spr_stone</sprite>
       <sprite>sprites\spr_wood</sprite>
       <sprite>sprites\spr_nothing</sprite>
+      <sprite>sprites\spr_recon_drone</sprite>
+      <sprite>sprites\spr_recon_drone_err</sprite>
+      <sprite>sprites\spr_remote</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -128,6 +131,8 @@
       <script>scripts\scr_bow.gml</script>
       <script>scripts\scr_bow_position.gml</script>
       <script>scripts\scr_bow_release.gml</script>
+      <script>scripts\scr_remote_press.gml</script>
+      <script>scripts\scr_remote_position.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -217,6 +222,8 @@
       <object>objects\obj_dagger2</object>
       <object>objects\obj_stone</object>
       <object>objects\obj_wood</object>
+      <object>objects\obj_remote</object>
+      <object>objects\obj_recon_drone</object>
     </objects>
     <objects name="Inventory">
       <object>objects\obj_inventory</object>
@@ -241,7 +248,7 @@
     <rtf>help.rtf</rtf>
   </help>
   <TutorialState>
-    <IsTutorial>-1</IsTutorial>
+    <IsTutorial>0</IsTutorial>
     <TutorialName>C:\Users\Drew\AppData\Local\gamemaker_studio\tutorials\08_Levels_And_Saving\</TutorialName>
     <TutorialPage>2</TutorialPage>
   </TutorialState>

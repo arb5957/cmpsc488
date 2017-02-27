@@ -67,7 +67,8 @@ move_right = ord('D');
 enum states
 {
     NORMAL,
-    SLIP
+    SLIP,
+    STOP
 }
 
 state = states.NORMAL;
@@ -198,6 +199,9 @@ switch(state)
         break;
     case states.SLIP:
         script_execute(scr_char_slip);
+        break;
+    case states.STOP:
+        //do nothing - character is stopped
         break;
 }
 </string>

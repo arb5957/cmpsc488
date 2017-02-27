@@ -7,7 +7,7 @@
 //Passive items don't currently activate.
 with(obj_inventory)
 {
-    if(not inventory_open)
+    if(not inventory_open && can_use_items)
     {
         var loadout_activate;
         var loadout_release;

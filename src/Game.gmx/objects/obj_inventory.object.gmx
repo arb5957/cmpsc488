@@ -56,6 +56,9 @@ bg_color = c_black;
 text_color = c_black;
 text_alpha = 1.0;
 
+//Whether items can be used or not
+can_use_items = true;
+
 //Size of the hotbar when we draw it.
 hotbar_height = cell_size+(2*y_padding);
 hotbar_width = view_width;
