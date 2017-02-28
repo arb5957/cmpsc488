@@ -3,8 +3,8 @@ angle = image_angle;
 //We can only fire if the weapon is not on cooldown.
 //if(can_activate)
 //{
-    show_debug_message("blue gun image angle " + string(image_angle));
-    show_debug_message("blue gun.visible = " + string(visible));
+    //show_debug_message("blue gun image angle " + string(image_angle));
+    //show_debug_message("blue gun.visible = " + string(visible));
     //Fire bullet. 
     inst = instance_create(x, y, obj_bullet);
     with(inst)
@@ -14,7 +14,7 @@ angle = image_angle;
         damage = other.damage;
         owner = other.owner;
         
-        show_debug_message("bullet direction = " + string(other.angle));
+        //show_debug_message("bullet direction = " + string(other.angle));
     }
     
     //Initiate cooldown.

@@ -33,6 +33,9 @@
 //we might have items down there, which are
 //not part of a loadout.
 
+//Mouse is over the inventory
+mouse_over = false;
+
 //This code assumes we will always use view[0].
 view_width = view_wview[0];
 view_height = view_hview[0];
@@ -181,6 +184,21 @@ enum region
 //We only make this item visible.
 most_recent_item = empty;
 most_recent_item_index = -1;
+
+//We need these coordinates later for collision detection.
+    //Calculate top left of the Inventory.
+    inventory_x1 = view_xview[0] + (inventory_center_x - (inventory_width/2));
+    inventory_y1 = view_yview[0] + (inventory_center_y - (inventory_height/2));
+    //Calculate bottom right of inventory.
+    inventory_x2 = inventory_x1 + inventory_width;
+    inventory_y2 = inventory_y1 + inventory_height;
+    
+//For showing the tooltip
+time_over_slot = 0;
+cur_slot = -1;
+prev_slot = -2;
+draw_tooltip = false;
+tooltip_item_index = -1;
 
 /*
 //Create the starting inventory.
@@ -410,7 +428,65 @@ if(keyboard_check_pressed(global.key_loadout_toggle))
     
     saving_loadout = true;
 }
-
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Toggle tooltip
+if(inventory_open &amp;&amp; 
+    point_in_rectangle(mouse_x, mouse_y, inventory_x1, inventory_y1, inventory_x2, inventory_y2))
+{
+    //show_debug_message("here " + string(draw_tooltip));
+    for(var i = 0; i&lt;inventory_capacity; i++)
+    {
+        var x1 = inventory_cell_x[i];
+        var y1 = inventory_cell_y[i];
+        var x2 = x1 + cell_size;
+        var y2 = y1 + cell_size;
+        if(point_in_rectangle(mouse_x, mouse_y, x1, y1, x2, y2) )
+        {
+            cur_slot = i;
+        }
+        if(cur_slot == prev_slot)
+        {
+            time_over_slot++;
+        }
+        else
+        {   
+            prev_slot = cur_slot;
+            time_over_slot = 0;
+            draw_tooltip = false;
+        }
+    }
+    if(time_over_slot &gt;= 2000)
+    {
+        //TODO: show tooltip
+        draw_tooltip = true;
+        tooltip_item_index = cur_slot;
+        //show_debug_message("draw_tooltip: " + string(draw_tooltip));
+    }
+}
+else
+{
+    time_over_slot = 0;
+    draw_tooltip = false;
+}
 </string>
           </argument>
         </arguments>
@@ -565,7 +641,7 @@ if(inventory_open &amp;&amp; not disabled)
     //Calculate bottom right of inventory.
     inventory_x2 = inventory_x1 + inventory_width;
     inventory_y2 = inventory_y1 + inventory_height;
-    
+   
     var x1 = inventory_x1;
     var y1 = inventory_y1;
     var x2 = inventory_x2;
@@ -1024,6 +1100,39 @@ for(var i = 0; i &lt; persistent_items_capacity; i++)
     {
         item.equipped = true;
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw tooltip
+if(draw_tooltip &amp;&amp; inventory[tooltip_item_index] != empty)
+{
+    draw_set_alpha(1);
+    draw_rectangle_colour(mouse_x, mouse_y, mouse_x + 200, mouse_y + 250,
+        c_white, c_white, c_white, c_white, false);
+    item_name = inventory[tooltip_item_index].name;
+    item_descrip = inventory[tooltip_item_index].description;
+    tooltip_text = item_name + "###" + item_descrip;
+    draw_set_color(c_black);
+    draw_set_halign(fa_left);
+    draw_text_ext(mouse_x+10, mouse_y+10, tooltip_text, 20, 160);
 }
 </string>
           </argument>
