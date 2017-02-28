@@ -59,6 +59,9 @@ text_alpha = 1.0;
 //Whether items can be used or not
 can_use_items = true;
 
+//Inventory is disabled
+disabled = false;
+
 //Size of the hotbar when we draw it.
 hotbar_height = cell_size+(2*y_padding);
 hotbar_width = view_width;
@@ -291,7 +294,7 @@ ds_map_destroy(stackables);
           <argument>
             <kind>1</kind>
             <string>///Currently only toggles inventory visibility.
-if(keyboard_check_pressed(global.key_toggle_inventory))
+if(keyboard_check_pressed(global.key_toggle_inventory) &amp;&amp; not disabled)
 {
     inventory_open = not inventory_open;
 }
@@ -488,7 +491,7 @@ draw_set_alpha(1.0);
             <kind>1</kind>
             <string>///Draw Inventory
 
-if(inventory_open)
+if(inventory_open &amp;&amp; not disabled)
 {
     //We need these coordinates later for collision detection.
     //Calculate top left of the Inventory.

@@ -63,6 +63,7 @@ can_deploy = true;
             <string>if(instance_exists(obj_inventory))
 {
     obj_inventory.can_use_items = true;
+    obj_inventory.disabled = false;
     can_deploy = true;
 }
 </string>

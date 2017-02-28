@@ -2,10 +2,11 @@
 
 if (instance_exists(obj_char) && !drone_deployed && can_deploy)
 {
-    //Disable character's use of items
+    //Disable character's use of items and opening inventory
     if(instance_exists(obj_inventory))
     {
         obj_inventory.can_use_items = false;
+        obj_inventory.disabled = true;
     }
     
     //set drone's initial spawn
