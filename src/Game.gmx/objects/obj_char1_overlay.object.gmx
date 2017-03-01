@@ -50,7 +50,13 @@
             <kind>1</kind>
             <string>if text = "Empty"
 {
-    room_goto(rm_create_char);
+    //room_goto(rm_create_char);
+    character = instance_create(room_width/2, room_height/2, obj_char);
+    room_goto(rm_gamescreen);
+    script_execute(src_test_load);
+    
+    character.x = global.savedX;
+    character.y = global.savedY;
 }
 else
 {
