@@ -509,6 +509,29 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Save alpha and color
+save_alpha = draw_get_alpha();
+save_color = draw_get_color();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Draw hotbar
 
 //Top left coordinates of hotbar:
@@ -1138,6 +1161,29 @@ if(draw_tooltip &amp;&amp; inventory[tooltip_item_index] != empty)
     draw_set_halign(fa_left);
     draw_text_ext(mouse_x+10, mouse_y+10, tooltip_text, 15, 160);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Restore alpha and color
+draw_set_alpha(save_alpha);
+draw_set_color(save_color);
 </string>
           </argument>
         </arguments>
