@@ -41,8 +41,7 @@ name="";
 invulnerable_time = room_speed/2;
 safe = true;
 
-
-//Pick up an item
+//Item pickup
 queue = ds_queue_create();
 flag = true; flag2 = true; flag3 = true;
 curr_item  = ""; curr_item2 = ""; curr_item3 = "";
@@ -74,7 +73,8 @@ move_right = ord('D');
 enum states
 {
     NORMAL,
-    SLIP
+    SLIP,
+    STOP
 }
 
 state = states.NORMAL;
@@ -170,7 +170,8 @@ invulnerable = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>flag3 = true;
+            <string>///Flag = true and timer--;
+flag3 = true;
 timer--;
 </string>
           </argument>
@@ -194,7 +195,8 @@ timer--;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>flag2 = true;
+            <string>///Flag2 = true and timer--;
+flag2 = true;
 timer--;
 </string>
           </argument>
@@ -218,7 +220,8 @@ timer--;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>flag = true;
+            <string>///Flag = true and timer--;
+flag = true;
 timer--;
 </string>
           </argument>
@@ -277,6 +280,9 @@ switch(state)
         break;
     case states.SLIP:
         script_execute(scr_char_slip);
+        break;
+    case states.STOP:
+        //do nothing - character is stopped
         break;
 }
 </string>
@@ -486,7 +492,6 @@ if(timer &gt; 0){
         alarm[3] = 45;
     }
         
-    draw_set_font(font_pickup);
     draw_set_color(c_red);
     draw_set_halign(fa_center);
     draw_text(x, y + 50, curr_item);
@@ -498,6 +503,7 @@ if(timer &gt; 0){
         draw_text(x, y + 90, curr_item3);
     }
 }  
+
 </string>
           </argument>
         </arguments>

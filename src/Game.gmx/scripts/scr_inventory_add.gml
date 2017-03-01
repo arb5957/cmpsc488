@@ -54,9 +54,9 @@ if(item.stackable)
         inventory[empty_slot] = item;
         item.on_ground = false;
         item.visible = false;
+        scr_item_pickup(item.name, item.stack_size);
+        show_debug_message("Added " + string(item.name) + " into slot " + string(empty_slot));
         
-        show_debug_message("Added " + string(item.name) + " into slot " + string(empty_slot));   
-        scr_item_pickup(item.name, item.stack_size);        
         item.owner_id = char_id;
     }
 }
@@ -74,8 +74,8 @@ else
             item.on_ground = false;
             item.visible = false;
             
-            show_debug_message("Added " + string(item.name) + " into slot " + string(i)); 
-            scr_item_pickup(item.name, item.stack_size);       
+            show_debug_message("Added " + string(item.name) + " into slot " + string(i));
+            scr_item_pickup(item.name, item.stack_size);
             item.owner_id = char_id;
             
             break;
