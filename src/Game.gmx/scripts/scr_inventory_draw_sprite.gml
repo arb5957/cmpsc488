@@ -21,6 +21,9 @@ if(item.stackable)
     var alpha = draw_get_alpha();
     
     //Set text color.
+    draw_set_font(font_inventory);
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_top);
     draw_set_color(text_color);
     draw_set_alpha(text_alpha);
 

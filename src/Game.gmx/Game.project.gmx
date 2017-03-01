@@ -180,6 +180,7 @@
     <objects name="Character">
       <object>objects\obj_char</object>
       <object>objects\obj_hud</object>
+      <object>objects\obj_spawn_char</object>
     </objects>
     <objects name="Terrain">
       <objects name="Base Class">

@@ -56,6 +56,10 @@ using_item = false;
 {
     instance_destroy();
 }
+with(item_inst)
+{
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>

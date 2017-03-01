@@ -60,6 +60,8 @@ else
 {
     show_debug_message("Character does not exist");
 }
+//*/
+global.character_name = txt;
 
 if obj_str_weapon_overlay.selected = true
 {
@@ -69,9 +71,7 @@ else
 {
     inven[invenct] = obj_dagger;
 }
-*/
-
-
+//*/
     room_goto(rm_gamescreen);
     //room_instance_add(rm_gamescreen, character.x, character.y, obj_held_item);
     //room_instance_add(rm_gamescreen, character.x, character.y, inven[0]);

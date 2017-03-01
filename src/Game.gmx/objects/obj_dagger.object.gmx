@@ -30,7 +30,7 @@ damage = 1;
 image_speed = 0;
 //can_damage = true;
 
-cooldown = room_speed * 2;//room_speed / 3;
+cooldown = room_speed / 3;
 script = scr_dagger;
 position_script = scr_dagger_position;
 
