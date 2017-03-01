@@ -50,6 +50,7 @@
             <kind>1</kind>
             <string>txt = obj_text_box.txt;
 
+/*
 character = instance_create(room_width/2, room_height/2, obj_char);
 if instance_exists(character)
 {
@@ -68,6 +69,8 @@ else
 {
     inven[invenct] = obj_dagger;
 }
+*/
+
 
     room_goto(rm_gamescreen);
     //room_instance_add(rm_gamescreen, character.x, character.y, obj_held_item);

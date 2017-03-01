@@ -58,6 +58,7 @@
       <sprite>sprites\spr_recon_drone</sprite>
       <sprite>sprites\spr_recon_drone_err</sprite>
       <sprite>sprites\spr_remote</sprite>
+      <sprite>sprites\spr_teleport</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -98,6 +99,10 @@
       <script>scripts\scr_enemy_takedamage.gml</script>
       <script>scripts\set_enemy_attr.gml</script>
       <script>scripts\scr_enemy_hold_item.gml</script>
+      <scripts name="Enemy_items">
+        <script>scripts\item_lunge.gml</script>
+        <script>scripts\item_teleport.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Projectile">
       <script>scripts\scr_char_fire_projectile.gml</script>
@@ -133,6 +138,8 @@
       <script>scripts\scr_bow_release.gml</script>
       <script>scripts\scr_remote_press.gml</script>
       <script>scripts\scr_remote_position.gml</script>
+      <script>scripts\scr_item_lunge.gml</script>
+      <script>scripts\scr_item_teleport.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -224,16 +231,18 @@
       <object>objects\obj_wood</object>
       <object>objects\obj_remote</object>
       <object>objects\obj_recon_drone</object>
+      <object>objects\obj_lunge</object>
+      <object>objects\obj_teleport</object>
     </objects>
     <objects name="Inventory">
       <object>objects\obj_inventory</object>
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_init</room>
-    <room>rooms\rm_test_inventory</room>
     <room>rooms\rm_titlescreen</room>
+    <room>rooms\rm_init</room>
     <room>rooms\rm_gamescreen</room>
+    <room>rooms\rm_test_inventory</room>
     <room>rooms\rm_settings</room>
     <room>rooms\rm_credits</room>
     <rooms name="scaling_test">

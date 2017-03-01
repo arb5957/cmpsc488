@@ -1,21 +1,21 @@
-globalvar weap_array;
-globalvar enemy_movements;
-globalvar items_array;
-globalvar attack_pattern_array;
+//Setting possible weapons
+global.weap_array[1] = "obj_blue_gun";
+global.weap_array[2] = "obj_dagger";
+
+//Setting possible items
+global.items_array[1] = "obj_lunge";
+global.items_array[2] = "obj_teleport";
 
 
-weap_array[1] = "obj_blue_gun";
-weap_array[2] = "obj_dagger";
+//Enemy settings
+//Setting movement sets for enemies
+global.enemy_movements[1] = "circle";
+global.enemy_movements[2] = "speed";
+global.enemy_movements[3] = "stalker";
 
-items_array[1] = 1;
-
-enemy_movements[1] = "circle";
-enemy_movements[2] = "speed";
-enemy_movements[3] = "stalker";
-enemy_movements[4] = "teleport";
-
-attack_pattern_array[1] = "aggressive";
-attack_pattern_array[2] = "within_range";
+//Setting attack patterns for enimes
+global.attack_pattern_array[1] = "aggressive";
+global.attack_pattern_array[2] = "within_range";
 
 enum owners
 {
@@ -28,4 +28,4 @@ script_execute(Globals_input);
 //Testing section
 
 script_execute(Globals_saving);
-script_execute(src_test_load);
+//script_execute(src_test_load, 0);

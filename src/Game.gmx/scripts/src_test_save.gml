@@ -1,3 +1,5 @@
+/*
+
 var data;
 data = ds_map_create();
 

@@ -28,6 +28,8 @@
             <string>event_inherited();
 name = "enemy1";
 script_execute(set_enemy_attr);
+
+using_item = false;
 </string>
           </argument>
         </arguments>
@@ -54,6 +56,12 @@ script_execute(set_enemy_attr);
 {
     instance_destroy();
 }
+
+with(item_inst)
+{
+    on_ground = true;
+    visible = true;
+}
 </string>
           </argument>
         </arguments>
@@ -77,11 +85,16 @@ script_execute(set_enemy_attr);
           <argument>
             <kind>1</kind>
             <string>image_angle = point_direction(x, y, obj_char.x, obj_char.y);
-direction = image_angle;
+
+if(using_item == false)
+{
     script =  asset_get_index(string_insert(movement, "movement_", 10));
     script_execute(script);
     script =  asset_get_index(string_insert(attack_pattern, "attack_", 8));
     script_execute(script);
+    
+    script_execute(item_inst.script_enemy);
+}
 
 scr_enemy_hold_item();
 
