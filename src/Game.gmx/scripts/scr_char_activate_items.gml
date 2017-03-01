@@ -7,7 +7,7 @@
 //Passive items don't currently activate.
 with(obj_inventory)
 {
-    if(not inventory_open && can_use_items)
+    if(not inventory_open)
     {
         var loadout_activate;
         var loadout_release;
@@ -190,14 +190,19 @@ with(obj_inventory)
     
     with(most_recent_item)
     {
-        if(equipped)
-        {
+    
+        if(equipped){
             script_execute(position_script);
-            if(not always_invisible)
-            {
+            if(not always_invisible){
                 draw_self();
             }
+        }/*
+        if(equipped and (not always_invisible))
+        {
+            script_execute(position_script);
+            draw_self();
         }
+        */
     }
 }
 

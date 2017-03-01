@@ -55,9 +55,7 @@
       <sprite>sprites\spr_stone</sprite>
       <sprite>sprites\spr_wood</sprite>
       <sprite>sprites\spr_nothing</sprite>
-      <sprite>sprites\spr_recon_drone</sprite>
-      <sprite>sprites\spr_recon_drone_err</sprite>
-      <sprite>sprites\spr_remote</sprite>
+      <sprite>sprites\spr_shield</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -131,8 +129,12 @@
       <script>scripts\scr_bow.gml</script>
       <script>scripts\scr_bow_position.gml</script>
       <script>scripts\scr_bow_release.gml</script>
-      <script>scripts\scr_remote_press.gml</script>
-      <script>scripts\scr_remote_position.gml</script>
+      <script>scripts\scr_shield_position.gml</script>
+      <script>scripts\scr_shield_equip.gml</script>
+      <script>scripts\scr_item_pickup.gml</script>
+    </scripts>
+    <scripts name="Use">
+      <script>scripts\sdb.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -141,6 +143,7 @@
     </fonts>
     <fonts name="Inventory">
       <font>fonts\font_inventory</font>
+      <font>fonts\font_pickup</font>
     </fonts>
   </fonts>
   <objects name="objects">
@@ -222,8 +225,7 @@
       <object>objects\obj_dagger2</object>
       <object>objects\obj_stone</object>
       <object>objects\obj_wood</object>
-      <object>objects\obj_remote</object>
-      <object>objects\obj_recon_drone</object>
+      <object>objects\obj_shield</object>
     </objects>
     <objects name="Inventory">
       <object>objects\obj_inventory</object>
