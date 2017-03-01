@@ -140,6 +140,7 @@
       <script>scripts\scr_remote_position.gml</script>
       <script>scripts\scr_item_lunge.gml</script>
       <script>scripts\scr_item_teleport.gml</script>
+      <script>scripts\scr_item_pickup.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

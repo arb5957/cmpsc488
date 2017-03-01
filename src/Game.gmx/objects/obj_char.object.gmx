@@ -41,6 +41,12 @@ name="";
 invulnerable_time = room_speed/2;
 safe = true;
 
+//Item pickup
+queue = ds_queue_create();
+flag = true; flag2 = true; flag3 = true;
+curr_item  = ""; curr_item2 = ""; curr_item3 = "";
+timer = 0;
+
 //Player speed variables:
 player_speed = 3;
 original_player_speed = player_speed;
@@ -142,6 +148,81 @@ enum alarms
             <string>///Invulnerability expiration alarm: Player is vulnerable again.
 
 invulnerable = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Flag = true and timer--;
+flag3 = true;
+timer--;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Flag2 = true and timer--;
+flag2 = true;
+timer--;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Flag = true and timer--;
+flag = true;
+timer--;
 </string>
           </argument>
         </arguments>
@@ -372,6 +453,57 @@ if(can_shoot == true)
             <string>///Draw self.
 
 draw_self();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw the item name when picked up. 
+if(timer &gt; 0){
+    //sdb(timer);
+    if(flag &amp;&amp; !ds_queue_empty(queue)){
+        flag = false;
+        curr_item = ds_queue_dequeue(queue);
+        alarm[1] = 45;
+    }   
+    if(flag2 &amp;&amp; !flag &amp;&amp; !ds_queue_empty(queue)){
+        flag2 = false;
+        curr_item2 = ds_queue_dequeue(queue);
+        alarm[2] = 45;
+    }
+    if(flag3 &amp;&amp; !flag2 &amp;&amp; !flag &amp;&amp; !ds_queue_empty(queue)){
+        flag3 = false;
+        curr_item3 = ds_queue_dequeue(queue);
+        alarm[3] = 45;
+    }
+        
+    draw_set_color(c_red);
+    draw_set_halign(fa_center);
+    draw_text(x, y + 50, curr_item);
+    
+    if(!flag2){
+        draw_text(x, y + 70, curr_item2);
+    }
+    if(!flag3){
+        draw_text(x, y + 90, curr_item3);
+    }
+}  
+
 </string>
           </argument>
         </arguments>

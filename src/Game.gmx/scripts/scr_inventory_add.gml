@@ -25,7 +25,7 @@ if(item.stackable)
             inventory[i].stack_size += item.stack_size;
             
             show_debug_message(string(inventory[i].name) + " stack size: " + string(inventory[i].stack_size));
-            
+            scr_item_pickup(item.name, item.stack_size);
             with(item)
             {
                 //Destroy redundant item.
@@ -54,7 +54,7 @@ if(item.stackable)
         inventory[empty_slot] = item;
         item.on_ground = false;
         item.visible = false;
-        
+        scr_item_pickup(item.name, item.stack_size);
         show_debug_message("Added " + string(item.name) + " into slot " + string(empty_slot));
         
         item.owner_id = char_id;
@@ -75,7 +75,7 @@ else
             item.visible = false;
             
             show_debug_message("Added " + string(item.name) + " into slot " + string(i));
-            
+            scr_item_pickup(item.name, item.stack_size);
             item.owner_id = char_id;
             
             break;
