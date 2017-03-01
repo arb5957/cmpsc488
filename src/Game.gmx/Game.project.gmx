@@ -66,6 +66,7 @@
         <sprite>sprites\spr_att_drone</sprite>
         <sprite>sprites\spr_drone_shot</sprite>
       </sprites>
+      <sprite>sprites\spr_teleport</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -106,6 +107,8 @@
       <script>scripts\scr_enemy_takedamage.gml</script>
       <script>scripts\set_enemy_attr.gml</script>
       <script>scripts\scr_enemy_hold_item.gml</script>
+      <script>scripts\item_lunge.gml</script>
+      <script>scripts\item_teleport.gml</script>
     </scripts>
     <scripts name="Projectile">
       <script>scripts\scr_char_fire_projectile.gml</script>
@@ -143,6 +146,9 @@
       <script>scripts\scr_remote_press.gml</script>
       <script>scripts\scr_att_drone_remote_press.gml</script>
       <script>scripts\scr_remote_position.gml</script>
+      <script>scripts\scr_item_pickup.gml</script>
+      <script>scripts\scr_item_lunge.gml</script>
+      <script>scripts\scr_item_teleport.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -183,6 +189,7 @@
     <objects name="Character">
       <object>objects\obj_char</object>
       <object>objects\obj_hud</object>
+      <object>objects\obj_spawn_char</object>
     </objects>
     <objects name="Terrain">
       <objects name="Base Class">
@@ -241,6 +248,8 @@
         <object>objects\obj_att_remote</object>
         <object>objects\obj_att_drone</object>
       </objects>
+      <object>objects\obj_lunge</object>
+      <object>objects\obj_teleport</object>
     </objects>
     <objects name="Inventory">
       <object>objects\obj_inventory</object>
