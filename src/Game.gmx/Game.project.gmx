@@ -55,10 +55,17 @@
       <sprite>sprites\spr_stone</sprite>
       <sprite>sprites\spr_wood</sprite>
       <sprite>sprites\spr_nothing</sprite>
-      <sprite>sprites\spr_recon_drone</sprite>
-      <sprite>sprites\spr_recon_drone_err</sprite>
-      <sprite>sprites\spr_remote</sprite>
-      <sprite>sprites\spr_teleport</sprite>
+      <sprites name="Recon Drone">
+        <sprite>sprites\spr_recon_remote</sprite>
+        <sprite>sprites\spr_recon_drone_err</sprite>
+        <sprite>sprites\spr_recon_drone</sprite>
+      </sprites>
+      <sprites name="Attack Drone">
+        <sprite>sprites\spr_att_remote</sprite>
+        <sprite>sprites\spr_att_drone_err</sprite>
+        <sprite>sprites\spr_att_drone</sprite>
+        <sprite>sprites\spr_drone_shot</sprite>
+      </sprites>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -99,13 +106,10 @@
       <script>scripts\scr_enemy_takedamage.gml</script>
       <script>scripts\set_enemy_attr.gml</script>
       <script>scripts\scr_enemy_hold_item.gml</script>
-      <scripts name="Enemy_items">
-        <script>scripts\item_lunge.gml</script>
-        <script>scripts\item_teleport.gml</script>
-      </scripts>
     </scripts>
     <scripts name="Projectile">
       <script>scripts\scr_char_fire_projectile.gml</script>
+      <script>scripts\scr_drone_fire_projectile.gml</script>
     </scripts>
     <scripts name="Saving">
       <script>scripts\src_test_load.gml</script>
@@ -137,10 +141,8 @@
       <script>scripts\scr_bow_position.gml</script>
       <script>scripts\scr_bow_release.gml</script>
       <script>scripts\scr_remote_press.gml</script>
+      <script>scripts\scr_att_drone_remote_press.gml</script>
       <script>scripts\scr_remote_position.gml</script>
-      <script>scripts\scr_item_lunge.gml</script>
-      <script>scripts\scr_item_teleport.gml</script>
-      <script>scripts\scr_item_pickup.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -181,7 +183,6 @@
     <objects name="Character">
       <object>objects\obj_char</object>
       <object>objects\obj_hud</object>
-      <object>objects\obj_spawn_char</object>
     </objects>
     <objects name="Terrain">
       <objects name="Base Class">
@@ -217,6 +218,7 @@
       <object>objects\obj_bullet_base</object>
       <object>objects\obj_bullet</object>
       <object>objects\obj_arrow</object>
+      <object>objects\obj_drone_shot</object>
     </objects>
     <objects name="Weapons">
       <object>objects\obj_blue_gun</object>
@@ -231,20 +233,24 @@
       <object>objects\obj_dagger2</object>
       <object>objects\obj_stone</object>
       <object>objects\obj_wood</object>
-      <object>objects\obj_remote</object>
-      <object>objects\obj_recon_drone</object>
-      <object>objects\obj_lunge</object>
-      <object>objects\obj_teleport</object>
+      <objects name="Recon Drone">
+        <object>objects\obj_recon_remote</object>
+        <object>objects\obj_recon_drone</object>
+      </objects>
+      <objects name="Attack Drone">
+        <object>objects\obj_att_remote</object>
+        <object>objects\obj_att_drone</object>
+      </objects>
     </objects>
     <objects name="Inventory">
       <object>objects\obj_inventory</object>
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_titlescreen</room>
     <room>rooms\rm_init</room>
-    <room>rooms\rm_gamescreen</room>
     <room>rooms\rm_test_inventory</room>
+    <room>rooms\rm_titlescreen</room>
+    <room>rooms\rm_gamescreen</room>
     <room>rooms\rm_settings</room>
     <room>rooms\rm_credits</room>
     <rooms name="scaling_test">
