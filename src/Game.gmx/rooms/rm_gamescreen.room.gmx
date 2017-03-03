@@ -199,9 +199,7 @@ if(name == "obj_dagger"){
     <instance objName="obj_potion" x="1792" y="1184" name="inst_A373B099" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy1" x="2272" y="640" name="inst_3EB36C1B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy2" x="1568" y="1472" name="inst_5CAE3F42" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="&lt;undefined&gt;" x="1888" y="1056" name="inst_F1B823ED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_blue_gun" x="1728" y="1280" name="inst_A5457E3C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="&lt;undefined&gt;" x="1792" y="1344" name="inst_3D8A6C25" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawn_char" x="1472" y="608" name="inst_491510CB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_recon_remote" x="1632" y="1056" name="inst_36E7A1BE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_att_remote" x="2176" y="992" name="inst_D16E12DC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

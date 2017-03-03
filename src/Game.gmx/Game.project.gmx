@@ -132,6 +132,7 @@
       </scripts>
       <script>scripts\scr_inventory_add.gml</script>
       <script>scripts\scr_inventory_draw_sprite.gml</script>
+      <script>scripts\scr_inventory_draw_cooldown.gml</script>
       <script>scripts\scr_empty.gml</script>
       <script>scripts\scr_default_item_position.gml</script>
     </scripts>

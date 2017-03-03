@@ -509,7 +509,7 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Only run if can_use_items == true
+            <string>///Only Draw if can_use_items == true
 if(not can_use_items) exit;
 </string>
           </argument>
@@ -554,7 +554,7 @@ save_color = draw_get_color();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw hotbar
+            <string>///Draw hotbar and cooldowns
 
 //Top left coordinates of hotbar:
 var x1 = view_xview[0];
@@ -582,15 +582,15 @@ y1 += y_padding;
 x2 = x1 + cell_size;
 y2 = y1 + cell_size;
 
-//Set cell color.
-draw_set_alpha(cell_alpha);
-draw_set_color(cell_color);
-
 //Draw hotbar cells.
 
 //Draw the Loadout cells.
 for(var i = 0; i &lt; loadout_capacity; i++)
 {
+    //Set cell color.
+    draw_set_alpha(cell_alpha);
+    draw_set_color(cell_color);
+   
     //Draw cell.
     draw_rectangle(x1,y1,x2,y2,false);
     
@@ -604,14 +604,13 @@ for(var i = 0; i &lt; loadout_capacity; i++)
         //If that item has a sprite,
         if(item.sprite_index != -1)
         {
-            //If we're not dragging this item,
-            //if(slot != dragging_item_index)
-            {
-                scr_inventory_draw_sprite(item,x1,y1);
-            }
+            //Draw the item's sprite.
+            scr_inventory_draw_sprite(item,x1,y1);
+            
         }
+        //Draw cooldown.
+        scr_inventory_draw_cooldown(item,x1,y1,x2,y2);
     }
-    
     //Go to next cell.
     x1 += cell_size + x_padding;
     x2 += cell_size + x_padding;
@@ -631,6 +630,10 @@ x1 += 3 * (cell_size + x_padding);
 x2 += 3 * (cell_size + x_padding);
 for(var i = 0; i &lt; persistent_items_capacity; i++)
 {
+    //Set cell color.
+    draw_set_alpha(cell_alpha);
+    draw_set_color(cell_color);
+   
     //Draw cell.
     draw_rectangle(x1,y1,x2,y2,false);
     
@@ -647,6 +650,8 @@ for(var i = 0; i &lt; persistent_items_capacity; i++)
         {
             scr_inventory_draw_sprite(item,x1,y1);
         }
+        //Draw cooldown.
+        scr_inventory_draw_cooldown(item,x1,y1,x2,y2);
     }
     
     //Go to next cell.
@@ -1187,38 +1192,6 @@ if(tooltip_item_index &gt;= 0)
         draw_text_ext(mouse_x+10, mouse_y+10, tooltip_text, 15, 160);
     }
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Draw Cooldown
-/*for(var i = 0; i &lt; 1; i++)
-{
-    var item = loadout[i];
-    if(item != empty)
-    {
-        with(item)
-        {
-            show_debug_message("alarm 0: " + string(alarm[0]));
-        }
-    }
-}*/
 </string>
           </argument>
         </arguments>
