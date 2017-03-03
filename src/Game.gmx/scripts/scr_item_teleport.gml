@@ -23,7 +23,7 @@ else
             owner_id.x = mouse_x;
             owner_id.y = mouse_y;
             can_teleport = false;
-            alarm[0] = cooldown;
+            alarm[COOLDOWN] = cooldown;
         }
         
     

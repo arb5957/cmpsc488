@@ -18,7 +18,7 @@ angle = image_angle;
     }
     
     //Initiate cooldown.
-    alarm[item_alarms.COOLDOWN] = cooldown;
+    alarm[COOLDOWN] = cooldown;
     //We can't fire until the cooldown is complete.
     can_activate = false;
 

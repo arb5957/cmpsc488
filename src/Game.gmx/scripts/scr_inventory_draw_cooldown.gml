@@ -6,7 +6,7 @@ var y1 = argument2;
 var x2 = argument3;
 var y2 = argument4;
 
-var remaining_cooldown = item.alarm[item_alarms.COOLDOWN];
+var remaining_cooldown = item.alarm[item.COOLDOWN];
 if(remaining_cooldown > -1)
 {
     var percent_cooldown = 1-(remaining_cooldown / item.cooldown);
