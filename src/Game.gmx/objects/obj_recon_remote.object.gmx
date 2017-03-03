@@ -64,6 +64,7 @@ var drone_type = obj_recon_drone;
             <kind>1</kind>
             <string>if(instance_exists(obj_inventory))
 {
+    show_debug_message("alarm1 activated");
     obj_inventory.can_use_items = true;
     obj_inventory.disabled = false;
     can_deploy = true;

@@ -93,7 +93,7 @@ with(remote_origin)
     //stop remote animation
     image_speed = 0;
     image_index = 0;
-    alarm[1] = 5;
+    alarm[1] = 15;
 }
 </string>
           </argument>
@@ -178,7 +178,7 @@ if instance_exists(obj_char)
     obj_inventory.can_use_items = true;
 }*/
 remote_origin.can_deploy = false;
-remote_origin.alarm[1] = 5;
+//remote_origin.alarm[1] = 5;
 remote_origin.image_index = 0;
 remote_origin.image_speed = 0;
 instance_destroy();
