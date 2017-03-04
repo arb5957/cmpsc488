@@ -6,6 +6,8 @@ var y1 = argument2;
 var x2 = argument3;
 var y2 = argument4;
 
+if(item.cooldown <= 20) exit;
+
 var remaining_cooldown = item.alarm[item.COOLDOWN];
 if(remaining_cooldown > -1)
 {
