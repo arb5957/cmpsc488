@@ -67,6 +67,7 @@
         <sprite>sprites\spr_drone_shot</sprite>
       </sprites>
       <sprite>sprites\spr_teleport</sprite>
+      <sprite>sprites\spr_slower</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -149,6 +150,7 @@
       <script>scripts\scr_item_pickup.gml</script>
       <script>scripts\scr_item_lunge.gml</script>
       <script>scripts\scr_item_teleport.gml</script>
+      <script>scripts\scr_slower.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -250,6 +252,7 @@
       </objects>
       <object>objects\obj_lunge</object>
       <object>objects\obj_teleport</object>
+      <object>objects\obj_slower</object>
     </objects>
     <objects name="Inventory">
       <object>objects\obj_inventory</object>
