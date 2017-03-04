@@ -84,7 +84,6 @@
     <scripts name="Character">
       <script>scripts\scr_char_move.gml</script>
       <script>scripts\scr_char_takedamage.gml</script>
-      <script>scripts\scr_char_collision_solid.gml</script>
       <script>scripts\scr_char_activate_items.gml</script>
     </scripts>
     <scripts name="Globals">
@@ -274,9 +273,4 @@
   <help>
     <rtf>help.rtf</rtf>
   </help>
-  <TutorialState>
-    <IsTutorial>-1</IsTutorial>
-    <TutorialName>C:\Users\Drew\AppData\Local\gamemaker_studio\tutorials\08_Levels_And_Saving\</TutorialName>
-    <TutorialPage>2</TutorialPage>
-  </TutorialState>
 </assets>

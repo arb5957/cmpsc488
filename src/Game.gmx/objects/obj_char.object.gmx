@@ -305,56 +305,55 @@ switch(state)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(place_meeting(x+hspeed, y, obj_terrain_wall))
-{
-    hspeed = 0;
-}
-if(place_meeting(x, y+vspeed, obj_terrain_wall))
-{
-    vspeed = 0;
-}
+            <string>///Move the character
 
+if(place_meeting(x+hspeed, y, obj_terrain_wall)) // if moving horizontally collides with a wall
+{
+    var solved = false;
+    for(var i = 1; i&lt;7; i++)
+    {
+        if(not place_meeting(x+hspeed, y+i, obj_terrain_wall)) // if moving with a different y allows for moving around wall change to that y
+        {
+            y += i;
+            solved = true;
+            break;
+        }
+        else if(not place_meeting(x+hspeed, y-i, obj_terrain_wall))
+        {
+            y -= i;
+            solved = true;
+            break;
+        }
+    }
+    if not solved // if still can't move around wall set hspeed to 0
+    {
+        hspeed = 0;
+    }
+}
+if(place_meeting(x, y+vspeed, obj_terrain_wall)) // if moving vertically collides with wall
+{
+    var solved = false;
+    for(var i=1; i&lt;7; i++)
+    {
+        if(not place_meeting(x+i, y+vspeed, obj_terrain_wall)) // if moving with a different x allows for moving around wall change to that x
+        {
+            x += i;
+            solved = true;
+            break;
+        }
+        else if(not place_meeting(x-i, y+vspeed, obj_terrain_wall))
+        {
+            x -= i;
+            solved = true;
+            break;
+        }
+    }
+    if not solved // if still can't move around wall change vspeed to 0
+    {
+        vspeed = 0;
+    }
+}
 </string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>9</kind>
-            <script>scr_char_collision_solid</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
           </argument>
         </arguments>
       </action>
