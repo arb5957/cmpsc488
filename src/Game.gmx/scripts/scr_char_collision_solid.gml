@@ -1,4 +1,4 @@
-///Check if colliding with a solid.
+/*///Check if colliding with a solid.
 
 //* This is taken from a tutorial: https://www.youtube.com/watch?v=I1JJa5rhW60
 //  We should improve this code.
