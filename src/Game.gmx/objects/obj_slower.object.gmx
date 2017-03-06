@@ -19,7 +19,7 @@
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>self</whoName>
+        <whoName>obj_slower</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -29,14 +29,16 @@
 
 event_inherited();
 depth = 0;
+//script = scr_slower;
 script = scr_slower;
 position_script = scr_empty;
 damage = 0;
 image_speed = 0;
+one_time_use = true;
 name = "Slower";
-description = "A trap that slowes enemies within range."
+description = "A trap that slowes the character and enemies within range."
 activated = false;
-stackable = true;
+stackable = false;
 </string>
           </argument>
         </arguments>
@@ -61,6 +63,7 @@ stackable = true;
             <kind>1</kind>
             <string>///Allow the player to pick it up again
 on_ground = true;
+activated = true;
 </string>
           </argument>
         </arguments>
@@ -83,9 +86,43 @@ on_ground = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Skip animation image_index 0
-if(activated &amp;&amp; image_index == 0) {
-    image_index = 1;
+            <string>///Slow enemies if close enough
+if(activated &amp;&amp; on_ground)
+{
+    if(image_index == 0)
+    {
+        image_index = 1;
+    }
+    var num_of_enemies = instance_number(obj_enemy_base);
+    for(var i=0; i&lt;num_of_enemies; i++)
+    {
+        tmp_enemy = instance_find(obj_enemy_base, i);
+        if(distance_to_object(tmp_enemy) &lt;= 100)
+        {
+            /*if((tmp_enemy.movement == "circle" &amp;&amp; point_distance(tmp_enemy.x, tmp_enemy.y, obj_char.x, obj_char.y))
+                || tmp_enemy.movement == "speed")
+            {
+                tmp_enemy.move_speed /= 2; 
+                }
+                else
+                {
+                    tmp_enemy.speed = tmp_enemy.speed - 1;
+                }*/
+                
+            if(tmp_enemy.movement == "stalker")
+            {
+                tmp_enemy.speed /= 2;
+            }
+            else
+            {
+                tmp_enemy.move_speed /= 2;
+            }
+        }   
+    }  
+    if(distance_to_object(obj_char) &lt;= 100)
+    {
+        obj_char.speed = obj_char.speed / 2;;
+    } 
 }
 </string>
           </argument>
@@ -109,36 +146,31 @@ if(activated &amp;&amp; image_index == 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Slow enemies if close enough
+            <string>///Draw line from slower to enemies close enough
 draw_self();
 if(activated)
-{
-    if(owner_id == obj_char)
+{   
+    var num_of_enemies = instance_number(obj_enemy_base);
+    for(var i=0; i&lt;num_of_enemies; i++)
     {
-        var num_of_enemies = instance_number(obj_enemy_base);
-        for(var i=0; i&lt;num_of_enemies; i++)
+        tmp_enemy = instance_find(obj_enemy_base, i);
+        if(distance_to_object(tmp_enemy) &lt;= 100)
         {
-            tmp_enemy = instance_find(obj_enemy_base, i);
-            if(distance_to_object(tmp_enemy) &lt;= 100)
-            {
-                tmp_enemy.speed = tmp_enemy.speed / 2;
-                draw_set_colour(c_aqua);
-                draw_line(x, y, tmp_enemy.x, tmp_enemy.y);
-            }   
-        }
-    }
-    else
-    {
-        if(instance_exists(obj_char))
-        {
-            if(distance_to_object(obj_char) &lt;= 100)
-            {
-                obj_char.speed = obj_char.speed / 2;;
-                draw_set_colour(c_aqua);
-                draw_line(x, y, obj_char.x, obj_char.y);
-            }
+            draw_set_colour(c_aqua);
+            draw_line(x, y, tmp_enemy.x, tmp_enemy.y);
         }   
-    }   
+    }
+    
+    
+    if(instance_exists(obj_char))
+    {
+        if(distance_to_object(obj_char) &lt;= 100)
+        {
+            obj_char.speed = obj_char.speed / 2;;
+            draw_set_colour(c_aqua);
+            draw_line(x, y, obj_char.x, obj_char.y);
+        }
+    }     
 }
 </string>
           </argument>

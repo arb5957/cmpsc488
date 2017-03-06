@@ -5,6 +5,8 @@ switch(name)
         hp = irandom_range(2, 6);
         weapon = global.weap_array[irandom_range(1,2)];
         movement = global.enemy_movements[irandom_range(1,2)];
+        move_speed_default = 2;
+        move_speed = move_speed_default;
         item = global.items_array[2];
         break;
     
