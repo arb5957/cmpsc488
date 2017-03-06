@@ -98,24 +98,16 @@ if(activated &amp;&amp; on_ground)
     {
         tmp_enemy = instance_find(obj_enemy_base, i);
         if(distance_to_object(tmp_enemy) &lt;= 100)
-        {
-            /*if((tmp_enemy.movement == "circle" &amp;&amp; point_distance(tmp_enemy.x, tmp_enemy.y, obj_char.x, obj_char.y))
-                || tmp_enemy.movement == "speed")
-            {
-                tmp_enemy.move_speed /= 2; 
-                }
-                else
-                {
-                    tmp_enemy.speed = tmp_enemy.speed - 1;
-                }*/
-                
+        {                
             if(tmp_enemy.movement == "stalker")
             {
-                tmp_enemy.speed /= 2;
+                tmp_enemy.speed = ceil(tmp_enemy.speed / 2);
+                if(tmp_enemy.speed &gt; 0)
+                    show_debug_message("Stalker speed: " + string(tmp_enemy.speed));
             }
             else
             {
-                tmp_enemy.move_speed /= 2;
+                tmp_enemy.move_speed = ceil(tmp_enemy.move_speed / 2);
             }
         }   
     }  
