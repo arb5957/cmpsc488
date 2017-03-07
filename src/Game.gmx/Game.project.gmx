@@ -37,10 +37,13 @@
     </sprites>
     <sprites name="Enemy">
       <sprite>sprites\spr_enemy1</sprite>
+      <sprite>sprites\spr_enemy_butterfly</sprite>
+      <sprite>sprites\spr_enemy_duplicate</sprite>
     </sprites>
     <sprites name="Projectile">
       <sprite>sprites\spr_bullet</sprite>
       <sprite>sprites\spr_arrow</sprite>
+      <sprite>sprites\spr_acid_cloud</sprite>
     </sprites>
     <sprites name="Weapons">
       <sprite>sprites\spr_blue_gun</sprite>
@@ -89,12 +92,14 @@
         <script>scripts\scr_enemy_default_attack.gml</script>
         <script>scripts\attack_aggressive.gml</script>
         <script>scripts\attack_within_range.gml</script>
+        <script>scripts\attack_butterfly.gml</script>
       </scripts>
       <scripts name="Movement">
         <script>scripts\movement_circle.gml</script>
         <script>scripts\movement_speed.gml</script>
         <script>scripts\movement_stalker.gml</script>
         <script>scripts\movement_teleport.gml</script>
+        <script>scripts\movement_butterfly.gml</script>
       </scripts>
       <script>scripts\scr_enemy_takedamage.gml</script>
       <script>scripts\set_enemy_attr.gml</script>
@@ -102,6 +107,9 @@
       <scripts name="Enemy_items">
         <script>scripts\item_lunge.gml</script>
         <script>scripts\item_teleport.gml</script>
+      </scripts>
+      <scripts name="Duplicate_Enemy">
+        <script>scripts\scr_fake_dup_hit.gml</script>
       </scripts>
     </scripts>
     <scripts name="Projectile">
@@ -210,11 +218,15 @@
       <object>objects\obj_enemy_base</object>
       <object>objects\obj_enemy1</object>
       <object>objects\obj_enemy2</object>
+      <object>objects\obj_enemy_butterfly</object>
+      <object>objects\obj_enemy_duplicate_real</object>
+      <object>objects\obj_enemy_duplicate_fake</object>
     </objects>
     <objects name="Projectile">
       <object>objects\obj_bullet_base</object>
       <object>objects\obj_bullet</object>
       <object>objects\obj_arrow</object>
+      <object>objects\obj_acid_cloud</object>
     </objects>
     <objects name="Weapons">
       <object>objects\obj_blue_gun</object>

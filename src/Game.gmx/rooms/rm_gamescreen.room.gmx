@@ -198,8 +198,7 @@ if(name == "obj_dagger"){
     <instance objName="obj_potion" x="1792" y="1120" name="inst_8006AB17" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_potion" x="1760" y="1024" name="inst_C6EB9332" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_potion" x="1792" y="1184" name="inst_A373B099" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy1" x="2272" y="640" name="inst_3EB36C1B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy2" x="1568" y="1472" name="inst_5CAE3F42" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_duplicate_real" x="2368" y="1376" name="inst_AE8EB79B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

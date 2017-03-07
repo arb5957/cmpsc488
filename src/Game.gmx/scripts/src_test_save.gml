@@ -2,8 +2,8 @@ var data;
 data = ds_map_create();
 
 data[? "save_name"] = obj_char.name;
-data[? "savedX"] = obj_char.x;
-data[? "savedY"] = obj_char.y;
+data[? "global.savedX"] = obj_char.x;
+data[? "global.savedY"] = obj_char.y;
 var temp = ds_list_create();
 
 //temp[| 0] = inven;
