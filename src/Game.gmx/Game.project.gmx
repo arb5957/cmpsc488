@@ -186,6 +186,7 @@
         <object>objects\obj_str_weapon_back</object>
         <object>objects\obj_str_weapon_overlay</object>
         <object>objects\obj_str_weapon_overlay2</object>
+        <object>objects\obj_escape_overlay</object>
       </objects>
     </objects>
     <objects name="Character">
