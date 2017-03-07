@@ -39,6 +39,7 @@
       <sprite>sprites\spr_enemy1</sprite>
       <sprite>sprites\spr_enemy_butterfly</sprite>
       <sprite>sprites\spr_enemy_duplicate</sprite>
+      <sprite>sprites\spr_enemy_healer</sprite>
     </sprites>
     <sprites name="Projectile">
       <sprite>sprites\spr_bullet</sprite>
@@ -221,6 +222,7 @@
       <object>objects\obj_enemy_butterfly</object>
       <object>objects\obj_enemy_duplicate_real</object>
       <object>objects\obj_enemy_duplicate_fake</object>
+      <object>objects\obj_enemy_healer</object>
     </objects>
     <objects name="Projectile">
       <object>objects\obj_bullet_base</object>
