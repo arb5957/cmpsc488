@@ -180,6 +180,7 @@
       <objects name="draw_titles">
         <object>objects\obj_draw_title</object>
         <object>objects\obj_draw_settings</object>
+        <object>objects\obj_draw_stats</object>
       </objects>
       <objects name="Overlays">
         <object>objects\obj_char1_overlay</object>
@@ -265,12 +266,12 @@
     <room>rooms\rm_titlescreen</room>
     <room>rooms\rm_gamescreen</room>
     <room>rooms\rm_settings</room>
+    <room>rooms\rm_gameover</room>
     <room>rooms\rm_credits</room>
     <rooms name="scaling_test">
       <room>rooms\rm_testroom</room>
       <room>rooms\rm_initialization</room>
     </rooms>
-    <room>rooms\rm_gameover</room>
     <room>rooms\rm_charselect</room>
     <room>rooms\rm_create_char</room>
   </rooms>

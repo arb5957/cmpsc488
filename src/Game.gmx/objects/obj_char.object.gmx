@@ -119,9 +119,13 @@ enum alarms
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with(obj_held_item)
+            <string>/// Destroy the inventory
+if(instance_exists(obj_inventory))
 {
-    instance_destroy();
+    with(obj_inventory)
+    {
+        instance_destroy();
+    }
 }
 </string>
           </argument>
