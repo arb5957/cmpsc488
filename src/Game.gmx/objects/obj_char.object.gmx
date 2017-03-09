@@ -396,6 +396,12 @@ else
 {
     safe = true;
 }
+if(x &gt; room_width || x &lt; 0 || y &gt; room_height || y &lt; 0) {
+    x = room_width/2;
+    y = room_height/2;
+    room_goto(rm_gamescreen2);
+    show_debug_message("Going to 2");
+}
 </string>
           </argument>
         </arguments>

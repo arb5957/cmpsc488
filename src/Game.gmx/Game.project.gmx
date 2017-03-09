@@ -35,6 +35,7 @@
         <sprite>sprites\spr_building_vr</sprite>
         <sprite>sprites\spr_building_ht</sprite>
       </sprites>
+      <sprite>sprites\spr_floor</sprite>
     </sprites>
     <sprites name="Enemy">
       <sprite>sprites\spr_enemy1</sprite>
@@ -228,6 +229,10 @@
       <object>objects\obj_terrain_spikes</object>
       <object>objects\obj_building</object>
       <object>objects\obj_terrain_floor</object>
+      <object>objects\obj_floor</object>
+      <objects name="Generator">
+        <object>objects\obj_floor_generator</object>
+      </objects>
     </objects>
     <objects name="Display">
       <object>objects\obj_scaling</object>
@@ -283,6 +288,7 @@
     <objects name="World">
       <object>objects\obj_polyomino</object>
     </objects>
+    <object>objects\obj_controller</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
@@ -290,6 +296,7 @@
     <room>rooms\rm_test_inventory</room>
     <room>rooms\rm_titlescreen</room>
     <room>rooms\rm_gamescreen</room>
+    <room>rooms\rm_gamescreen2</room>
     <room>rooms\rm_settings</room>
     <room>rooms\rm_gameover</room>
     <room>rooms\rm_credits</room>

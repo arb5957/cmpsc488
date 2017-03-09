@@ -27,7 +27,11 @@ if(name == "obj_dagger"){
     global.slot[15] = "dagger2"; 
     instance_create(obj_char.x, obj_char.y, obj_dagger);
 }
-*/</code>
+*/
+
+//FOR DEBUGGING
+
+room_goto(rm_gamescreen2);</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
