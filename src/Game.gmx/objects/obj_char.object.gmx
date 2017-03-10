@@ -396,12 +396,35 @@ else
 {
     safe = true;
 }
-if(x &gt; room_width || x &lt; 0 || y &gt; room_height || y &lt; 0) {
+/*if(x &gt; room_width || x &lt; 0 || y &gt; room_height || y &lt; 0) {
     x = room_width/2;
     y = room_height/2;
     room_goto(rm_gamescreen2);
     show_debug_message("Going to 2");
-}
+}*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_next_room">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto(rm_gamescreen2);
 </string>
           </argument>
         </arguments>
