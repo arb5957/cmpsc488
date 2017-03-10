@@ -69,16 +69,16 @@ if(instance_number(obj_floor_generator) == 1) {
         if(spawn_chance &gt;=0 &amp;&amp; spawn_chance &lt;=2) {
             instance_create(x, y, obj_terrain_stickyfloor);
         }
-        else if(spawn_chance &gt;= 3 &amp;&amp; spawn_chance &lt;= 5) {
+        /*else if(spawn_chance &gt;= 3 &amp;&amp; spawn_chance &lt;= 5) {
             instance_create(x, y, obj_terrain_slippery);
-        }
+        }*/
         else if(spawn_chance &gt;= 6 &amp;&amp; spawn_chance &lt;= 8) {
             instance_create(x, y, obj_terrain_spikes);
         }
-        else if(spawn_chance &gt;= 9 &amp;&amp; spawn_chance &lt;=10) {
+        else if(spawn_chance &gt;= 9 &amp;&amp; spawn_chance &lt;=9) {
             instance_create(x, y, obj_enemy1);
         }
-        else if(spawn_chance &gt;= 11 &amp;&amp; spawn_chance &lt;= 12) {
+        else if(spawn_chance &gt;= 11 &amp;&amp; spawn_chance &lt;= 11) {
             instance_create(x, y, obj_enemy2);
         }
     }
