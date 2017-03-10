@@ -40,11 +40,24 @@
       <sprite>sprites\spr_enemy_butterfly</sprite>
       <sprite>sprites\spr_enemy_duplicate</sprite>
       <sprite>sprites\spr_enemy_healer</sprite>
+      <sprite>sprites\spr_enemy_summoner</sprite>
+      <sprite>sprites\spr_enemy_dig</sprite>
+      <sprites name="Effects">
+        <sprite>sprites\spr_heal_aura</sprite>
+        <sprite>sprites\spr_enemy_summoner_summing</sprite>
+        <sprite>sprites\spr_enemy_digging</sprite>
+        <sprite>sprites\spr_quake</sprite>
+      </sprites>
+      <sprites name="Bosses">
+        <sprite>sprites\spr_Boss1</sprite>
+        <sprite>sprites\spr_Boss2</sprite>
+      </sprites>
     </sprites>
     <sprites name="Projectile">
       <sprite>sprites\spr_bullet</sprite>
       <sprite>sprites\spr_arrow</sprite>
       <sprite>sprites\spr_acid_cloud</sprite>
+      <sprite>sprites\spr_boss_lazer</sprite>
     </sprites>
     <sprites name="Weapons">
       <sprite>sprites\spr_blue_gun</sprite>
@@ -94,6 +107,9 @@
         <script>scripts\attack_aggressive.gml</script>
         <script>scripts\attack_within_range.gml</script>
         <script>scripts\attack_butterfly.gml</script>
+        <script>scripts\attack_healer.gml</script>
+        <script>scripts\attack_summoner.gml</script>
+        <script>scripts\attack_dig.gml</script>
       </scripts>
       <scripts name="Movement">
         <script>scripts\movement_circle.gml</script>
@@ -101,6 +117,10 @@
         <script>scripts\movement_stalker.gml</script>
         <script>scripts\movement_teleport.gml</script>
         <script>scripts\movement_butterfly.gml</script>
+        <script>scripts\movement_healer.gml</script>
+        <script>scripts\instance_nth_nearest.gml</script>
+        <script>scripts\movement_summoner.gml</script>
+        <script>scripts\movement_dig.gml</script>
       </scripts>
       <script>scripts\scr_enemy_takedamage.gml</script>
       <script>scripts\set_enemy_attr.gml</script>
@@ -111,6 +131,19 @@
       </scripts>
       <scripts name="Duplicate_Enemy">
         <script>scripts\scr_fake_dup_hit.gml</script>
+      </scripts>
+      <scripts name="Bosses">
+        <scripts name="Boss1">
+          <script>scripts\movement_boss1_phase1.gml</script>
+          <script>scripts\movement_boss1_phase2.gml</script>
+          <script>scripts\movement_boss1_phase3.gml</script>
+          <script>scripts\attack_boss1_phase3.gml</script>
+        </scripts>
+        <scripts name="Boss2">
+          <script>scripts\movement_boss2.gml</script>
+          <script>scripts\attack_boss2_lighting.gml</script>
+          <script>scripts\attack_boss2_quakes.gml</script>
+        </scripts>
       </scripts>
     </scripts>
     <scripts name="Projectile">
@@ -223,12 +256,23 @@
       <object>objects\obj_enemy_duplicate_real</object>
       <object>objects\obj_enemy_duplicate_fake</object>
       <object>objects\obj_enemy_healer</object>
+      <object>objects\obj_enemy_summoner</object>
+      <object>objects\obj_enemy_dig</object>
+      <objects name="Effects">
+        <object>objects\obj_heal_aura</object>
+      </objects>
+      <objects name="Bosses">
+        <object>objects\obj_enemy_boss1</object>
+        <object>objects\obj_enemy_boss2</object>
+      </objects>
     </objects>
     <objects name="Projectile">
       <object>objects\obj_bullet_base</object>
       <object>objects\obj_bullet</object>
       <object>objects\obj_arrow</object>
       <object>objects\obj_acid_cloud</object>
+      <object>objects\obj_boss_lazer</object>
+      <object>objects\obj_quake</object>
     </objects>
     <objects name="Weapons">
       <object>objects\obj_blue_gun</object>
