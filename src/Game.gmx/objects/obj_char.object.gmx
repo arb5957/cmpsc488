@@ -48,8 +48,8 @@ curr_item  = ""; curr_item2 = ""; curr_item3 = "";
 timer = 0;
 
 //Player speed variables:
-player_speed = 3;
-original_player_speed = player_speed;
+move_speed = 3;
+original_move_speed = move_speed;
 
 //Player movement variables:
 going_up = false;
@@ -78,6 +78,9 @@ enum states
 }
 
 state = states.NORMAL;
+
+//Script used to know what all items the player has equipped currently.
+get_equipped_items = scr_char_get_equipped_items;
 
 //All the alarms for obj_char are here. Only use one alarm for one thing.
 //When you make a new alarm, change the name below to something descriptive,

@@ -104,21 +104,20 @@ if keyboard_check_released(move_right)
 
 if(going_up)
 {
-    vspeed = -player_speed;
+    vspeed = -move_speed;
 }
 if(going_down)
 {
-    vspeed = player_speed;
+    vspeed = move_speed;
 }
 if(going_left)
 {
-    hspeed = -player_speed;
+    hspeed = -move_speed;
 }
 if(going_right)
 {
-    hspeed = player_speed;
+    hspeed = move_speed;
 }
-
 
 //*/
 
@@ -128,19 +127,19 @@ hspeed = 0;
 
 if keyboard_check(move_up)
 {
-    vspeed = -player_speed;
+    vspeed = -move_speed;
 }
 if keyboard_check(move_down)
 {
-    vspeed = player_speed;
+    vspeed = move_speed;
 }
 if keyboard_check(move_left)
 {
-    hspeed = -player_speed;
+    hspeed = -move_speed;
 }
 if keyboard_check(move_right)
 {
-    hspeed = player_speed;
+    hspeed = move_speed;
 }
 //*/
 
@@ -151,19 +150,19 @@ if keyboard_check(move_right)
 var factor = 2;
 if(hspeed > 0)
 {
-    hspeed = player_speed * factor;
+    hspeed = move_speed * factor;
 }
 else if(hspeed < 0)
 {
-    hspeed = -player_speed * factor;
+    hspeed = -move_speed * factor;
 }
 if(vspeed > 0)
 {
-    vspeed = player_speed * factor;
+    vspeed = move_speed * factor;
 }
 else if(vspeed < 0)
 {
-    vspeed = -player_speed * factor;
+    vspeed = -move_speed * factor;
 }
 
 //We need to reset these variables to stop.

@@ -56,7 +56,7 @@ duration = room_speed;
 
 with(obj_char)
 {
-    //player_speed = original_player_speed;
+    //move_speed = original_move_speed;
     state = states.NORMAL;
 }
 activated = false;
@@ -95,19 +95,19 @@ if(not activated)
         //If we don't want compounded slipping.
         /*if(hspeed &gt; 0)
         {
-            hspeed = player_speed * other.factor;
+            hspeed = move_speed * other.factor;
         }
         else if(hspeed &lt; 0)
         {
-            hspeed = -player_speed * other.factor;
+            hspeed = -move_speed * other.factor;
         }
         if(vspeed &gt; 0)
         {
-            vspeed = player_speed * other.factor;
+            vspeed = move_speed * other.factor;
         }
         else if(vspeed &lt; 0)
         {
-            vspeed = -player_speed * other.factor;
+            vspeed = -move_speed * other.factor;
         }*/
         
         state = states.SLIP;

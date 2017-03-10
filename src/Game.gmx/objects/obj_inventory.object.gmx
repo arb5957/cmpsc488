@@ -922,9 +922,17 @@ if(inventory_open)
                     switch(clicked_on)
                     {
                         case region.LOADOUT:
+                            with(cubby)
+                            {
+                                script_execute(deactivation_script);
+                            }
                             loadout[current_loadout, item_index] = empty;
                             break;
                         case region.PERSIST:
+                            with(cubby)
+                            {
+                                script_execute(deactivation_script);
+                            }
                             persistent_items[item_index] = empty;
                             break;
                         case region.INVENTORY:
@@ -945,11 +953,19 @@ if(inventory_open)
                                 if((item_index &lt; first_passive_slot and cubby.passive == false) or
                                    (item_index &gt;= first_passive_slot and cubby.passive == true))
                                 {
+                                    with(cubby)
+                                    {
+                                        script_execute(activation_script);
+                                    }
                                     loadout[current_loadout, item_index] = cubby;
                                     cubby = empty;
                                 }
                                 break;
                             case region.PERSIST:
+                                with(cubby)
+                                {
+                                    script_execute(activation_script);
+                                }
                                 persistent_items[item_index] = cubby;
                                 cubby = empty;
                                 break;
@@ -981,6 +997,14 @@ if(inventory_open)
                                 {
                                     if(swapping)
                                     {
+                                        with(cubby)
+                                        {
+                                            script_execute(activation_script);
+                                        }
+                                        with(item)
+                                        {
+                                            script_execute(deactivation_script);
+                                        }
                                         var temp = cubby;
                                         cubby = item;
                                         loadout[current_loadout,item_index] = temp;
@@ -996,6 +1020,14 @@ if(inventory_open)
                             case region.PERSIST:
                                 if(swapping)
                                 {
+                                    with(cubby)
+                                    {
+                                        script_execute(activation_script);
+                                    }
+                                    with(item)
+                                    {
+                                        script_execute(deactivation_script);
+                                    }
                                     var temp = cubby;
                                     cubby = item;
                                     persistent_items[item_index] = temp;
@@ -1091,6 +1123,11 @@ if(inventory_open)
         //Check if we clicked outside.
         if(not(clicked_on_inventory or clicked_on_hotbar))
         {
+            with(cubby)
+            {
+                script_execute(deactivation_script);
+            }
+            cubby.equipped = false;
             cubby.on_ground = true;
             cubby.visible = true;
             cubby.x = mouse_x-16
