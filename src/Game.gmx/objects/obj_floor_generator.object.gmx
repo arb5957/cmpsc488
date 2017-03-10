@@ -30,8 +30,8 @@
 room_speed = 240;
 mv_speed = 32;
 mv_dir = choose(0, 90, 180, 270);
-alarm[0] = 50 + irandom(100);
-alarm[1] = 10 + irandom(30);
+alarm[0] = 25 + irandom(100);
+alarm[1] = 5 + irandom(30);
 motion_set(mv_dir, mv_speed);
 </string>
           </argument>
@@ -65,10 +65,29 @@ if(instance_number(obj_floor_generator) == 1) {
                 }
             }
         }
+        spawn_chance = irandom(1000);
+        if(spawn_chance &gt;=0 &amp;&amp; spawn_chance &lt;=2) {
+            instance_create(x, y, obj_terrain_stickyfloor);
+        }
+        else if(spawn_chance &gt;= 3 &amp;&amp; spawn_chance &lt;= 5) {
+            instance_create(x, y, obj_terrain_slippery);
+        }
+        else if(spawn_chance &gt;= 6 &amp;&amp; spawn_chance &lt;= 8) {
+            instance_create(x, y, obj_terrain_spikes);
+        }
+        else if(spawn_chance &gt;= 9 &amp;&amp; spawn_chance &lt;=10) {
+            instance_create(x, y, obj_enemy1);
+        }
+        else if(spawn_chance &gt;= 11 &amp;&amp; spawn_chance &lt;= 12) {
+            instance_create(x, y, obj_enemy2);
+        }
     }
     view_visible[0] = true;
     view_visible[1] = false;
     room_speed = 60;
+    if(instance_exists(obj_controller)) {
+        obj_controller.generator_done = true;
+    }
 }
 </string>
           </argument>
@@ -95,7 +114,7 @@ if(instance_number(obj_floor_generator) == 1) {
             <string>///Choose direction
 
 mv_dir = choose(0, 90, 180, 270);
-motion_set(mv_dir, mv_speed);
+direction = mv_dir;
 </string>
           </argument>
         </arguments>
@@ -144,17 +163,15 @@ instance_destroy();
             <kind>1</kind>
             <string>//Generate floor and possibly more generators
 
-instance_create(x, y, obj_floor);
-instance_create(x, y+32, obj_floor);
-instance_create(x, y-32, obj_floor);
-instance_create(x+32, y, obj_floor);
-instance_create(x+32, y+32, obj_floor);
-instance_create(x+32, y-32, obj_floor);
-instance_create(x-32, y, obj_floor);
-instance_create(x-32, y-32, obj_floor);
-instance_create(x-32, y+32, obj_floor);
+for(i=-32; i&lt;=32; i+=32) {
+    for(j=-32; j&lt;=32; j+=32) {
+        if(place_empty(x+i, y+j)) {
+            instance_create(x+i, y+j, obj_floor);
+        }
+    }
+}
 
-if(x&lt;0 || x&gt;room_width || y&lt;0 || y&gt;room_height) {
+if(x&lt;32 || x&gt;room_width-32 || y&lt;32 || y&gt;room_height-32) {
     instance_destroy();
 }
 else {
