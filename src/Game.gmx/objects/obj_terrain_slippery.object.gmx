@@ -84,36 +84,36 @@ activated = false;
             <kind>1</kind>
             <string>///Speed up the player.
 
-if(not activated)
+if((not activated) and (not other.flying))
 {
-    with(other)
-    {
-        //If we want compounded slipping.
-        //hspeed = hspeed * other.factor
-        //vspeed = vspeed * other.factor
-        
-        //If we don't want compounded slipping.
-        /*if(hspeed &gt; 0)
+        with(other)
         {
-            hspeed = move_speed * other.factor;
+            //If we want compounded slipping.
+            //hspeed = hspeed * other.factor
+            //vspeed = vspeed * other.factor
+            
+            //If we don't want compounded slipping.
+            /*if(hspeed &gt; 0)
+            {
+                hspeed = move_speed * other.factor;
+            }
+            else if(hspeed &lt; 0)
+            {
+                hspeed = -move_speed * other.factor;
+            }
+            if(vspeed &gt; 0)
+            {
+                vspeed = move_speed * other.factor;
+            }
+            else if(vspeed &lt; 0)
+            {
+                vspeed = -move_speed * other.factor;
+            }*/
+            
+            state = states.SLIP;
         }
-        else if(hspeed &lt; 0)
-        {
-            hspeed = -move_speed * other.factor;
-        }
-        if(vspeed &gt; 0)
-        {
-            vspeed = move_speed * other.factor;
-        }
-        else if(vspeed &lt; 0)
-        {
-            vspeed = -move_speed * other.factor;
-        }*/
-        
-        state = states.SLIP;
-    }
-    activated = true;
-    alarm[0] = duration;
+        activated = true;
+        alarm[0] = duration;
 }
 
 

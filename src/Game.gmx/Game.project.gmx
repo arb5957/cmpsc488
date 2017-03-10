@@ -68,6 +68,7 @@
       </sprites>
       <sprite>sprites\spr_teleport</sprite>
       <sprite>sprites\spr_speed_boost</sprite>
+      <sprite>sprites\spr_flying_stone</sprite>
       <sprite>sprites\spr_slower</sprite>
     </sprites>
   </sprites>
@@ -155,6 +156,8 @@
       <script>scripts\scr_slower.gml</script>
       <script>scripts\scr_speed_boost_activate.gml</script>
       <script>scripts\scr_speed_boost_deactivate.gml</script>
+      <script>scripts\scr_flying_stone_activate.gml</script>
+      <script>scripts\scr_flying_stone_deactivate.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -260,6 +263,7 @@
       <object>objects\obj_teleport</object>
       <object>objects\obj_slower</object>
       <object>objects\obj_speed_boost</object>
+      <object>objects\obj_flying_stone</object>
     </objects>
     <objects name="Inventory">
       <object>objects\obj_inventory</object>

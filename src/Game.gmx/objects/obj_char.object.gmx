@@ -3,7 +3,7 @@
   <spriteName>spr_char</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-10</depth>
   <persistent>-1</persistent>
   <parentName>obj_enemy_avoid</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -81,6 +81,12 @@ state = states.NORMAL;
 
 //Script used to know what all items the player has equipped currently.
 get_equipped_items = scr_char_get_equipped_items;
+
+//For use with items that enable the player to fly.
+flying = false;
+//How many flying stones we have equipped. This is used if the player
+//equips multiple flying stones equipped.
+flying_stone_count = 0;
 
 //All the alarms for obj_char are here. Only use one alarm for one thing.
 //When you make a new alarm, change the name below to something descriptive,
@@ -313,51 +319,53 @@ switch(state)
           <argument>
             <kind>1</kind>
             <string>///Move the character
-
-if(place_meeting(x+hspeed, y, obj_terrain_wall)) // if moving horizontally collides with a wall
+if(not flying)
 {
-    var solved = false;
-    for(var i = 1; i&lt;7; i++)
+    if(place_meeting(x+hspeed, y, obj_terrain_wall)) // if moving horizontally collides with a wall
     {
-        if(not place_meeting(x+hspeed, y+i, obj_terrain_wall)) // if moving with a different y allows for moving around wall change to that y
+        var solved = false;
+        for(var i = 1; i&lt;7; i++)
         {
-            y += i;
-            solved = true;
-            break;
+            if(not place_meeting(x+hspeed, y+i, obj_terrain_wall)) // if moving with a different y allows for moving around wall change to that y
+            {
+                y += i;
+                solved = true;
+                break;
+            }
+            else if(not place_meeting(x+hspeed, y-i, obj_terrain_wall))
+            {
+                y -= i;
+                solved = true;
+                break;
+            }
         }
-        else if(not place_meeting(x+hspeed, y-i, obj_terrain_wall))
+        if not solved // if still can't move around wall set hspeed to 0
         {
-            y -= i;
-            solved = true;
-            break;
-        }
-    }
-    if not solved // if still can't move around wall set hspeed to 0
-    {
-        hspeed = 0;
-    }
-}
-if(place_meeting(x, y+vspeed, obj_terrain_wall)) // if moving vertically collides with wall
-{
-    var solved = false;
-    for(var i=1; i&lt;7; i++)
-    {
-        if(not place_meeting(x+i, y+vspeed, obj_terrain_wall)) // if moving with a different x allows for moving around wall change to that x
-        {
-            x += i;
-            solved = true;
-            break;
-        }
-        else if(not place_meeting(x-i, y+vspeed, obj_terrain_wall))
-        {
-            x -= i;
-            solved = true;
-            break;
+            hspeed = 0;
         }
     }
-    if not solved // if still can't move around wall change vspeed to 0
+    if(place_meeting(x, y+vspeed, obj_terrain_wall)) // if moving vertically collides with wall
     {
-        vspeed = 0;
+        var solved = false;
+        for(var i=1; i&lt;7; i++)
+        {
+            if(not place_meeting(x+i, y+vspeed, obj_terrain_wall)) // if moving with a different x allows for moving around wall change to that x
+            {
+                x += i;
+                solved = true;
+                break;
+            }
+            else if(not place_meeting(x-i, y+vspeed, obj_terrain_wall))
+            {
+                x -= i;
+                solved = true;
+                break;
+            }
+        }
+        if not solved // if still can't move around wall change vspeed to 0
+        {
+            vspeed = 0;
+        }
     }
 }
 </string>

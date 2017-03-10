@@ -84,14 +84,14 @@ with(obj_char)
             <kind>1</kind>
             <string>///Slow down the player.
 
-with(other)
+if(not other.flying)
 {
-    move_speed = other.factor * original_move_speed;
-
+    with(other)
+    {
+            move_speed = other.factor * original_move_speed;
+    }
+    alarm[0] = duration;
 }
-
-alarm[0] = duration;
-
 </string>
           </argument>
         </arguments>

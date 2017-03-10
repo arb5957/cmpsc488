@@ -47,6 +47,11 @@ using_item = false;
 //It returns what items an enemy has equipped.
 get_equipped_items = scr_empty;
 
+//This variable is used for items that make enemies and the player fly.
+//Maybe incorporate this for enemies that go through walls
+//by letting them equip obj_flying.
+flying = false;
+flying_stone_count = 0;
 
 </string>
           </argument>

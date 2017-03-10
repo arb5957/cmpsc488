@@ -81,7 +81,7 @@ active = true;
             <kind>1</kind>
             <string>/// Damage the player.
 
-if(active)
+if(active and (not other.flying))
 {
     with(other)
     {
