@@ -95,8 +95,6 @@ if(instance_number(obj_floor_generator) == 1) {
     
     while(!last_run &amp;&amp; check_y &lt; room_height) {
         while(check_x &lt; room_width) {
-            show_debug_message("X: " + string(check_x) + "  Y: " + string(check_y) +
-                "  last_run: " + string(last_run));
             if(not place_empty(check_x, check_y)) {
                 last_run = 1;
                 with(instance_position(check_x, check_y, obj_terrain_wall)) {
@@ -141,6 +139,44 @@ if(instance_number(obj_floor_generator) == 1) {
     with(north_wall2) {
         instance_destroy();
     }*/
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Move character
+if(instance_exists(obj_char)) {
+    //instance_activate_object(obj_char);
+    move_x = 16;
+    move_y = 48;
+   if(instance_exists(obj_next_room)) {
+        for(var i=0; i&lt;instance_number(obj_next_room); i++) {
+            spawn = instance_find(obj_next_room, i);
+            show_debug_message("X: " + string (spawn.x + move_x) + "  Y: " + string(spawn.y + move_y));
+            if(instance_position(spawn.x+move_x, spawn.y+move_y, obj_floor)) {
+                show_debug_message("Moving character");
+                obj_char.x = spawn.x+move_x;
+                obj_char.y = spawn.y+move_y;
+                break;
+            }
+        }
+    }
 }
 </string>
           </argument>

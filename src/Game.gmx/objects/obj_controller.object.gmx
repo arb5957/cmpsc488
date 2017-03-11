@@ -53,15 +53,20 @@ generator_done = false;
           <argument>
             <kind>1</kind>
             <string>///Deactivate
-/*
+
 if(generator_done) {
-    instance_deactivate_all(true);
+    /*instance_deactivate_all(true);
     instance_activate_object(obj_char);
     instance_activate_object(obj_inventory);
     instance_activate_region(view_xview[view_current]-20, view_yview[view_current]-20,
         view_wview[view_current]+20, view_hview[view_current]+20, true);
     if(instance_exists(obj_char)) {
         view_object[view_current] = obj_char;
+    }*/
+}
+else {
+    if(instance_exists(obj_char)) {
+        //instance_deactivate_object(obj_char);
     }
 }
 </string>
