@@ -233,6 +233,7 @@
       <object>objects\obj_floor</object>
       <objects name="Generator">
         <object>objects\obj_floor_generator</object>
+        <object>objects\obj_next_room</object>
       </objects>
     </objects>
     <objects name="Display">
@@ -290,7 +291,6 @@
       <object>objects\obj_polyomino</object>
     </objects>
     <object>objects\obj_controller</object>
-    <object>objects\obj_next_room</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>

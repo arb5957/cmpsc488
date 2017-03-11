@@ -53,7 +53,7 @@ generator_done = false;
           <argument>
             <kind>1</kind>
             <string>///Deactivate
-
+/*
 if(generator_done) {
     instance_deactivate_all(true);
     instance_activate_object(obj_char);

@@ -82,22 +82,65 @@ if(instance_number(obj_floor_generator) == 1) {
             instance_create(x, y, obj_enemy2);
         }
     }
-    view_visible[0] = true;
-    view_visible[1] = false;
+    //view_visible[0] = true;
+    //view_visible[1] = false;
     room_speed = 60;
     if(instance_exists(obj_controller)) {
         obj_controller.generator_done = true;
     }
-    north_wall = instance_nearest(room_width/2, 0, obj_terrain_wall);
+    
+    var check_x = 0;
+    var check_y = 0;
+    var last_run = false;
+    
+    while(!last_run &amp;&amp; check_y &lt; room_height) {
+        while(check_x &lt; room_width) {
+            show_debug_message("X: " + string(check_x) + "  Y: " + string(check_y) +
+                "  last_run: " + string(last_run));
+            if(not place_empty(check_x, check_y)) {
+                last_run = 1;
+                with(instance_position(check_x, check_y, obj_terrain_wall)) {
+                    instance_destroy();
+                }
+            }
+            else if(last_run){
+                break;
+            }
+            if(last_run) {
+                with(instance_create(check_x, check_y, obj_next_room)) {
+                    dir = 1;
+                }
+            }
+            check_x+=32;
+        }
+        check_x = 0;
+        check_y+=32;
+    }
+    
+    
+    /*north_wall = instance_nearest(room_width/2, 0, obj_terrain_wall);
     north_exit = instance_create(north_wall.x, north_wall.y, obj_next_room);
+    north_exit.dir = 1;
     with(north_wall) {
         instance_destroy();
     }
-    north_wall2 = instance_nearest(north_exit.x, north_exit.y, obj_terrain_wall);
-    north_exit2 = instance_create(north_wall2.x, north_wall2.y, obj_next_room);
+    north_exit2 = instance_create(north_exit.x-32, north_exit.y, obj_next_room);
+    north_exit2.dir = 1;
+    north_wall2 = instance_nearest(north_exit2.x, north_exit2.y, obj_terrain_wall);
     with(north_wall2) {
         instance_destroy();
     }
+    north_exit3 = instance_create(north_exit.x+32, north_exit.y, obj_next_room);
+    north_exit3.dir = 1;
+    north_wall3 = instance_nearest(north_exit3.x, north_exit3.y, obj_terrain_wall);
+    with(north_wall3) {
+        instance_destroy();
+    }
+    /*north_wall2 = instance_nearest(north_exit.x, north_exit.y, obj_terrain_wall);
+    north_exit2 = instance_create(north_wall2.x, north_wall2.y, obj_next_room);
+    with(north_wall2) {
+        instance_destroy();
+    }*/
 }
 </string>
           </argument>
@@ -181,7 +224,7 @@ for(i=-32; i&lt;=32; i+=32) {
     }
 }
 
-if(x&lt;=128 || x&gt;=room_width-128 || y&lt;=128 || y&gt;=room_height-128) {
+if(x&lt;=224 || x&gt;=room_width-224 || y&lt;=224 || y&gt;=room_height-224) {
     instance_destroy();
 }
 else {
