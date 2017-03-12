@@ -42,6 +42,8 @@
       <sprite>sprites\spr_enemy_healer</sprite>
       <sprite>sprites\spr_enemy_summoner</sprite>
       <sprite>sprites\spr_enemy_dig</sprite>
+      <sprite>sprites\spr_enemy_snake_head</sprite>
+      <sprite>sprites\spr_enemy_snake_body</sprite>
       <sprites name="Effects">
         <sprite>sprites\spr_heal_aura</sprite>
         <sprite>sprites\spr_enemy_summoner_summing</sprite>
@@ -50,6 +52,7 @@
         <sprite>sprites\spr_lightning_strike</sprite>
         <sprite>sprites\spr_lightning_tell</sprite>
         <sprite>sprites\spr_boss2_capture</sprite>
+        <sprite>sprites\spr_flame</sprite>
       </sprites>
       <sprites name="Bosses">
         <sprite>sprites\spr_Boss1</sprite>
@@ -113,6 +116,7 @@
         <script>scripts\attack_healer.gml</script>
         <script>scripts\attack_summoner.gml</script>
         <script>scripts\attack_dig.gml</script>
+        <script>scripts\attack_snake_body.gml</script>
       </scripts>
       <scripts name="Movement">
         <script>scripts\movement_circle.gml</script>
@@ -124,6 +128,8 @@
         <script>scripts\instance_nth_nearest.gml</script>
         <script>scripts\movement_summoner.gml</script>
         <script>scripts\movement_dig.gml</script>
+        <script>scripts\movement_snake_head.gml</script>
+        <script>scripts\movement_snake_body.gml</script>
       </scripts>
       <script>scripts\scr_enemy_takedamage.gml</script>
       <script>scripts\set_enemy_attr.gml</script>
@@ -261,6 +267,8 @@
       <object>objects\obj_enemy_healer</object>
       <object>objects\obj_enemy_summoner</object>
       <object>objects\obj_enemy_dig</object>
+      <object>objects\obj_enemy_snake_head</object>
+      <object>objects\obj_enemy_snake_body</object>
       <objects name="Effects">
         <object>objects\obj_heal_aura</object>
         <object>objects\obj_lightning_tell</object>
@@ -279,6 +287,7 @@
       <object>objects\obj_boss_lazer</object>
       <object>objects\obj_quake</object>
       <object>objects\obj_lighting_strike</object>
+      <object>objects\obj_flame</object>
     </objects>
     <objects name="Weapons">
       <object>objects\obj_blue_gun</object>
