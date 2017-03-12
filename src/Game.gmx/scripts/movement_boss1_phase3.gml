@@ -11,14 +11,14 @@ if(point_distance(x, y, obj_char.x, obj_char.y) > 400)
 {
     if(obj_char.x >= x)
     {
-        cx = obj_char.x - 70;
+        cx = obj_char.x - 100;
     }
     else
     {
-        cx = obj_char.x + 70;
+        cx = obj_char.x + 100;
     }
     
-    cy = obj_char.y + irandom_range(-32, 32);
+    cy = obj_char.y + irandom_range(-100, 100);
     
     if(can_teleport == true)
     {

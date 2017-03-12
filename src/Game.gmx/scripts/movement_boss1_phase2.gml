@@ -2,10 +2,10 @@ image_angle = point_direction(x, y, obj_char.x, obj_char.y);
 if(can_speedup == true)
 {
     can_speedup = false;
-    alarm[2] = 120;
+    alarm[2] = 180;
 }
 
-if(newPath == true)
+if(newPath == true && speedup < 5)
 {
     alarm[1] = 15;
     newPath = false;
@@ -17,6 +17,15 @@ if(newPath == true)
     path_start(path, speedup, "", 0);
 }
 
+if(speedup == 5)
+{
+    path_end();
+    speedup += 1;
+    speed = speedup;
+    direction = image_angle;
+    alarm[6] = 60;
+}
+
 inst = instance_place(x, y, obj_char);
 
 if(inst != noone)
@@ -24,11 +33,11 @@ if(inst != noone)
 
     with(obj_char)
     {
-        scr_char_takedamage(10);
+        scr_char_takedamage(5 * other.speedup);
         state = states.SLIP;
         speed = 5;
         direction = image_angle;
     }
     alarm[3] = 60;
-    speedup = 1;
+    speedup = 3;
 }

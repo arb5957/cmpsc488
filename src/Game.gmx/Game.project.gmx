@@ -47,6 +47,9 @@
         <sprite>sprites\spr_enemy_summoner_summing</sprite>
         <sprite>sprites\spr_enemy_digging</sprite>
         <sprite>sprites\spr_quake</sprite>
+        <sprite>sprites\spr_lightning_strike</sprite>
+        <sprite>sprites\spr_lightning_tell</sprite>
+        <sprite>sprites\spr_boss2_capture</sprite>
       </sprites>
       <sprites name="Bosses">
         <sprite>sprites\spr_Boss1</sprite>
@@ -260,6 +263,8 @@
       <object>objects\obj_enemy_dig</object>
       <objects name="Effects">
         <object>objects\obj_heal_aura</object>
+        <object>objects\obj_lightning_tell</object>
+        <object>objects\obj_boss2_capture</object>
       </objects>
       <objects name="Bosses">
         <object>objects\obj_enemy_boss1</object>
@@ -273,6 +278,7 @@
       <object>objects\obj_acid_cloud</object>
       <object>objects\obj_boss_lazer</object>
       <object>objects\obj_quake</object>
+      <object>objects\obj_lighting_strike</object>
     </objects>
     <objects name="Weapons">
       <object>objects\obj_blue_gun</object>
