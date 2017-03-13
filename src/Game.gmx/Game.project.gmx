@@ -166,6 +166,7 @@
         <script>scripts\generate_small_polyomino.gml</script>
         <script>scripts\generate_polyomino.gml</script>
         <script>scripts\generate_polyomino_roomfit.gml</script>
+        <script>scripts\generate_polyomino_roomfit_char.gml</script>
         <script>scripts\print_grid.gml</script>
       </scripts>
     </scripts>
