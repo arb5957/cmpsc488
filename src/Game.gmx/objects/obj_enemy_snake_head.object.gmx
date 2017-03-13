@@ -28,6 +28,12 @@
             <string>event_inherited();
 name = "enemy1";
 script_execute(set_enemy_attr);
+
+with(weapon_inst)
+{
+    instance_destroy();
+}
+
 movement = "snake_head";
 attack_pattern = "snake_head";
 
@@ -36,6 +42,10 @@ xprevious = x + 32;
 body1 = instance_create(x +32, y, obj_enemy_snake_body);
 body1.number = 1;
 body1.above_part = id;
+
+attacking = false;
+
+can_attack = true;
 
 </string>
           </argument>
@@ -63,6 +73,53 @@ body1.above_part = id;
 {
     instance_destroy();
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>attacking = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>can_attack = true;
+attacking = false;
 </string>
           </argument>
         </arguments>
@@ -108,7 +165,13 @@ body1.above_part = id;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>script =  asset_get_index(string_insert(movement, "movement_", 10));
+            <string>if(can_attack == true)
+{
+    script =  asset_get_index(string_insert(movement, "movement_", 10));
+    script_execute(script);
+}
+    
+script =  asset_get_index(string_insert(movement, "attack_", 8));
 script_execute(script);
 </string>
           </argument>

@@ -9,5 +9,5 @@ for(i = 1; i <=11; i+=1)
     inst_flame.direction = angle;
     inst_flame.speed = 2;
     inst_flame.owner = owners.ENEMY;
-    angle = (angle + 36) mod 360;
+    angle = (angle + irandom_range(1, 45)) mod 360;
 }
