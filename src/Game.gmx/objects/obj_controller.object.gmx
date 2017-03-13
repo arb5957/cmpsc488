@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -56,6 +56,7 @@ generator_done = false;
 
 if(generator_done) {
     instance_deactivate_all(true);
+    instance_activate_object(obj_controller);
     instance_activate_object(obj_char);
     instance_activate_object(obj_inventory);
     instance_activate_region(view_xview[view_current]-20, view_yview[view_current]-20,
