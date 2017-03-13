@@ -22,6 +22,7 @@
       <sprite>sprites\spr_terrain_slippery</sprite>
       <sprite>sprites\spr_terrain_spikes</sprite>
       <sprite>sprites\spr_terrain_makeinvulnerable</sprite>
+      <sprite>sprites\spr_terrain_floor</sprite>
       <sprites name="Wall">
         <sprite>sprites\spr_terrain_wall</sprite>
         <sprite>sprites\spr_terrain_invisible</sprite>
@@ -159,6 +160,15 @@
       <script>scripts\scr_flying_stone_activate.gml</script>
       <script>scripts\scr_flying_stone_deactivate.gml</script>
     </scripts>
+    <scripts name="World">
+      <scripts name="Polyomino">
+        <script>scripts\print_2d_array.gml</script>
+        <script>scripts\generate_small_polyomino.gml</script>
+        <script>scripts\generate_polyomino.gml</script>
+        <script>scripts\generate_polyomino_roomfit.gml</script>
+        <script>scripts\print_grid.gml</script>
+      </scripts>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <fonts name="Menu">
@@ -216,6 +226,7 @@
       <object>objects\obj_terrain_slippery</object>
       <object>objects\obj_terrain_spikes</object>
       <object>objects\obj_building</object>
+      <object>objects\obj_terrain_floor</object>
     </objects>
     <objects name="Display">
       <object>objects\obj_scaling</object>
@@ -268,9 +279,13 @@
     <objects name="Inventory">
       <object>objects\obj_inventory</object>
     </objects>
+    <objects name="World">
+      <object>objects\obj_polyomino</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
+    <room>rooms\rm_test_polyomino</room>
     <room>rooms\rm_test_inventory</room>
     <room>rooms\rm_titlescreen</room>
     <room>rooms\rm_gamescreen</room>
