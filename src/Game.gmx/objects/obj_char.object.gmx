@@ -57,6 +57,8 @@ going_down = false;
 going_left = false;
 going_right = false;
 
+exit_taken = 0;
+
 //Keyboard mappings:
 
 //Mappings for Movement:
@@ -462,7 +464,8 @@ if(other.on_ground)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(rm_gamescreen2);
+            <string>exit_taken = other.dir;
+room_goto(rm_gamescreen2);
 </string>
           </argument>
         </arguments>
