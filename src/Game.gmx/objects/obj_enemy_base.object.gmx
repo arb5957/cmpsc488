@@ -43,6 +43,8 @@ target = true;
 newPath = true;
 using_item = false;
 
+move_speed = 1;
+
 //This script is used for passive items.
 //It returns what items an enemy has equipped.
 get_equipped_items = scr_empty;

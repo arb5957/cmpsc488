@@ -36,8 +36,8 @@ damage = 1;
 can_shoot = true;
 
 //Speed
-player_speed = 4;
-original_drone_speed = player_speed;
+move_speed = 4;
+original_drone_speed = move_speed;
 
 //Movement
 going_up = false;
