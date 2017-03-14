@@ -56,7 +56,7 @@ always_invisible = true;
           <argument>
             <kind>1</kind>
             <string>event_inherited();
-obj_char.player_speed-=1;
+obj_char.move_speed-=1;
 </string>
           </argument>
         </arguments>
