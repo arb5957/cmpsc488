@@ -42,3 +42,6 @@ weapon_inst.on_ground = false;
 
 //obj_potion uses this variable.
 max_hp = hp;
+
+//Using for enemy healer
+enemy_max_hp = hp;

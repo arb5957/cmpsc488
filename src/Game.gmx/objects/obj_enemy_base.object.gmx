@@ -53,6 +53,8 @@ get_equipped_items = scr_empty;
 flying = false;
 flying_stone_count = 0;
 
+enemy_max_hp = 0;
+
 </string>
           </argument>
         </arguments>
