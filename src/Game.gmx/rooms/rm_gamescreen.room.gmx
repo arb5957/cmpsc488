@@ -30,8 +30,10 @@ if(name == "obj_dagger"){
 */
 
 //FOR DEBUGGING
-
-room_goto(rm_gamescreen2);</code>
+if(global.testing_world_gen)
+{
+    room_goto(rm_gamescreen2);
+}</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
