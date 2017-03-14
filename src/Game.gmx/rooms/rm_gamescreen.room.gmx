@@ -13,11 +13,11 @@
   <code>/*
 obj_char.x = room_width/2;
 obj_char.y = room_height/2;
-
+*/
 if(inven[0] == obj_dagger){
-    instance_create(obj_char.x, obj_char.y, obj_dagger2);
+    instance_create(obj_char.x, obj_char.y, obj_dagger);
 }else{
-    instance_create(obj_char.x, obj_char.y, obj_bow2);
+    instance_create(obj_char.x, obj_char.y, obj_bow);
 }
 
 
@@ -27,7 +27,13 @@ if(name == "obj_dagger"){
     global.slot[15] = "dagger2"; 
     instance_create(obj_char.x, obj_char.y, obj_dagger);
 }
-*/</code>
+*/
+
+//FOR DEBUGGING
+if(global.testing_world_gen)
+{
+    room_goto(rm_gamescreen2);
+}</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -192,13 +198,31 @@ if(name == "obj_dagger"){
     <instance objName="obj_wood" x="1344" y="1152" name="inst_EAD8E9C9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wood" x="1504" y="832" name="inst_823D520C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wood" x="1504" y="1440" name="inst_3D727F4C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_char" x="2048" y="992" name="inst_E548CCD8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_bow" x="2048" y="1152" name="inst_0E9E1330" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_dagger" x="2048" y="1216" name="inst_EDA2B57F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_potion" x="1792" y="1120" name="inst_8006AB17" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_potion" x="1760" y="1024" name="inst_C6EB9332" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_potion" x="1792" y="1184" name="inst_A373B099" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_snake_head" x="1568" y="1472" name="inst_144BD030" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_blue_gun" x="1728" y="1280" name="inst_A5457E3C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spawn_char" x="1472" y="608" name="inst_491510CB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_recon_remote" x="1632" y="1056" name="inst_36E7A1BE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_att_remote" x="2176" y="992" name="inst_D16E12DC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_slower" x="1792" y="800" name="inst_125E8FEE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_slower" x="2144" y="1216" name="inst_09C54061" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_slower" x="1792" y="960" name="inst_B4548D81" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_slower" x="2048" y="960" name="inst_489A63A2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_escape_overlay" x="32" y="32" name="inst_E02AD208" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_speed_boost" x="1888" y="1184" name="inst_D2BCE4D9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_speed_boost" x="1920" y="1184" name="inst_3A4DBCBA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_speed_boost" x="1952" y="1184" name="inst_B418608F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_speed_boost" x="1984" y="1184" name="inst_8722968F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_speed_boost" x="2016" y="1184" name="inst_3BE34630" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_flying_stone" x="1952" y="1088" name="inst_6F9C729D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_flying_stone" x="1984" y="1088" name="inst_8A538E01" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_spikes" x="1568" y="1312" name="inst_CA0E217E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_slippery" x="1728" y="1344" name="inst_DBEDE84F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_stickyfloor" x="1792" y="1280" name="inst_C8456A31" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_boss2" x="2048" y="736" name="inst_FA5019CE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

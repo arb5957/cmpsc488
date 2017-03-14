@@ -36,6 +36,8 @@ level = 1;
 script = scr_empty;
 position_script = scr_default_item_position;
 release_script = scr_empty;
+activation_script = scr_empty;
+deactivation_script = scr_empty;
 sprite = "";
 can_activate = true;
 activated = false;
@@ -64,11 +66,8 @@ cooldown = room_speed;
 //The direction the weapons shoots.
 angle = 0;
 
-enum item_alarms
-{
-    //Alarm used for finishing a cooldown.
-    COOLDOWN
-}
+//Alarm used for finishing a cooldown.
+COOLDOWN = 0;
 </string>
           </argument>
         </arguments>

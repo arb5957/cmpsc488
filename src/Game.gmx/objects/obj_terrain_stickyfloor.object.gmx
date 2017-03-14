@@ -28,7 +28,7 @@
             <string>///Creation Code
 
 event_inherited();
-//slow_speed = 0.5 * obj_char.player_speed;
+//slow_speed = 0.5 * obj_char.move_speed;
 duration = 2;
 factor = 0.5;
 </string>
@@ -57,7 +57,7 @@ factor = 0.5;
 
 with(obj_char)
 {
-    player_speed = original_player_speed;
+    move_speed = original_move_speed;
 }
 
 </string>
@@ -84,14 +84,14 @@ with(obj_char)
             <kind>1</kind>
             <string>///Slow down the player.
 
-with(other)
+if(not other.flying)
 {
-    player_speed = other.factor * original_player_speed;
-
+    with(other)
+    {
+            move_speed = other.factor * original_move_speed;
+    }
+    alarm[0] = duration;
 }
-
-alarm[0] = duration;
-
 </string>
           </argument>
         </arguments>

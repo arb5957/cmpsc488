@@ -509,7 +509,52 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw hotbar
+            <string>///Only Draw if can_use_items == true
+if(not can_use_items) exit;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Save alpha and color
+save_alpha = draw_get_alpha();
+save_color = draw_get_color();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw hotbar and cooldowns
 
 //Top left coordinates of hotbar:
 var x1 = view_xview[0];
@@ -537,15 +582,15 @@ y1 += y_padding;
 x2 = x1 + cell_size;
 y2 = y1 + cell_size;
 
-//Set cell color.
-draw_set_alpha(cell_alpha);
-draw_set_color(cell_color);
-
 //Draw hotbar cells.
 
 //Draw the Loadout cells.
 for(var i = 0; i &lt; loadout_capacity; i++)
 {
+    //Set cell color.
+    draw_set_alpha(cell_alpha);
+    draw_set_color(cell_color);
+   
     //Draw cell.
     draw_rectangle(x1,y1,x2,y2,false);
     
@@ -559,14 +604,13 @@ for(var i = 0; i &lt; loadout_capacity; i++)
         //If that item has a sprite,
         if(item.sprite_index != -1)
         {
-            //If we're not dragging this item,
-            //if(slot != dragging_item_index)
-            {
-                scr_inventory_draw_sprite(item,x1,y1);
-            }
+            //Draw the item's sprite.
+            scr_inventory_draw_sprite(item,x1,y1);
+            
         }
+        //Draw cooldown.
+        scr_inventory_draw_cooldown(item,x1,y1,x2,y2);
     }
-    
     //Go to next cell.
     x1 += cell_size + x_padding;
     x2 += cell_size + x_padding;
@@ -586,6 +630,10 @@ x1 += 3 * (cell_size + x_padding);
 x2 += 3 * (cell_size + x_padding);
 for(var i = 0; i &lt; persistent_items_capacity; i++)
 {
+    //Set cell color.
+    draw_set_alpha(cell_alpha);
+    draw_set_color(cell_color);
+   
     //Draw cell.
     draw_rectangle(x1,y1,x2,y2,false);
     
@@ -602,6 +650,8 @@ for(var i = 0; i &lt; persistent_items_capacity; i++)
         {
             scr_inventory_draw_sprite(item,x1,y1);
         }
+        //Draw cooldown.
+        scr_inventory_draw_cooldown(item,x1,y1,x2,y2);
     }
     
     //Go to next cell.
@@ -872,9 +922,17 @@ if(inventory_open)
                     switch(clicked_on)
                     {
                         case region.LOADOUT:
+                            with(cubby)
+                            {
+                                script_execute(deactivation_script);
+                            }
                             loadout[current_loadout, item_index] = empty;
                             break;
                         case region.PERSIST:
+                            with(cubby)
+                            {
+                                script_execute(deactivation_script);
+                            }
                             persistent_items[item_index] = empty;
                             break;
                         case region.INVENTORY:
@@ -895,11 +953,19 @@ if(inventory_open)
                                 if((item_index &lt; first_passive_slot and cubby.passive == false) or
                                    (item_index &gt;= first_passive_slot and cubby.passive == true))
                                 {
+                                    with(cubby)
+                                    {
+                                        script_execute(activation_script);
+                                    }
                                     loadout[current_loadout, item_index] = cubby;
                                     cubby = empty;
                                 }
                                 break;
                             case region.PERSIST:
+                                with(cubby)
+                                {
+                                    script_execute(activation_script);
+                                }
                                 persistent_items[item_index] = cubby;
                                 cubby = empty;
                                 break;
@@ -931,6 +997,14 @@ if(inventory_open)
                                 {
                                     if(swapping)
                                     {
+                                        with(cubby)
+                                        {
+                                            script_execute(activation_script);
+                                        }
+                                        with(item)
+                                        {
+                                            script_execute(deactivation_script);
+                                        }
                                         var temp = cubby;
                                         cubby = item;
                                         loadout[current_loadout,item_index] = temp;
@@ -946,6 +1020,14 @@ if(inventory_open)
                             case region.PERSIST:
                                 if(swapping)
                                 {
+                                    with(cubby)
+                                    {
+                                        script_execute(activation_script);
+                                    }
+                                    with(item)
+                                    {
+                                        script_execute(deactivation_script);
+                                    }
                                     var temp = cubby;
                                     cubby = item;
                                     persistent_items[item_index] = temp;
@@ -1041,6 +1123,11 @@ if(inventory_open)
         //Check if we clicked outside.
         if(not(clicked_on_inventory or clicked_on_hotbar))
         {
+            with(cubby)
+            {
+                script_execute(deactivation_script);
+            }
+            cubby.equipped = false;
             cubby.on_ground = true;
             cubby.visible = true;
             cubby.x = mouse_x-16
@@ -1122,21 +1209,49 @@ for(var i = 0; i &lt; persistent_items_capacity; i++)
           <argument>
             <kind>1</kind>
             <string>///Draw tooltip
-if(draw_tooltip &amp;&amp; inventory[tooltip_item_index] != empty)
+if(tooltip_item_index &gt;= 0)
 {
-    draw_set_alpha(1);
-    draw_set_color(c_maroon);
-    draw_rectangle(mouse_x - 3, mouse_y - 3, mouse_x + 203, mouse_y + 153, false);
-    draw_rectangle_colour(mouse_x, mouse_y, mouse_x + 200, mouse_y + 150,
-        c_white, c_white, c_white, c_white, false);
-    draw_rectangle(mouse_x - 1, mouse_y + 30, mouse_x + 201, mouse_y + 33, false);
-    item_name = inventory[tooltip_item_index].name;
-    item_descrip = inventory[tooltip_item_index].description;
-    tooltip_text = item_name + "##" + item_descrip;
-    draw_set_color(c_black);
-    draw_set_halign(fa_left);
-    draw_text_ext(mouse_x+10, mouse_y+10, tooltip_text, 15, 160);
+    //show_debug_message("tooltip_item_index: " + string(tooltip_item_index));
+    if(draw_tooltip &amp;&amp; inventory[tooltip_item_index] != empty)
+    {
+        draw_set_font(font_inventory);
+        draw_set_alpha(1);
+        draw_set_color(c_maroon);
+        draw_rectangle(mouse_x - 3, mouse_y - 3, mouse_x + 203, mouse_y + 153, false);
+        draw_rectangle_colour(mouse_x, mouse_y, mouse_x + 200, mouse_y + 150,
+            c_white, c_white, c_white, c_white, false);
+        draw_rectangle(mouse_x - 1, mouse_y + 30, mouse_x + 201, mouse_y + 33, false);
+        item_name = inventory[tooltip_item_index].name;
+        item_descrip = inventory[tooltip_item_index].description;
+        tooltip_text = item_name + "##" + item_descrip;
+        draw_set_color(c_black);
+        draw_set_halign(fa_left);
+        draw_text_ext(mouse_x+10, mouse_y+10, tooltip_text, 15, 160);
+    }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Restore alpha and color
+draw_set_alpha(save_alpha);
+draw_set_color(save_color);
 </string>
           </argument>
         </arguments>

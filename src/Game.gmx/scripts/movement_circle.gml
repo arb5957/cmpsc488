@@ -14,7 +14,7 @@
             mp_grid_add_instances(grid, obj_terrain_wall, 1);
             mp_potential_path(path, obj_char.x, obj_char.y, 2, 4, 1);
             mp_grid_path(grid, path, x, y, obj_char.x + irandom_range(-64, 64), obj_char.y+ irandom_range(-64, 64), 1);
-            path_start(path, 2, "", 0);
+            path_start(path, move_speed, "", 0);
         }
     }
     else
@@ -25,10 +25,12 @@
             angleset = true;
             angle = (image_angle + 180) mod 360;
         }
-        mp_potential_step_object(obj_char.x + lengthdir_x(61, angle), obj_char.y + lengthdir_y(61, angle), 3, obj_terrain_wall);
+        mp_potential_step_object(obj_char.x + lengthdir_x(61, angle), obj_char.y + lengthdir_y(61, angle), move_speed+1, obj_terrain_wall);
         angle += 2;
         if(angle >= 360)
         {
             angle = 0;
         }
     }
+    
+move_speed = move_speed_default;

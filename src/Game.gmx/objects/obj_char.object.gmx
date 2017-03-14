@@ -3,7 +3,7 @@
   <spriteName>spr_char</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-10</depth>
   <persistent>-1</persistent>
   <parentName>obj_enemy_avoid</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -41,15 +41,23 @@ name="";
 invulnerable_time = room_speed/2;
 safe = true;
 
+//Item pickup
+queue = ds_queue_create();
+flag = true; flag2 = true; flag3 = true;
+curr_item  = ""; curr_item2 = ""; curr_item3 = "";
+timer = 0;
+
 //Player speed variables:
-player_speed = 3;
-original_player_speed = player_speed;
+move_speed = 3;
+original_move_speed = move_speed;
 
 //Player movement variables:
 going_up = false;
 going_down = false;
 going_left = false;
 going_right = false;
+
+exit_taken = 0;
 
 //Keyboard mappings:
 
@@ -72,6 +80,15 @@ enum states
 }
 
 state = states.NORMAL;
+
+//Script used to know what all items the player has equipped currently.
+get_equipped_items = scr_char_get_equipped_items;
+
+//For use with items that enable the player to fly.
+flying = false;
+//How many flying stones we have equipped. This is used if the player
+//equips multiple flying stones equipped.
+flying_stone_count = 0;
 
 //All the alarms for obj_char are here. Only use one alarm for one thing.
 //When you make a new alarm, change the name below to something descriptive,
@@ -113,9 +130,13 @@ enum alarms
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with(obj_held_item)
+            <string>/// Destroy the inventory
+if(instance_exists(obj_inventory))
 {
-    instance_destroy();
+    with(obj_inventory)
+    {
+        instance_destroy();
+    }
 }
 </string>
           </argument>
@@ -142,6 +163,81 @@ enum alarms
             <string>///Invulnerability expiration alarm: Player is vulnerable again.
 
 invulnerable = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Flag = true and timer--;
+flag3 = true;
+timer--;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Flag2 = true and timer--;
+flag2 = true;
+timer--;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Flag = true and timer--;
+flag = true;
+timer--;
 </string>
           </argument>
         </arguments>
@@ -210,41 +306,71 @@ switch(state)
       </action>
       <action>
         <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>9</kind>
-            <script>scr_char_collision_solid</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
+            <kind>1</kind>
+            <string>///Move the character
+if(not flying)
+{
+    if(place_meeting(x+hspeed, y, obj_terrain_wall)) // if moving horizontally collides with a wall
+    {
+        var solved = false;
+        for(var i = 1; i&lt;7; i++)
+        {
+            if(not place_meeting(x+hspeed, y+i, obj_terrain_wall)) // if moving with a different y allows for moving around wall change to that y
+            {
+                y += i;
+                solved = true;
+                break;
+            }
+            else if(not place_meeting(x+hspeed, y-i, obj_terrain_wall))
+            {
+                y -= i;
+                solved = true;
+                break;
+            }
+        }
+        if not solved // if still can't move around wall set hspeed to 0
+        {
+            hspeed = 0;
+        }
+    }
+    if(place_meeting(x, y+vspeed, obj_terrain_wall)) // if moving vertically collides with wall
+    {
+        var solved = false;
+        for(var i=1; i&lt;7; i++)
+        {
+            if(not place_meeting(x+i, y+vspeed, obj_terrain_wall)) // if moving with a different x allows for moving around wall change to that x
+            {
+                x += i;
+                solved = true;
+                break;
+            }
+            else if(not place_meeting(x-i, y+vspeed, obj_terrain_wall))
+            {
+                x -= i;
+                solved = true;
+                break;
+            }
+        }
+        if not solved // if still can't move around wall change vspeed to 0
+        {
+            vspeed = 0;
+        }
+    }
+}
+</string>
           </argument>
         </arguments>
       </action>
@@ -272,6 +398,12 @@ else
 {
     safe = true;
 }
+/*if(x &gt; room_width || x &lt; 0 || y &gt; room_height || y &lt; 0) {
+    x = room_width/2;
+    y = room_height/2;
+    room_goto(rm_gamescreen2);
+    show_debug_message("Going to 2");
+}*/
 </string>
           </argument>
         </arguments>
@@ -310,6 +442,30 @@ if(other.on_ground)
         scr_inventory_add(id_of_item,char_id);
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_next_room">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>exit_taken = other.dir;
+room_goto(rm_gamescreen2);
 </string>
           </argument>
         </arguments>
@@ -392,6 +548,58 @@ draw_self();
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Draw the item name when picked up. 
+if(timer &gt; 0){
+    //sdb(timer);
+    if(flag &amp;&amp; !ds_queue_empty(queue)){
+        flag = false;
+        curr_item = ds_queue_dequeue(queue);
+        alarm[1] = 45;
+    }   
+    if(flag2 &amp;&amp; !flag &amp;&amp; !ds_queue_empty(queue)){
+        flag2 = false;
+        curr_item2 = ds_queue_dequeue(queue);
+        alarm[2] = 45;
+    }
+    if(flag3 &amp;&amp; !flag2 &amp;&amp; !flag &amp;&amp; !ds_queue_empty(queue)){
+        flag3 = false;
+        curr_item3 = ds_queue_dequeue(queue);
+        alarm[3] = 45;
+    }
+    
+    draw_set_font(font_inventory);    
+    draw_set_color(c_red);
+    draw_set_halign(fa_center);
+    draw_text(x, y + 50, curr_item);
+    
+    if(!flag2){
+        draw_text(x, y + 70, curr_item2);
+    }
+    if(!flag3){
+        draw_text(x, y + 90, curr_item3);
+    }
+}  
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Draw circle around player when invulnerable.
 if(invulnerable)
 {
@@ -419,90 +627,6 @@ if(invulnerable)
           <argument>
             <kind>9</kind>
             <script>scr_char_activate_items</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="76">
-      <action>
-        <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>9</kind>
-            <script>src_test_load</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="75">
-      <action>
-        <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>9</kind>
-            <script>src_test_save</script>
           </argument>
           <argument>
             <kind>0</kind>

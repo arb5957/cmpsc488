@@ -181,7 +181,7 @@ image_index = 0;
             <kind>1</kind>
             <string>script_execute(movement_boss2);
 
-choose(attack_boss2_lighting(), attack_boss2_quakes());
+choose(attack_boss2_lighting());
 </string>
           </argument>
         </arguments>

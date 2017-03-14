@@ -4,7 +4,8 @@
 //so it might be more efficient to put this code in the step event
 //if we need to.
 
-//Passive items don't currently activate.
+//Passive items don't currently activate.) This functionality is now implemented
+//but not fully tested.
 with(obj_inventory)
 {
     if(not inventory_open && can_use_items)
@@ -17,6 +18,20 @@ with(obj_inventory)
         {
             loadout_activate[i] = false;
             loadout_release[i] = false;
+        }
+        //Run passive item's script in loadout.
+        //For persistent passive items see below.
+        for(var i = first_passive_slot; i < loadout_capacity; i++)
+        {
+            var item = loadout[current_loadout,i];
+            if(item.can_activate)
+            {
+                with(item)
+                {
+                    script_execute(position_script);
+                    script_execute(script);
+                }
+            }
         }
         for(var i = 0; i < persistent_items_capacity; i++)
         {
@@ -152,36 +167,53 @@ with(obj_inventory)
         }
         for(var i = 0; i < persistent_items_capacity; i++)
         {
-            if(persistent_activate[i])
+            //Run passive item's script.
+            if(persistent_items[i].passive)
             {
                 var item = persistent_items[i];
-                
                 if(item.can_activate)
                 {
-                    most_recent_item = item;
-                    
                     with(item)
                     {
                         script_execute(position_script);
                         script_execute(script);
                     }
-                    
-                    if(item.stack_size < 1)
-                    {
-                        with(item) instance_destroy();
-                        persistent_items[i] = empty;
-                        most_recent_item = empty;
-                    }
                 }
             }
-            else if(persistent_release[i])
+            else
             {
-                var item = persistent_items[i];
-                if(item.can_activate)
+                //Run active item's script.
+                if(persistent_activate[i])
                 {
-                    with(item)
+                    var item = persistent_items[i];
+                    
+                    if(item.can_activate)
                     {
-                        script_execute(release_script);
+                        most_recent_item = item;
+                        
+                        with(item)
+                        {
+                            script_execute(position_script);
+                            script_execute(script);
+                        }
+                        
+                        if(item.stack_size < 1)
+                        {
+                            with(item) instance_destroy();
+                            persistent_items[i] = empty;
+                            most_recent_item = empty;
+                        }
+                    }
+                }
+                else if(persistent_release[i])
+                {
+                    var item = persistent_items[i];
+                    if(item.can_activate)
+                    {
+                        with(item)
+                        {
+                            script_execute(release_script);
+                        }
                     }
                 }
             }

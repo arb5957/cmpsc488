@@ -22,6 +22,7 @@
       <sprite>sprites\spr_terrain_slippery</sprite>
       <sprite>sprites\spr_terrain_spikes</sprite>
       <sprite>sprites\spr_terrain_makeinvulnerable</sprite>
+      <sprite>sprites\spr_terrain_floor</sprite>
       <sprites name="Wall">
         <sprite>sprites\spr_terrain_wall</sprite>
         <sprite>sprites\spr_terrain_invisible</sprite>
@@ -34,25 +35,26 @@
         <sprite>sprites\spr_building_vr</sprite>
         <sprite>sprites\spr_building_ht</sprite>
       </sprites>
+      <sprite>sprites\spr_floor</sprite>
     </sprites>
     <sprites name="Enemy">
       <sprite>sprites\spr_enemy1</sprite>
       <sprite>sprites\spr_enemy_butterfly</sprite>
+      <sprite>sprites\spr_enemy_dig</sprite>
       <sprite>sprites\spr_enemy_duplicate</sprite>
       <sprite>sprites\spr_enemy_healer</sprite>
-      <sprite>sprites\spr_enemy_summoner</sprite>
-      <sprite>sprites\spr_enemy_dig</sprite>
-      <sprite>sprites\spr_enemy_snake_head</sprite>
       <sprite>sprites\spr_enemy_snake_body</sprite>
+      <sprite>sprites\spr_enemy_snake_head</sprite>
+      <sprite>sprites\spr_enemy_summoner</sprite>
       <sprites name="Effects">
-        <sprite>sprites\spr_heal_aura</sprite>
-        <sprite>sprites\spr_enemy_summoner_summing</sprite>
+        <sprite>sprites\spr_boss2_capture</sprite>
         <sprite>sprites\spr_enemy_digging</sprite>
-        <sprite>sprites\spr_quake</sprite>
+        <sprite>sprites\spr_enemy_summoner_summing</sprite>
+        <sprite>sprites\spr_flame</sprite>
+        <sprite>sprites\spr_heal_aura</sprite>
         <sprite>sprites\spr_lightning_strike</sprite>
         <sprite>sprites\spr_lightning_tell</sprite>
-        <sprite>sprites\spr_boss2_capture</sprite>
-        <sprite>sprites\spr_flame</sprite>
+        <sprite>sprites\spr_quake</sprite>
       </sprites>
       <sprites name="Bosses">
         <sprite>sprites\spr_Boss1</sprite>
@@ -78,11 +80,23 @@
       <sprite>sprites\spr_stone</sprite>
       <sprite>sprites\spr_wood</sprite>
       <sprite>sprites\spr_nothing</sprite>
-      <sprite>sprites\spr_recon_drone</sprite>
-      <sprite>sprites\spr_recon_drone_err</sprite>
-      <sprite>sprites\spr_remote</sprite>
+      <sprites name="Recon Drone">
+        <sprite>sprites\spr_recon_remote</sprite>
+        <sprite>sprites\spr_recon_drone_err</sprite>
+        <sprite>sprites\spr_recon_drone</sprite>
+      </sprites>
+      <sprites name="Attack Drone">
+        <sprite>sprites\spr_att_remote</sprite>
+        <sprite>sprites\spr_att_drone_err</sprite>
+        <sprite>sprites\spr_att_drone</sprite>
+        <sprite>sprites\spr_drone_shot</sprite>
+      </sprites>
       <sprite>sprites\spr_teleport</sprite>
+      <sprite>sprites\spr_speed_boost</sprite>
+      <sprite>sprites\spr_flying_stone</sprite>
+      <sprite>sprites\spr_slower</sprite>
     </sprites>
+    <sprite>sprites\spr_next_room</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Menu">
@@ -99,8 +113,8 @@
     <scripts name="Character">
       <script>scripts\scr_char_move.gml</script>
       <script>scripts\scr_char_takedamage.gml</script>
-      <script>scripts\scr_char_collision_solid.gml</script>
       <script>scripts\scr_char_activate_items.gml</script>
+      <script>scripts\scr_char_get_equipped_items.gml</script>
     </scripts>
     <scripts name="Globals">
       <script>scripts\Globals_saving.gml</script>
@@ -113,51 +127,50 @@
         <script>scripts\attack_aggressive.gml</script>
         <script>scripts\attack_within_range.gml</script>
         <script>scripts\attack_butterfly.gml</script>
-        <script>scripts\attack_healer.gml</script>
-        <script>scripts\attack_summoner.gml</script>
         <script>scripts\attack_dig.gml</script>
+        <script>scripts\attack_healer.gml</script>
         <script>scripts\attack_snake_body.gml</script>
         <script>scripts\attack_snake_head.gml</script>
+        <script>scripts\attack_summoner.gml</script>
       </scripts>
       <scripts name="Movement">
         <script>scripts\movement_circle.gml</script>
         <script>scripts\movement_speed.gml</script>
         <script>scripts\movement_stalker.gml</script>
         <script>scripts\movement_teleport.gml</script>
-        <script>scripts\movement_butterfly.gml</script>
-        <script>scripts\movement_healer.gml</script>
         <script>scripts\instance_nth_nearest.gml</script>
-        <script>scripts\movement_summoner.gml</script>
+        <script>scripts\movement_butterfly.gml</script>
         <script>scripts\movement_dig.gml</script>
-        <script>scripts\movement_snake_head.gml</script>
+        <script>scripts\movement_healer.gml</script>
         <script>scripts\movement_snake_body.gml</script>
+        <script>scripts\movement_snake_head.gml</script>
+        <script>scripts\movement_summoner.gml</script>
       </scripts>
       <script>scripts\scr_enemy_takedamage.gml</script>
       <script>scripts\set_enemy_attr.gml</script>
       <script>scripts\scr_enemy_hold_item.gml</script>
-      <scripts name="Enemy_items">
-        <script>scripts\item_lunge.gml</script>
-        <script>scripts\item_teleport.gml</script>
-      </scripts>
-      <scripts name="Duplicate_Enemy">
+      <script>scripts\item_lunge.gml</script>
+      <script>scripts\item_teleport.gml</script>
+      <scripts name="Duplicate_enemy">
         <script>scripts\scr_fake_dup_hit.gml</script>
       </scripts>
       <scripts name="Bosses">
         <scripts name="Boss1">
+          <script>scripts\attack_boss1_phase3.gml</script>
           <script>scripts\movement_boss1_phase1.gml</script>
           <script>scripts\movement_boss1_phase2.gml</script>
           <script>scripts\movement_boss1_phase3.gml</script>
-          <script>scripts\attack_boss1_phase3.gml</script>
         </scripts>
         <scripts name="Boss2">
-          <script>scripts\movement_boss2.gml</script>
           <script>scripts\attack_boss2_lighting.gml</script>
+          <script>scripts\movement_boss2.gml</script>
           <script>scripts\attack_boss2_quakes.gml</script>
         </scripts>
       </scripts>
     </scripts>
     <scripts name="Projectile">
       <script>scripts\scr_char_fire_projectile.gml</script>
+      <script>scripts\scr_drone_fire_projectile.gml</script>
     </scripts>
     <scripts name="Saving">
       <script>scripts\src_test_load.gml</script>
@@ -177,6 +190,7 @@
       </scripts>
       <script>scripts\scr_inventory_add.gml</script>
       <script>scripts\scr_inventory_draw_sprite.gml</script>
+      <script>scripts\scr_inventory_draw_cooldown.gml</script>
       <script>scripts\scr_empty.gml</script>
       <script>scripts\scr_default_item_position.gml</script>
     </scripts>
@@ -189,9 +203,26 @@
       <script>scripts\scr_bow_position.gml</script>
       <script>scripts\scr_bow_release.gml</script>
       <script>scripts\scr_remote_press.gml</script>
+      <script>scripts\scr_att_drone_remote_press.gml</script>
       <script>scripts\scr_remote_position.gml</script>
+      <script>scripts\scr_item_pickup.gml</script>
       <script>scripts\scr_item_lunge.gml</script>
       <script>scripts\scr_item_teleport.gml</script>
+      <script>scripts\scr_slower.gml</script>
+      <script>scripts\scr_speed_boost_activate.gml</script>
+      <script>scripts\scr_speed_boost_deactivate.gml</script>
+      <script>scripts\scr_flying_stone_activate.gml</script>
+      <script>scripts\scr_flying_stone_deactivate.gml</script>
+    </scripts>
+    <scripts name="World">
+      <scripts name="Polyomino">
+        <script>scripts\print_2d_array.gml</script>
+        <script>scripts\generate_small_polyomino.gml</script>
+        <script>scripts\generate_polyomino.gml</script>
+        <script>scripts\generate_polyomino_roomfit.gml</script>
+        <script>scripts\generate_polyomino_roomfit_char.gml</script>
+        <script>scripts\print_grid.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -221,17 +252,20 @@
       <objects name="draw_titles">
         <object>objects\obj_draw_title</object>
         <object>objects\obj_draw_settings</object>
+        <object>objects\obj_draw_stats</object>
       </objects>
       <objects name="Overlays">
         <object>objects\obj_char1_overlay</object>
         <object>objects\obj_str_weapon_back</object>
         <object>objects\obj_str_weapon_overlay</object>
         <object>objects\obj_str_weapon_overlay2</object>
+        <object>objects\obj_escape_overlay</object>
       </objects>
     </objects>
     <objects name="Character">
       <object>objects\obj_char</object>
       <object>objects\obj_hud</object>
+      <object>objects\obj_spawn_char</object>
     </objects>
     <objects name="Terrain">
       <objects name="Base Class">
@@ -247,6 +281,12 @@
       <object>objects\obj_terrain_slippery</object>
       <object>objects\obj_terrain_spikes</object>
       <object>objects\obj_building</object>
+      <object>objects\obj_terrain_floor</object>
+      <object>objects\obj_floor</object>
+      <objects name="Generator">
+        <object>objects\obj_floor_generator</object>
+        <object>objects\obj_next_room</object>
+      </objects>
     </objects>
     <objects name="Display">
       <object>objects\obj_scaling</object>
@@ -263,17 +303,17 @@
       <object>objects\obj_enemy1</object>
       <object>objects\obj_enemy2</object>
       <object>objects\obj_enemy_butterfly</object>
-      <object>objects\obj_enemy_duplicate_real</object>
-      <object>objects\obj_enemy_duplicate_fake</object>
-      <object>objects\obj_enemy_healer</object>
-      <object>objects\obj_enemy_summoner</object>
       <object>objects\obj_enemy_dig</object>
-      <object>objects\obj_enemy_snake_head</object>
+      <object>objects\obj_enemy_duplicate_fake</object>
+      <object>objects\obj_enemy_duplicate_real</object>
+      <object>objects\obj_enemy_healer</object>
       <object>objects\obj_enemy_snake_body</object>
+      <object>objects\obj_enemy_snake_head</object>
+      <object>objects\obj_enemy_summoner</object>
       <objects name="Effects">
+        <object>objects\obj_boss2_capture</object>
         <object>objects\obj_heal_aura</object>
         <object>objects\obj_lightning_tell</object>
-        <object>objects\obj_boss2_capture</object>
       </objects>
       <objects name="Bosses">
         <object>objects\obj_enemy_boss1</object>
@@ -284,11 +324,12 @@
       <object>objects\obj_bullet_base</object>
       <object>objects\obj_bullet</object>
       <object>objects\obj_arrow</object>
+      <object>objects\obj_drone_shot</object>
       <object>objects\obj_acid_cloud</object>
       <object>objects\obj_boss_lazer</object>
-      <object>objects\obj_quake</object>
-      <object>objects\obj_lighting_strike</object>
       <object>objects\obj_flame</object>
+      <object>objects\obj_lighting_strike</object>
+      <object>objects\obj_quake</object>
     </objects>
     <objects name="Weapons">
       <object>objects\obj_blue_gun</object>
@@ -303,27 +344,42 @@
       <object>objects\obj_dagger2</object>
       <object>objects\obj_stone</object>
       <object>objects\obj_wood</object>
-      <object>objects\obj_remote</object>
-      <object>objects\obj_recon_drone</object>
+      <objects name="Recon Drone">
+        <object>objects\obj_recon_remote</object>
+        <object>objects\obj_recon_drone</object>
+      </objects>
+      <objects name="Attack Drone">
+        <object>objects\obj_att_remote</object>
+        <object>objects\obj_att_drone</object>
+      </objects>
       <object>objects\obj_lunge</object>
       <object>objects\obj_teleport</object>
+      <object>objects\obj_slower</object>
+      <object>objects\obj_speed_boost</object>
+      <object>objects\obj_flying_stone</object>
     </objects>
     <objects name="Inventory">
       <object>objects\obj_inventory</object>
     </objects>
+    <objects name="World">
+      <object>objects\obj_polyomino</object>
+    </objects>
+    <object>objects\obj_controller</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_titlescreen</room>
     <room>rooms\rm_init</room>
-    <room>rooms\rm_gamescreen</room>
+    <room>rooms\rm_test_polyomino</room>
     <room>rooms\rm_test_inventory</room>
+    <room>rooms\rm_titlescreen</room>
+    <room>rooms\rm_gamescreen</room>
+    <room>rooms\rm_gamescreen2</room>
     <room>rooms\rm_settings</room>
+    <room>rooms\rm_gameover</room>
     <room>rooms\rm_credits</room>
     <rooms name="scaling_test">
       <room>rooms\rm_testroom</room>
       <room>rooms\rm_initialization</room>
     </rooms>
-    <room>rooms\rm_gameover</room>
     <room>rooms\rm_charselect</room>
     <room>rooms\rm_create_char</room>
   </rooms>
@@ -331,8 +387,8 @@
     <rtf>help.rtf</rtf>
   </help>
   <TutorialState>
-    <IsTutorial>-1</IsTutorial>
-    <TutorialName>C:\Users\Drew\AppData\Local\gamemaker_studio\tutorials\08_Levels_And_Saving\</TutorialName>
-    <TutorialPage>2</TutorialPage>
+    <IsTutorial>0</IsTutorial>
+    <TutorialName></TutorialName>
+    <TutorialPage>0</TutorialPage>
   </TutorialState>
 </assets>

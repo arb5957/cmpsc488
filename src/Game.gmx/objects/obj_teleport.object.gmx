@@ -31,6 +31,7 @@ description = "teleport a small distance";
 script = scr_item_teleport;
 script_enemy = item_teleport;
 
+cooldown = room_speed * 4;
 
 //locals
 can_teleport = true;

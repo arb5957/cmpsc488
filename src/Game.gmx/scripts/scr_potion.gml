@@ -18,6 +18,6 @@ with(owner_id)
         hp += 5;
     }
 }
-alarm_set(item_alarms.COOLDOWN, cooldown);
+alarm[COOLDOWN] = cooldown;
 can_activate = false;
 stack_size--;

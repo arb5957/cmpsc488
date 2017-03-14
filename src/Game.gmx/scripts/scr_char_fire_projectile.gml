@@ -13,7 +13,7 @@ if(obj_char.can_shoot == true)
         direction = other.image_angle;
         damage = other.damage;
         owner = owners.CHARACTER;
-        image_angle = other.image_angle;
+        image_angle = direction;
     }
     obj_char.can_shoot = false;
     obj_char.alarm[0] = 20;
