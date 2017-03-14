@@ -58,7 +58,6 @@ first_opening = false;
 if(keyboard_check_pressed(vk_escape))
 {
     opened = !opened;
-    
     //Say this is the first time opening the escape menu
     if opened { 
         first_opening = true;
@@ -113,8 +112,8 @@ previous_color = draw_get_colour();
             <string>///Draw the menu on escape press
 
 if(opened)
-{
-    if(instance_exists(obj_inventory)){
+{    
+    if(instance_exists(obj_inventory)) {
         obj_inventory.disabled = true;
         obj_inventory.can_use_items = false;
     }
@@ -139,7 +138,7 @@ if(opened)
         }
     }*/
     
-    if(first_opening) {
+    if(first_opening) {    
         //Exit game button
         exit_game_button = instance_create(v_x + v_width/2, v_y + 400, obj_exit_btn);
         exit_game_button.text = "Exit Game";
@@ -163,7 +162,8 @@ if(opened)
 else
 {
     //Allow opening of inventory and items to be used again
-    if(instance_exists(obj_inventory)) {
+    if(instance_exists(obj_inventory) &amp;&amp; not instance_exists(obj_recon_drone)
+        &amp;&amp; not instance_exists(obj_att_drone)) {
         obj_inventory.disabled = false;
         obj_inventory.can_use_items = true;
     }
