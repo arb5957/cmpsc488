@@ -223,6 +223,24 @@ if(global.testing_world_gen)
     <instance objName="obj_terrain_slippery" x="1728" y="1344" name="inst_DBEDE84F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terrain_stickyfloor" x="1792" y="1280" name="inst_C8456A31" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy_boss2" x="2048" y="736" name="inst_FA5019CE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_potion_poison" x="1600" y="1248" name="inst_58BDFDE5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_potion_poison" x="1600" y="1344" name="inst_96828F05" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_potion_poison" x="1600" y="1408" name="inst_12CFF1B2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_potion_poison" x="1664" y="1408" name="inst_B44F4B2C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_potion_poison" x="1600" y="1280" name="inst_0D6D8B8A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_potion_speed" x="1568" y="1632" name="inst_B3CB0A34" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_potion_speed" x="1728" y="1632" name="inst_452900E8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_potion_speed" x="1856" y="1568" name="inst_9C365A28" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_potion_speed" x="1824" y="1728" name="inst_0ECED55D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spin_blade" x="1376" y="1440" name="inst_F13B31FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_shield" x="1184" y="1408" name="inst_40F7283A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_sword" x="1312" y="1600" name="inst_4498191F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_dual_sword" x="1440" y="1728" name="inst_E23BC5F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_shield" x="1408" y="1504" name="inst_C8B304F1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_sword" x="1248" y="1632" name="inst_57E869E4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_pet" x="1120" y="1536" name="inst_FDA831EC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_glove" x="1248" y="1312" name="inst_1716C36B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spike" x="1024" y="1376" name="inst_DF1BA4FD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
