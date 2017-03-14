@@ -1,7 +1,10 @@
 ///scr_speed_boost_deactivate();
 
-with(owner_id)
+if(activated)
 {
-    move_speed = other.owner_move_speed;
+    with(owner_id)
+    {
+        move_speed = other.owner_move_speed;
+    }
+    activated = false;
 }
-activated = false;
