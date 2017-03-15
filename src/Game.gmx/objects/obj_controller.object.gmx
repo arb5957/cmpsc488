@@ -52,7 +52,7 @@ generator_done = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Deactivate
+            <string>///Deactivate objects outside of view
 
 if(generator_done) {
     instance_deactivate_all(true);

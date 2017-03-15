@@ -20,7 +20,7 @@ room_goto(rm_test_polyomino);
 
 //*
 script_execute(Globals_script);
-global.testing_world_gen = false;
+global.testing_world_gen = true;
 room_goto(rm_titlescreen);
 //*/</code>
   <enableViews>0</enableViews>

@@ -37,6 +37,8 @@ motion_set(mv_dir, mv_speed);
 if(instance_exists(obj_controller)) {
     obj_controller.generator_done = false;
 }
+
+randomize();
 </string>
           </argument>
         </arguments>
@@ -170,7 +172,7 @@ if(instance_number(obj_floor_generator) == 1) {
     
     //Spawn South Exits
     check_x = 0;
-    check_y = room_height;
+    check_y = room_height-16;
     last_run = false;
     
     while(!last_run &amp;&amp; check_y &gt;=0) {
@@ -241,12 +243,12 @@ if(instance_exists(obj_char)) {
     if(instance_exists(obj_next_room)) {
         for(var i=0; i&lt;instance_number(obj_next_room); i++) {
             spawn = instance_find(obj_next_room, i);
-            show_debug_message("X: " + string (spawn.x + move_x) + "  Y: " + string(spawn.y + move_y));
+            sdb("spawn direction: " + string(spawn.dir));
             if(spawn_side == 0) {
-                if(instance_position(spawn.x-16, spawn.y-16, obj_floor) &amp;&amp;
+                if(instance_position(spawn.x-16, spawn.y+16, obj_floor) &amp;&amp;
                     spawn.dir == 0) {
                     obj_char.x = spawn.x-16;
-                    obj_char.y = spawn.y-16;
+                    obj_char.y = spawn.y+16;
                     break;
                 }
             }
@@ -302,7 +304,7 @@ if(instance_exists(obj_char)) {
             <string>///Choose direction
 
 mv_dir = choose(0, 90, 180, 270);
-direction = mv_dir;
+motion_set(mv_dir, mv_speed);
 </string>
           </argument>
         </arguments>
