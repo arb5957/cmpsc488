@@ -140,23 +140,27 @@ if(opened)
     
     if(first_opening) {    
         //Exit game button
-        exit_game_button = instance_create(v_x + v_width/2, v_y + 400, obj_exit_btn);
+        //exit_game_button = instance_create(v_x + v_width/2, v_y + 400, obj_exit_btn);
+        exit_game_button = instance_create(v_x + v_width/2, v_y + 321, obj_exit_btn);
         exit_game_button.text = "Exit Game";
         exit_game_button.depth = -100;
     
         //Return to main menu button
-        main_menu_button = instance_create(v_x + v_width/2, v_y + 300, obj_back_btn);
+        //main_menu_button = instance_create(v_x + v_width/2, v_y + 300, obj_back_btn);
+        main_menu_button = instance_create(v_x + v_width/2, v_y + 221, obj_back_btn);
         main_menu_button.text = "Main Menu";
         main_menu_button.depth = -100;
     }
     else {
         //Reposition exit game button
         exit_game_button.x = v_x + v_width/2;
-        exit_game_button.y = v_y + 400;
+        //exit_game_button.y = v_y + 400;
+        exit_game_button.y = v_y + 321;
         
         //Reposition main menu button
         main_menu_button.x = v_x + v_width/2;
-        main_menu_button.y = v_y + 300;
+        //main_menu_button.y = v_y + 300;
+        main_menu_button.y = v_y + 221;
     }
 }
 else
