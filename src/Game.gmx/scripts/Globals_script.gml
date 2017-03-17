@@ -29,5 +29,3 @@ script_execute(Globals_input);
 
 script_execute(Globals_saving);
 //script_execute(src_test_load, 0);
-
-global.load = false;

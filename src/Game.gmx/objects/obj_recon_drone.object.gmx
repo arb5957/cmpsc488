@@ -35,8 +35,8 @@ depth = 0;
 var remote_origin;
 
 //Speed
-player_speed = 4;
-original_drone_speed = player_speed;
+move_speed = 4;
+original_drone_speed = move_speed;
 
 //Movement
 going_up = false;

@@ -70,7 +70,7 @@ else
         if(inventory[i] == empty)
         {
             //Insert item into Inventory.
-            inventory[i] = item.object_index;
+            inventory[i] = item;
             item.on_ground = false;
             item.visible = false;
             

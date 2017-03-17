@@ -85,7 +85,7 @@ with(item_inst)
           <argument>
             <kind>1</kind>
             <string>script =  asset_get_index(string_insert(movement, "movement_", 10));
-script_execute(script);
+    script_execute(script);
 </string>
           </argument>
         </arguments>

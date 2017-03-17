@@ -29,8 +29,6 @@
 var item_inst;
 var weapon;
 
-move_speed = 2;
-
 name = "";
 hp = 0;
 item = 0;
@@ -44,6 +42,8 @@ target = true;
 
 newPath = true;
 using_item = false;
+
+move_speed = 1;
 
 //This script is used for passive items.
 //It returns what items an enemy has equipped.

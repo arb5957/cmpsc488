@@ -51,18 +51,15 @@
             <string>if text = "Empty"
 {
     room_goto(rm_create_char);
-    
-    
 }
 else
 {
     global.character_name = text;
     txt = text;
-
     room_goto(rm_gamescreen);
     //room_instance_add(rm_gamescreen, character.x, character.y, obj_held_item);
-    global.load = true;
     global.newlyCreated = false;
+    
 }
 </string>
           </argument>
@@ -128,7 +125,6 @@ else
             <kind>1</kind>
             <string>if(text != "Empty")
 {
-   
 }
 else
 {

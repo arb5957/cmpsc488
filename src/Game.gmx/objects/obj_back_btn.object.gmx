@@ -48,7 +48,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(rm_titlescreen);
+            <string>if(instance_exists(obj_music))
+{
+    with(obj_music)
+    {
+        script_execute(scr_music_stop);
+    }
+}
+room_goto(rm_titlescreen);
 </string>
           </argument>
         </arguments>
