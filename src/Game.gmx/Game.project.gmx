@@ -193,6 +193,8 @@
     <scripts name="Saving">
       <script>scripts\src_test_load.gml</script>
       <script>scripts\src_test_save.gml</script>
+      <script>scripts\scr_test_save_new.gml</script>
+      <script>scripts\scr_test_load_new.gml</script>
     </scripts>
     <scripts name="Inventory">
       <scripts name="old">
