@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.testing_world_gen)
+            <string>if(room == rm_gamescreen2)
 {
     if(not place_empty(x, y)) {
         instance_destroy();
