@@ -264,6 +264,7 @@
     <scripts name="Music">
       <script>scripts\scr_music_stop.gml</script>
     </scripts>
+    <script>scripts\scr_destroy.gml</script>
   </scripts>
   <fonts name="fonts">
     <fonts name="Menu">
