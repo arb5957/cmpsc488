@@ -4,7 +4,9 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\mus_mystery</sound>
+  </sounds>
   <sprites name="sprites">
     <sprites name="Menu">
       <sprite>sprites\spr_text_box</sprite>
@@ -257,6 +259,9 @@
         <script>scripts\print_grid.gml</script>
       </scripts>
     </scripts>
+    <scripts name="Music">
+      <script>scripts\scr_music_stop.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <fonts name="Menu">
@@ -415,6 +420,7 @@
     </objects>
     <object>objects\obj_universal_controller</object>
     <object>objects\obj_next_world</object>
+    <object>objects\obj_music</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
