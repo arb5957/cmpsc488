@@ -51,23 +51,18 @@
             <string>if text = "Empty"
 {
     room_goto(rm_create_char);
+    
+    
 }
 else
 {
+    global.character_name = text;
     txt = text;
-    character = instance_create(room_width/2, room_height/2, obj_char);
-    if instance_exists(character)
-    {
-        character.name = txt;
-    }
-    else 
-    {
-        show_debug_message("Character does not exist");
-    }
+
     room_goto(rm_gamescreen);
     //room_instance_add(rm_gamescreen, character.x, character.y, obj_held_item);
-    room_instance_add(rm_gamescreen, character.x, character.y, inven[0]);
-    script_execute(src_test_save);
+    global.load = true;
+    global.newlyCreated = false;
 }
 </string>
           </argument>
@@ -133,7 +128,7 @@ else
             <kind>1</kind>
             <string>if(text != "Empty")
 {
-    draw_sprite(object_get_sprite(inven[0]), 0, x, y + 32);
+   
 }
 else
 {

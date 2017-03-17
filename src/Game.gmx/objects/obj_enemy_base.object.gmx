@@ -29,6 +29,8 @@
 var item_inst;
 var weapon;
 
+move_speed = 2;
+
 name = "";
 hp = 0;
 item = 0;

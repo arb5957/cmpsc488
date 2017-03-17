@@ -73,6 +73,7 @@ else
 }
 //*/
     room_goto(rm_gamescreen);
+    global.newlyCreated = true;
     //room_instance_add(rm_gamescreen, character.x, character.y, obj_held_item);
     //room_instance_add(rm_gamescreen, character.x, character.y, inven[0]);
     
