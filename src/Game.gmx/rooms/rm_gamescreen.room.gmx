@@ -14,12 +14,14 @@
 obj_char.x = room_width/2;
 obj_char.y = room_height/2;
 */
-if(inven[0] == obj_dagger){
-    instance_create(obj_char.x, obj_char.y, obj_dagger);
-}else{
-    instance_create(obj_char.x, obj_char.y, obj_bow);
+if(global.newlyCreated == true)
+{
+    if(inven[0] == obj_dagger){
+        instance_create(obj_char.x, obj_char.y, obj_dagger);
+    }else{
+        instance_create(obj_char.x, obj_char.y, obj_bow);
+    }
 }
-
 
 /*
 var name = object_get_name(inven[0]);
@@ -28,6 +30,11 @@ if(name == "obj_dagger"){
     instance_create(obj_char.x, obj_char.y, obj_dagger);
 }
 */
+
+if(global.newlyCreated == false)
+{
+    script_execute(scr_test_load_new, 0);
+}
 
 //FOR DEBUGGING
 if(global.testing_world_gen)
