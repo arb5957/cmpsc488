@@ -76,7 +76,8 @@ else
     //room_instance_add(rm_gamescreen, character.x, character.y, obj_held_item);
     //room_instance_add(rm_gamescreen, character.x, character.y, inven[0]);
     
-    script_execute(src_test_save);
+    //script_execute(src_test_save);
+    global.newlyCreated = true;
 
 
 
