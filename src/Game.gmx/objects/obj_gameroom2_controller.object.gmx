@@ -30,6 +30,9 @@
 var roomNumX;
 var roomNumY;
 generator_done = false;
+view_visible[0] = true;
+view_visible[1] = false;
+room_speed = 60;
 </string>
           </argument>
         </arguments>
@@ -52,27 +55,12 @@ generator_done = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Deactivate objects outside of view
-
-if(generator_done) {
-    instance_deactivate_all(true);
-    instance_activate_object(obj_gameroom2_controller);
-    instance_activate_object(obj_char);
-    instance_activate_object(obj_inventory);
-    instance_activate_region(view_xview[view_current]-20, view_yview[view_current]-20,
-        view_wview[view_current]+20, view_hview[view_current]+20, true);
-    if(instance_exists(obj_char)) {
-        view_object[view_current] = obj_char;
-    }
-    view_visible[0] = true;
-    view_visible[1] = false;
-    room_speed = 60;
-}
-else {
-    if(instance_exists(obj_char)) {
-       obj_char.x = -64;
-       obj_char.y = -64;
-    }
+            <string>///Activate objects in view
+instance_deactivate_object(obj_enemy_base);
+instance_activate_region(view_xview[view_current]-100, view_yview[view_current]-100,
+    view_wview[view_current]+100, view_hview[view_current]+100, true);
+if(instance_exists(obj_char)) {
+    view_object[view_current] = obj_char;
 }
 </string>
           </argument>

@@ -34,6 +34,7 @@ mv_dir = choose(0, 90, 180, 270);
 alarm[0] = 25 + irandom(100);
 alarm[1] = 5 + irandom(30);
 motion_set(mv_dir, mv_speed);
+generator_done = false;
 
 if(instance_exists(obj_gameroom2_controller)) {
     obj_gameroom2_controller.generator_done = false;
@@ -107,6 +108,7 @@ if(instance_number(obj_floor_generator) == 1) {
             if(last_run) {
                 with(instance_create(check_x, check_y, obj_next_room)) {
                     dir = 0;
+                    sdb("0");
                 }
             }
             check_y+=32;
@@ -134,6 +136,7 @@ if(instance_number(obj_floor_generator) == 1) {
             if(last_run) {
                 with(instance_create(check_x, check_y, obj_next_room)) {
                     dir = 1;
+                    sdb("1");
                 }
             }
             check_x+=32;
@@ -161,6 +164,7 @@ if(instance_number(obj_floor_generator) == 1) {
             if(last_run) {
                 with(instance_create(check_x, check_y, obj_next_room)) {
                     dir = 2;
+                    sdb("2");
                 }
             }
             check_y+=32;
@@ -188,6 +192,7 @@ if(instance_number(obj_floor_generator) == 1) {
             if(last_run) {
                 with(instance_create(check_x, check_y, obj_next_room)) {
                     dir = 3;
+                    sdb("3");
                 }
             }
             check_x+=32;
@@ -196,9 +201,9 @@ if(instance_number(obj_floor_generator) == 1) {
         check_y-=32;
     }
     
-    if(instance_exists(obj_gameroom2_controller)) {
-        obj_gameroom2_controller.generator_done = true;
-    }
+    instance_create(10, 10, obj_gameroom2_controller);
+    generator_done = true;
+    
 }
 </string>
           </argument>
@@ -221,8 +226,7 @@ if(instance_number(obj_floor_generator) == 1) {
           <argument>
             <kind>1</kind>
             <string>///Move character
-if(instance_exists(obj_char)) {
-    //instance_activate_object(obj_char);
+if(instance_exists(obj_char) &amp;&amp; generator_done) {
     move_x = 16;
     move_y = 48;
     var spawn_side;
@@ -238,7 +242,6 @@ if(instance_exists(obj_char)) {
     else {
         spawn_side = 1;
     }
-    
     if(instance_exists(obj_next_room)) {
         for(var i=0; i&lt;instance_number(obj_next_room); i++) {
             spawn = instance_find(obj_next_room, i);
