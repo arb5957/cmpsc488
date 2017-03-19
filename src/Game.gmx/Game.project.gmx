@@ -39,6 +39,7 @@
       </sprites>
       <sprite>sprites\spr_floor</sprite>
       <sprite>sprites\spr_next_room</sprite>
+      <sprite>sprites\spr_terrain_teleport</sprite>
     </sprites>
     <sprites name="Enemy">
       <sprite>sprites\spr_enemy1</sprite>
@@ -329,6 +330,7 @@
         <object>objects\obj_next_room</object>
         <object>objects\obj_gameroom2_controller</object>
       </objects>
+      <object>objects\obj_terrain_teleport</object>
     </objects>
     <objects name="Display">
       <object>objects\obj_scaling</object>

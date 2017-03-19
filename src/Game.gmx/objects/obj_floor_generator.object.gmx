@@ -87,6 +87,9 @@ if(instance_number(obj_floor_generator) == 1) {
         else if(spawn_chance &gt;= 11 &amp;&amp; spawn_chance &lt;= 11) {
             instance_create(x, y, obj_enemy2);
         }
+        else if(spawn_chance &gt;= 12 &amp;&amp; spawn_chance &lt;= 13) {
+            instance_create(x, y, obj_terrain_teleport);
+        }
     }    
     
     //Spawn East Exits
@@ -241,7 +244,6 @@ if(instance_exists(obj_char) &amp;&amp; generator_done) {
     if(instance_exists(obj_next_room)) {
         for(var i=0; i&lt;instance_number(obj_next_room); i++) {
             spawn = instance_find(obj_next_room, i);
-            sdb("spawn direction: " + string(spawn.dir));
             if(spawn_side == 0) {
                 if(instance_position(spawn.x-16, spawn.y+16, obj_floor) &amp;&amp;
                     spawn.dir == 0) {
