@@ -75,9 +75,9 @@ if(instance_number(obj_floor_generator) == 1) {
         if(spawn_chance &gt;=0 &amp;&amp; spawn_chance &lt;=2) {
             instance_create(x, y, obj_terrain_stickyfloor);
         }
-        /*else if(spawn_chance &gt;= 3 &amp;&amp; spawn_chance &lt;= 5) {
+        else if(spawn_chance &gt;= 3 &amp;&amp; spawn_chance &lt;= 5) {
             instance_create(x, y, obj_terrain_slippery);
-        }*/
+        }//*/
         else if(spawn_chance &gt;= 6 &amp;&amp; spawn_chance &lt;= 8) {
             instance_create(x, y, obj_terrain_spikes);
         }
@@ -108,7 +108,6 @@ if(instance_number(obj_floor_generator) == 1) {
             if(last_run) {
                 with(instance_create(check_x, check_y, obj_next_room)) {
                     dir = 0;
-                    sdb("0");
                 }
             }
             check_y+=32;
@@ -136,7 +135,6 @@ if(instance_number(obj_floor_generator) == 1) {
             if(last_run) {
                 with(instance_create(check_x, check_y, obj_next_room)) {
                     dir = 1;
-                    sdb("1");
                 }
             }
             check_x+=32;
@@ -164,7 +162,6 @@ if(instance_number(obj_floor_generator) == 1) {
             if(last_run) {
                 with(instance_create(check_x, check_y, obj_next_room)) {
                     dir = 2;
-                    sdb("2");
                 }
             }
             check_y+=32;
@@ -192,7 +189,6 @@ if(instance_number(obj_floor_generator) == 1) {
             if(last_run) {
                 with(instance_create(check_x, check_y, obj_next_room)) {
                     dir = 3;
-                    sdb("3");
                 }
             }
             check_x+=32;

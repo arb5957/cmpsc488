@@ -29,7 +29,7 @@
 
 event_inherited();
 factor = 2;
-duration = room_speed;
+duration = 60;
 </string>
           </argument>
         </arguments>

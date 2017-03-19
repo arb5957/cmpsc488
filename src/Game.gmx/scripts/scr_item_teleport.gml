@@ -18,7 +18,8 @@ if(owner_id != obj_char.id)
 else
 {
         
-        if(place_empty(mouse_x, mouse_y) && can_teleport == true)
+        //if(place_empty(mouse_x, mouse_y) && can_teleport == true)
+        if(place_meeting(mouse_x, mouse_y, obj_floor) && can_teleport == true)
         {
             owner_id.x = mouse_x;
             owner_id.y = mouse_y;
