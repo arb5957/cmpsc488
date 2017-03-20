@@ -54,6 +54,7 @@ if(item.stackable)
         inventory[empty_slot] = item;
         item.on_ground = false;
         item.visible = false;
+        item.persistent = true;
         scr_item_pickup(item.name, item.stack_size);
         show_debug_message("Added " + string(item.name) + " into slot " + string(empty_slot));
         
@@ -73,6 +74,7 @@ else
             inventory[i] = item;
             item.on_ground = false;
             item.visible = false;
+            item.persistent = true;
             
             show_debug_message("Added " + string(item.name) + " into slot " + string(i));
             scr_item_pickup(item.name, item.stack_size);

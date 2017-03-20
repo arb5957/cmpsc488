@@ -13,7 +13,11 @@
   <code>if(instance_exists(obj_char)) {
     obj_char.x = -64;
     obj_char.y = -64;
-    obj_char.state = states.NORMAL;
+    obj_char.state = states.STOP;
+    obj_char.going_right = false;
+    obj_char.going_up = false;
+    obj_char.going_left = false;
+    obj_char.going_down = false;
 }
 instance_create(room_width/2, room_height/2, obj_floor_generator);</code>
   <enableViews>-1</enableViews>

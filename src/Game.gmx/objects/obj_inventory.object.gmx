@@ -1127,6 +1127,7 @@ if(inventory_open)
             {
                 script_execute(deactivation_script);
             }
+            cubby.persistent = false;
             cubby.equipped = false;
             cubby.on_ground = true;
             cubby.visible = true;
