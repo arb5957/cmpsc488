@@ -200,6 +200,12 @@ prev_slot = -2;
 draw_tooltip = false;
 tooltip_item_index = -1;
 
+//Tooltip variables for hotbar
+tooltip_region = region.NONE;
+hotbar_time_over_slot = 0;
+current_hotbar_cell = -1;
+draw_hotbar_tooltip = false;
+
 /*
 //Create the starting inventory.
 
@@ -449,9 +455,11 @@ if(keyboard_check_pressed(global.key_loadout_toggle))
           <argument>
             <kind>1</kind>
             <string>///Toggle tooltip
-if(inventory_open &amp;&amp; 
+
+if(inventory_open &amp;&amp;
     point_in_rectangle(mouse_x, mouse_y, inventory_x1, inventory_y1, inventory_x2, inventory_y2))
 {
+    tooltip_region = region.INVENTORY;
     //show_debug_message("here " + string(draw_tooltip));
     for(var i = 0; i&lt;inventory_capacity; i++)
     {
@@ -487,6 +495,83 @@ else
     time_over_slot = 0;
     draw_tooltip = false;
 }
+if(inventory_open)
+{
+    var hovering_over_cell = false;
+    if(point_in_rectangle(mouse_x, mouse_y, hotbar_x1, hotbar_y1, hotbar_x2, hotbar_y2))
+    {
+        for(var i = 0; i &lt; loadout_capacity; i++)
+        {
+            var x1 = loadout_cell_x[i];
+            var y1 = loadout_cell_y[i];
+            var x2 = x1 + cell_size;
+            var y2 = y1 + cell_size;
+            if(point_in_rectangle(mouse_x, mouse_y, x1, y1, x2, y2))
+            {
+                hovering_over_cell = true;
+                if(tooltip_region == region.LOADOUT and i == current_hotbar_cell)
+                {
+                    hotbar_time_over_slot++;
+                }
+                else
+                {
+                    if(loadout[current_loadout, i] != empty)
+                    {
+                        current_hotbar_cell = i;
+                        tooltip_region = region.LOADOUT;
+                    }
+                    hotbar_time_over_slot = 0;
+                }
+            }
+        }
+        for(var i = 0; i &lt; persistent_items_capacity; i++)
+        {
+            var x1 = persistent_items_cell_x[i];
+            var y1 = persistent_items_cell_y[i];
+            var x2 = x1 + cell_size;
+            var y2 = y1 + cell_size;
+
+            if(point_in_rectangle(mouse_x, mouse_y, x1, y1, x2, y2))
+            {
+                hovering_over_cell = true;
+                if(tooltip_region == region.PERSIST and i == current_hotbar_cell)
+                {
+                    hotbar_time_over_slot++;
+                }
+                else
+                {
+                    if(persistent_items[i] != empty)
+                    {
+                        current_hotbar_cell = i;
+                        tooltip_region = region.PERSIST;
+                        hotbar_time_over_slot = 0;
+                    }
+                }
+            }
+        }
+    }
+    if(hovering_over_cell)
+    {
+        if(hotbar_time_over_slot &gt;= room_speed/2)
+        {
+            draw_hotbar_tooltip = true;
+        }
+    }
+    else
+    {
+        if(tooltip_region != region.INVENTORY) tooltip_region = region.NONE;
+        current_hotbar_cell = -1;
+        draw_hotbar_tooltip = false;
+    }
+}
+//sdb(string(hotbar_time_over_slot) + " " + string(time_over_slot));
+//sdb("region: " + string(tooltip_region));
+//sdb("current hotbar cell " + string(current_hotbar_cell));
+//if(not(tooltip_region == region.PERSIST or tooltip_region == region.LOADOUT or tooltip_region == region.INVENTORY))
+//{
+//    tooltip_region = region.NONE;
+//}
+//sdb("region: " + string(tooltip_region));
 </string>
           </argument>
         </arguments>
@@ -1210,24 +1295,73 @@ for(var i = 0; i &lt; persistent_items_capacity; i++)
           <argument>
             <kind>1</kind>
             <string>///Draw tooltip
-if(tooltip_item_index &gt;= 0)
+if(inventory_open)
 {
-    //show_debug_message("tooltip_item_index: " + string(tooltip_item_index));
-    if(draw_tooltip &amp;&amp; inventory[tooltip_item_index] != empty)
+    if(tooltip_item_index &gt;= 0)
     {
-        draw_set_font(font_inventory);
-        draw_set_alpha(1);
-        draw_set_color(c_maroon);
-        draw_rectangle(mouse_x - 3, mouse_y - 3, mouse_x + 203, mouse_y + 153, false);
-        draw_rectangle_colour(mouse_x, mouse_y, mouse_x + 200, mouse_y + 150,
-            c_white, c_white, c_white, c_white, false);
-        draw_rectangle(mouse_x - 1, mouse_y + 30, mouse_x + 201, mouse_y + 33, false);
-        item_name = inventory[tooltip_item_index].name;
-        item_descrip = inventory[tooltip_item_index].description;
-        tooltip_text = item_name + "##" + item_descrip;
-        draw_set_color(c_black);
-        draw_set_halign(fa_left);
-        draw_text_ext(mouse_x+10, mouse_y+10, tooltip_text, 15, 160);
+        //show_debug_message("tooltip_item_index: " + string(tooltip_item_index));
+        if(draw_tooltip &amp;&amp; inventory[tooltip_item_index] != empty)
+        {
+            draw_set_font(font_inventory);
+            draw_set_alpha(1);
+            draw_set_color(c_maroon);
+            draw_rectangle(mouse_x - 3, mouse_y - 3, mouse_x + 203, mouse_y + 153, false);
+            draw_rectangle_colour(mouse_x, mouse_y, mouse_x + 200, mouse_y + 150,
+                c_white, c_white, c_white, c_white, false);
+            draw_rectangle(mouse_x - 1, mouse_y + 30, mouse_x + 201, mouse_y + 33, false);
+            item_name = inventory[tooltip_item_index].name;
+            item_descrip = inventory[tooltip_item_index].description;
+            tooltip_text = item_name + "##" + item_descrip;
+            draw_set_color(c_black);
+            draw_set_halign(fa_left);
+            draw_text_ext(mouse_x+10, mouse_y+10, tooltip_text, 15, 160);
+        }
+    }
+    if(current_hotbar_cell &gt; -1 and draw_hotbar_tooltip == true)
+    {
+        var item = empty;
+        if(tooltip_region == region.LOADOUT)
+        {
+            //sdb("tooltip loadout");
+            item = loadout[current_loadout, current_hotbar_cell];
+
+            if(item != empty)
+            {
+                var tooltip_text = "";
+                draw_set_font(font_inventory);
+                draw_set_alpha(1);
+                draw_set_color(c_maroon);
+                draw_rectangle(mouse_x - 3, mouse_y - 153, mouse_x + 203, mouse_y, false);
+                draw_rectangle_colour(mouse_x, mouse_y - 150, mouse_x + 200, mouse_y-3,
+                    c_white, c_white, c_white, c_white, false);
+                draw_rectangle(mouse_x - 1, mouse_y - 123, mouse_x + 201, mouse_y - 120, false);
+                tooltip_text = item.name + "##" + item.description;
+                draw_set_color(c_black);
+                draw_set_halign(fa_left);
+                draw_text_ext(mouse_x+10, mouse_y-143, tooltip_text, 15, 160);
+            }
+        }
+        else if(tooltip_region == region.PERSIST)
+        {
+            //sdb("tooltip persist");
+            item = persistent_items[current_hotbar_cell];
+
+            if(item != empty)
+            {
+                var tooltip_text = "";
+                draw_set_font(font_inventory);
+                draw_set_alpha(1);
+                draw_set_color(c_maroon);
+                draw_rectangle(mouse_x - 203, mouse_y - 153, mouse_x + 3, mouse_y, false);
+                draw_rectangle_colour(mouse_x-200, mouse_y - 150, mouse_x, mouse_y-3,
+                    c_white, c_white, c_white, c_white, false);
+                draw_rectangle(mouse_x - 201, mouse_y - 123, mouse_x + 1, mouse_y - 120, false);
+                tooltip_text = item.name + "##" + item.description;
+                draw_set_color(c_black);
+                draw_set_halign(fa_left);
+                draw_text_ext(mouse_x-190, mouse_y-143, tooltip_text, 15, 160);
+            }
+        }
     }
 }
 </string>
