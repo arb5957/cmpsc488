@@ -38,10 +38,12 @@
         <sprite>sprites\spr_building_ht</sprite>
       </sprites>
       <sprite>sprites\spr_floor</sprite>
+      <sprite>sprites\spr_dungeon_pit_floor</sprite>
       <sprite>sprites\spr_next_room</sprite>
       <sprite>sprites\spr_terrain_teleport</sprite>
       <sprite>sprites\spr_terrain_freeze</sprite>
       <sprite>sprites\spr_ice</sprite>
+      <sprite>sprites\spr_dungeon_pit</sprite>
     </sprites>
     <sprites name="Enemy">
       <sprite>sprites\spr_enemy1</sprite>
@@ -335,6 +337,8 @@
       <object>objects\obj_terrain_teleport</object>
       <object>objects\obj_terrain_freeze</object>
       <object>objects\obj_ice</object>
+      <object>objects\obj_dungeon_pit_floor</object>
+      <object>objects\obj_terrain_dungeon_pit</object>
     </objects>
     <objects name="Display">
       <object>objects\obj_scaling</object>

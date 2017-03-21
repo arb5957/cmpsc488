@@ -91,6 +91,10 @@ with(obj_ice) {
 
 image_index = 1;
 alarm[1] = 180;
+
+if(instance_exists(obj_inventory)) {
+    obj_inventory.can_use_items = true;
+}
 </string>
           </argument>
         </arguments>
@@ -119,7 +123,13 @@ if(terrain_active) {
     draw_ice = true;
     terrain_active = false;
     
+    if(instance_exists(obj_inventory)) {
+        obj_inventory.can_use_items = false;
+        sdb("Cannot use items");
+    }
+    
     with(other) {
+        
         state = states.STOP;
         going_right = false;
         going_up = false;

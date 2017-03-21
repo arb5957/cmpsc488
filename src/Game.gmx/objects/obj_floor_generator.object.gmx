@@ -94,6 +94,9 @@ if(instance_number(obj_floor_generator) == 1) {
         else if(spawn_chance &gt;= 14 &amp;&amp; spawn_chance &lt;= 15) {
             instance_create(x, y, obj_terrain_freeze);
         }
+        else if(spawn_chance == 16) {
+            instance_create(x, y, obj_terrain_dungeon_pit);
+        }
     }    
     
     //Spawn East Exits
@@ -102,7 +105,7 @@ if(instance_number(obj_floor_generator) == 1) {
     var last_run = false;
     
     while(!last_run &amp;&amp; check_x &gt;= 0) {
-        while(check_y &lt; room_height) {
+        while(check_y &lt; room_height-1024) {
             //if(not place_empty(check_x, check_y)) {
             if(place_meeting(check_x, check_y, obj_terrain_wall)) {
                 last_run = 1;
@@ -129,7 +132,7 @@ if(instance_number(obj_floor_generator) == 1) {
     check_y = 0;
     last_run = false;
     
-    while(!last_run &amp;&amp; check_y &lt; room_height) {
+    while(!last_run &amp;&amp; check_y &lt; room_height-1024) {
         while(check_x &lt; room_width) {
             //if(not place_empty(check_x, check_y)) {
             if(place_meeting(check_x, check_y, obj_terrain_wall)) {
@@ -158,7 +161,7 @@ if(instance_number(obj_floor_generator) == 1) {
     last_run = false;
     
     while(!last_run &amp;&amp; check_x &lt; room_width) {
-        while(check_y &lt; room_height) {
+        while(check_y &lt; room_height-1024) {
             //if(not place_empty(check_x, check_y)) {
             if(place_meeting(check_x, check_y, obj_terrain_wall)) {
                 last_run = 1;
@@ -182,7 +185,7 @@ if(instance_number(obj_floor_generator) == 1) {
     
     //Spawn South Exits
     check_x = 0;
-    check_y = room_height;
+    check_y = room_height-1024;
     last_run = false;
     
     while(!last_run &amp;&amp; check_y &gt;=0) {
@@ -370,7 +373,7 @@ for(i=-32; i&lt;=32; i+=32) {
     }
 }
 
-if(x&lt;=256 || x&gt;=room_width-256 || y&lt;=256 || y&gt;=room_height-256) {
+if(x&lt;=256 || x&gt;=room_width-256 || y&lt;=256 || y&gt;=room_height-1280) {
     instance_destroy();
 }
 else {
