@@ -27,7 +27,12 @@
             <kind>1</kind>
             <string>if(room == rm_gamescreen2)
 {
-    if(not place_empty(x, y)) {
+    /*if(not place_empty(x, y)) {
+        instance_destroy();
+    }*/
+    
+    if(place_meeting(x, y, obj_floor) || place_meeting(x, y, obj_next_room) || 
+        place_meeting(x, y, obj_terrain_wall)) {
         instance_destroy();
     }
 }

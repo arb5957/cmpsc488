@@ -364,9 +364,9 @@ instance_destroy();
 
 for(i=-32; i&lt;=32; i+=32) {
     for(j=-32; j&lt;=32; j+=32) {
-        //if(place_empty(x+i, y+j)) {
+        if(not place_meeting(x+i, y+j, obj_floor)) {
             instance_create(x+i, y+j, obj_floor);
-        //}
+        }
     }
 }
 
@@ -386,7 +386,6 @@ else {
                 }
             }
         }
-        
     }
     
     gen_chance = irandom(15 * instance_number(obj_floor_generator));
