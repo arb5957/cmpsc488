@@ -4,7 +4,7 @@ if(owner_id != obj_char.id)
     if(can_teleport == true)
     {    
         can_teleport = false;
-        alarm[0] = 120;
+        alarm[COOLDOWN] = cooldown;
         cx = irandom_range(min(other.x, obj_char.x), max(other.x, obj_char.x)) + irandom_range(-32, 32);
         cy = irandom_range(min(other.y, obj_char.y), max(other.y, obj_char.y)) + irandom_range(-32, 32);
 
