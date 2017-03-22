@@ -31,6 +31,7 @@ event_inherited();
 //slow_speed = 0.5 * obj_char.move_speed;
 duration = 2;
 factor = 0.5;
+first_encounter = true;
 </string>
           </argument>
         </arguments>
@@ -59,7 +60,7 @@ with(obj_char)
 {
     move_speed = original_move_speed;
 }
-
+first_encounter = true;
 </string>
           </argument>
         </arguments>
@@ -88,7 +89,17 @@ if(not other.flying)
 {
     with(other)
     {
+            var temp;
+            if(other.first_encounter)
+            {
+                temp = move_speed;
+            }
             move_speed = other.factor * original_move_speed;
+            if(other.first_encounter)
+            {
+                original_move_speed = temp;
+                other.first_encounter = false;
+            }
     }
     alarm[0] = duration;
 }
