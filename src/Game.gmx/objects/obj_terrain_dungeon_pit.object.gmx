@@ -29,6 +29,10 @@
 
 land_floor = instance_find(obj_dungeon_pit_floor, 
     random(instance_number(obj_dungeon_pit_floor)));
+
+with(instance_nearest(land_floor.x, land_floor.y, obj_terrain_teleport)) {
+    instance_destroy();
+}
     
 other.x = land_floor.x+16;
 other.y = land_floor.y+16;
