@@ -77,6 +77,7 @@
       <sprite>sprites\spr_acid_cloud</sprite>
       <sprite>sprites\spr_boss_lazer</sprite>
       <sprite>sprites\spr_sting</sprite>
+      <sprite>sprites\spr_cannonball</sprite>
     </sprites>
     <sprites name="Weapons">
       <sprite>sprites\spr_blue_gun</sprite>
@@ -117,6 +118,8 @@
       <sprite>sprites\spr_spike</sprite>
       <sprite>sprites\spr_spin_blade</sprite>
       <sprite>sprites\spr_sword</sprite>
+      <sprite>sprites\spr_turret</sprite>
+      <sprite>sprites\spr_turret_maker</sprite>
     </sprites>
     <sprite>sprites\spr_next_world</sprite>
     <sprite>sprites\spr_next_world_arrow</sprite>
@@ -255,6 +258,8 @@
       <script>scripts\scr_trail.gml</script>
       <script>scripts\scr_trail_position.gml</script>
       <script>scripts\sdb.gml</script>
+      <script>scripts\scr_turret_maker.gml</script>
+      <script>scripts\scr_turret_maker_position.gml</script>
     </scripts>
     <scripts name="World">
       <scripts name="Polyomino">
@@ -386,6 +391,7 @@
       <object>objects\obj_star_2</object>
       <object>objects\obj_lighting_strike</object>
       <object>objects\obj_quake</object>
+      <object>objects\obj_cannonball</object>
     </objects>
     <objects name="Weapons">
       <object>objects\obj_blue_gun</object>
@@ -424,6 +430,8 @@
       <object>objects\obj_potion_speed</object>
       <object>objects\obj_trail</object>
       <object>objects\obj_pet</object>
+      <object>objects\obj_turret</object>
+      <object>objects\obj_turret_maker</object>
     </objects>
     <objects name="Inventory">
       <object>objects\obj_inventory</object>

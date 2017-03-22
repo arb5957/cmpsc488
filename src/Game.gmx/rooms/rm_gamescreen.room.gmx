@@ -256,6 +256,7 @@ if(global.testing_world_gen)
     <instance objName="obj_next_world" x="192" y="96" name="inst_5A038FC5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_music" x="96" y="32" name="inst_637C3253" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_next_room" x="1984" y="1376" name="inst_65F06939" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_turret_maker" x="1792" y="1088" name="inst_6DA88AF5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
