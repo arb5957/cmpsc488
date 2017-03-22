@@ -229,7 +229,6 @@ if(global.testing_world_gen)
     <instance objName="obj_terrain_spikes" x="1568" y="1312" name="inst_CA0E217E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terrain_slippery" x="1728" y="1344" name="inst_DBEDE84F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terrain_stickyfloor" x="1792" y="1280" name="inst_C8456A31" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_boss2" x="2048" y="736" name="inst_FA5019CE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_potion_poison" x="1600" y="1248" name="inst_58BDFDE5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_potion_poison" x="1600" y="1344" name="inst_96828F05" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_potion_poison" x="1600" y="1408" name="inst_12CFF1B2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -257,8 +256,6 @@ if(global.testing_world_gen)
     <instance objName="obj_music" x="96" y="32" name="inst_637C3253" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_next_room" x="1984" y="1376" name="inst_65F06939" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_turret_maker" x="1792" y="1088" name="inst_6DA88AF5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_boss1" x="2304" y="1344" name="inst_3B0BBE2E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_boss1" x="2368" y="1280" name="inst_7C6A2D78" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_quake_boots" x="2240" y="992" name="inst_13501EB5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_shovel" x="2176" y="1088" name="inst_E7DF1707" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
