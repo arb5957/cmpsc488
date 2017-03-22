@@ -32,7 +32,6 @@ defense = 0;
 one_time_use = false;
 stack_size = 1;
 stackable = false;
-level = 1;
 script = scr_empty;
 position_script = scr_default_item_position;
 release_script = scr_empty;
@@ -68,6 +67,11 @@ angle = 0;
 
 //Alarm used for finishing a cooldown.
 COOLDOWN = 0;
+
+//Levling stats.
+level = 1;
+Exp = 0;
+exp_for_level = 10;
 </string>
           </argument>
         </arguments>

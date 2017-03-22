@@ -10,6 +10,7 @@ with(inst)
     direction = other.angle - 30;
     damage = other.damage;
     owner = other.owner;
+    from_weapon = other.id;
 }
 
 with(inst2){
@@ -17,6 +18,7 @@ with(inst2){
     direction = other.angle + 30;
     damage = other.damage;
     owner = other.owner;
+    from_weapon= other.id;
 }
 
 alarm[COOLDOWN] = cooldown/2;

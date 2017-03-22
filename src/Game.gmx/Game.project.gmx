@@ -18,6 +18,9 @@
     <sprites name="Character">
       <sprite>sprites\spr_char_temp</sprite>
       <sprite>sprites\spr_char</sprite>
+      <sprites name="effects">
+        <sprite>sprites\spr_char_digging</sprite>
+      </sprites>
     </sprites>
     <sprites name="Terrain">
       <sprite>sprites\spr_terrain_stickyfloor</sprite>
@@ -49,6 +52,7 @@
       <sprite>sprites\spr_enemy_snake_body</sprite>
       <sprite>sprites\spr_enemy_snake_head</sprite>
       <sprite>sprites\spr_enemy_summoner</sprite>
+      <sprite>sprites\spr_enemy_inker</sprite>
       <sprites name="Effects">
         <sprite>sprites\spr_boss2_capture</sprite>
         <sprite>sprites\spr_enemy_digging</sprite>
@@ -58,6 +62,8 @@
         <sprite>sprites\spr_lightning_strike</sprite>
         <sprite>sprites\spr_lightning_tell</sprite>
         <sprite>sprites\spr_quake</sprite>
+        <sprite>sprites\spr_ink</sprite>
+        <sprite>sprites\spr_ink_floor</sprite>
       </sprites>
       <sprites name="Bosses">
         <sprite>sprites\spr_Boss1</sprite>
@@ -72,6 +78,7 @@
       <sprite>sprites\spr_acid_cloud</sprite>
       <sprite>sprites\spr_boss_lazer</sprite>
       <sprite>sprites\spr_sting</sprite>
+      <sprite>sprites\spr_ink_shot</sprite>
     </sprites>
     <sprites name="Weapons">
       <sprite>sprites\spr_blue_gun</sprite>
@@ -112,6 +119,8 @@
       <sprite>sprites\spr_spike</sprite>
       <sprite>sprites\spr_spin_blade</sprite>
       <sprite>sprites\spr_sword</sprite>
+      <sprite>sprites\spr_quake_boots</sprite>
+      <sprite>sprites\spr_shovel</sprite>
     </sprites>
     <sprite>sprites\spr_next_world</sprite>
     <sprite>sprites\spr_next_world_arrow</sprite>
@@ -150,6 +159,7 @@
         <script>scripts\attack_snake_body.gml</script>
         <script>scripts\attack_snake_head.gml</script>
         <script>scripts\attack_summoner.gml</script>
+        <script>scripts\attack_inker.gml</script>
       </scripts>
       <scripts name="Movement">
         <script>scripts\movement_circle.gml</script>
@@ -163,6 +173,7 @@
         <script>scripts\movement_snake_body.gml</script>
         <script>scripts\movement_snake_head.gml</script>
         <script>scripts\movement_summoner.gml</script>
+        <script>scripts\movement_inker.gml</script>
       </scripts>
       <script>scripts\scr_enemy_takedamage.gml</script>
       <script>scripts\set_enemy_attr.gml</script>
@@ -185,6 +196,7 @@
           <script>scripts\attack_boss2_quakes.gml</script>
         </scripts>
       </scripts>
+      <script>scripts\scr_drop_item_rate.gml</script>
     </scripts>
     <scripts name="Projectile">
       <script>scripts\scr_char_fire_projectile.gml</script>
@@ -215,6 +227,7 @@
       <script>scripts\scr_default_item_position.gml</script>
     </scripts>
     <scripts name="Item">
+      <script>scripts\scr_add_exp.gml</script>
       <script>scripts\scr_potion.gml</script>
       <script>scripts\scr_blue_gun.gml</script>
       <script>scripts\scr_dagger.gml</script>
@@ -250,6 +263,10 @@
       <script>scripts\scr_trail.gml</script>
       <script>scripts\scr_trail_position.gml</script>
       <script>scripts\sdb.gml</script>
+      <script>scripts\scr_quake_boots_activate.gml</script>
+      <script>scripts\scr_quake_boots_deactivate.gml</script>
+      <script>scripts\scr_quake_boots_using.gml</script>
+      <script>scripts\scr_shovel.gml</script>
     </scripts>
     <scripts name="World">
       <scripts name="Polyomino">
@@ -319,6 +336,7 @@
       <object>objects\INCOMPLETEobj_terrain_makeinvulnerable</object>
       <object>objects\obj_terrain_stickyfloor</object>
       <object>objects\obj_terrain_slippery</object>
+      <object>objects\obj_terrain_ink</object>
       <object>objects\obj_terrain_spikes</object>
       <object>objects\obj_building</object>
       <object>objects\obj_terrain_floor</object>
@@ -350,11 +368,13 @@
       <object>objects\obj_enemy_healer</object>
       <object>objects\obj_enemy_snake_body</object>
       <object>objects\obj_enemy_snake_head</object>
+      <object>objects\obj_enemy_inker</object>
       <object>objects\obj_enemy_summoner</object>
       <objects name="Effects">
         <object>objects\obj_boss2_capture</object>
         <object>objects\obj_heal_aura</object>
         <object>objects\obj_lightning_tell</object>
+        <object>objects\obj_ink_screen</object>
       </objects>
       <objects name="Bosses">
         <object>objects\obj_enemy_boss1</object>
@@ -375,6 +395,7 @@
       <object>objects\obj_star_2</object>
       <object>objects\obj_lighting_strike</object>
       <object>objects\obj_quake</object>
+      <object>objects\obj_ink_shot</object>
     </objects>
     <objects name="Weapons">
       <object>objects\obj_blue_gun</object>
@@ -413,6 +434,8 @@
       <object>objects\obj_potion_speed</object>
       <object>objects\obj_trail</object>
       <object>objects\obj_pet</object>
+      <object>objects\obj_quake_boots</object>
+      <object>objects\obj_shovel</object>
     </objects>
     <objects name="Inventory">
       <object>objects\obj_inventory</object>

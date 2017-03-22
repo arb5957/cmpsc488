@@ -56,6 +56,12 @@ draw_set_halign(fa_right);
 draw_set_valign(fa_top);
 var width = window_get_width();
 var message = "hp: " + string(obj_char.hp) + "#" + "invulnerable: " + string(obj_char.invulnerable);
+
+if(instance_exists(obj_bow))
+{
+    message = message + "##" + string(obj_bow.level);
+}
+
 draw_text(width,0,message);
 </string>
           </argument>

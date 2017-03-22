@@ -1,6 +1,10 @@
 //Setting possible weapons
 global.weap_array[1] = "obj_blue_gun";
 global.weap_array[2] = "obj_dagger";
+global.weap_array[3] = "obj_glove";
+global.weap_array[4] = "obj_dual_sword";
+global.weap_array[5] = "obj_sword";
+global.weap_array[6] = "obj_spin_blade";
 
 //Setting possible items
 global.items_array[1] = "obj_lunge";

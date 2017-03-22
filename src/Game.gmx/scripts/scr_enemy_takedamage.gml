@@ -1,6 +1,15 @@
-hp -= 1;
+var damage = argument0;
 
-if(hp == 0)
+if(not invulnerable)
+{
+    invulnerable = true;
+    hp -= damage;
+    
+    alarm[11] = invulnerable_time;
+    
+}
+
+if(hp <= 0)
 {
     instance_destroy();
 }

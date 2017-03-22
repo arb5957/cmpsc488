@@ -205,7 +205,6 @@ if(global.testing_world_gen)
     <instance objName="obj_wood" x="1344" y="1152" name="inst_EAD8E9C9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wood" x="1504" y="832" name="inst_823D520C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wood" x="1504" y="1440" name="inst_3D727F4C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_bow" x="2048" y="1152" name="inst_0E9E1330" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_dagger" x="2048" y="1216" name="inst_EDA2B57F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_potion" x="1792" y="1120" name="inst_8006AB17" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_potion" x="1760" y="1024" name="inst_C6EB9332" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -229,7 +228,6 @@ if(global.testing_world_gen)
     <instance objName="obj_terrain_spikes" x="1568" y="1312" name="inst_CA0E217E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terrain_slippery" x="1728" y="1344" name="inst_DBEDE84F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terrain_stickyfloor" x="1792" y="1280" name="inst_C8456A31" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_boss2" x="2048" y="736" name="inst_FA5019CE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_potion_poison" x="1600" y="1248" name="inst_58BDFDE5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_potion_poison" x="1600" y="1344" name="inst_96828F05" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_potion_poison" x="1600" y="1408" name="inst_12CFF1B2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -255,6 +253,9 @@ if(global.testing_world_gen)
     <instance objName="obj_next_room" x="224" y="0" name="inst_A7B81C65" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_next_world" x="192" y="96" name="inst_5A038FC5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_music" x="96" y="32" name="inst_637C3253" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_inker" x="2496" y="1344" name="inst_59A23D3B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_quake_boots" x="2208" y="1024" name="inst_9A3AE892" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_shovel" x="2208" y="928" name="inst_1F093330" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
