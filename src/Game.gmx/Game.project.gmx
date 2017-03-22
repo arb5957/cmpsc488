@@ -397,7 +397,6 @@
         <object>objects\obj_enemy_boss2</object>
       </objects>
     </objects>
-    <object>objects\obj_string</object>
     <objects name="Projectile">
       <object>objects\obj_bullet_base</object>
       <object>objects\obj_bullet</object>
@@ -413,6 +412,7 @@
       <object>objects\obj_quake</object>
       <object>objects\obj_cannonball</object>
       <object>objects\obj_ink_shot</object>
+      <object>objects\obj_string</object>
     </objects>
     <objects name="Weapons">
       <object>objects\obj_blue_gun</object>
