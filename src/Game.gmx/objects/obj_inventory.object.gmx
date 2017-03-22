@@ -47,6 +47,9 @@ cell_size = 48;
 x_padding = 8;
 y_padding = 8;
 
+//The extra padding to display command hints in the hotbar.
+extra_y_padding = 12;
+
 //Cell color.
 cell_alpha = 0.95;
 cell_color = c_gray;
@@ -66,7 +69,7 @@ can_use_items = true;
 disabled = false;
 
 //Size of the hotbar when we draw it.
-hotbar_height = cell_size+(2*y_padding);
+hotbar_height = cell_size+(2*y_padding)+extra_y_padding;
 hotbar_width = view_width;
 
 //The number of items each loadout can have.
@@ -696,6 +699,16 @@ for(var i = 0; i &lt; loadout_capacity; i++)
         //Draw cooldown.
         scr_inventory_draw_cooldown(item,x1,y1,x2,y2);
     }
+    //Draw command hints
+    if(i &lt; first_passive_slot)
+    {
+        draw_set_font(font_command);
+        draw_set_alpha(1);
+        draw_set_color(c_white);
+        draw_set_halign(fa_left);
+        draw_text_ext(x1, y2, global.commands[i],8,40);
+    }
+    
     //Go to next cell.
     x1 += cell_size + x_padding;
     x2 += cell_size + x_padding;
@@ -738,6 +751,13 @@ for(var i = 0; i &lt; persistent_items_capacity; i++)
         //Draw cooldown.
         scr_inventory_draw_cooldown(item,x1,y1,x2,y2);
     }
+    
+    //Draw command hints
+    draw_set_font(font_command);
+    draw_set_alpha(1);
+    draw_set_color(c_white);
+    draw_set_halign(fa_left);
+    draw_text_ext(x1, y2, global.commands[i+first_passive_slot],8,40);
     
     //Go to next cell.
     x1 += cell_size + x_padding;

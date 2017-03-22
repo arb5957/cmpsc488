@@ -299,6 +299,7 @@
     </fonts>
     <fonts name="Inventory">
       <font>fonts\font_inventory</font>
+      <font>fonts\font_command</font>
     </fonts>
   </fonts>
   <objects name="objects">
