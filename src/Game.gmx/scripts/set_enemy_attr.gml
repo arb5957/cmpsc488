@@ -1,12 +1,14 @@
 randomize();
+
 switch(name)
 {
     case "enemy1" : 
         hp = irandom_range(2, 6);
         weapon = global.weap_array[irandom_range(1,2)];
         movement = global.enemy_movements[irandom_range(1,2)];
+        attack_pattern = choose("aggressive", "within_range");
         move_speed_default = 2;
-        move_speed = move_speed_default;
+        
         item = global.items_array[2];
         break;
     
@@ -14,19 +16,150 @@ switch(name)
         hp = irandom_range(6, 10);
         weapon = global.weap_array[irandom_range(1,2)];;
         movement = global.enemy_movements[3];
+        attack_pattern = choose("aggressive", "within_range");
         item = global.items_array[1];
         break;
     
-    case "heavy" :
-        hp = irandom_range(10, 15);
-        weapon = global.weap_array[3];
-        movement = global.enemy_movements[3];
-        item = global.items_array[3];
+    case "butterfly" :
+        hp = irandom_range(4, 6);
+        movement = "butterfly";
+        attack_pattern = "butterfly";
+        weapon = "obj_blue_gun";
+        item = "obj_potion_poison";
+        
+        common_drop = obj_potion_poison;
+        common_drop_rate = 50;
+        
+        rare_drop = obj_speed_boost;
+        rare_drop_rate = 90;
+        
+        ultra_drop = obj_flying_stone;
+        ultra_drop_rate = 99;
+        
         break;
+    
+    case "dig" :
+        hp = irandom_range(8, 12);
+        movement = "dig";
+        attack_pattern = "dig";
+        weapon = global.weap_array[irandom_range(1,5)];
+        item = choose("obj_potion", "obj_shield");
+        
+        common_drop = obj_potion;
+        common_drop_rate = 50;
+        
+        rare_drop = obj_shovel;
+        rare_drop_rate = 90;
+        
+        ultra_drop = obj_quake_boots;
+        ultra_drop_rate = 99;
+        break;
+    
+    case "dup_real" :
+        hp = irandom_range(5, 10);
+        movement = "speed";
+        attack_pattern = "within_range";
+        weapon = global.weap_array[irandom_range(1, 5)];
+        item = "obj_pet";
+        
+        common_drop = obj_potion;
+        common_drop_rate = 50;
+        
+        rare_drop = obj_pet;
+        rare_drop_rate = 90;
+        
+        ultra_drop = obj_quake_boots;
+        ultra_drop_rate = 99;
+        break;
+        
+    case "dup_fake" :
+        hp = irandom_range (3, 6);
+        movement = "speed";
+        attack_pattern = "within_range";
+        weapon = global.weap_array[irandom_range(1, 5)];
+        item = "obj_potion";
+        
+        common_drop = obj_potion;
+        common_drop_rate = 50;
+        
+        rare_drop = obj_pet;
+        rare_drop_rate = 90;
+        
+        ultra_drop = obj_quake_boots;
+        ultra_drop_rate = 99;
+        break;
+    
+    case "healer" :
+        hp = irandom_range (3, 6);
+        movement = "healer";
+        attack_pattern = "healer";
+        weapon = "obj_blue_gun";
+        item = choose("obj_potion", "obj_shield", "obj_speed_boost", "obj_flying_stone");
+        
+        common_drop = obj_potion;
+        common_drop_rate = 50;
+        
+        rare_drop = obj_shield;
+        rare_drop_rate = 90;
+        
+        ultra_drop = obj_speed_boost;
+        ultra_drop_rate = 99;
+        break;
+        
+    case "snake" :
+        hp = irandom_range (11, 20);
+        movement = "snake_head";
+        attack_pattern = "snake_head";
+        weapon = "obj_blue_gun";
+        item = choose("obj_sword", "obj_att_remote", "obj_slower");
+        
+        common_drop = obj_slower;
+        common_drop_rate = 50;
+        
+        rare_drop = obj_sword;
+        rare_drop_rate = 90;
+        
+        ultra_drop = obj_att_remote;
+        ultra_drop_rate = 99;
+        break;
+    
+    case "summoner" :
+        hp = irandom_range (4, 8);
+        movement = "summoner";
+        attack_pattern = "summoner";
+        weapon = "obj_blue_gun";
+        item = "obj_potion";
+        
+        common_drop = obj_slower;
+        common_drop_rate = 50;
+        
+        rare_drop = obj_sword;
+        rare_drop_rate = 90;
+        
+        ultra_drop = obj_glove;
+        ultra_drop_rate = 99;
+        break;
+        
+    case "inker" :
+        hp = irandom_range (10, 12);
+        movement = "inker";
+        attack_pattern = "inker";
+        weapon = "obj_blue_gun";
+        item = "obj_potion";
+        
+        common_drop = obj_slower;
+        common_drop_rate = 50;
+        
+        rare_drop = obj_dual_sword;
+        rare_drop_rate = 90;
+        
+        ultra_drop = obj_spin_blade;
+        ultra_drop_rate = 99;
+        break;
+        
 }
 
 drop_rate = irandom_range(1, 100);
-attack_pattern = global.attack_pattern_array[irandom_range(1, 2)];
 weapon_inst = instance_create(x + 16, y, asset_get_index(weapon));
 item_inst = instance_create(x, y, asset_get_index(item));
 

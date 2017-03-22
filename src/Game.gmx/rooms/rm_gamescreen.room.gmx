@@ -257,6 +257,10 @@ if(global.testing_world_gen)
     <instance objName="obj_music" x="96" y="32" name="inst_637C3253" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_next_room" x="1984" y="1376" name="inst_65F06939" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_turret_maker" x="1792" y="1088" name="inst_6DA88AF5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_boss1" x="2304" y="1344" name="inst_3B0BBE2E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_boss1" x="2368" y="1280" name="inst_7C6A2D78" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_quake_boots" x="2240" y="992" name="inst_13501EB5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_shovel" x="2176" y="1088" name="inst_E7DF1707" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

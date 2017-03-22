@@ -29,6 +29,8 @@
 damage = 0;
 owner = owners.CHARACTER;
 
+from_weapon = noone;
+
 </string>
           </argument>
         </arguments>
@@ -58,6 +60,15 @@ if(owner == owners.CHARACTER)
     {
         script_execute(scr_enemy_takedamage, other.damage);
     }
+    
+    if(from_weapon != noone)
+    {
+        with(from_weapon)
+        {
+            script_execute(scr_add_exp);
+        }
+    }
+    
     instance_destroy();
 }      
 </string>

@@ -17,4 +17,4 @@ if(newPath == true)
     path_start(path, move_speed, "", 0);
 }
 
-move_speed = move_speed_default;
+//move_speed = move_speed_default;

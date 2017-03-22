@@ -89,6 +89,8 @@ if(activated and owner == owners.CHARACTER)
     {
            script_execute(scr_enemy_takedamage, other.damage);
     }
+    
+    script_execute(scr_add_exp);
 }
 </string>
           </argument>

@@ -11,6 +11,7 @@ with(inst)
     owner = other.owner;
     image_angle = other.image_angle;
     alarm[0] = other.strength * 25;
+    from_weapon = other.id;
 }
 
 strength = 1;
