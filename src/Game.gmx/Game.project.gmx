@@ -282,6 +282,7 @@
       <scripts name="Polyomino">
         <script>scripts\print_2d_array.gml</script>
         <script>scripts\generate_small_polyomino.gml</script>
+        <script>scripts\generate_small_polyomino_trimmed.gml</script>
         <script>scripts\generate_polyomino.gml</script>
         <script>scripts\generate_polyomino_roomfit.gml</script>
         <script>scripts\generate_polyomino_roomfit_char.gml</script>
@@ -290,6 +291,9 @@
     </scripts>
     <scripts name="Music">
       <script>scripts\scr_music_stop.gml</script>
+    </scripts>
+    <scripts name="Puzzle">
+      <script>scripts\scr_bring_to_front.gml</script>
     </scripts>
     <script>scripts\scr_destroy.gml</script>
   </scripts>
@@ -463,6 +467,11 @@
     <objects name="World">
       <object>objects\obj_polyomino</object>
     </objects>
+    <objects name="Puzzle">
+      <object>objects\obj_tetravex_test1</object>
+      <object>objects\obj_tetravex</object>
+      <object>objects\obj_tetravex_block</object>
+    </objects>
     <object>objects\obj_universal_controller</object>
     <object>objects\obj_next_world</object>
     <object>objects\obj_music</object>
@@ -471,6 +480,7 @@
     <room>rooms\rm_init</room>
     <room>rooms\rm_test_polyomino</room>
     <room>rooms\rm_test_inventory</room>
+    <room>rooms\rm_test_tetravex</room>
     <room>rooms\rm_titlescreen</room>
     <room>rooms\rm_gamescreen</room>
     <room>rooms\rm_gamescreen2</room>
