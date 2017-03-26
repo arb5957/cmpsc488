@@ -19,17 +19,20 @@
     obj_char.going_left = false;
     obj_char.going_down = false;
 }
-if(not file_exists("room_save.ini")) {
+if(obj_universal_controller.room_x == 0 &amp;&amp; obj_universal_controller.room_y == 0) { // character is at town
+    room_goto(rm_gamescreen);
+}
+else if(not file_exists("room_save.ini")) { // new room
     instance_create(room_width/2, room_height/2-1024, obj_floor_generator);
 }
 else {
     room_number = "room" + string(obj_universal_controller.room_x)
         + "_" + string(obj_universal_controller.room_y);
     ini_open("room_save.ini");
-    if(not ini_section_exists(string(room_number))) {
+    if(not ini_section_exists(string(room_number))) { // new room
         instance_create(room_width/2, room_height/2-1024, obj_floor_generator);
     }
-    else {
+    else { // existing room
         var spawn_x, spawn_y, spawn_inst, key0=0, key1=0;
         while(ini_key_exists(string(room_number), string(key0) + string(key1))) {
             spawn_inst = ini_read_real(string(room_number), string(key0) + string(key1), -1);
@@ -46,11 +49,11 @@ else {
             key0++;
             key1=0;      
         }
-        ini_close();
         instance_create(10, 10, obj_gameroom2_controller);
         obj_char.state = states.NORMAL;
         scr_position_character();
     }
+    ini_close();
 }</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>

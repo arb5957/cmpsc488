@@ -58,6 +58,7 @@ going_left = false;
 going_right = false;
 
 exit_taken = 0;
+first_spawn = true;
 
 //Keyboard mappings:
 
