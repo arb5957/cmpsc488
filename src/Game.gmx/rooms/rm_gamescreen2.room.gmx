@@ -19,7 +19,39 @@
     obj_char.going_left = false;
     obj_char.going_down = false;
 }
-instance_create(room_width/2, room_height/2-1024, obj_floor_generator);</code>
+if(not file_exists("room_save.ini")) {
+    instance_create(room_width/2, room_height/2-1024, obj_floor_generator);
+}
+else {
+    room_number = "room" + string(obj_universal_controller.room_x)
+        + "_" + string(obj_universal_controller.room_y);
+    ini_open("room_save.ini");
+    if(not ini_section_exists(string(room_number))) {
+        instance_create(room_width/2, room_height/2-1024, obj_floor_generator);
+    }
+    else {
+        var spawn_x, spawn_y, spawn_inst, key0=0, key1=0;
+        while(ini_key_exists(string(room_number), string(key0) + string(key1))) {
+            spawn_inst = ini_read_real(string(room_number), string(key0) + string(key1), -1);
+            key1++;
+            spawn_x = ini_read_real(string(room_number), string(key0)+string(key1), -1);
+            key1++;
+            spawn_y = ini_read_real(string(room_number), string(key0)+string(key1), -1);
+            new_terrain = instance_create(spawn_x, spawn_y, spawn_inst);
+            if(spawn_inst == obj_next_room) {
+                key1++;
+                dir = ini_read_real(string(room_number), string(key0)+string(key1), -1);
+                new_terrain.dir = dir;
+            }      
+            key0++;
+            key1=0;      
+        }
+        ini_close();
+        instance_create(10, 10, obj_gameroom2_controller);
+        obj_char.state = states.NORMAL;
+        scr_position_character();
+    }
+}</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
