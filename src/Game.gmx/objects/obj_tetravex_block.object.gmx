@@ -35,12 +35,20 @@ grid_row = -1;
 //Variables for drawing.
 s = -1;
 quarter_s = -1;
+half_s = -1;
 
 //The id of the controlling object: obj_tetravex.
 game = -1;
 
 //Whether the block is snapped to the polyomino or not
 in_polyomino = false;
+
+
+SQUARE = 0;
+RECTANGLE = 1;
+TRIANGLE = 2;
+
+draw_mode = TRIANGLE;
 </string>
           </argument>
         </arguments>
@@ -68,20 +76,74 @@ var y1 = y;
 var x2 = x1+s;
 var y2 = y1+s;
 
+var eighth = quarter_s / 2;
+var edgewidth = half_s - eighth;
+
 draw_set_color(c_black);
 draw_rectangle(x1,y1,x2,y2,false);
+switch(draw_mode)
+{
+    case SQUARE:
+    
+    draw_set_color(global.tetravex_colors[up]);
+    draw_rectangle(x1+quarter_s,y1,x2-quarter_s,y1+quarter_s,false);
+    
+    draw_set_color(global.tetravex_colors[right]);
+    draw_rectangle(x2-quarter_s,y1+quarter_s,x2,y2-quarter_s,false);
+    
+    draw_set_color(global.tetravex_colors[down]);
+    draw_rectangle(x1+quarter_s,y2-quarter_s,x2-quarter_s,y2,false);
+    
+    draw_set_color(global.tetravex_colors[left]);
+    draw_rectangle(x1,y1+quarter_s,x1+quarter_s,y2-quarter_s,false);
+    
+    break;
+    
+    case RECTANGLE:
+    
+    draw_set_color(global.tetravex_colors[up]);
+    draw_rectangle(x1+edgewidth, y1, x2-edgewidth, y2-half_s-eighth, false);
+    
+    draw_set_color(global.tetravex_colors[right]);
+    draw_rectangle(x2-edgewidth, y1+edgewidth, x2, y2-edgewidth, false);
+    
+    draw_set_color(global.tetravex_colors[down]);
+    draw_rectangle(x1+edgewidth, y1+half_s+eighth, x2-edgewidth, y2, false);
+    
+    draw_set_color(global.tetravex_colors[left]);
+    draw_rectangle(x1, y1+edgewidth, x1+edgewidth, y2-edgewidth, false);
+    
+    break;
+    
+    default:
+    case TRIANGLE:
+    
+    var center_x = x1+half_s;
+    var center_y = y1+half_s;
+    
+    draw_set_color(global.tetravex_colors[up]);
+    draw_triangle(center_x, center_y, x2, y1, x1, y1, false);
+    draw_set_color(c_black);
+    draw_triangle(center_x, center_y, x2, y1, x1, y1, true);
+    
+    draw_set_color(global.tetravex_colors[right]);
+    draw_triangle(center_x, center_y, x2, y2, x2, y1, false);
+    draw_set_color(c_black);
+    draw_triangle(center_x, center_y, x2, y2, x2, y1, true);
+    
+    draw_set_color(global.tetravex_colors[down]);
+    draw_triangle(center_x, center_y, x1, y2, x2, y2, false);
+    draw_set_color(c_black);
+    draw_triangle(center_x, center_y, x1, y2, x2, y2, true);
+    
+    draw_set_color(global.tetravex_colors[left]);
+    draw_triangle(center_x, center_y, x1, y1, x1, y2, false);
+    draw_set_color(c_black);
+    draw_triangle(center_x, center_y, x1, y1, x1, y2, true);
 
-draw_set_color(global.tetravex_colors[up]);
-draw_rectangle(x1+quarter_s,y1,x2-quarter_s,y1+quarter_s,false);
+    break;
+}
 
-draw_set_color(global.tetravex_colors[right]);
-draw_rectangle(x2-quarter_s,y1+quarter_s,x2,y2-quarter_s,false);
-
-draw_set_color(global.tetravex_colors[down]);
-draw_rectangle(x1+quarter_s,y2-quarter_s,x2-quarter_s,y2,false);
-
-draw_set_color(global.tetravex_colors[left]);
-draw_rectangle(x1,y1+quarter_s,x1+quarter_s,y2-quarter_s,false);
 </string>
           </argument>
         </arguments>

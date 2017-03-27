@@ -125,6 +125,7 @@ for(var r = 1; r &lt; (rows-1); r++)
             block.grid_row = r;
             block.s = s;
             block.quarter_s = quarter_s;
+            block.half_s = half_s;
             
             //This variable is passed to the block, so it can
             //communicate with this object.
