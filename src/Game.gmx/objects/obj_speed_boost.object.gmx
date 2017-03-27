@@ -26,8 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited();
-name = "Speed Boost";
-description = "Increases your speed while it's equipped. (passive)";
+name = "Speed Boost (Passive)";
+description = "Increases your speed while it's equipped.";
 activation_script = scr_speed_boost_activate;
 deactivation_script = scr_speed_boost_deactivate;
 passive = true;
