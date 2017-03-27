@@ -1329,10 +1329,10 @@ if(inventory_open)
             draw_rectangle_colour(mouse_x, mouse_y, mouse_x + 200, mouse_y + 150,
                 c_white, c_white, c_white, c_white, false);
             draw_rectangle(mouse_x - 1, mouse_y + 30, mouse_x + 201, mouse_y + 33, false);
-            item_name = inventory[tooltip_item_index].name;
-            item_descrip = inventory[tooltip_item_index].description;
-            item_level = inventory[tooltip_item_index].level;
-            tooltip_text = item_name + "##" + item_descrip + "##" + string(item_level);
+            var item_name = inventory[tooltip_item_index].name;
+            var item_descrip = inventory[tooltip_item_index].description;
+            var item_level = inventory[tooltip_item_index].level;
+            var tooltip_text = item_name + "##" + item_descrip + "##" + "level: " + string(item_level);
             draw_set_color(c_black);
             draw_set_halign(fa_left);
             draw_text_ext(mouse_x+10, mouse_y+10, tooltip_text, 15, 160);
@@ -1356,7 +1356,7 @@ if(inventory_open)
                 draw_rectangle_colour(mouse_x, mouse_y - 150, mouse_x + 200, mouse_y-3,
                     c_white, c_white, c_white, c_white, false);
                 draw_rectangle(mouse_x - 1, mouse_y - 123, mouse_x + 201, mouse_y - 120, false);
-                tooltip_text = item.name + "##" + item.description + "##" + string(item.level);
+                tooltip_text = item.name + "##" + item.description + "##" + "level: " + string(item.level);
                 draw_set_color(c_black);
                 draw_set_halign(fa_left);
                 draw_text_ext(mouse_x+10, mouse_y-143, tooltip_text, 15, 160);
@@ -1377,7 +1377,7 @@ if(inventory_open)
                 draw_rectangle_colour(mouse_x-200, mouse_y - 150, mouse_x, mouse_y-3,
                     c_white, c_white, c_white, c_white, false);
                 draw_rectangle(mouse_x - 201, mouse_y - 123, mouse_x + 1, mouse_y - 120, false);
-                tooltip_text = item.name + "##" + item.description;
+                tooltip_text = item.name + "##" + item.description + "level: " + string(item.level);
                 draw_set_color(c_black);
                 draw_set_halign(fa_left);
                 draw_text_ext(mouse_x-190, mouse_y-143, tooltip_text, 15, 160);

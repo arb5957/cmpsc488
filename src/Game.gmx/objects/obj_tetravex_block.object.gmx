@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>up = -1;
+            <string>///Initialize
+
+up = -1;
 down = -1;
 left = -1;
 right = -1;
@@ -71,7 +73,9 @@ draw_mode = TRIANGLE;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var x1 = x;
+            <string>///Draw block.
+
+var x1 = x;
 var y1 = y;
 var x2 = x1+s;
 var y2 = y1+s;
