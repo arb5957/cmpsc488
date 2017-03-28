@@ -58,6 +58,7 @@
       <sprite>sprites\spr_enemy_snake_head</sprite>
       <sprite>sprites\spr_enemy_summoner</sprite>
       <sprite>sprites\spr_enemy_inker</sprite>
+      <sprite>sprites\spr_enemy_rock_thing</sprite>
       <sprites name="Effects">
         <sprite>sprites\spr_boss2_capture</sprite>
         <sprite>sprites\spr_enemy_digging</sprite>
@@ -69,10 +70,23 @@
         <sprite>sprites\spr_quake</sprite>
         <sprite>sprites\spr_ink</sprite>
         <sprite>sprites\spr_ink_floor</sprite>
+        <sprite>sprites\spr_ice_spike</sprite>
+        <sprites name="boss4_flames">
+          <sprite>sprites\spr_fire_ring</sprite>
+          <sprite>sprites\spr_flame_ball</sprite>
+          <sprite>sprites\spr_flame_piller_large</sprite>
+          <sprite>sprites\spr_flame_piller_large_outside</sprite>
+          <sprite>sprites\spr_flame_piller_large_set</sprite>
+          <sprite>sprites\spr_flame_piller_small</sprite>
+          <sprite>sprites\spr_flame_piller_small_outside</sprite>
+          <sprite>sprites\spr_flame_piller_small_set</sprite>
+        </sprites>
       </sprites>
       <sprites name="Bosses">
         <sprite>sprites\spr_Boss1</sprite>
         <sprite>sprites\spr_Boss2</sprite>
+        <sprite>sprites\spr_boss3</sprite>
+        <sprite>sprites\spr_Boss4</sprite>
       </sprites>
     </sprites>
     <sprites name="Projectile">
@@ -150,6 +164,7 @@
       <script>scripts\scr_char_takedamage.gml</script>
       <script>scripts\scr_char_activate_items.gml</script>
       <script>scripts\scr_char_get_equipped_items.gml</script>
+      <script>scripts\scr_position_character.gml</script>
     </scripts>
     <scripts name="Globals">
       <script>scripts\Globals_saving.gml</script>
@@ -203,6 +218,22 @@
           <script>scripts\attack_boss2_lighting.gml</script>
           <script>scripts\movement_boss2.gml</script>
           <script>scripts\attack_boss2_quakes.gml</script>
+        </scripts>
+        <scripts name="Boss3">
+          <script>scripts\attack_boss3_fake.gml</script>
+          <script>scripts\attack_boss3_fake_death.gml</script>
+          <script>scripts\attack_boss3_ice_spike.gml</script>
+          <script>scripts\attack_boss3_regular.gml</script>
+          <script>scripts\movement_boss3_ice_mirror.gml</script>
+          <script>scripts\movement_boss3_regular.gml</script>
+        </scripts>
+        <scripts name="Boss4">
+          <script>scripts\attack_boss4_flame_pillar_large.gml</script>
+          <script>scripts\attack_boss4_flame_pillar_small.gml</script>
+          <script>scripts\attack_boss4_flame_ring.gml</script>
+          <script>scripts\attack_boss4_flame_strike.gml</script>
+          <script>scripts\attack_boss4_meteor_shower.gml</script>
+          <script>scripts\movement_boss4_normal.gml</script>
         </scripts>
       </scripts>
     </scripts>
@@ -277,11 +308,13 @@
       <script>scripts\scr_quake_boots_deactivate.gml</script>
       <script>scripts\scr_quake_boots_using.gml</script>
       <script>scripts\scr_shovel.gml</script>
+      <script>scripts\scr_flame_gun.gml</script>
     </scripts>
     <scripts name="World">
       <scripts name="Polyomino">
         <script>scripts\print_2d_array.gml</script>
         <script>scripts\generate_small_polyomino.gml</script>
+        <script>scripts\generate_small_polyomino_trimmed.gml</script>
         <script>scripts\generate_polyomino.gml</script>
         <script>scripts\generate_polyomino_roomfit.gml</script>
         <script>scripts\generate_polyomino_roomfit_char.gml</script>
@@ -291,6 +324,9 @@
     <scripts name="Music">
       <script>scripts\scr_music_stop.gml</script>
     </scripts>
+    <scripts name="Puzzle">
+      <script>scripts\scr_bring_to_front.gml</script>
+    </scripts>
     <script>scripts\scr_destroy.gml</script>
   </scripts>
   <fonts name="fonts">
@@ -299,6 +335,7 @@
     </fonts>
     <fonts name="Inventory">
       <font>fonts\font_inventory</font>
+      <font>fonts\font_command</font>
     </fonts>
   </fonts>
   <objects name="objects">
@@ -348,6 +385,7 @@
       <object>objects\obj_terrain_stickyfloor</object>
       <object>objects\obj_terrain_slippery</object>
       <object>objects\obj_terrain_ink</object>
+      <object>objects\obj_terrain_ice_slip</object>
       <object>objects\obj_terrain_spikes</object>
       <object>objects\obj_building</object>
       <object>objects\obj_terrain_floor</object>
@@ -386,18 +424,30 @@
       <object>objects\obj_enemy_snake_head</object>
       <object>objects\obj_enemy_summoner</object>
       <object>objects\obj_enemy_inker</object>
+      <object>objects\obj_enemy_rock_thing</object>
       <objects name="Effects">
         <object>objects\obj_boss2_capture</object>
         <object>objects\obj_heal_aura</object>
         <object>objects\obj_lightning_tell</object>
         <object>objects\obj_ink_screen</object>
+        <object>objects\obj_ice_spike</object>
       </objects>
       <objects name="Bosses">
         <object>objects\obj_enemy_boss1</object>
         <object>objects\obj_enemy_boss2</object>
+        <object>objects\obj_boss3_fake</object>
+        <object>objects\obj_enemy_boss3</object>
+        <object>objects\obj_enemy_boss4</object>
+        <objects name="Boss4 Objects">
+          <object>objects\obj_fire_ring</object>
+          <object>objects\obj_flame_piller_large</object>
+          <object>objects\obj_flame_piller_large_outside</object>
+          <object>objects\obj_flame_piller_large_set</object>
+          <object>objects\obj_meteor</object>
+          <object>objects\obj_meteor_to_monster</object>
+        </objects>
       </objects>
     </objects>
-    <object>objects\obj_string</object>
     <objects name="Projectile">
       <object>objects\obj_bullet_base</object>
       <object>objects\obj_bullet</object>
@@ -413,9 +463,12 @@
       <object>objects\obj_quake</object>
       <object>objects\obj_cannonball</object>
       <object>objects\obj_ink_shot</object>
+      <object>objects\obj_string</object>
+      <object>objects\obj_ice_shot</object>
     </objects>
     <objects name="Weapons">
       <object>objects\obj_blue_gun</object>
+      <object>objects\obj_flame_gun</object>
       <object>objects\obj_glove</object>
       <object>objects\obj_dual_sword</object>
       <object>objects\obj_bow</object>
@@ -462,6 +515,11 @@
     <objects name="World">
       <object>objects\obj_polyomino</object>
     </objects>
+    <objects name="Puzzle">
+      <object>objects\obj_tetravex_test1</object>
+      <object>objects\obj_tetravex</object>
+      <object>objects\obj_tetravex_block</object>
+    </objects>
     <object>objects\obj_universal_controller</object>
     <object>objects\obj_next_world</object>
     <object>objects\obj_music</object>
@@ -470,6 +528,7 @@
     <room>rooms\rm_init</room>
     <room>rooms\rm_test_polyomino</room>
     <room>rooms\rm_test_inventory</room>
+    <room>rooms\rm_test_tetravex</room>
     <room>rooms\rm_titlescreen</room>
     <room>rooms\rm_gamescreen</room>
     <room>rooms\rm_gamescreen2</room>

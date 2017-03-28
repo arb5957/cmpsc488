@@ -10,6 +10,15 @@ switch(name)
         move_speed_default = 2;
         
         item = global.items_array[2];
+        
+        common_drop = obj_potion;
+        common_drop_rate = 50;
+        
+        rare_drop = obj_pet;
+        rare_drop_rate = 90;
+        
+        ultra_drop = obj_quake_boots;
+        ultra_drop_rate = 99;
         break;
     
     case "enemy2" :
@@ -18,6 +27,15 @@ switch(name)
         movement = global.enemy_movements[3];
         attack_pattern = choose("aggressive", "within_range");
         item = global.items_array[1];
+        
+        common_drop = obj_potion;
+        common_drop_rate = 50;
+        
+        rare_drop = obj_pet;
+        rare_drop_rate = 90;
+        
+        ultra_drop = obj_quake_boots;
+        ultra_drop_rate = 99;
         break;
     
     case "butterfly" :
@@ -156,6 +174,23 @@ switch(name)
         ultra_drop = obj_spin_blade;
         ultra_drop_rate = 99;
         break;
+        
+    case "rock_thing" :
+        hp = 2;
+        movement = "speed";
+        attack_pattern = "aggressive";
+        weapon = "obj_flame_gun";
+        item = "obj_potion";
+        
+        common_drop = obj_potion;
+        common_drop_rate = 50;
+        
+        rare_drop = obj_potion;
+        rare_drop_rate = 90;
+        
+        ultra_drop = obj_potion;
+        ultra_drop_rate = 99;
+        break;  
         
 }
 
