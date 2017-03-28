@@ -491,6 +491,8 @@ if(other.on_ground)
           <argument>
             <kind>1</kind>
             <string>exit_taken = other.dir;
+vspeed = 0;
+hspeed = 0;
 room_goto(rm_gamescreen2);
 </string>
           </argument>
