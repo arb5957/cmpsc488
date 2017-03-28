@@ -129,6 +129,17 @@
       <sprite>sprites\spr_turret_maker</sprite>
       <sprite>sprites\spr_shovel</sprite>
       <sprite>sprites\spr_quake_boots</sprite>
+      <sprite>sprites\spr_frog</sprite>
+      <sprite>sprites\spr_hook_p</sprite>
+      <sprite>sprites\spr_whip</sprite>
+      <sprite>sprites\spr_glove_bounce</sprite>
+      <sprite>sprites\spr_gun_1</sprite>
+      <sprite>sprites\spr_gun_2</sprite>
+      <sprite>sprites\spr_gun_3</sprite>
+      <sprite>sprites\spr_rain_maker</sprite>
+      <sprite>sprites\spr_snow_maker</sprite>
+      <sprite>sprites\spr_wave</sprite>
+      <sprite>sprites\spr_bounce_ball</sprite>
     </sprites>
     <sprite>sprites\spr_next_world</sprite>
     <sprite>sprites\spr_next_world_arrow</sprite>
@@ -278,6 +289,17 @@
       <script>scripts\scr_quake_boots_deactivate.gml</script>
       <script>scripts\scr_quake_boots_using.gml</script>
       <script>scripts\scr_shovel.gml</script>
+      <script>scripts\scr_hook.gml</script>
+      <script>scripts\scr_hook_position.gml</script>
+      <script>scripts\scr_whip.gml</script>
+      <script>scripts\scr_whip_position.gml</script>
+      <script>scripts\scr_glove_bounce.gml</script>
+      <script>scripts\scr_gun_1.gml</script>
+      <script>scripts\scr_gun_1_position.gml</script>
+      <script>scripts\scr_gun_2.gml</script>
+      <script>scripts\scr_gun_3.gml</script>
+      <script>scripts\scr_rain_maker.gml</script>
+      <script>scripts\scr_rain_maker_position.gml</script>
     </scripts>
     <scripts name="World">
       <scripts name="Polyomino">
@@ -461,6 +483,18 @@
       <object>objects\obj_turret_maker</object>
       <object>objects\obj_quake_boots</object>
       <object>objects\obj_shovel</object>
+      <object>objects\obj_att_drone_new</object>
+      <object>objects\obj_gun_2</object>
+      <object>objects\obj_frog</object>
+      <object>objects\obj_gun_1</object>
+      <object>objects\obj_rain_maker</object>
+      <object>objects\obj_hook_p</object>
+      <object>objects\obj_snow_maker</object>
+      <object>objects\obj_wave</object>
+      <object>objects\obj_gun_3</object>
+      <object>objects\obj_whip</object>
+      <object>objects\obj_glove_bounce</object>
+      <object>objects\obj_bounce_ball</object>
     </objects>
     <objects name="Inventory">
       <object>objects\obj_inventory</object>
