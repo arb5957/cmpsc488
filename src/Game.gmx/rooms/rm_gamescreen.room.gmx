@@ -42,10 +42,6 @@ if(name == "obj_dagger"){
 }
 */
 
-if(global.newlyCreated == false)
-{
-    script_execute(scr_test_load_new, 0);
-}
 
 //FOR DEBUGGING
 if(global.testing_world_gen)
