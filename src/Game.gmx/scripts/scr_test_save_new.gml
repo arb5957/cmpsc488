@@ -11,8 +11,12 @@ var tempArray;
 var tempArrayLevels;
 for(i = 0; i < array_length_1d(obj_inventory.inventory); i++)
 {
-    tempArray[i] = obj_inventory.inventory[i].object_index;
-    tempArrayLevels[i] = obj_inventory.inventory[i].level;
+    var item = obj_inventory.inventory[i];
+    if(item != obj_inventory.empty)
+    {
+        tempArray[i] = item.object_index;
+        tempArrayLevels[i] = item.level;
+    }
 }
 
 temp[| 0] = tempArray;
