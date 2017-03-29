@@ -154,6 +154,26 @@
       <sprite>sprites\spr_snow_maker</sprite>
       <sprite>sprites\spr_wave</sprite>
       <sprite>sprites\spr_bounce_ball</sprite>
+      <sprite>sprites\spr_black_paint</sprite>
+      <sprite>sprites\spr_blue_paint</sprite>
+      <sprite>sprites\spr_orange_paint</sprite>
+      <sprite>sprites\spr_paint_black</sprite>
+      <sprite>sprites\spr_paint_blue</sprite>
+      <sprite>sprites\spr_paint_green</sprite>
+      <sprite>sprites\spr_paint_orange</sprite>
+      <sprite>sprites\spr_paint_purple</sprite>
+      <sprite>sprites\spr_paint_red</sprite>
+      <sprite>sprites\spr_paint_yellow</sprite>
+      <sprite>sprites\spr_purple_paint</sprite>
+      <sprite>sprites\spr_red_paint</sprite>
+      <sprite>sprites\spr_yellow_paint</sprite>
+      <sprite>sprites\spr_green_paint</sprite>
+      <sprite>sprites\spr_expand_shot</sprite>
+      <sprite>sprites\spr_gun_4</sprite>
+      <sprite>sprites\spr_health_pack_dropper</sprite>
+      <sprite>sprites\spr_health_panel</sprite>
+      <sprite>sprites\spr_speed_area</sprite>
+      <sprite>sprites\spr_speed_zone</sprite>
     </sprites>
     <sprite>sprites\spr_next_world</sprite>
     <sprite>sprites\spr_next_world_arrow</sprite>
@@ -331,6 +351,17 @@
       <script>scripts\scr_rain_maker.gml</script>
       <script>scripts\scr_rain_maker_position.gml</script>
       <script>scripts\scr_flame_gun.gml</script>
+      <script>scripts\scr_paint_black.gml</script>
+      <script>scripts\scr_paint_blue.gml</script>
+      <script>scripts\scr_paint_green.gml</script>
+      <script>scripts\scr_paint_orange.gml</script>
+      <script>scripts\scr_paint_position.gml</script>
+      <script>scripts\scr_paint_purple.gml</script>
+      <script>scripts\scr_paint_red.gml</script>
+      <script>scripts\scr_paint_yellow.gml</script>
+      <script>scripts\scr_gun_4.gml</script>
+      <script>scripts\scr_health_pack_dropper.gml</script>
+      <script>scripts\scr_speed_dropper.gml</script>
     </scripts>
     <scripts name="World">
       <scripts name="Polyomino">
@@ -543,6 +574,27 @@
       <object>objects\obj_whip</object>
       <object>objects\obj_glove_bounce</object>
       <object>objects\obj_bounce_ball</object>
+      <object>objects\obj_blue_paint</object>
+      <object>objects\obj_green_paint</object>
+      <object>objects\obj_orange_paint</object>
+      <object>objects\obj_paint</object>
+      <object>objects\obj_paint_black</object>
+      <object>objects\obj_paint_blue</object>
+      <object>objects\obj_paint_green</object>
+      <object>objects\obj_paint_orange</object>
+      <object>objects\obj_paint_purple</object>
+      <object>objects\obj_paint_red</object>
+      <object>objects\obj_paint_yellow</object>
+      <object>objects\obj_purple_paint</object>
+      <object>objects\obj_red_paint</object>
+      <object>objects\obj_yellow_paint</object>
+      <object>objects\obj_black_paint</object>
+      <object>objects\obj_expand_shot</object>
+      <object>objects\obj_gun_4</object>
+      <object>objects\obj_health_pack_dropper</object>
+      <object>objects\obj_health_panel</object>
+      <object>objects\obj_speed_area</object>
+      <object>objects\obj_speed_zone</object>
     </objects>
     <objects name="Inventory">
       <object>objects\obj_inventory</object>
