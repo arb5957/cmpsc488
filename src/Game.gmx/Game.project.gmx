@@ -47,6 +47,7 @@
       <sprite>sprites\spr_terrain_freeze</sprite>
       <sprite>sprites\spr_ice</sprite>
       <sprite>sprites\spr_dungeon_pit</sprite>
+      <sprite>sprites\spr_puzzle_room_entrance</sprite>
     </sprites>
     <sprites name="Enemy">
       <sprite>sprites\spr_enemy1</sprite>
@@ -459,6 +460,7 @@
       <object>objects\obj_ice</object>
       <object>objects\obj_dungeon_pit_floor</object>
       <object>objects\obj_terrain_dungeon_pit</object>
+      <object>objects\obj_puzzle_room_entrance</object>
     </objects>
     <objects name="Display">
       <object>objects\obj_scaling</object>
@@ -622,6 +624,7 @@
     <room>rooms\rm_test_polyomino</room>
     <room>rooms\rm_test_inventory</room>
     <room>rooms\rm_test_tetravex</room>
+    <room>rooms\rm_puzzle_room</room>
     <room>rooms\rm_titlescreen</room>
     <room>rooms\rm_gamescreen</room>
     <room>rooms\rm_gamescreen2</room>

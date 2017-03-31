@@ -52,6 +52,18 @@ else {
         instance_create(10, 10, obj_gameroom2_controller);
         obj_char.state = states.NORMAL;
         scr_position_character();
+        if(instance_exists(obj_char))
+        {
+            with(obj_char)
+            {
+                if(left_puzzle_room)
+                {
+                    x = return_x;
+                    y = return_y;
+                    left_puzzle_room = false;
+                }
+            }
+        }
     }
     ini_close();
 }</code>

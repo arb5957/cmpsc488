@@ -26,6 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>///Initialize
+
+instance_deactivate_all(true);
+instance_activate_object(obj_escape_overlay);
+
 randomize();
 
 //Note that you shouldn't use cells &gt; 10 for now.
@@ -254,6 +258,10 @@ top_most_depth = -1;
 
 //Whether the player won or not.
 won = false;
+
+//Where to return the player once they win or leave.
+return_x = 0;
+return_y = 0;
 </string>
           </argument>
         </arguments>
@@ -498,6 +506,34 @@ if(win_test != false)
 else
 {
     won = false;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///If we win go back to gamescreen2 for now
+if(won)
+{
+    instance_activate_all();
+    room_goto(rm_gamescreen2);
+    //obj_char.left_puzzle_room = true;
+    instance_destroy();
 }
 </string>
           </argument>
@@ -762,6 +798,9 @@ if(selected_block != empty)
 
 if(won)
 {
+    draw_set_alpha(1);
+    draw_set_color(c_black);
+    draw_set_halign(fa_left);
     draw_text(0,0,"You Won!");
 }
 </string>
