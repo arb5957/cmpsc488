@@ -48,17 +48,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(instance_exists(obj_music))
-{
-    with(obj_music)
-    {
-        script_execute(scr_music_stop);
-    }
-}
-scr_destroy(obj_hud);
-scr_destroy(obj_escape_overlay);
-scr_destroy(obj_inventory);
-scr_destroy(obj_char);
+            <string>scr_leave_game();
 room_goto(rm_titlescreen);
 </string>
           </argument>

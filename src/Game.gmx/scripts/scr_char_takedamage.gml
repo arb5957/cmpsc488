@@ -16,6 +16,6 @@ if(not invulnerable)
 
 if(hp <= 0)
 {
+    scr_leave_game();
     room_goto(rm_gameover);
-    instance_destroy();
 }
