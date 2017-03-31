@@ -83,9 +83,12 @@ alarm [0] = 30;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(selected == true)
-{
+            <string>//show_debug_message(keyboard_key);
 
+keyboard_string = string_replace_all(keyboard_string, '#', '');
+
+if(selected == true)
+{
     if(string_width(keyboard_string) &lt; max_width)
     {
         txt = keyboard_string;
@@ -94,10 +97,8 @@ alarm [0] = 30;
     {
         keyboard_string = txt;
     }
-
-
-
 }
+
 </string>
           </argument>
         </arguments>
@@ -153,7 +154,7 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 
 if(txt == ""){
-    draw_text(x, y, "Name");
+    draw_text(x, y, "ABCDEFGH");
 }
 else{
     if(blink == false) || (selected == false)
