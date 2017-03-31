@@ -177,6 +177,7 @@
     </sprites>
     <sprite>sprites\spr_next_world</sprite>
     <sprite>sprites\spr_next_world_arrow</sprite>
+    <sprite>sprites\spr_town_key</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Menu">
@@ -384,6 +385,7 @@
     </scripts>
     <script>scripts\scr_destroy.gml</script>
     <script>scripts\scr_save_room.gml</script>
+    <script>scripts\scr_town_key.gml</script>
   </scripts>
   <fonts name="fonts">
     <fonts name="Menu">
@@ -612,6 +614,7 @@
     <object>objects\obj_universal_controller</object>
     <object>objects\obj_next_world</object>
     <object>objects\obj_music</object>
+    <object>objects\obj_town_key</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
