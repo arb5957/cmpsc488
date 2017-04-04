@@ -14,8 +14,15 @@ var tempArrayLevels;
 
 for(i = 0; i < array_length_1d(obj_inventory.inventory); i++)
 {
-    tempArray[i] = obj_inventory.inventory[i].object_index;
-    tempArrayLevels[i] = obj_inventory.inventory[i].level;
+    if(obj_inventory.inventory[i].object_index != obj_empty.object_index)
+    {
+        tempArray[i] = obj_inventory.inventory[i].object_index;
+        tempArrayLevels[i] = obj_inventory.inventory[i].level;
+    }
+    else{
+        tempArray[i] = -1;
+        tempArrayLevels[i] = -1;
+    }
 }
 
 temp[| 0] = tempArray;
@@ -33,8 +40,16 @@ for(i = 0; i < 4; i++)
 {
     for(j = 0; j < 10; j++)
     {
-        tempArrayLoadouts[i, j] = obj_inventory.loadout[i, j].object_index;
-        tempArrayLoadoutsLevels[i, j] = obj_inventory.loadout[i, j].level;
+        if(obj_inventory.loadout[i, j].object_index != obj_empty.object_index)
+        {
+            tempArrayLoadouts[i, j] = obj_inventory.loadout[i, j].object_index;
+            tempArrayLoadoutsLevels[i, j] = obj_inventory.loadout[i, j].level;
+        }
+        else
+        {
+            tempArrayLoadouts[i, j] = -1;
+            tempArrayLoadoutsLevels[i, j] = -1;
+        }
     }
 }
 
