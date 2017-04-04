@@ -21,10 +21,11 @@ if(file_exists("Save.dat"))
         inventoryTemp = temp[| 0];
         levelsTemp = tempLevels[| 0];
         
+        
         var i;
         for(i = 0; i < array_length_1d(inventoryTemp); i++)
         {
-            if(inventoryTemp[i] != noone)
+            if(inventoryTemp[i] != -1)
             {
                 inst_weapon = instance_create(-1, -1, inventoryTemp[i]);
                 with(inst_weapon)
@@ -57,7 +58,7 @@ if(file_exists("Save.dat"))
         {
             for(j = 0; j < 10; j++)
             {
-                if(loadoutTemp[i, j] != noone)
+                if(loadoutTemp[i, j] != -1)
                 {
                     inst_weapon = instance_create(-1, -1, loadoutTemp[i, j]);
                     

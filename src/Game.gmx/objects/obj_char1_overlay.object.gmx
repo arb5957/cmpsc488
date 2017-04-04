@@ -59,8 +59,9 @@ else
     room_goto(rm_gamescreen);
     //room_instance_add(rm_gamescreen, character.x, character.y, obj_held_item);
     global.newlyCreated = false;
-    
-}
+} 
+
+global.save_selected = 1;
 </string>
           </argument>
         </arguments>

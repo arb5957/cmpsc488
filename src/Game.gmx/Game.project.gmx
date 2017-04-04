@@ -14,6 +14,7 @@
       <sprite>sprites\spr_overlay_weapon</sprite>
       <sprite>sprites\spr_overlay_weapon_2</sprite>
       <sprite>sprites\spr_overlay_wht</sprite>
+      <sprite>sprites\spr_delete</sprite>
     </sprites>
     <sprites name="Character">
       <sprite>sprites\spr_char_temp</sprite>
@@ -278,7 +279,11 @@
       <script>scripts\src_test_load.gml</script>
       <script>scripts\src_test_save.gml</script>
       <script>scripts\scr_test_save_new.gml</script>
+      <script>scripts\scr_test_save_new2.gml</script>
+      <script>scripts\scr_test_save_new3.gml</script>
       <script>scripts\scr_test_load_new.gml</script>
+      <script>scripts\scr_test_load_new2.gml</script>
+      <script>scripts\scr_test_load_new3.gml</script>
     </scripts>
     <scripts name="Inventory">
       <scripts name="old">
@@ -409,6 +414,10 @@
         <object>objects\obj_settings_btn</object>
         <object>objects\obj_credits</object>
         <object>objects\obj_exit_btn</object>
+        <object>objects\obj_save_btn</object>
+        <object>objects\obj_save_slot1</object>
+        <object>objects\obj_save_slot2</object>
+        <object>objects\obj_save_slot3</object>
         <object>objects\obj_back_btn</object>
         <object>objects\obj_back_char_btn</object>
         <object>objects\obj_create_char_btn</object>
@@ -421,10 +430,13 @@
       </objects>
       <objects name="Overlays">
         <object>objects\obj_char1_overlay</object>
+        <object>objects\obj_char2_overlay</object>
+        <object>objects\obj_char3_overlay</object>
         <object>objects\obj_str_weapon_back</object>
         <object>objects\obj_str_weapon_overlay</object>
         <object>objects\obj_str_weapon_overlay2</object>
         <object>objects\obj_escape_overlay</object>
+        <object>objects\obj_delete</object>
       </objects>
     </objects>
     <objects name="Character">

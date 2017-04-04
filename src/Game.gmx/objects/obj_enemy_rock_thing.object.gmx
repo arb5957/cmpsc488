@@ -68,9 +68,9 @@ if(using_item == false)
 
 scr_enemy_hold_item();
 
-if(x == xprevious &amp;&amp; y == yprevious)
+if(place_meeting(x, y, obj_terrain_wall))
 {
-    x += 10;
+    x += 5;
 }
 
 

@@ -29,6 +29,9 @@
 
 opened = false;
 first_opening = false;
+
+
+global.save_slots_open = false;
 </string>
           </argument>
         </arguments>
@@ -150,6 +153,12 @@ if(opened)
         main_menu_button = instance_create(v_x + v_width/2, v_y + 221, obj_back_btn);
         main_menu_button.text = "Main Menu";
         main_menu_button.depth = -100;
+        
+        //Save game button
+        save_game_button = instance_create(v_x + v_width/2, v_y + 121, obj_save_btn);
+        save_game_button.text = "Save";
+        save_game_button.depth = -100;
+            
     }
     else {
         //Reposition exit game button
@@ -161,6 +170,21 @@ if(opened)
         main_menu_button.x = v_x + v_width/2;
         //main_menu_button.y = v_y + 300;
         main_menu_button.y = v_y + 221;
+        
+        save_game_button.x = v_x + v_width/2;
+        save_game_button.y = v_y + 121;
+        
+        if(global.save_slots_open == true &amp;&amp; instance_exists(obj_save_slot1))
+        {
+            save_game_slot1.x = v_x + v_width/2 - 300;
+            save_game_slot1.y = v_y + 521;
+            
+            save_game_slot2.x = v_x + v_width/2;
+            save_game_slot2.y = v_y + 521;
+            
+            save_game_slot3.x = v_x + v_width/2 + 300;
+            save_game_slot3.y = v_y + 521;
+        }
     }
 }
 else
@@ -180,6 +204,27 @@ else
     }
     if(instance_exists(obj_back_btn)) {
         with(obj_back_btn) {
+            instance_destroy();
+        }
+    }
+    if(instance_exists(obj_save_btn)){
+        with(obj_save_btn){
+            global.save_slots_open = false;
+            instance_destroy();
+        }
+    }
+    if(instance_exists(obj_save_slot1)){
+        with(obj_save_slot1){
+            instance_destroy();
+        }
+    }
+    if(instance_exists(obj_save_slot2)){
+        with(obj_save_slot2){
+            instance_destroy();
+        }
+    }
+    if(instance_exists(obj_save_slot3)){
+        with(obj_save_slot3){
             instance_destroy();
         }
     }

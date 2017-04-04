@@ -11,7 +11,9 @@
   <colour>0</colour>
   <showcolour>-1</showcolour>
   <code>script_execute(Globals_script);
-script_execute(scr_test_load_new, 1);</code>
+script_execute(scr_test_load_new, 1);
+script_execute(scr_test_load_new2, 1);
+script_execute(scr_test_load_new3, 1);</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
