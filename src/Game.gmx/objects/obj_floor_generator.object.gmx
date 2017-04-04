@@ -130,115 +130,138 @@ if(instance_number(obj_floor_generator) == 1) {
     }    
     
     //Spawn East Exits
-    var check_x = room_width;
-    var check_y = 0;
-    var last_run = false;
-    
-    while(!last_run &amp;&amp; check_x &gt;= 0) {
-        while(check_y &lt; room_height-1024) {
-            //if(not place_empty(check_x, check_y)) {
-            if(place_meeting(check_x, check_y, obj_terrain_wall)) {
-                last_run = 1;
-                with(instance_position(check_x, check_y, obj_terrain_wall)) {
-                    instance_destroy();
+    if(obj_universal_controller.room_x != obj_universal_controller.grid_width-1) {
+        if(ds_grid_get(obj_universal_controller.room_config, 
+            obj_universal_controller.room_x+1,
+            obj_universal_controller.room_y) != 2) {
+            var check_x = room_width;
+            var check_y = 0;
+            var last_run = false;
+            
+            while(!last_run &amp;&amp; check_x &gt;= 0) {
+                while(check_y &lt; room_height-1024) {
+                    //if(not place_empty(check_x, check_y)) {
+                    if(place_meeting(check_x, check_y, obj_terrain_wall)) {
+                        last_run = 1;
+                        with(instance_position(check_x, check_y, obj_terrain_wall)) {
+                            instance_destroy();
+                        }
+                    }
+                    else if(last_run){
+                        break;
+                    }
+                    if(last_run) {
+                        with(instance_create(check_x, check_y, obj_next_room)) {
+                            dir = 0;
+                        }
+                    }
+                    check_y+=32;
                 }
+                check_y = 0;
+                check_x-=32;
             }
-            else if(last_run){
-                break;
-            }
-            if(last_run) {
-                with(instance_create(check_x, check_y, obj_next_room)) {
-                    dir = 0;
-                }
-            }
-            check_y+=32;
         }
-        check_y = 0;
-        check_x-=32;
     }
     
     //Spawn North Exits
-    check_x = 0;
-    check_y = 0;
-    last_run = false;
-    
-    while(!last_run &amp;&amp; check_y &lt; room_height-1024) {
-        while(check_x &lt; room_width) {
-            //if(not place_empty(check_x, check_y)) {
-            if(place_meeting(check_x, check_y, obj_terrain_wall)) {
-                last_run = 1;
-                with(instance_position(check_x, check_y, obj_terrain_wall)) {
-                    instance_destroy();
+    if(obj_universal_controller.room_y != 0) {
+        if(ds_grid_get(obj_universal_controller.room_config, 
+                obj_universal_controller.room_x,
+                obj_universal_controller.room_y-1) != 2) {
+            check_x = 0;
+            check_y = 0;
+            last_run = false;
+            
+            while(!last_run &amp;&amp; check_y &lt; room_height-1024) {
+                while(check_x &lt; room_width) {
+                    //if(not place_empty(check_x, check_y)) {
+                    if(place_meeting(check_x, check_y, obj_terrain_wall)) {
+                        last_run = 1;
+                        with(instance_position(check_x, check_y, obj_terrain_wall)) {
+                            instance_destroy();
+                        }
+                    }
+                    else if(last_run){
+                        break;
+                    }
+                    if(last_run) {
+                        with(instance_create(check_x, check_y, obj_next_room)) {
+                            dir = 1;
+                        }
+                    }
+                    check_x+=32;
                 }
+                check_x = 0;
+                check_y+=32;
             }
-            else if(last_run){
-                break;
-            }
-            if(last_run) {
-                with(instance_create(check_x, check_y, obj_next_room)) {
-                    dir = 1;
-                }
-            }
-            check_x+=32;
         }
-        check_x = 0;
-        check_y+=32;
-    }
-    
+    }    
     //Spawn West Exits
-    check_x = 0;
-    check_y = 0;
-    last_run = false;
-    
-    while(!last_run &amp;&amp; check_x &lt; room_width) {
-        while(check_y &lt; room_height-1024) {
-            //if(not place_empty(check_x, check_y)) {
-            if(place_meeting(check_x, check_y, obj_terrain_wall)) {
-                last_run = 1;
-                with(instance_position(check_x, check_y, obj_terrain_wall)) {
-                    instance_destroy();
+    if(obj_universal_controller.room_x != 0) {
+        if(ds_grid_get(obj_universal_controller.room_config, 
+            obj_universal_controller.room_x-1,
+            obj_universal_controller.room_y) != 2) {
+            check_x = 0;
+            check_y = 0;
+            last_run = false;
+            
+            while(!last_run &amp;&amp; check_x &lt; room_width) {
+                while(check_y &lt; room_height-1024) {
+                    //if(not place_empty(check_x, check_y)) {
+                    if(place_meeting(check_x, check_y, obj_terrain_wall)) {
+                        last_run = 1;
+                        with(instance_position(check_x, check_y, obj_terrain_wall)) {
+                            instance_destroy();
+                        }
+                    }
+                    else if(last_run){
+                        break;
+                    }
+                    if(last_run) {
+                        with(instance_create(check_x, check_y, obj_next_room)) {
+                            dir = 2;
+                        }
+                    }
+                    check_y+=32;
                 }
+                check_y = 0;
+                check_x+=32;
             }
-            else if(last_run){
-                break;
-            }
-            if(last_run) {
-                with(instance_create(check_x, check_y, obj_next_room)) {
-                    dir = 2;
-                }
-            }
-            check_y+=32;
         }
-        check_y = 0;
-        check_x+=32;
     }
     
     //Spawn South Exits
-    check_x = 0;
-    check_y = room_height-1024;
-    last_run = false;
-    
-    while(!last_run &amp;&amp; check_y &gt;=0) {
-        while(check_x &lt; room_width) {
-            //if(not place_empty(check_x, check_y)) {
-            if(place_meeting(check_x, check_y, obj_terrain_wall)) {
-                last_run = 1;
-                with(instance_position(check_x, check_y, obj_terrain_wall)) {
-                    instance_destroy();
+    if(obj_universal_controller.room_y != obj_universal_controller.grid_height-1) {
+        if(ds_grid_get(obj_universal_controller.room_config, 
+            obj_universal_controller.room_x,
+            obj_universal_controller.room_y+1) != 2) {
+            check_x = 0;
+            check_y = room_height-1024;
+            last_run = false;
+            
+            while(!last_run &amp;&amp; check_y &gt;=0) {
+                while(check_x &lt; room_width) {
+                    //if(not place_empty(check_x, check_y)) {
+                    if(place_meeting(check_x, check_y, obj_terrain_wall)) {
+                        last_run = 1;
+                        with(instance_position(check_x, check_y, obj_terrain_wall)) {
+                            instance_destroy();
+                        }
+                    }
+                    else if(last_run){
+                        break;
+                    }
+                    if(last_run) {
+                        with(instance_create(check_x, check_y, obj_next_room)) {
+                            dir = 3;
+                        }
+                    }
+                    check_x+=32;
                 }
+                check_x = 0;
+                check_y-=32;
             }
-            else if(last_run){
-                break;
-            }
-            if(last_run) {
-                with(instance_create(check_x, check_y, obj_next_room)) {
-                    dir = 3;
-                }
-            }
-            check_x+=32;
         }
-        check_x = 0;
-        check_y-=32;
     }
     
     instance_create(10, 10, obj_gameroom2_controller);
@@ -267,8 +290,21 @@ if(instance_number(obj_floor_generator) == 1) {
           <argument>
             <kind>1</kind>
             <string>///Move character
-if(generator_done) {
-    scr_position_character();
+if(not obj_universal_controller.moving_from_town) {
+    if(generator_done) {
+        scr_position_character();
+    }
+}
+else {
+    if(generator_done) {
+        obj_universal_controller.moving_from_town = false;
+        number_of_floor = instance_number(obj_floor);
+        start_floor_num = irandom(number_of_floor);
+        start_floor_inst = instance_find(obj_floor, start_floor_num);
+        obj_char.x = start_floor_inst.x+16;
+        obj_char.y = start_floor_inst.y+16;
+        obj_char.state = states.NORMAL;
+    }
 }
 </string>
           </argument>

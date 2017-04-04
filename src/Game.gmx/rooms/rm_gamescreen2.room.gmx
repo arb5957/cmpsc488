@@ -19,10 +19,7 @@
     obj_char.going_left = false;
     obj_char.going_down = false;
 }
-if(obj_universal_controller.room_x == 0 &amp;&amp; obj_universal_controller.room_y == 0) { // character is at town
-    room_goto(rm_gamescreen);
-}
-else if(not file_exists("room_save.ini")) { // new room
+if(not file_exists("room_save.ini")) { // new room
     instance_create(room_width/2, room_height/2-1024, obj_floor_generator);
 }
 else {
@@ -51,7 +48,18 @@ else {
         }
         instance_create(10, 10, obj_gameroom2_controller);
         obj_char.state = states.NORMAL;
-        scr_position_character();
+        if(not obj_universal_controller.moving_from_town) {
+            scr_position_character();
+        }
+        else {
+            obj_universal_controller.moving_from_town = false;
+            number_of_floor = instance_number(obj_floor);
+            start_floor_num = irandom(number_of_floor);
+            start_floor_inst = instance_find(obj_floor, start_floor_num);
+            obj_char.x = start_floor_inst.x+16;
+            obj_char.y = start_floor_inst.y+16;
+            obj_char.state = states.NORMAL;
+        }
         if(instance_exists(obj_char))
         {
             with(obj_char)

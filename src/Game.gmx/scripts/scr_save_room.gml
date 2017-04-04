@@ -2,8 +2,13 @@
 
 //This needs to be called inside or with obj_char.
 
-room_number = "room" + string(obj_universal_controller.room_x)
-    + "_" + string(obj_universal_controller.room_y);
+if(room == rm_gamescreen) {
+    room_number = "town";
+}
+else {
+    room_number = "room" + string(obj_universal_controller.room_x)
+        + "_" + string(obj_universal_controller.room_y);
+}
 ini_open("room_save.ini");
 ini_section_delete(string(room_number)); // delete the section for this room if it exists
 //Save terrain

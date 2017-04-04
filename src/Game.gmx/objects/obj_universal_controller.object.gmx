@@ -36,6 +36,50 @@ enemies_killed = 0;
 damage_done = 0;
 num_clicks = 0;
 steps_taken = 0;
+number_of_rooms = 6;
+moving_from_town = false;
+
+if(not file_exists("room_save.ini")) {
+    room_config = generate_floor(number_of_rooms);
+    grid_height = ds_grid_height(room_config);
+    grid_width = ds_grid_width(room_config);
+}
+else {
+    ini_open("room_save.ini");
+    grid_height = ini_read_real("room_config", "height", 0);
+    grid_width = ini_read_real("room_config", "width", 0);
+    room_config = ds_grid_create(grid_width, grid_height);
+    for(var row=0; row&lt;grid_height; row++) {
+        for(var col=0; col&lt;grid_width; col++) {
+            sdb("loading: " + string(row) + ", " + string(col));
+            ds_grid_add(room_config, col, row, 
+                ini_read_real("room_config", string(row) + "," + string(col), -1));
+        }
+    }
+    ini_close();
+}
+starting_room_x = -1;
+starting_room_y = -1;
+
+var line = "";
+for (var r=0; r&lt;grid_height; r++) {
+    for(var c=0; c&lt;grid_width; c++) {
+        line = line + " " + string(ds_grid_get(room_config, c, r));
+    }
+    sdb(line);
+    line = "";
+}
+
+for(var r=0; r&lt;grid_height; r++) {
+    for(var c=0; c&lt;grid_width; c++) {
+        if(ds_grid_get(room_config, c, r) == 3) {
+            starting_room_x = c;
+            starting_room_y = r;
+            break;
+        }
+    }
+}
+
 </string>
           </argument>
         </arguments>
