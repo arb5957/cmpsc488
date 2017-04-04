@@ -298,6 +298,7 @@
         <script>scripts\scr_transferItems.gml</script>
       </scripts>
       <script>scripts\scr_inventory_add.gml</script>
+      <script>scripts\scr_inventory_add_index.gml</script>
       <script>scripts\scr_inventory_draw_sprite.gml</script>
       <script>scripts\scr_inventory_draw_cooldown.gml</script>
       <script>scripts\scr_empty.gml</script>
