@@ -30,7 +30,8 @@ if(file_exists("Save.dat"))
                 inst_weapon = instance_create(-1, -1, inventoryTemp[i]);
                 with(inst_weapon)
                 {
-                    level = other.levelsTemp[i];
+                    level = other.levelsTemp[i, 0];
+                    stack_size = other.levelsTemp[i, 1];
                 }
                 
                 with(obj_inventory)
@@ -46,12 +47,15 @@ if(file_exists("Save.dat"))
         
         var tempLoadout = ds_list_create();
         var tempLoadoutLevels = ds_list_create();
+        var tempLoadoutStacks = ds_list_create();
         
         ds_list_read(tempLoadout, data[? "loadouts"]);
         ds_list_read(tempLoadoutLevels, data[? "loadoutsLevels"]);
+        ds_list_read(tempLoadoutStacks, data[? "loadoutsStacks"]);
         
         loadoutTemp = tempLoadout[| 0];
         loadoutLevels = tempLoadoutLevels[| 0];
+        loadoutStacks = tempLoadoutStacks[| 0];
         
         var j;
         for(i = 0; i < 4; i++)
@@ -65,6 +69,7 @@ if(file_exists("Save.dat"))
                     with(inst_weapon)
                     {
                         level = other.loadoutLevels[i, j];
+                        stack_size = other.loadoutStacks[i, j];
                     }
                     
                     with(obj_inventory)
@@ -77,6 +82,7 @@ if(file_exists("Save.dat"))
         
         ds_list_destroy(tempLoadout);
         ds_list_destroy(tempLoadoutLevels);
+        ds_list_destroy(tempLoadoutStacks);
     }
     
     ds_map_destroy(data);

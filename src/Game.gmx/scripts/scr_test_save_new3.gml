@@ -10,23 +10,25 @@ var tempLevels = ds_list_create();
 
 var i;
 var tempArray;
-var tempArrayLevels;
+var tempArrayLevels_stack;
 
 for(i = 0; i < array_length_1d(obj_inventory.inventory); i++)
 {
     if(obj_inventory.inventory[i].object_index != obj_empty.object_index)
     {
         tempArray[i] = obj_inventory.inventory[i].object_index;
-        tempArrayLevels[i] = obj_inventory.inventory[i].level;
+        tempArrayLevels_stack[i, 0] = obj_inventory.inventory[i].level;
+        tempArrayLevels_stack[i, 1] = obj_inventory.inventory[i].stack_size;
     }
     else{
         tempArray[i] = -1;
-        tempArrayLevels[i] = -1;
+        tempArrayLevels_stack[i, 0] = -1;
+        tempArrayLevels_stack[i, 1] = -1;
     }
 }
 
 temp[| 0] = tempArray;
-tempLevels[| 0] = tempArrayLevels;
+tempLevels[| 0] = tempArrayLevels_stack;
 
 
 var tempLoadout = ds_list_create();

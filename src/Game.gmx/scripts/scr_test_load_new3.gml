@@ -29,7 +29,8 @@ if(file_exists("Save3.dat"))
                 inst_weapon = instance_create(-1, -1, inventoryTemp[i]);
                 with(inst_weapon)
                 {
-                    level = other.levelsTemp[i];
+                    level = other.levelsTemp[i, 0];
+                    stack_size = other.levelsTemp[i, 1];
                 }
                 
                 with(obj_inventory)
