@@ -2,11 +2,12 @@
 //This won't work for objects with more than one instance.
 //Beware.
 object = argument0;
-
-if(instance_exists(object))
-{
-    with(object)
+if(!object == "obj_universal_controller"){
+    if(instance_exists(object))
     {
-        instance_destroy();
+        with(object)
+        {
+            instance_destroy();
+        }
     }
 }

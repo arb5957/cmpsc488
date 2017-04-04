@@ -6,6 +6,7 @@ if(not invulnerable)
 {
     invulnerable = true;
     hp -= damage;
+    obj_universal_controller.damage_taken+=damage;
     
     //Set the alarm that makes the player vulnerable again.
     alarm_set(alarms.INVULNERABILITY, invulnerable_time);

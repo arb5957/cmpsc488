@@ -8,6 +8,8 @@ if(instance_exists(obj_music))
 }
 with(all)
 {
-    show_debug_message("Destroying " + object_get_name(object_index));
-    instance_destroy();
+    if(not object_index == obj_universal_controller){
+        show_debug_message("Destroying " + object_get_name(object_index));
+        instance_destroy();
+    }
 }

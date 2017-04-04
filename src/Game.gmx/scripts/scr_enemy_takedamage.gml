@@ -4,6 +4,7 @@ if(not invulnerable)
 {
     invulnerable = true;
     hp -= damage;
+    obj_universal_controller.damage_done+=damage;
     
     alarm[11] = invulnerable_time;
     

@@ -81,7 +81,7 @@ if(player_in_range &amp;&amp; alarm[0] &lt;= 0){
     
     with(instance_create(obj_spike.x, obj_spike.y, obj_star_2)){
         speed = 10;
-        damage = 10;
+        damage = 150;
         owner = owners.ENEMY;
         direction = round(random(360)); //obj_spike.fire_direction;
         image_angle = obj_spike.fire_direction;

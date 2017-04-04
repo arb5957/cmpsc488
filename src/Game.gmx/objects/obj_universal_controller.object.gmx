@@ -31,6 +31,11 @@ world_difficulty = 1;
 in_dungeon_pit = false;
 room_x = 0;
 room_y = 0;
+damage_taken = 0;
+enemies_killed = 0;
+damage_done = 0;
+num_clicks = 0;
+steps_taken = 0;
 </string>
           </argument>
         </arguments>
@@ -54,6 +59,14 @@ room_y = 0;
           <argument>
             <kind>1</kind>
             <string>///Create escape if player cleared dungeon pit
+
+if(instance_exists(obj_char) &amp;&amp; !(room == rm_gameover)){
+    if(mouse_check_button_pressed(mb_left) || mouse_check_button_pressed(mb_right)){
+        obj_universal_controller.num_clicks+=1;
+    }
+}
+
+
 if(in_dungeon_pit) {
     if(instance_exists(obj_char)) {
         nearest_enemy = instance_nearest(obj_char.x, obj_char.y, obj_enemy_base);
@@ -62,9 +75,7 @@ if(in_dungeon_pit) {
                 random(instance_number(obj_dungeon_pit_floor)));
             instance_create(teleport_floor.x, teleport_floor.y, obj_terrain_teleport);
             in_dungeon_pit = false;
-            
         }
-        
     }
 }
 </string>

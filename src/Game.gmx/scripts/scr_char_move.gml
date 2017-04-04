@@ -104,18 +104,22 @@ if keyboard_check_released(move_right)
 
 if(going_up)
 {
+    obj_universal_controller.steps_taken+=1;
     vspeed = -move_speed;
 }
 if(going_down)
 {
+    obj_universal_controller.steps_taken+=1;
     vspeed = move_speed;
 }
 if(going_left)
 {
+    obj_universal_controller.steps_taken+=1;
     hspeed = -move_speed;
 }
 if(going_right)
 {
+    obj_universal_controller.steps_taken+=1;
     hspeed = move_speed;
 }
 

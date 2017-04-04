@@ -25,7 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>title = "Draw statistics here";
+            <string>title = "Damage taken: " + string(obj_universal_controller.damage_taken) + "#" +
+        "Enemies slain: " + string(obj_universal_controller.enemies_killed) + "#" +
+        "Damage done: " + string(obj_universal_controller.damage_done) + "#" + 
+        "Number of clicks: " + string(obj_universal_controller.num_clicks) + "#" +
+        "Steps taken: " + string(obj_universal_controller.steps_taken) + "#";
 draw_text(room_width/2, room_height/2 - 32, title);
 //script_execute(draw_text_outline, room_width/2, room_height/2 - 32, title, c_orange);
 </string>

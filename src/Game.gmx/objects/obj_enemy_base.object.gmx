@@ -84,7 +84,8 @@ invulnerable_time = room_speed/2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>script_execute(scr_drop_item_rate);
+            <string>obj_universal_controller.enemies_killed += 1;
+script_execute(scr_drop_item_rate);
 
 with(weapon_inst)
 {

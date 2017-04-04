@@ -336,6 +336,9 @@ switch(state)
         //do nothing - character is stopped
         break;
 }
+
+//Checks for damage
+
 </string>
           </argument>
         </arguments>
