@@ -639,7 +639,7 @@
     <room>rooms\rm_test_inventory</room>
     <room>rooms\rm_test_tetravex</room>
     <room>rooms\rm_puzzle_room</room>
-    <room>rooms\rm_titlescreen</room>
+    <room>rooms\rm_gamescreen</room>
     <room>rooms\rm_gamescreen</room>
     <room>rooms\rm_gamescreen2</room>
     <room>rooms\rm_settings</room>
@@ -651,6 +651,7 @@
     </rooms>
     <room>rooms\rm_charselect</room>
     <room>rooms\rm_create_char</room>
+    <room>rooms\rm_titlescreen</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
