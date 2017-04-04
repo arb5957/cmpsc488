@@ -25,9 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(not global.mute)
+            <string>song = mus_mystery;
+if(not global.mute)
 {
-    song = mus_mystery;
     if(not audio_is_playing(song))
     {
         audio_play_sound(song, 100, true);
