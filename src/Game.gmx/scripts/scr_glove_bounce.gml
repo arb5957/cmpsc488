@@ -2,6 +2,12 @@
 
 angle = image_angle;
 image_speed = 0.1;
+
+if(owner == owners.ENEMY)
+{
+    angle = (angle + irandom_range(-32, 32)) mod 360;
+}
+
 inst = instance_create(x, y, obj_bounce_ball);
 inst2 = instance_create(x, y, obj_bounce_ball);
 with(inst)

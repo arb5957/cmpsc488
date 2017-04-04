@@ -20,6 +20,25 @@ switch(name)
         ultra_drop = obj_quake_boots;
         ultra_drop_rate = 99;
         break;
+        
+    case "enemy1TEST" :
+        hp = 5;
+        weapon = "obj_gun_2";
+        movement = "speed";
+        attack_pattern = "aggressive";
+        move_speed_default = 2;
+        
+        item = global.items_array[2];
+        
+        common_drop = obj_potion;
+        common_drop_rate = 50;
+        
+        rare_drop = obj_pet;
+        rare_drop_rate = 90;
+        
+        ultra_drop = obj_quake_boots;
+        ultra_drop_rate = 99;
+        break;
     
     case "enemy2" :
         hp = irandom_range(6, 10);

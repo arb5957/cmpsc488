@@ -488,6 +488,7 @@
       </objects>
       <object>objects\obj_enemy_base</object>
       <object>objects\obj_enemy1</object>
+      <object>objects\obj_enemy1Test</object>
       <object>objects\obj_enemy2</object>
       <object>objects\obj_enemy_butterfly</object>
       <object>objects\obj_enemy_dig</object>
