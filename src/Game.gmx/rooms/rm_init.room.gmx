@@ -20,6 +20,7 @@ room_goto(rm_test_polyomino);
 
 //*
 script_execute(Globals_script);
+global.mute = true;
 global.testing_world_gen = false;
 room_goto(rm_titlescreen);
 //*/
