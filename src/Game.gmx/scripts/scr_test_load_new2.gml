@@ -35,7 +35,7 @@ if(file_exists("Save2.dat"))
                 
                 with(obj_inventory)
                 {
-                    scr_inventory_add(other.inst_weapon, obj_char.id);
+                    scr_inventory_add_index(other.inst_weapon, obj_char.id, i);
                 }
                 show_debug_message(string(inst_weapon.name));
             }

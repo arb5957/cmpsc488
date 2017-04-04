@@ -33,9 +33,11 @@ tempLevels[| 0] = tempArrayLevels_stack;
 
 var tempLoadout = ds_list_create();
 var tempLoadoutLevels = ds_list_create();
+var tempLoadoutStacks = ds_list_create();
 
 var tempArrayLoadouts;
 var tempArrayLoadoutsLevels;
+var tempArrayLoadoutsStacks;
 var j;
 
 for(i = 0; i < 4; i++)
@@ -46,11 +48,13 @@ for(i = 0; i < 4; i++)
         {
             tempArrayLoadouts[i, j] = obj_inventory.loadout[i, j].object_index;
             tempArrayLoadoutsLevels[i, j] = obj_inventory.loadout[i, j].level;
+            tempArrayLoadoutsStacks[i, j] = obj_inventory.loadout[i, j].stack_size;
         }
         else
         {
             tempArrayLoadouts[i, j] = -1;
             tempArrayLoadoutsLevels[i, j] = -1;
+            tempArrayLoadoutsStacks[i, j] = -1;
         }
     }
 }
@@ -59,16 +63,19 @@ for(i = 0; i < 4; i++)
 
 tempLoadout[| 0] = tempArrayLoadouts;
 tempLoadoutLevels[| 0] = tempArrayLoadoutsLevels;
+tempLoadoutStacks[| 0] = tempArrayLoadoutsStacks;
 
 
 data[? "inventory"] = ds_list_write(temp);
 data[? "levels"] = ds_list_write(tempLevels);
 data[? "loadouts"] = ds_list_write(tempLoadout);
 data[? "loadoutsLevels"] = ds_list_write(tempLoadoutLevels);
+data[? "loadoutsStacks"] = ds_list_write(tempLoadoutStacks);
 
 ds_list_destroy(temp);
 ds_list_destroy(tempLevels);
 ds_list_destroy(tempLoadout);
 ds_list_destroy(tempLoadoutLevels);
+ds_list_destroy(tempLoadoutStacks);
 ds_map_secure_save(data, "Save3.dat");
 ds_map_destroy(data);

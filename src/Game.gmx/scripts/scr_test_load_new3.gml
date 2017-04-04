@@ -35,7 +35,7 @@ if(file_exists("Save3.dat"))
                 
                 with(obj_inventory)
                 {
-                    scr_inventory_add(other.inst_weapon, obj_char.id);
+                    scr_inventory_add_index(other.inst_weapon, obj_char.id, i);
                 }
                 show_debug_message(string(inst_weapon.name));
             }
@@ -46,12 +46,15 @@ if(file_exists("Save3.dat"))
         
         var tempLoadout = ds_list_create();
         var tempLoadoutLevels = ds_list_create();
+        var tempLoadoutStacks = ds_list_create();
         
         ds_list_read(tempLoadout, data[? "loadouts"]);
         ds_list_read(tempLoadoutLevels, data[? "loadoutsLevels"]);
+        ds_list_read(tempLoadoutStacks, data[? "loadoutsStacks"]);
         
         loadoutTemp = tempLoadout[| 0];
         loadoutLevels = tempLoadoutLevels[| 0];
+        loadoutStacks = tempLoadoutStacks[| 0];
         
         var j;
         for(i = 0; i < 4; i++)
@@ -65,6 +68,7 @@ if(file_exists("Save3.dat"))
                     with(inst_weapon)
                     {
                         level = other.loadoutLevels[i, j];
+                        stack_size = other.loadoutStacks[i, j];
                     }
                     
                     with(obj_inventory)
@@ -77,6 +81,7 @@ if(file_exists("Save3.dat"))
         
         ds_list_destroy(tempLoadout);
         ds_list_destroy(tempLoadoutLevels);
+        ds_list_destroy(tempLoadoutStacks);
     }
     
     ds_map_destroy(data);

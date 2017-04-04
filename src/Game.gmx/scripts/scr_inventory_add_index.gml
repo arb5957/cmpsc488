@@ -39,7 +39,7 @@ if(item.stackable)
         item.on_ground = false;
         item.visible = false;
         item.persistent = true;
-        show_debug_message("Added " + string(item.name) + " into slot " + string(empty_slot));
+        //show_debug_message("Added " + string(item.name) + " into slot " + string(empty_slot));
         item.owner_id = char_id;
         return true;
     }
@@ -55,12 +55,12 @@ else
     if(inventory[index] == empty)
     {
         //Insert item into Inventory.
-        inventory[i] = item;
+        inventory[index] = item;
         item.on_ground = false;
         item.visible = false;
         item.persistent = true;
         
-        show_debug_message("Added " + string(item.name) + " into slot " + string(i));
+        show_debug_message("Added " + string(item.name) + " into slot " + string(index));
         item.owner_id = char_id;
         return true;
     }
