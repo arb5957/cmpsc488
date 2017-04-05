@@ -66,7 +66,8 @@ with(obj_escape_overlay)
     save_game_slot3.depth = -100;
 }
 */
-
+scr_save(global.save_selected);
+/*
 switch(global.save_selected)
 {
     case 1:
@@ -80,7 +81,7 @@ switch(global.save_selected)
     case 3:
         script_execute(scr_test_save_new3);
     break;
-}
+}*/
 </string>
           </argument>
         </arguments>

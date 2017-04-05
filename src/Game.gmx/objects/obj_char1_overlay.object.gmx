@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>text = save_name;
+            <string>text = global.save_name[1];
 </string>
           </argument>
         </arguments>

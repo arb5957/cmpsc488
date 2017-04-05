@@ -48,7 +48,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>script_execute(scr_test_save_new);
+            <string>scr_save(1);
 </string>
           </argument>
         </arguments>

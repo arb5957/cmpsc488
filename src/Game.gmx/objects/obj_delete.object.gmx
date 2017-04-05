@@ -26,19 +26,19 @@
           <argument>
             <kind>1</kind>
             <string>if(place_meeting(x, y, obj_char1_overlay)){
-    file_delete("Save.dat");
-    save_name = "Empty";
-    obj_char1_overlay.text = save_name;
+    file_delete("Save1.dat");
+    global.save_name[1] = "Empty";
+    obj_char1_overlay.text = global.save_name[1];
 }
 else if(place_meeting(x, y, obj_char2_overlay)){
     file_delete("Save2.dat");
-    save_name2 = "Empty";
-    obj_char2_overlay.text = save_name2;
+    global.save_name[2] = "Empty";
+    obj_char2_overlay.text = global.save_name[2];
 }
 else if(place_meeting(x, y, obj_char3_overlay)){
     file_delete("Save3.dat");
-    save_name3 = "Empty";
-    obj_char3_overlay.text = save_name3;
+    global.save_name[3] = "Empty";
+    obj_char3_overlay.text = global.save_name[3];
 }
 </string>
           </argument>
