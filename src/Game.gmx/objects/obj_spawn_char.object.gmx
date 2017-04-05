@@ -60,7 +60,7 @@ alarm[1] = 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.newlyCreated == false &amp;&amp; obj_char.first_spawn)
+            <string>if(global.newlyCreated == false)// &amp;&amp; obj_char.first_spawn)
 {
     if(object_exists(obj_inventory))
     {
