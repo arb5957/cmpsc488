@@ -98,4 +98,24 @@ if(file_exists("room_save.ini")) {
 
 if(file_exists("room_save_1.ini")) {
     file_copy("room_save_1.ini", "room_save.ini");
+    /*ini_open("room_save_1.ini");
+    room_x = ini_read_real("char_position", "room_x", -1);
+    room_y = ini_read_real("char_position", "room_y", -1);
+    char_x = ini_read_real("char_position", "x", 0);
+    char_y = ini_read_real("char_position", "y", 0);
+    ini_close();
+    if(instance_exists(obj_universal_controller)) {
+        obj_universal_controller.room_x = room_x;
+        obj_universal_controller.room_y = room_y;
+    }
+    if(room_x == -1 && room_y == -1) {
+        room_goto(rm_gamescreen);
+    }
+    else {
+        room_goto(rm_gamescreen2);
+    }
+    if(instance_exists(obj_char)) {
+        obj_char.x = char_x;
+        obj_char.y = char_y;
+    }   */    
 }

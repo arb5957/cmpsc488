@@ -22,7 +22,6 @@ if(instance_exists(obj_char)) {
     obj_char.going_down = false;
     obj_char.state = states.NORMAL;
     //scr_position_character();
-    obj_char.first_spawn = false;
 }
 
 if(global.newlyCreated == true)

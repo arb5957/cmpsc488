@@ -58,8 +58,8 @@ script = scr_town_key;
             <string>room_goto(rm_gamescreen);
 if(instance_exists(obj_char)) {
     obj_char.using_key = true;
-    obj_universal_controller.room_x = 0;
-    obj_universal_controller.room_y = 0;
+    obj_universal_controller.room_x = -1;
+    obj_universal_controller.room_y = -1;
 }
 </string>
           </argument>

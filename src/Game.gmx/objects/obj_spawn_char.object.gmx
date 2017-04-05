@@ -60,7 +60,7 @@ alarm[1] = 30;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.newlyCreated == false)
+            <string>if(global.newlyCreated == false &amp;&amp; obj_char.first_spawn)
 {
     switch (global.save_selected)
     {
@@ -79,6 +79,7 @@ alarm[1] = 30;
         script_execute(scr_test_load_new3, 0);
         break;
     }
+    obj_char.first_spawn = false;
 }
 </string>
           </argument>

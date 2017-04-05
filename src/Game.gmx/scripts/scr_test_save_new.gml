@@ -100,4 +100,12 @@ for(var row=0; row<obj_universal_controller.grid_height; row++) {
             ds_grid_get(obj_universal_controller.room_config, col, row));
     }
 }
+/*
+//Save character's current position
+ini_section_delete("char_position");
+ini_write_real("char_position", "x", obj_char.x);
+ini_write_real("char_position", "y", obj_char.y);
+ini_write_real("char_position", "room_x", obj_universal_controller.room_x);
+ini_write_real("char_position", "room_y", obj_universal_controller.room_y);
+*/
 ini_close();

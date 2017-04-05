@@ -29,8 +29,8 @@
 
 world_difficulty = 1;
 in_dungeon_pit = false;
-room_x = 0;
-room_y = 0;
+room_x = -1;
+room_y = -1;
 damage_taken = 0;
 enemies_killed = 0;
 damage_done = 0;
