@@ -4,6 +4,8 @@
 
 var cells = argument0;
 
+randomize();
+
 var rows = cells + cells + 1;
 var cols = rows;
 var grid;

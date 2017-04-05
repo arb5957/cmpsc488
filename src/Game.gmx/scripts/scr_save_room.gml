@@ -16,14 +16,14 @@ key0 = 0;
 key1 = 0;
 for(var i=0; i<instance_number(obj_terrain); i++) {
     terrain = instance_find(obj_terrain, i);
-    ini_write_real(string(room_number), string(key0) + string(key1), terrain.object_index);
+    ini_write_real(string(room_number), string(key0) + "," + string(key1), terrain.object_index);
     key1++;
-    ini_write_real(string(room_number), string(key0) + string(key1), terrain.x);
+    ini_write_real(string(room_number), string(key0) + "," + string(key1), terrain.x);
     key1++;
-    ini_write_real(string(room_number), string(key0) + string(key1), terrain.y);
+    ini_write_real(string(room_number), string(key0) + "," + string(key1), terrain.y);
     if(terrain.object_index == obj_next_room) { // if terrain is obj_next_room add information about the direction of this exit
         key1++;
-        ini_write_real(string(room_number), string(key0) + string(key1), terrain.dir);
+        ini_write_real(string(room_number), string(key0) + "," + string(key1), terrain.dir);
     }
     key0++;
     key1=0;
@@ -32,11 +32,17 @@ for(var i=0; i<instance_number(obj_terrain); i++) {
 //Save enemies
 for(var i=0; i<instance_number(obj_enemy_base); i++) {
     enemy = instance_find(obj_enemy_base, i);
-    ini_write_real(string(room_number), string(key0) + string(key1), enemy.object_index);
+    if(enemy.object_index == obj_enemy_snake_body) { // do not spawn snake body
+        continue;
+    }
+    ini_write_real(string(room_number), string(key0) + "," + string(key1), enemy.object_index);
     key1++;
-    ini_write_real(string(room_number), string(key0) + string(key1), enemy.x);
+    ini_write_real(string(room_number), string(key0) + "," + string(key1), enemy.x);
     key1++;
-    ini_write_real(string(room_number), string(key0) + string(key1), enemy.y);
+    ini_write_real(string(room_number), string(key0) + "," + string(key1), enemy.y);
+    if(enemy.object_index == obj_enemy_duplicate_fake) { //store parent_id
+        ini_write_real(string(room_number), string(key0) + "," + string(key1), enemy.parent_id);
+    }
     key0++;
     key1=0;
 }
@@ -45,11 +51,11 @@ for(var i=0; i<instance_number(obj_enemy_base); i++) {
 for(var i=0; i<instance_number(obj_item); i++) {
     item = instance_find(obj_item, i);
     if(item.on_ground) {
-        ini_write_real(string(room_number), string(key0) + string(key1), item.object_index);
+        ini_write_real(string(room_number), string(key0) + "," + string(key1), item.object_index);
         key1++;
-        ini_write_real(string(room_number), string(key0) + string(key1), item.x);
+        ini_write_real(string(room_number), string(key0) + "," + string(key1), item.x);
         key1++;
-        ini_write_real(string(room_number), string(key0) + string(key1), item.y);
+        ini_write_real(string(room_number), string(key0) + "," + string(key1), item.y);
         key0++;
         key1 = 0;
     }

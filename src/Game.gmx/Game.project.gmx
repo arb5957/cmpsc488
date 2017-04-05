@@ -284,6 +284,7 @@
       <script>scripts\scr_test_load_new.gml</script>
       <script>scripts\scr_test_load_new2.gml</script>
       <script>scripts\scr_test_load_new3.gml</script>
+      <script>scripts\scr_save_room.gml</script>
     </scripts>
     <scripts name="Inventory">
       <scripts name="old">
@@ -391,7 +392,6 @@
       <script>scripts\scr_bring_to_front.gml</script>
     </scripts>
     <script>scripts\scr_destroy.gml</script>
-    <script>scripts\scr_save_room.gml</script>
     <script>scripts\scr_town_key.gml</script>
     <script>scripts\scr_leave_game.gml</script>
   </scripts>

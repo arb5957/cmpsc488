@@ -79,9 +79,10 @@ else
     //script_execute(src_test_save);
     global.newlyCreated = true;
 
-
-
-
+//Delete old world save
+if(file_exists("room_save.ini")) {
+    file_delete("room_save.ini");
+}
 </string>
           </argument>
         </arguments>

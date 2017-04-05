@@ -29,6 +29,7 @@ if(file_exists("Save3.dat"))
                 inst_weapon = instance_create(-1, -1, inventoryTemp[i]);
                 with(inst_weapon)
                 {
+                    persistent = true;
                     level = other.levelsTemp[i, 0];
                     stack_size = other.levelsTemp[i, 1];
                 }
@@ -67,6 +68,7 @@ if(file_exists("Save3.dat"))
                     
                     with(inst_weapon)
                     {
+                        persistent = true;
                         level = other.loadoutLevels[i, j];
                         stack_size = other.loadoutStacks[i, j];
                     }
@@ -85,4 +87,12 @@ if(file_exists("Save3.dat"))
     }
     
     ds_map_destroy(data);
+}
+
+if(file_exists("room_save.ini")) {
+    file_delete("room_save.ini");
+}
+
+if(file_exists("room_save_3.ini")) {
+    file_copy("room_save_3.ini", "room_save.ini");
 }

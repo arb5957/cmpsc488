@@ -31,18 +31,22 @@ else {
     }
     else { // existing room
         var spawn_x, spawn_y, spawn_inst, key0=0, key1=0;
-        while(ini_key_exists(string(room_number), string(key0) + string(key1))) {
-            spawn_inst = ini_read_real(string(room_number), string(key0) + string(key1), -1);
+        while(ini_key_exists(string(room_number), string(key0) + "," + string(key1))) {
+            spawn_inst = ini_read_real(string(room_number), string(key0) + "," + string(key1), -1);
             key1++;
-            spawn_x = ini_read_real(string(room_number), string(key0)+string(key1), -1);
+            spawn_x = ini_read_real(string(room_number), string(key0) + "," + string(key1), -1);
             key1++;
-            spawn_y = ini_read_real(string(room_number), string(key0)+string(key1), -1);
-            new_terrain = instance_create(spawn_x, spawn_y, spawn_inst);
+            spawn_y = ini_read_real(string(room_number), string(key0) + "," + string(key1), -1);
+            new_inst = instance_create(spawn_x, spawn_y, spawn_inst);
             if(spawn_inst == obj_next_room) {
                 key1++;
-                dir = ini_read_real(string(room_number), string(key0)+string(key1), -1);
-                new_terrain.dir = dir;
-            }      
+                dir = ini_read_real(string(room_number), string(key0) + "," + string(key1), -1);
+                new_inst.dir = dir;
+            }
+            else if(spawn_inst == obj_enemy_duplicate_fake) {
+                key1++;
+                new_inst.parent_id = ini_read_real(string(room_number), string(key0) + "," + string(key1), -1);
+            } 
             key0++;
             key1=0;      
         }
