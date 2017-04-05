@@ -142,11 +142,18 @@ if(not opened)
     }
     else
     {
-        if(instance_exists(obj_inventory) &amp;&amp; not instance_exists(obj_recon_drone)
-            &amp;&amp; not instance_exists(obj_att_drone)) {
-            obj_inventory.disabled = false;
-            obj_inventory.can_use_items = true;
+        if(instance_exists(obj_escape_overlay))
+        {
+            if(not obj_escape_overlay.opened)
+            {
+                if(instance_exists(obj_inventory) &amp;&amp; not instance_exists(obj_recon_drone)
+                    &amp;&amp; not instance_exists(obj_att_drone)) {
+                    obj_inventory.disabled = false;
+                    obj_inventory.can_use_items = true;
+                }
+            }
         }
+        
     }
     
 }
