@@ -36,7 +36,7 @@ else
     obj_char.y = room_height/2;
 }
 
-alarm[1] = 30;
+alarm[1] = 2;
 
 </string>
           </argument>
@@ -62,25 +62,32 @@ alarm[1] = 30;
             <kind>1</kind>
             <string>if(global.newlyCreated == false &amp;&amp; obj_char.first_spawn)
 {
-    scr_load(global.save_selected,0);
-    /*switch (global.save_selected)
+    if(object_exists(obj_inventory))
     {
-        case 1:
-        
-        script_execute(scr_test_load_new, 0);
-        break;
-        
-        case 2:
-        
-        script_execute(scr_test_load_new2, 0);
-        break;
-        
-        case 3:
-        
-        script_execute(scr_test_load_new3, 0);
-        break;
-    }*/
-    obj_char.first_spawn = false;
+        scr_load(global.save_selected,0);
+        /*switch (global.save_selected)
+        {
+            case 1:
+            
+            script_execute(scr_test_load_new, 0);
+            break;
+            
+            case 2:
+            
+            script_execute(scr_test_load_new2, 0);
+            break;
+            
+            case 3:
+            
+            script_execute(scr_test_load_new3, 0);
+            break;
+        }*/
+        obj_char.first_spawn = false;
+    }
+    else
+    {
+        alarm[1] = 2;
+    }
 }
 </string>
           </argument>
