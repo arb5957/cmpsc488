@@ -33,6 +33,7 @@ if(file_exists("Save.dat"))
                     persistent = true;
                     level = other.levelsTemp[i, 0];
                     stack_size = other.levelsTemp[i, 1];
+                    
                 }
                 
                 with(obj_inventory)
@@ -72,6 +73,9 @@ if(file_exists("Save.dat"))
                         persistent = true;
                         level = other.loadoutLevels[i, j];
                         stack_size = other.loadoutStacks[i, j];
+                        equipped = true;
+                        on_ground = false;
+                        visible = false;
                     }
                     
                     with(obj_inventory)
@@ -85,6 +89,45 @@ if(file_exists("Save.dat"))
         ds_list_destroy(tempLoadout);
         ds_list_destroy(tempLoadoutLevels);
         ds_list_destroy(tempLoadoutStacks);
+        
+        var tempPersistent = ds_list_create();
+        var tempPersistentLevels = ds_list_create();
+        var tempPersistentStacks = ds_list_create();
+        
+        ds_list_read(tempPersistent, data[? "persistent"]);
+        ds_list_read(tempPersistentLevels, data[? "persistentLevels"]);
+        ds_list_read(tempPersistentStacks, data[? "persistentStacks"]);
+        
+        persistentTemp = tempPersistent[| 0];
+        persistentLevels = tempPersistentLevels[| 0];
+        persistentStacks = tempPersistentStacks[| 0];
+        
+        for(i = 0; i < 3; i++)
+        {
+            if(persistentTemp[i] != -1)
+            {
+                inst_weapon = instance_create(-1, -1, persistentTemp[i]);
+                
+                with(inst_weapon)
+                {
+                    persistent = true;
+                    level = other.persistentLevels[i];
+                    stack_size = other.persistentStacks[i];
+                    equipped = true;
+                    on_ground = false;
+                    visible = false;
+                }
+                
+                with(obj_inventory)
+                {
+                    persistent_items[i] = other.inst_weapon;
+                }
+            }
+        }
+        
+        ds_list_destroy(tempPersistent);
+        ds_list_destroy(tempPersistentLevels);
+        ds_list_destroy(tempPersistentStacks);
     }
     
     ds_map_destroy(data);
