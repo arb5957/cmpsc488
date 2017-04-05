@@ -29,6 +29,7 @@
 
 instance_deactivate_all(true);
 instance_activate_object(obj_escape_overlay);
+instance_create(860,510,obj_giveup_btn);
 
 randomize();
 
