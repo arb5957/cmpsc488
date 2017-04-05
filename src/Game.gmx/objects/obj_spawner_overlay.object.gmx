@@ -30,8 +30,62 @@
 opened = false;
 first_opening = false;
 
+enemy_base = obj_enemy_base;
+item_base = obj_item;
+enemies[0] = obj_enemy_base;
+items[0] = obj_item;
+var current_enemy = 0;
+var current_item = 0;
+//var object is an object_index
+for(var object = 0; object_exists(object); object++)
+{
+    if(object_is_ancestor(object, enemy_base))
+    {
+        if(object == obj_enemy_duplicate_fake || object == obj_enemy_snake_body || object == obj_boss3_fake)
+        {
+            continue;
+        }
+        else
+        {
+            enemies[current_enemy++] = object;
+        }
+    }
+    else if(object_is_ancestor(object, item_base))
+    {
+        items[current_item++] = object;
+    }
+}
+enemies_length = array_length_1d(enemies);
+cells_x[enemies_length-1] = 0;
+cells_y[enemies_length-1] = 0;
+selected_enemy = -1;
+dropping_object = false;
+can_drop = false;
+cooldown = room_speed / 4;
 
-global.save_slots_open = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>can_drop = true;
 </string>
           </argument>
         </arguments>
@@ -57,14 +111,34 @@ global.save_slots_open = false;
             <string>///Toggle inventory
 
 first_opening = false;
-
-if(keyboard_check_pressed(vk_escape))
+if(keyboard_check_pressed(vk_backspace))
 {
     opened = !opened;
     //Say this is the first time opening the escape menu
     if opened { 
         first_opening = true;
         
+        dropping_object = false;
+    }
+}
+if(dropping_object and can_drop)
+{
+    if(mouse_check_button(mb_left))
+    {
+        sdb("dropping enemy " + object_get_name(enemies[selected_enemy]));
+        instance_create(mouse_x, mouse_y, enemies[selected_enemy]);
+        alarm[0] = cooldown;
+        can_drop = false;
+    }
+}
+if(not opened)
+{
+    if(dropping_object)
+    {
+        if(mouse_check_button_released(mb_right))
+        {
+            dropping_object = false;
+        }
     }
     else
     {
@@ -74,6 +148,7 @@ if(keyboard_check_pressed(vk_escape))
             obj_inventory.can_use_items = true;
         }
     }
+    
 }
 </string>
           </argument>
@@ -124,120 +199,55 @@ previous_color = draw_get_colour();
             <string>///Draw the menu on escape press
 
 if(opened)
-{   
+{    
     if(instance_exists(obj_inventory)) {
         obj_inventory.disabled = true;
         obj_inventory.can_use_items = false;
     }
-    
     opened = true;
-    draw_set_alpha(0.75);
+    draw_set_alpha(0.12);
     draw_set_colour(c_black);
     v_x = view_xview[0];
     v_y = view_yview[0];
     v_width = view_wview[0];
     v_height = view_hview[0];
     draw_rectangle(v_x, v_y, v_x + v_width, v_y + v_height, false);
+    draw_set_alpha(1);
+    draw_set_color(c_black);
+    draw_set_font(font_command);
     
-    /*//Remove old buttons
-    if(instance_exists(obj_exit_btn)) {
-        with(obj_exit_btn) {
-            instance_destroy();
-        }
-    }
-    if(instance_exists(obj_back_btn)) {
-        with(obj_back_btn) {
-            instance_destroy();
-        }
-    }*/
-    
-    if(first_opening) {    
-        //Exit game button
-        //exit_game_button = instance_create(v_x + v_width/2, v_y + 400, obj_exit_btn);
-        exit_game_button = instance_create(v_x + v_width/2, v_y + 321, obj_exit_btn);
-        exit_game_button.text = "Exit Game";
-        exit_game_button.depth = -100;
-    
-        //Return to main menu button
-        //main_menu_button = instance_create(v_x + v_width/2, v_y + 300, obj_back_btn);
-        main_menu_button = instance_create(v_x + v_width/2, v_y + 221, obj_back_btn);
-        main_menu_button.text = "Main Menu";
-        main_menu_button.depth = -100;
-        
-        //Save game button
-        save_game_button = instance_create(v_x + v_width/2, v_y + 121, obj_save_btn);
-        save_game_button.text = "Save";
-        save_game_button.depth = -100;
-            
-    }
-    else {
-        //Reposition exit game button
-        exit_game_button.x = v_x + v_width/2;
-        //exit_game_button.y = v_y + 400;
-        exit_game_button.y = v_y + 321;
-        
-        //Reposition main menu button
-        main_menu_button.x = v_x + v_width/2;
-        //main_menu_button.y = v_y + 300;
-        main_menu_button.y = v_y + 221;
-        
-        save_game_button.x = v_x + v_width/2;
-        save_game_button.y = v_y + 121;
-        
-        if(global.save_slots_open == true &amp;&amp; instance_exists(obj_save_slot1))
+    var xx = v_x + 50;
+    var yy = v_y + 100;
+    for(var i = 0; i &lt; enemies_length; i++)
+    {
+        var sprite = object_get_sprite(enemies[i]);
+        if(sprite &gt; -1)
         {
-            save_game_slot1.x = v_x + v_width/2 - 300;
-            save_game_slot1.y = v_y + 521;
-            
-            save_game_slot2.x = v_x + v_width/2;
-            save_game_slot2.y = v_y + 521;
-            
-            save_game_slot3.x = v_x + v_width/2 + 300;
-            save_game_slot3.y = v_y + 521;
+            draw_sprite_stretched(sprite, -1, xx, yy, 64, 64);
         }
-    }
-}
-else
-{
-    //Allow opening of inventory and items to be used again
-    /*if(instance_exists(obj_inventory) &amp;&amp; not instance_exists(obj_recon_drone)
-        &amp;&amp; not instance_exists(obj_att_drone)) {
-        obj_inventory.disabled = false;
-        obj_inventory.can_use_items = true;
-    }*/
-    
-    //Remove old buttons
-    if(instance_exists(obj_exit_btn)) {
-        with(obj_exit_btn) {
-            instance_destroy();
+        draw_set_halign(fa_center);
+        draw_text(xx+32,yy+64,object_get_name(enemies[i]));
+        cells_x[i] = xx;
+        cells_y[i] = yy;
+        if(point_in_rectangle(mouse_x, mouse_y, xx, yy, xx+64, yy+64))
+        {
+            //show_debug_message("Selected " + object_get_name(enemies[i]));
+            if(mouse_check_button_pressed(mb_left))
+            {
+                selected_enemy = i;
+                opened = false;
+                dropping_object = true;
+                can_drop = false;
+                alarm[0] = room_speed / 4;
+            }
         }
-    }
-    if(instance_exists(obj_back_btn)) {
-        with(obj_back_btn) {
-            instance_destroy();
-        }
-    }
-    if(instance_exists(obj_save_btn)){
-        with(obj_save_btn){
-            global.save_slots_open = false;
-            instance_destroy();
-        }
-    }
-    if(instance_exists(obj_save_slot1)){
-        with(obj_save_slot1){
-            instance_destroy();
-        }
-    }
-    if(instance_exists(obj_save_slot2)){
-        with(obj_save_slot2){
-            instance_destroy();
-        }
-    }
-    if(instance_exists(obj_save_slot3)){
-        with(obj_save_slot3){
-            instance_destroy();
-        }
-    }
+        xx += 100;
+        if(xx &gt; v_x+910)
+        {
+            yy += 100;
+            xx = v_x+50;
+        }   
+    }   
 }
 </string>
           </argument>
