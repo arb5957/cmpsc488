@@ -187,6 +187,7 @@
       <background>background\bg_flames</background>
       <background>background\bg_titlescreen</background>
     </backgrounds>
+    <background>background\bg_game</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
