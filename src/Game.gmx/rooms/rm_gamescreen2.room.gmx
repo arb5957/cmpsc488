@@ -57,18 +57,14 @@ else {
         instance_create(10, 10, obj_gameroom2_controller);
         obj_char.state = states.NORMAL;
         if(obj_universal_controller.loading_char_position) {
-            sdb("loading character position");
             obj_char.x = obj_universal_controller.loading_char_x;
             obj_char.y = obj_universal_controller.loading_char_y;
-            sdb("char position: " + string(obj_char.x) + ", " + string(obj_char.y));
             obj_universal_controller.loading_char_position = false;
         }
         else if(not obj_universal_controller.moving_from_town) {
-            sdb("loading character from town");
             scr_position_character();
         }
         else {
-            sdb("loading character from another room");
             obj_universal_controller.moving_from_town = false;
             number_of_floor = instance_number(obj_floor);
             start_floor_num = irandom(number_of_floor);
@@ -77,6 +73,7 @@ else {
             obj_char.y = start_floor_inst.y+16;
             obj_char.state = states.NORMAL;
         }
+        obj_loading_overlay.loading = false;
         if(instance_exists(obj_char))
         {
             with(obj_char)
@@ -122,8 +119,8 @@ else {
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
   </backgrounds>
   <views>
-    <view visible="0" objName="obj_char" xview="0" yview="0" wview="960" hview="540" xport="0" yport="0" wport="960" hport="540" hborder="480" vborder="270" hspeed="-1" vspeed="-1"/>
-    <view visible="-1" objName="&lt;undefined&gt;" xview="0" yview="0" wview="2880" hview="2880" xport="0" yport="0" wport="2880" hport="2880" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
+    <view visible="-1" objName="obj_char" xview="0" yview="0" wview="960" hview="540" xport="0" yport="0" wport="960" hport="540" hborder="480" vborder="270" hspeed="-1" vspeed="-1"/>
+    <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="2880" hview="2880" xport="0" yport="0" wport="2880" hport="2880" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>

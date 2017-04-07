@@ -443,6 +443,7 @@
         <object>objects\obj_escape_overlay</object>
         <object>objects\obj_delete</object>
         <object>objects\obj_spawner_overlay</object>
+        <object>objects\obj_loading_overlay</object>
       </objects>
     </objects>
     <objects name="Character">

@@ -15,6 +15,12 @@ obj_char.x = room_width/2;
 obj_char.y = room_height/2;
 */
 
+if(file_exists("room_save.ini")) {
+    file_delete("room_save.ini");
+}
+
+obj_loading_overlay.loading = true;
+
 if(instance_exists(obj_char)) {
     obj_char.going_right = false;
     obj_char.going_up = false;
