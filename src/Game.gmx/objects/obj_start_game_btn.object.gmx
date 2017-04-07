@@ -26,6 +26,94 @@
           <argument>
             <kind>1</kind>
             <string>text = "Play";
+flag = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(mouse_check_button(mb_left) &amp;&amp; point_in_rectangle(mouse_x, mouse_y, x-100, y-40, x+100, y+40)&amp;&amp;flag){
+    sprite_index = spr_btn_pressed;
+}else{
+    sprite_index = spr_btn;
+    flag = false;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(flag){
+    txt = obj_text_box.txt;
+    
+    /*
+    character = instance_create(room_width/2, room_height/2, obj_char);
+    if instance_exists(character)
+    {
+        character.name = txt;
+    }
+    else 
+    {
+        show_debug_message("Character does not exist");
+    }
+    //*/
+    global.character_name = txt;
+    
+    if obj_str_weapon_overlay.selected = true
+    {
+        inven[invenct] = obj_bow;
+    }
+    else
+    {
+        inven[invenct] = obj_dagger;
+    }
+    //*/
+        room_goto(rm_gamescreen);
+        //room_instance_add(rm_gamescreen, character.x, character.y, obj_held_item);
+        //room_instance_add(rm_gamescreen, character.x, character.y, inven[0]);
+        
+        //script_execute(src_test_save);
+        global.newlyCreated = true;
+    
+    //Delete old world save
+    if(file_exists("room_save.ini")) {
+        file_delete("room_save.ini");
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -48,41 +136,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>txt = obj_text_box.txt;
-
-/*
-character = instance_create(room_width/2, room_height/2, obj_char);
-if instance_exists(character)
-{
-    character.name = txt;
-}
-else 
-{
-    show_debug_message("Character does not exist");
-}
-//*/
-global.character_name = txt;
-
-if obj_str_weapon_overlay.selected = true
-{
-    inven[invenct] = obj_bow;
-}
-else
-{
-    inven[invenct] = obj_dagger;
-}
-//*/
-    room_goto(rm_gamescreen);
-    //room_instance_add(rm_gamescreen, character.x, character.y, obj_held_item);
-    //room_instance_add(rm_gamescreen, character.x, character.y, inven[0]);
-    
-    //script_execute(src_test_save);
-    global.newlyCreated = true;
-
-//Delete old world save
-if(file_exists("room_save.ini")) {
-    file_delete("room_save.ini");
-}
+            <string>flag = true;
 </string>
           </argument>
         </arguments>

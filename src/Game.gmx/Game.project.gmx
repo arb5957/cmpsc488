@@ -11,6 +11,7 @@
     <sprites name="Menu">
       <sprite>sprites\spr_text_box</sprite>
       <sprite>sprites\spr_btn</sprite>
+      <sprite>sprites\spr_btn_pressed</sprite>
       <sprite>sprites\spr_overlay_weapon</sprite>
       <sprite>sprites\spr_overlay_weapon_2</sprite>
       <sprite>sprites\spr_overlay_wht</sprite>
