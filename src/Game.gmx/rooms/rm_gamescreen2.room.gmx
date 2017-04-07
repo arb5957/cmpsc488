@@ -10,7 +10,8 @@
   <persistent>0</persistent>
   <colour>0</colour>
   <showcolour>-1</showcolour>
-  <code>background_hspeed[0] = 2;
+  <code>background_hspeed[0] = 3.6;
+background_vspeed[0] = 3.2;
 if(instance_exists(obj_char)) {
     obj_char.x = -64;
     obj_char.y = -64;
