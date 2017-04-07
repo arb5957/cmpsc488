@@ -65,6 +65,11 @@ alarm[1] = 2;
     if(object_exists(obj_inventory))
     {
         scr_load(global.save_selected,0);
+        if(obj_universal_controller.room_x != -1 &amp;&amp; obj_universal_controller.room_y != -1) {
+            sdb("loading into gamescreen2");
+            obj_universal_controller.loading_char_position = true;
+            room_goto(rm_gamescreen2);
+        }
         /*switch (global.save_selected)
         {
             case 1:
@@ -82,7 +87,7 @@ alarm[1] = 2;
             script_execute(scr_test_load_new3, 0);
             break;
         }*/
-        obj_char.first_spawn = false;
+        //obj_char.first_spawn = false;
     }
     else
     {

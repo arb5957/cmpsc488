@@ -13,8 +13,10 @@
   <code>background_hspeed[0] = 3.6;
 background_vspeed[0] = 3.2;
 if(instance_exists(obj_char)) {
-    obj_char.x = -64;
-    obj_char.y = -64;
+    if(not obj_universal_controller.loading_char_position) {
+        obj_char.x = -64;
+        obj_char.y = -64;
+    }
     obj_char.state = states.STOP;
     obj_char.going_right = false;
     obj_char.going_up = false;
@@ -54,10 +56,19 @@ else {
         }
         instance_create(10, 10, obj_gameroom2_controller);
         obj_char.state = states.NORMAL;
-        if(not obj_universal_controller.moving_from_town) {
+        if(obj_universal_controller.loading_char_position) {
+            sdb("loading character position");
+            obj_char.x = obj_universal_controller.loading_char_x;
+            obj_char.y = obj_universal_controller.loading_char_y;
+            sdb("char position: " + string(obj_char.x) + ", " + string(obj_char.y));
+            obj_universal_controller.loading_char_position = false;
+        }
+        else if(not obj_universal_controller.moving_from_town) {
+            sdb("loading character from town");
             scr_position_character();
         }
         else {
+            sdb("loading character from another room");
             obj_universal_controller.moving_from_town = false;
             number_of_floor = instance_number(obj_floor);
             start_floor_num = irandom(number_of_floor);

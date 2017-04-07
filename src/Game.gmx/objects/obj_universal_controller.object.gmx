@@ -38,6 +38,9 @@ num_clicks = 0;
 steps_taken = 0;
 number_of_rooms = 6;
 moving_from_town = false;
+loading_char_position = false;
+loading_char_x = 0;
+loading_char_y = 0;
 
 if(not file_exists("room_save.ini")) {
     room_config = generate_floor(number_of_rooms);
