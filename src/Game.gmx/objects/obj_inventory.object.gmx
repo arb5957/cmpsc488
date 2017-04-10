@@ -1242,6 +1242,8 @@ if(inventory_open)
             {
                 script_execute(deactivation_script);
             }
+            cubby.image_angle = 0;
+            cubby.image_index = 0;
             cubby.persistent = false;
             cubby.equipped = false;
             cubby.on_ground = true;
