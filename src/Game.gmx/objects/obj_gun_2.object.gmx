@@ -32,7 +32,7 @@ position_script = scr_gun_1_position;
 script = scr_gun_2;
 activated = false;
 cooldown = room_speed;
-bullets = 0;
+bullets = 5;
 
 
 gun_shooting = false;
