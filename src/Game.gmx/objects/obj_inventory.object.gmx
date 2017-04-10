@@ -402,7 +402,7 @@ if(global.slot[15] != "bow2" &amp;&amp; equipped[1]){
           <argument>
             <kind>1</kind>
             <string>///Cycle between loadouts.
-if(keyboard_check_pressed(global.key_loadout_cycle_left))
+if(keyboard_check_pressed(global.key_loadout_cycle_left) || mouse_wheel_down())
 {
     if(saving_loadout)
     {
@@ -416,7 +416,7 @@ if(keyboard_check_pressed(global.key_loadout_cycle_left))
     }
     show_debug_message("current_loadout: " + string(current_loadout));
 }
-else if(keyboard_check_pressed(global.key_loadout_cycle_right))
+else if(keyboard_check_pressed(global.key_loadout_cycle_right) || mouse_wheel_up())
 {
     if(saving_loadout)
     {
@@ -430,7 +430,7 @@ else if(keyboard_check_pressed(global.key_loadout_cycle_right))
     }
     show_debug_message("current_loadout: " + string(current_loadout));
 }
-if(keyboard_check_pressed(global.key_loadout_toggle))
+if(keyboard_check_pressed(global.key_loadout_toggle) || mouse_check_button_pressed(mb_middle))
 {
     show_debug_message("current_loadout: " + string(current_loadout) + " save_loadout: " + string(save_loadout));
 
