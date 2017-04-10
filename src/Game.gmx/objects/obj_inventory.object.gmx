@@ -48,10 +48,10 @@ x_padding = 8;
 y_padding = 8;
 
 //The extra padding to display command hints in the hotbar.
-extra_y_padding = 12;
+extra_y_padding = 10;
 
 //Extra padding above cells in the hotbar.
-extra_y_padding_top = 4;
+extra_y_padding_top = 10;
 
 //Cell color.
 cell_alpha = 0.95;
@@ -670,7 +670,8 @@ draw_set_font(font_command);
 draw_set_alpha(1);
 draw_set_color(c_white);
 draw_set_halign(fa_left);
-draw_text_ext(x1, y1, " Loadout " + string(current_loadout+1) + "   Q/E: Cycle  Spacebar: Swap                                                                                           Passive Only                                                                                        Permanent Slots (Active or Passive)",0,x2);
+draw_text_ext(x1, y1, " Loadout " + string(current_loadout+1) + "   Cycle: Mouse Wheel     Swap: Middle Mouse Button                                                         Passive Only                                                                                   Permanent Slots (Active or Passive)",0,x2);
+draw_text_ext(x1, y1+8, "                               or Q/E                           or Spacebar", 0, x2);
 
 //Prepare to draw hotbar cells
 
