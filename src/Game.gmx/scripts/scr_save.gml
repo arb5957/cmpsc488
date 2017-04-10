@@ -111,6 +111,21 @@ data[? "persistent"] = ds_list_write(tempPersistent);
 data[? "persistentLevels"] = ds_list_write(tempPersistentLevels);
 data[? "persistentStacks"] = ds_list_write(tempPersistentStacks);
 
+var currentloadout = 0;
+var saveloadout = 0;
+var savingloadout = false;
+
+if(instance_exists(obj_inventory))
+{
+    currentloadout = obj_inventory.current_loadout;
+    saveloadout = obj_inventory.save_loadout;
+    savingloadout = obj_inventory.saving_loadout;
+}
+
+data[? "currentloadout"] = currentloadout;
+data[? "saveloadout"] = saveloadout;
+data[? "savingloadout"] = savingloadout;
+
 ds_list_destroy(temp);
 ds_list_destroy(tempLevels);
 ds_list_destroy(tempLoadout);

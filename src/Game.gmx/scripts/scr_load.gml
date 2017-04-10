@@ -137,6 +137,13 @@ if(file_exists("Save" + load_slot + ".dat"))
         ds_list_destroy(tempPersistent);
         ds_list_destroy(tempPersistentLevels);
         ds_list_destroy(tempPersistentStacks);
+        
+        if(instance_exists(obj_inventory))
+        {
+            obj_inventory.current_loadout = data[? "currentloadout"];
+            obj_inventory.save_loadout = data[? "saveloadout"];
+            obj_inventory.saving_loadout = data[? "savingloadout"];
+        }
     }
     
     ds_map_destroy(data);
