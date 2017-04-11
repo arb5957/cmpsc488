@@ -182,6 +182,8 @@
       <sprite>sprites\spr_speed_zone</sprite>
     </sprites>
     <sprite>sprites\spr_next_world</sprite>
+    <sprite>sprites\spr_next_world_2</sprite>
+    <sprite>sprites\spr_next_world_3</sprite>
     <sprite>sprites\spr_next_world_arrow</sprite>
     <sprite>sprites\spr_town_key</sprite>
   </sprites>

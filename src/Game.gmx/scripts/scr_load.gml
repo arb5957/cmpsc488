@@ -178,21 +178,22 @@ if(file_exists("room_save_" + load_slot + ".ini")) {
     room_y = ini_read_real("char_position", "room_y", -1);
     char_x = ini_read_real("char_position", "x", 0);
     char_y = ini_read_real("char_position", "y", 0);
+    world_difficulty = ini_read_real("controller_config", "world_difficulty", 1);
+    farthest_world = ini_read_real("controller_config", "farthest_world", 1);
     ini_close();
-    sdb("loading character position");
-    sdb("room_x: " + string(room_x));
-    sdb("room_y: " + string(room_y));
-    sdb("char_x: " + string(char_x));
-    sdb("char_y: " + string(char_y));
+    
     if(instance_exists(obj_universal_controller)) {
-        sdb("Modifying obj_universal_controller");
         obj_universal_controller.room_x = room_x;
         obj_universal_controller.room_y = room_y;
+        obj_universal_controller.world_difficulty = world_difficulty;
+        obj_universal_controller.farthest_world = farthest_world;
     }
     if(instance_exists(obj_char)) {
-        obj_char.x = char_x;
-        obj_char.y = char_y;
-        obj_universal_controller.loading_char_x = char_x;
-        obj_universal_controller.loading_char_y = char_y;
+        if(not obj_char.using_key) {
+            obj_char.x = char_x;
+            obj_char.y = char_y;
+            obj_universal_controller.loading_char_x = char_x;
+            obj_universal_controller.loading_char_y = char_y;
+        }
     }       
 }

@@ -148,6 +148,12 @@ if(file_exists("room_save.ini")) {
 }
 
 ini_open("room_save_" + save_slot + ".ini");
+// Save universal controller
+ini_section_delete("controller_config");
+ini_write_real("controller_config", "world_difficulty", obj_universal_controller.world_difficulty);
+ini_write_real("controller_config", "farthest_world", obj_universal_controller.farthest_world);
+
+// save world configuration 
 ini_section_delete("room_config");
 ini_write_real("room_config", "width", obj_universal_controller.grid_width);
 ini_write_real("room_config", "height", obj_universal_controller.grid_height);
