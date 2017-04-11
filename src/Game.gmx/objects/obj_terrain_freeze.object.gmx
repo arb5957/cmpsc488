@@ -144,7 +144,7 @@ if(instance_exists(obj_inventory)) {
             <kind>1</kind>
             <string>///Freeze character
 
-if(terrain_active) {
+if(terrain_active &amp;&amp; not other.flying) {
     draw_ice = true;
     terrain_active = false;
     

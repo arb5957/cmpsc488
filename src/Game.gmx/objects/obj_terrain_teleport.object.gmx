@@ -25,12 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>randomize();
-floor_num = random(instance_number(obj_floor));
-with(instance_find(obj_floor, floor_num)) {
-    if(instance_exists(obj_char)) {
-        obj_char.x = x+16;
-        obj_char.y = y+16;
+            <string>if(not other.flying) {
+    randomize();
+    floor_num = random(instance_number(obj_floor));
+    with(instance_find(obj_floor, floor_num)) {
+        if(instance_exists(obj_char)) {
+            obj_char.x = x+16;
+            obj_char.y = y+16;
+        }
     }
 }
 </string>

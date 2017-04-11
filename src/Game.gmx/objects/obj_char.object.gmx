@@ -507,13 +507,15 @@ if(other.on_ground)
             <string>///Cleanup and go to the puzzle room
 
 //instance_deactivate_all(false);
-return_x = x;
-return_y = y;
-left_puzzle_room = true;
-with(other) instance_destroy();
-scr_save_room();
-room_goto(rm_puzzle_room);
-instance_activate_object(obj_tetravex);
+if(not flying) {
+    return_x = x;
+    return_y = y;
+    left_puzzle_room = true;
+    with(other) instance_destroy();
+    scr_save_room();
+    room_goto(rm_puzzle_room);
+    instance_activate_object(obj_tetravex);
+}
 </string>
           </argument>
         </arguments>
