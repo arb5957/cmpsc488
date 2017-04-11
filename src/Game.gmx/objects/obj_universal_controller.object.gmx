@@ -44,7 +44,8 @@ loading_char_x = 0;
 loading_char_y = 0;
 
 if(not file_exists("room_save.ini")) {
-    room_config = generate_floor(number_of_rooms);
+    //room_config = generate_floor(number_of_rooms);
+    room_config = generate_floor_with_boss(number_of_rooms);
     grid_height = ds_grid_height(room_config);
     grid_width = ds_grid_width(room_config);
 }

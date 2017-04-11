@@ -50,6 +50,7 @@
       <sprite>sprites\spr_ice</sprite>
       <sprite>sprites\spr_dungeon_pit</sprite>
       <sprite>sprites\spr_puzzle_room_entrance</sprite>
+      <sprite>sprites\spr_to_boss_room</sprite>
     </sprites>
     <sprites name="Enemy">
       <sprite>sprites\spr_enemy1</sprite>
@@ -478,6 +479,7 @@
       <objects name="Generator">
         <object>objects\obj_floor_generator</object>
         <object>objects\obj_next_room</object>
+        <object>objects\obj_to_boss_room</object>
         <object>objects\obj_gameroom2_controller</object>
       </objects>
       <object>objects\obj_terrain_teleport</object>
