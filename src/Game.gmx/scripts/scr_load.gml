@@ -91,6 +91,14 @@ if(file_exists("Save" + load_slot + ".dat"))
                     {
                         loadout[i, j] = other.inst_weapon;
                     }
+                    
+                    if(inst_weapon.passive)
+                    {
+                        with(inst_weapon)
+                        {
+                            script_execute(activation_script);
+                        }
+                    }
                 }
             }
         }
@@ -130,6 +138,14 @@ if(file_exists("Save" + load_slot + ".dat"))
                 with(obj_inventory)
                 {
                     persistent_items[i] = other.inst_weapon;
+                }
+                
+                if(inst_weapon.passive)
+                {
+                    with(inst_weapon)
+                    {
+                        script_execute(activation_script);
+                    }
                 }
             }
         }
