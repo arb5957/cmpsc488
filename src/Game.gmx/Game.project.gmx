@@ -387,6 +387,7 @@
         <script>scripts\generate_small_polyomino.gml</script>
         <script>scripts\generate_small_polyomino_trimmed.gml</script>
         <script>scripts\generate_floor.gml</script>
+        <script>scripts\generate_floor_with_boss.gml</script>
         <script>scripts\generate_polyomino.gml</script>
         <script>scripts\generate_polyomino_roomfit.gml</script>
         <script>scripts\generate_polyomino_roomfit_char.gml</script>

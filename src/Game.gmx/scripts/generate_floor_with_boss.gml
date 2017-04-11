@@ -1,8 +1,23 @@
-///generate_floor_noboss(number_of_cells);
+///generate_floor_with_boss(number_of_cells);
+
+//If number_of_cells == 1, we just have one room without any bosses.
+//If number_of_cells == 2, the boss is right next to the starting room.
+//If number_of_cells > 2, there is at least one room between the
+//starting room and the boss room.
+//The boss room is represented with a 4.
+//The starting room is represented with a 3.
+//A normal room is represented with a 1.
 
 //Works on polyominoes that have a cell size < 4500 (approximately).
 
 var cells = argument0;
+
+if(cells < 2)
+{
+    var grid = ds_grid_create(1,1);
+    ds_grid_set(grid, 1, 1, 3);
+    return grid;
+}
 
 randomize();
 
@@ -28,7 +43,7 @@ for(var i = 0; i < length; i++)
         possible[i,j] = 0;
     }
 }
-var starting_room = irandom(cells-1);
+var starting_room = irandom(cells-2);
     
 var last_position = 0;
 var ROW = 0;
@@ -39,7 +54,7 @@ possible[last_position,COL] = center_of_grid;
 var pick = last_position;
 show_debug_message("done initializing");
 
-for(var i = 0; i < cells; i++)
+for(var i = 0; i < (cells-1); i++)
 {
     var pick_row = possible[pick,ROW];
     var pick_col = possible[pick,COL];
@@ -112,8 +127,90 @@ for(var i = 0; i < cells; i++)
     pick = irandom(last_position);
 }
 
-//print_grid(grid);
+show_debug_message("Before adding boss room:");
+print_grid(grid);
 
+if(cells == 2)
+{
+    var pick_row = possible[pick,ROW];
+    var pick_col = possible[pick,COL];
+    ds_grid_set(grid, pick_col, pick_row, 4);
+}
+else
+{
+    var done = false;
+    var temp_last_position = last_position;
+    while(not done)
+    {
+        var pick_row = possible[pick,ROW];
+        var pick_col = possible[pick,COL];
+        
+        var left_row = pick_row;
+        var left_col = pick_col - 1;
+        var right_row = pick_row;
+        var right_col = pick_col + 1;;
+        var up_row = pick_row - 1;
+        var up_col = pick_col;
+        var down_row = pick_row + 1;
+        var down_col = pick_col;
+        
+        var left = ds_grid_get(grid, left_col, left_row);
+        var right = ds_grid_get(grid, right_col, right_row);
+        var up = ds_grid_get(grid, up_col, up_row);
+        var down = ds_grid_get(grid, down_col, down_row);
+        
+        if(left == 3 || right == 3 || up == 3 || down == 3)
+        {
+            var last_row = possible[temp_last_position,ROW];    
+            var last_col = possible[temp_last_position,COL];
+            
+            var temp_row = possible[pick,ROW];
+            var temp_col = possible[pick,COL];
+        
+            possible[pick,ROW] = last_row;
+            possible[pick,COL] = last_col;
+            possible[temp_last_position,ROW] = temp_row;
+            possible[temp_last_position,COL] = temp_col;
+            temp_last_position--;
+            pick = irandom(temp_last_position);
+        }
+        else
+        {
+            if(left == 0)
+            {
+                ds_grid_set(grid, left_col, left_row, 2);
+                last_position++;
+                possible[last_position,ROW] = left_row;
+                possible[last_position,COL] = left_col;
+            }
+            if(right == 0)
+            {
+                ds_grid_set(grid, right_col, right_row, 2);
+                last_position++;
+                possible[last_position,ROW] = right_row;
+                possible[last_position,COL] = right_col;
+            }
+            if(up == 0)
+            {
+                ds_grid_set(grid, up_col, up_row, 2);
+                last_position++;
+                possible[last_position,ROW] = up_row;
+                possible[last_position,COL] = up_col;
+            }
+            if(down == 0)
+            {
+                ds_grid_set(grid, down_col, down_row, 2);
+                last_position++;
+                possible[last_position,ROW] = down_row;
+                possible[last_position,COL] = down_col;
+            }
+            ds_grid_set(grid, pick_col, pick_row, 4);
+            done = true;
+        }
+    }
+}
+show_debug_message("After adding boss room:");
+print_grid(grid);
 //Find bounding box.
 var min_row = possible[0,ROW];
 var min_col = possible[0,COL];
