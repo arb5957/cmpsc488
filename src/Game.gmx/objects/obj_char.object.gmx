@@ -35,7 +35,7 @@ can_shoot = true;
 
 //Health and Invulnerability variables:
 hp = 1000;
-max_hp = 1040;
+max_hp = 10000000;
 invulnerable = false;
 name="";
 invulnerable_time = room_speed/2;

@@ -156,6 +156,7 @@
       <sprite>sprites\spr_rain_maker</sprite>
       <sprite>sprites\spr_firework_maker</sprite>
       <sprite>sprites\spr_snow_maker</sprite>
+      <sprite>sprites\spr_cloud_maker</sprite>
       <sprite>sprites\spr_wave</sprite>
       <sprite>sprites\spr_bounce_ball</sprite>
       <sprite>sprites\spr_black_paint</sprite>
@@ -598,6 +599,7 @@
       <object>objects\obj_hook_p</object>
       <object>objects\obj_snow_maker</object>
       <object>objects\obj_firework_maker</object>
+      <object>objects\obj_cloud_maker</object>
       <object>objects\obj_wave</object>
       <object>objects\obj_gun_3</object>
       <object>objects\obj_whip</object>

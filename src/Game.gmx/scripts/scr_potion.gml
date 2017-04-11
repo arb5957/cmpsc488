@@ -11,11 +11,11 @@ with(owner_id)
     }
     else if(hp+5 > max_hp)
     {
-        hp = max_hp
+        hp = obj_char.max_hp;
     }
     else
     {
-        hp += 5;
+        hp = obj_char.max_hp;
     }
 }
 alarm[COOLDOWN] = cooldown;
