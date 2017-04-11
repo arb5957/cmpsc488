@@ -172,6 +172,7 @@
       <sprite>sprites\spr_purple_paint</sprite>
       <sprite>sprites\spr_red_paint</sprite>
       <sprite>sprites\spr_yellow_paint</sprite>
+      <sprite>sprites\spr_insta</sprite>
       <sprite>sprites\spr_green_paint</sprite>
       <sprite>sprites\spr_expand_shot</sprite>
       <sprite>sprites\spr_gun_4</sprite>
@@ -587,6 +588,7 @@
       <object>objects\obj_potion_speed</object>
       <object>objects\obj_trail</object>
       <object>objects\obj_pet</object>
+      <object>objects\obj_insta</object>
       <object>objects\obj_turret</object>
       <object>objects\obj_turret_maker</object>
       <object>objects\obj_quake_boots</object>
