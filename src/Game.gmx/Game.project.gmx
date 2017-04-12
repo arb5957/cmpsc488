@@ -187,6 +187,7 @@
     <sprite>sprites\spr_next_world_3</sprite>
     <sprite>sprites\spr_next_world_arrow</sprite>
     <sprite>sprites\spr_town_key</sprite>
+    <sprite>sprites\spr_terrain_save_item</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Menu">
@@ -488,6 +489,7 @@
       <object>objects\obj_dungeon_pit_floor</object>
       <object>objects\obj_terrain_dungeon_pit</object>
       <object>objects\obj_puzzle_room_entrance</object>
+      <object>objects\obj_terrain_save_item</object>
     </objects>
     <objects name="Display">
       <object>objects\obj_scaling</object>
@@ -670,6 +672,7 @@
     <room>rooms\rm_charselect</room>
     <room>rooms\rm_create_char</room>
     <room>rooms\rm_titlescreen</room>
+    <room>rooms\rm_win_room</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
