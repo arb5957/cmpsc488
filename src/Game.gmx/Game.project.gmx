@@ -61,7 +61,7 @@
       <sprite>sprites\spr_enemy_snake_body</sprite>
       <sprite>sprites\spr_enemy_snake_head</sprite>
       <sprite>sprites\spr_enemy_summoner</sprite>
-      <sprite>sprites\spr_enemy_inker</sprite>
+      <sprite>sprites\spr_enemy_rock_thing</sprite>
       <sprite>sprites\spr_enemy_rock_thing</sprite>
       <sprites name="Effects">
         <sprite>sprites\spr_boss2_capture</sprite>
@@ -177,10 +177,13 @@
       <sprite>sprites\spr_green_paint</sprite>
       <sprite>sprites\spr_expand_shot</sprite>
       <sprite>sprites\spr_gun_4</sprite>
+      <sprite>sprites\spr_gun_5</sprite>
+      <sprite>sprites\spr_gun_6</sprite>
       <sprite>sprites\spr_health_pack_dropper</sprite>
       <sprite>sprites\spr_health_panel</sprite>
       <sprite>sprites\spr_speed_area</sprite>
       <sprite>sprites\spr_speed_zone</sprite>
+      <sprite>sprites\spr_speed_buff</sprite>
     </sprites>
     <sprite>sprites\spr_next_world</sprite>
     <sprite>sprites\spr_next_world_2</sprite>
@@ -367,6 +370,7 @@
       <script>scripts\scr_gun_1_position.gml</script>
       <script>scripts\scr_gun_2.gml</script>
       <script>scripts\scr_gun_3.gml</script>
+      <script>scripts\scr_gun_6.gml</script>
       <script>scripts\scr_rain_maker.gml</script>
       <script>scripts\scr_rain_maker_position.gml</script>
       <script>scripts\scr_flame_gun.gml</script>
@@ -381,6 +385,7 @@
       <script>scripts\scr_gun_4.gml</script>
       <script>scripts\scr_health_pack_dropper.gml</script>
       <script>scripts\scr_speed_dropper.gml</script>
+      <script>scripts\scr_speed_buff.gml</script>
     </scripts>
     <scripts name="World">
       <scripts name="Polyomino">
@@ -498,7 +503,7 @@
     </objects>
     <objects name="Enemy">
       <objects name="Avoid">
-        <object>objects\obj_enemy_avoid</object>
+        <object>objects\obj_enemy_base</object>
       </objects>
       <object>objects\obj_enemy_base</object>
       <object>objects\obj_enemy1</object>
@@ -583,7 +588,7 @@
         <object>objects\obj_att_drone</object>
       </objects>
       <object>objects\obj_lunge</object>
-      <object>objects\obj_teleport</object>
+      <object>objects\obj_slower</object>
       <object>objects\obj_slower</object>
       <object>objects\obj_speed_boost</object>
       <object>objects\obj_flying_stone</object>
@@ -602,6 +607,7 @@
       <object>objects\obj_gun_2</object>
       <object>objects\obj_frog</object>
       <object>objects\obj_gun_1</object>
+      <object>objects\obj_gun_5</object>
       <object>objects\obj_rain_maker</object>
       <object>objects\obj_hook_p</object>
       <object>objects\obj_snow_maker</object>
@@ -609,6 +615,7 @@
       <object>objects\obj_cloud_maker</object>
       <object>objects\obj_wave</object>
       <object>objects\obj_gun_3</object>
+      <object>objects\obj_gun_6</object>
       <object>objects\obj_whip</object>
       <object>objects\obj_glove_bounce</object>
       <object>objects\obj_bounce_ball</object>
@@ -630,6 +637,7 @@
       <object>objects\obj_expand_shot</object>
       <object>objects\obj_gun_4</object>
       <object>objects\obj_health_pack_dropper</object>
+      <object>objects\obj_speed_buff</object>
       <object>objects\obj_health_panel</object>
       <object>objects\obj_speed_area</object>
       <object>objects\obj_speed_zone</object>
