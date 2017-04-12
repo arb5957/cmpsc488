@@ -114,6 +114,7 @@ difficulty_selected = -1;
 cells = 4;
 prize = obj_potion;
 
+enable_click = false;
 </string>
           </argument>
         </arguments>
@@ -175,7 +176,14 @@ draw_set_valign(fa_top);
 draw_text(0,0,"Play a game for a chance to win an item!##Choose Difficulty:");
 draw_text(0,450, "Click to move pieces. Match all sides with the same color to win.");
 var clicked = false;
-if(mouse_check_button(mb_left) || mouse_check_button(mb_right))
+if(not enable_click)
+{
+    if(mouse_check_button_pressed(mb_left) || mouse_check_button_pressed(mb_right))
+    {
+        enable_click = true;
+    }
+}
+if(enable_click and(mouse_check_button(mb_left) || mouse_check_button(mb_right)))
 {
     clicked = true;
 }
