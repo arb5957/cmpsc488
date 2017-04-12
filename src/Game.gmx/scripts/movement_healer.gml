@@ -19,7 +19,7 @@ if nearest != noone
             mp_grid_add_instances(grid, obj_terrain_wall, 1);
             mp_potential_path(path, nearest.x, nearest.y, 2, 4, 1);
             mp_grid_path(grid, path, x, y, nearest.x, nearest.y, 1);
-            path_start(path, 2, "", 0);
+            path_start(path, move_speed, "", 0);
         }
     }
     else

@@ -35,6 +35,6 @@ if(can_dig == true)
 else
 {
     image_angle = point_direction(x, y, obj_char.x, obj_char.y);
-    mp_potential_step_object(obj_char.x, obj_char.y, 1, obj_terrain_wall);
+    mp_potential_step_object(obj_char.x, obj_char.y, move_speed, obj_terrain_wall);
 }
 

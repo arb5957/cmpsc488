@@ -63,6 +63,7 @@ switch(name)
         attack_pattern = "butterfly";
         weapon = "obj_blue_gun";
         item = "obj_potion_poison";
+        move_speed_default = 1;
         
         common_drop = obj_potion_poison;
         common_drop_rate = 50;
@@ -81,6 +82,7 @@ switch(name)
         attack_pattern = "dig";
         weapon = global.weap_array[irandom_range(1,5)];
         item = choose("obj_potion", "obj_shield");
+        move_speed_default = 1;
         
         common_drop = obj_potion;
         common_drop_rate = 50;
@@ -98,6 +100,7 @@ switch(name)
         attack_pattern = "within_range";
         weapon = global.weap_array[irandom_range(1, 5)];
         item = "obj_pet";
+        move_speed_default = 2;
         
         common_drop = obj_potion;
         common_drop_rate = 50;
@@ -115,6 +118,7 @@ switch(name)
         attack_pattern = "within_range";
         weapon = global.weap_array[irandom_range(1, 5)];
         item = "obj_potion";
+        move_speed_default = 2;
         
         common_drop = obj_potion;
         common_drop_rate = 50;
@@ -132,6 +136,7 @@ switch(name)
         attack_pattern = "healer";
         weapon = "obj_blue_gun";
         item = choose("obj_potion", "obj_shield", "obj_speed_boost", "obj_flying_stone");
+        mvoe_speed_default = 2;
         
         common_drop = obj_potion;
         common_drop_rate = 50;
@@ -149,6 +154,7 @@ switch(name)
         attack_pattern = "snake_head";
         weapon = "obj_blue_gun";
         item = choose("obj_sword", "obj_att_remote", "obj_slower");
+        move_speed_default = 2;
         
         common_drop = obj_slower;
         common_drop_rate = 50;
@@ -166,6 +172,7 @@ switch(name)
         attack_pattern = "summoner";
         weapon = "obj_blue_gun";
         item = "obj_potion";
+        move_speed_default = 3;
         
         common_drop = obj_slower;
         common_drop_rate = 50;
@@ -183,6 +190,7 @@ switch(name)
         attack_pattern = "inker";
         weapon = "obj_blue_gun";
         item = "obj_potion";
+        move_speed_default = 1;
         
         common_drop = obj_slower;
         common_drop_rate = 50;
@@ -200,6 +208,7 @@ switch(name)
         attack_pattern = "aggressive";
         weapon = "obj_flame_gun";
         item = "obj_potion";
+        move_speed_default = 2;
         
         common_drop = obj_potion;
         common_drop_rate = 50;

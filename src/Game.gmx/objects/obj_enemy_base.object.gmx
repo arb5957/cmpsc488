@@ -57,6 +57,8 @@ get_equipped_items = scr_empty;
 flying = false;
 flying_stone_count = 0;
 
+digging = false;
+
 enemy_max_hp = 0;
 
 invulnerable = false;

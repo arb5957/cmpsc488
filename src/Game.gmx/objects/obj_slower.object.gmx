@@ -29,7 +29,6 @@
 
 event_inherited();
 depth = 0;
-//script = scr_slower;
 script = scr_slower;
 position_script = scr_empty;
 damage = 0;
@@ -97,7 +96,7 @@ if(activated &amp;&amp; on_ground)
     for(var i=0; i&lt;num_of_enemies; i++)
     {
         tmp_enemy = instance_find(obj_enemy_base, i);
-        if(distance_to_object(tmp_enemy) &lt;= 100)
+        if(distance_to_object(tmp_enemy) &lt;= 100 &amp;&amp; not tmp_enemy.digging)
         {                
             if(tmp_enemy.movement == "stalker")
             {
@@ -105,13 +104,14 @@ if(activated &amp;&amp; on_ground)
                 if(tmp_enemy.speed &gt; 0)
                     show_debug_message("Stalker speed: " + string(tmp_enemy.speed));
             }
-            else
+            else // circle, speed, butterfly, dig (when not digging), healer, snake, summoner
             {
                 tmp_enemy.move_speed = ceil(tmp_enemy.move_speed / 2);
             }
         }   
     }  
-    if(distance_to_object(obj_char) &lt;= 100)
+    if(distance_to_object(obj_char) &lt;= 100 &amp;&amp; not obj_char.tunneling
+        &amp;&amp; not obj_char.flying)
     {
         obj_char.speed = obj_char.speed / 2;;
     } 
@@ -146,19 +146,20 @@ if(activated)
     for(var i=0; i&lt;num_of_enemies; i++)
     {
         tmp_enemy = instance_find(obj_enemy_base, i);
-        if(distance_to_object(tmp_enemy) &lt;= 100)
+        if(distance_to_object(tmp_enemy) &lt;= 100 &amp;&amp; not tmp_enemy.digging
+            &amp;&amp; tmp_enemy.object_index != obj_enemy_snake_body)
         {
             draw_set_colour(c_aqua);
             draw_line(x, y, tmp_enemy.x, tmp_enemy.y);
         }   
     }
     
-    
     if(instance_exists(obj_char))
     {
-        if(distance_to_object(obj_char) &lt;= 100)
+        if(distance_to_object(obj_char) &lt;= 100 &amp;&amp; not obj_char.tunneling 
+            &amp;&amp; not obj_char.flying)
         {
-            obj_char.speed = obj_char.speed / 2;;
+            //obj_char.speed = obj_char.speed / 2;;
             draw_set_colour(c_aqua);
             draw_line(x, y, obj_char.x, obj_char.y);
         }
