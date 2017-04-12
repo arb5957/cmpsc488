@@ -554,6 +554,9 @@
       <object>objects\obj_ink_shot</object>
       <object>objects\obj_string</object>
       <object>objects\obj_ice_shot</object>
+      <object>objects\obj_expand_shot</object>
+      <object>objects\obj_bounce_ball</object>
+      <object>objects\obj_wave</object>
     </objects>
     <objects name="Weapons">
       <object>objects\obj_blue_gun</object>
@@ -565,6 +568,16 @@
       <object>objects\obj_shield</object>
       <object>objects\obj_spin_blade</object>
       <object>objects\obj_dagger</object>
+      <object>objects\obj_turret_maker</object>
+      <object>objects\obj_turret</object>
+      <object>objects\obj_pet</object>
+      <object>objects\obj_gun_1</object>
+      <object>objects\obj_gun_2</object>
+      <object>objects\obj_gun_3</object>
+      <object>objects\obj_gun_4</object>
+      <object>objects\obj_insta</object>
+      <object>objects\obj_glove_bounce</object>
+      <object>objects\obj_whip</object>
     </objects>
     <objects name="Item">
       <object>objects\obj_item</object>
@@ -592,26 +605,15 @@
       <object>objects\obj_potion_poison</object>
       <object>objects\obj_potion_speed</object>
       <object>objects\obj_trail</object>
-      <object>objects\obj_pet</object>
-      <object>objects\obj_insta</object>
-      <object>objects\obj_turret</object>
-      <object>objects\obj_turret_maker</object>
       <object>objects\obj_quake_boots</object>
       <object>objects\obj_shovel</object>
       <object>objects\obj_att_drone_new</object>
-      <object>objects\obj_gun_2</object>
       <object>objects\obj_frog</object>
-      <object>objects\obj_gun_1</object>
       <object>objects\obj_rain_maker</object>
       <object>objects\obj_hook_p</object>
       <object>objects\obj_snow_maker</object>
       <object>objects\obj_firework_maker</object>
       <object>objects\obj_cloud_maker</object>
-      <object>objects\obj_wave</object>
-      <object>objects\obj_gun_3</object>
-      <object>objects\obj_whip</object>
-      <object>objects\obj_glove_bounce</object>
-      <object>objects\obj_bounce_ball</object>
       <object>objects\obj_blue_paint</object>
       <object>objects\obj_green_paint</object>
       <object>objects\obj_orange_paint</object>
@@ -627,8 +629,6 @@
       <object>objects\obj_red_paint</object>
       <object>objects\obj_yellow_paint</object>
       <object>objects\obj_black_paint</object>
-      <object>objects\obj_expand_shot</object>
-      <object>objects\obj_gun_4</object>
       <object>objects\obj_health_pack_dropper</object>
       <object>objects\obj_health_panel</object>
       <object>objects\obj_speed_area</object>
