@@ -74,6 +74,7 @@ if(owner == owners.CHARACTER)
 
 if(owner == owners.ENEMY)
 {
+    show_debug_message("IN TRY");
     visible = !visible;
     can_damage = !can_damage;
     alarm[0] = 60;
@@ -113,7 +114,6 @@ if(owner == owners.ENEMY)
         enemy_try = true;
         alarm[0] = 60;
     }
-    
 }
 </string>
           </argument>
