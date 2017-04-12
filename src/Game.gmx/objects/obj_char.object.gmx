@@ -121,6 +121,10 @@ left_puzzle_room = false;
 //The coordinates to warp the player back to.
 return_x = 0;
 return_y = 0;
+
+//These variables are used for the puzzle room.
+won_puzzle = false;
+prize = -1;
 </string>
           </argument>
         </arguments>
@@ -449,6 +453,37 @@ else
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Give player a prize after winning a puzzle
+if(won_puzzle)
+{
+    won_puzzle = false;
+    if(prize &lt; 0)
+    {
+        prize = obj_potion;
+    }
+    instance_create(x,y,prize);
+    prize = -1;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="4" ename="obj_item">
       <action>
@@ -515,7 +550,6 @@ if(not flying) {
     with(other) instance_destroy();
     scr_save_room();
     room_goto(rm_puzzle_room);
-    instance_activate_object(obj_tetravex);
 }
 </string>
           </argument>

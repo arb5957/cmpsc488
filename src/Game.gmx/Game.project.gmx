@@ -645,6 +645,7 @@
       <object>objects\obj_tetravex</object>
       <object>objects\obj_tetravex_block</object>
       <object>objects\obj_giveup_btn</object>
+      <object>objects\obj_difficulty</object>
     </objects>
     <object>objects\obj_universal_controller</object>
     <object>objects\obj_next_world</object>
