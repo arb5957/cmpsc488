@@ -62,7 +62,6 @@ enemy_try = false;
 scr_shield_position();
 if(owner == owners.CHARACTER)
 {
-    show_debug_message("HERE WE ARE IN PLAYER");
     visible = !visible;
     can_damage = !can_damage;
     if(equipped){

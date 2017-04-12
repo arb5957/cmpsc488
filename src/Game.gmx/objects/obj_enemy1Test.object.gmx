@@ -53,7 +53,20 @@ using_item = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//DO NOTHING NOW
+            <string>script_execute(scr_drop_item_rate);
+
+with(weapon_inst)
+{
+    instance_destroy();
+}
+
+with(item_inst)
+{
+    
+    {
+        instance_destroy();
+    }
+}
 </string>
           </argument>
         </arguments>
