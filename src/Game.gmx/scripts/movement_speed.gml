@@ -1,6 +1,9 @@
 //point enemy and weapon towards player
 
-weapon_inst.image_angle = point_direction(x, y, obj_char.x, obj_char.y);
+if(weapon_inst.object_index != obj_spin_blade)
+{
+    weapon_inst.image_angle = point_direction(x, y, obj_char.x, obj_char.y);
+}
 
 //Step enemy towards player
 //mp_potential_step(obj_char.x, obj_char.y, 2, false);
