@@ -30,8 +30,8 @@ event_inherited();
 cooldown = room_speed * 10;
 script = scr_speed_dropper;
 position_script = scr_turret_maker_position;
-name = "Health panel dropper";
-description = "Regenerates health while you're on the panel.";
+name = "Speed zone dropper";
+description = "Increases player movement while on the platform.";
 </string>
           </argument>
         </arguments>

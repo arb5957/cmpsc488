@@ -128,7 +128,7 @@ with(obj_health_panel){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(allowed){
+            <string>if(allowed &amp;&amp; point_in_rectangle(x,y,x-100, y-100, x+100, y+100)){
     obj_char.hp+=10;
     allowed = false;
     alarm[1] = 60;

@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>event_inherited();
 name = "Gun 2";
-description = "MACHINE GUN.";
+description = "Burst fire gun, shoots 5 bullets.";
 position_script = scr_gun_1_position;
 script = scr_gun_2;
 activated = false;

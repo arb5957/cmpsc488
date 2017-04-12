@@ -78,12 +78,14 @@ with(obj_speed_area){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(counter == 150){
-
-}else{
+            <string>if(counter == 150 &amp;&amp; point_in_rectangle(obj_char.x,obj_char.y,x-500,y-500,x+500,y+500)){
+    obj_char.move_speed = 10;
+}else if(counter!=150){
     image_xscale+=0.2;
     image_yscale+=0.2;
     counter++;
+}else{
+    obj_char.move_speed = current_speed;
 }
 </string>
           </argument>
@@ -107,8 +109,7 @@ with(obj_speed_area){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>obj_char.move_speed = 10;
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>

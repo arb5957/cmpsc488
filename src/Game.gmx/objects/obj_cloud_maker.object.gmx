@@ -26,8 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited();
-name = "Snow maker";
-description = "Creates snow.";
+name = "Purple cloud maker";
+description = "Creates purple clouds.";
 position_script = scr_rain_maker_position;
 script = scr_rain_maker;
 activated = false;
