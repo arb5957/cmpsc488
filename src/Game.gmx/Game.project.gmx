@@ -490,6 +490,7 @@
       <object>objects\obj_terrain_dungeon_pit</object>
       <object>objects\obj_puzzle_room_entrance</object>
       <object>objects\obj_terrain_save_item</object>
+      <object>objects\puzzle_room_teleport</object>
     </objects>
     <objects name="Display">
       <object>objects\obj_scaling</object>

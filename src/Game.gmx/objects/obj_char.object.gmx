@@ -345,6 +345,7 @@ switch(state)
 
 //Checks for damage
 
+
 </string>
           </argument>
         </arguments>
@@ -485,6 +486,39 @@ if(won_puzzle)
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="puzzle_room_teleport">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Cleanup and go to the puzzle room
+
+//instance_deactivate_all(false);
+if(not flying) {
+    return_x = x;
+    return_y = y;
+    left_puzzle_room = true;
+    with(other) instance_destroy();
+    scr_save_room();
+    room_goto(rm_puzzle_room);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_item">
       <action>
         <libid>1</libid>
@@ -517,39 +551,6 @@ if(other.on_ground)
     {
         scr_inventory_add(id_of_item,char_id);
     }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_puzzle_room_entrance">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Cleanup and go to the puzzle room
-
-//instance_deactivate_all(false);
-if(not flying) {
-    return_x = x;
-    return_y = y;
-    left_puzzle_room = true;
-    with(other) instance_destroy();
-    scr_save_room();
-    room_goto(rm_puzzle_room);
 }
 </string>
           </argument>
