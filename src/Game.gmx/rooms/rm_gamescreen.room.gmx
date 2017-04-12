@@ -305,6 +305,7 @@ with(instance_create(2240, 1008, obj_next_world)) {
     <instance objName="obj_gun_5" x="2016" y="1024" name="inst_953046F0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_gun_6" x="2064" y="1024" name="inst_14FB3BB7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_speed_buff" x="2080" y="1104" name="inst_623A9CB5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_gun_7" x="1888" y="960" name="inst_99608864" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

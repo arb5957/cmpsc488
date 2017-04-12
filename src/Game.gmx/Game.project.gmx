@@ -179,11 +179,13 @@
       <sprite>sprites\spr_gun_4</sprite>
       <sprite>sprites\spr_gun_5</sprite>
       <sprite>sprites\spr_gun_6</sprite>
+      <sprite>sprites\spr_gun_7</sprite>
       <sprite>sprites\spr_health_pack_dropper</sprite>
       <sprite>sprites\spr_health_panel</sprite>
       <sprite>sprites\spr_speed_area</sprite>
       <sprite>sprites\spr_speed_zone</sprite>
       <sprite>sprites\spr_speed_buff</sprite>
+      <sprite>sprites\spr_teleshot</sprite>
     </sprites>
     <sprite>sprites\spr_next_world</sprite>
     <sprite>sprites\spr_next_world_2</sprite>
@@ -321,6 +323,7 @@
     <scripts name="Item">
       <script>scripts\scr_potion.gml</script>
       <script>scripts\scr_blue_gun.gml</script>
+      <script>scripts\scr_gun7.gml</script>
       <script>scripts\scr_dagger.gml</script>
       <script>scripts\scr_dagger_position.gml</script>
       <script>scripts\scr_bow.gml</script>
@@ -559,6 +562,7 @@
       <object>objects\obj_ink_shot</object>
       <object>objects\obj_string</object>
       <object>objects\obj_ice_shot</object>
+      <object>objects\obj_teleshot</object>
     </objects>
     <objects name="Weapons">
       <object>objects\obj_blue_gun</object>
@@ -572,55 +576,38 @@
       <object>objects\obj_dagger</object>
     </objects>
     <objects name="Item">
-      <object>objects\obj_item</object>
-      <object>objects\obj_empty</object>
-      <object>objects\obj_potion</object>
-      <object>objects\obj_bow2</object>
-      <object>objects\obj_dagger2</object>
-      <object>objects\obj_stone</object>
-      <object>objects\obj_wood</object>
-      <objects name="Recon Drone">
-        <object>objects\obj_recon_remote</object>
-        <object>objects\obj_recon_drone</object>
-      </objects>
       <objects name="Attack Drone">
         <object>objects\obj_att_remote</object>
         <object>objects\obj_att_drone</object>
       </objects>
-      <object>objects\obj_lunge</object>
-      <object>objects\obj_slower</object>
-      <object>objects\obj_slower</object>
-      <object>objects\obj_speed_boost</object>
-      <object>objects\obj_flying_stone</object>
-      <object>objects\obj_lightning</object>
-      <object>objects\obj_passive_1</object>
-      <object>objects\obj_potion_poison</object>
-      <object>objects\obj_potion_speed</object>
-      <object>objects\obj_trail</object>
-      <object>objects\obj_pet</object>
-      <object>objects\obj_insta</object>
-      <object>objects\obj_turret</object>
-      <object>objects\obj_turret_maker</object>
-      <object>objects\obj_quake_boots</object>
-      <object>objects\obj_shovel</object>
       <object>objects\obj_att_drone_new</object>
-      <object>objects\obj_gun_2</object>
-      <object>objects\obj_frog</object>
-      <object>objects\obj_gun_1</object>
-      <object>objects\obj_gun_5</object>
-      <object>objects\obj_rain_maker</object>
-      <object>objects\obj_hook_p</object>
-      <object>objects\obj_snow_maker</object>
-      <object>objects\obj_firework_maker</object>
-      <object>objects\obj_cloud_maker</object>
-      <object>objects\obj_wave</object>
-      <object>objects\obj_gun_3</object>
-      <object>objects\obj_gun_6</object>
-      <object>objects\obj_whip</object>
-      <object>objects\obj_glove_bounce</object>
-      <object>objects\obj_bounce_ball</object>
+      <object>objects\obj_black_paint</object>
       <object>objects\obj_blue_paint</object>
+      <object>objects\obj_bounce_ball</object>
+      <object>objects\obj_bow2</object>
+      <object>objects\obj_cloud_maker</object>
+      <object>objects\obj_dagger2</object>
+      <object>objects\obj_empty</object>
+      <object>objects\obj_expand_shot</object>
+      <object>objects\obj_firework_maker</object>
+      <object>objects\obj_flying_stone</object>
+      <object>objects\obj_frog</object>
+      <object>objects\obj_glove_bounce</object>
       <object>objects\obj_green_paint</object>
+      <object>objects\obj_gun_1</object>
+      <object>objects\obj_gun_2</object>
+      <object>objects\obj_gun_3</object>
+      <object>objects\obj_gun_4</object>
+      <object>objects\obj_gun_5</object>
+      <object>objects\obj_gun_6</object>
+      <object>objects\obj_gun_7</object>
+      <object>objects\obj_health_pack_dropper</object>
+      <object>objects\obj_health_panel</object>
+      <object>objects\obj_hook_p</object>
+      <object>objects\obj_insta</object>
+      <object>objects\obj_item</object>
+      <object>objects\obj_lightning</object>
+      <object>objects\obj_lunge</object>
       <object>objects\obj_orange_paint</object>
       <object>objects\obj_paint</object>
       <object>objects\obj_paint_black</object>
@@ -630,17 +617,35 @@
       <object>objects\obj_paint_purple</object>
       <object>objects\obj_paint_red</object>
       <object>objects\obj_paint_yellow</object>
+      <object>objects\obj_passive_1</object>
+      <object>objects\obj_pet</object>
+      <object>objects\obj_potion</object>
+      <object>objects\obj_potion_poison</object>
+      <object>objects\obj_potion_speed</object>
       <object>objects\obj_purple_paint</object>
+      <object>objects\obj_quake_boots</object>
+      <object>objects\obj_rain_maker</object>
       <object>objects\obj_red_paint</object>
-      <object>objects\obj_yellow_paint</object>
-      <object>objects\obj_black_paint</object>
-      <object>objects\obj_expand_shot</object>
-      <object>objects\obj_gun_4</object>
-      <object>objects\obj_health_pack_dropper</object>
-      <object>objects\obj_speed_buff</object>
-      <object>objects\obj_health_panel</object>
+      <object>objects\obj_shovel</object>
+      <object>objects\obj_slower</object>
+      <object>objects\obj_slower</object>
+      <object>objects\obj_snow_maker</object>
       <object>objects\obj_speed_area</object>
+      <object>objects\obj_speed_boost</object>
+      <object>objects\obj_speed_buff</object>
       <object>objects\obj_speed_zone</object>
+      <object>objects\obj_stone</object>
+      <object>objects\obj_trail</object>
+      <object>objects\obj_turret</object>
+      <object>objects\obj_turret_maker</object>
+      <object>objects\obj_wave</object>
+      <object>objects\obj_whip</object>
+      <object>objects\obj_wood</object>
+      <object>objects\obj_yellow_paint</object>
+      <objects name="Recon Drone">
+        <object>objects\obj_recon_remote</object>
+        <object>objects\obj_recon_drone</object>
+      </objects>
     </objects>
     <objects name="Inventory">
       <object>objects\obj_inventory</object>
