@@ -181,6 +181,11 @@
       <sprite>sprites\spr_health_panel</sprite>
       <sprite>sprites\spr_speed_area</sprite>
       <sprite>sprites\spr_speed_zone</sprite>
+      <sprite>sprites\spr_gun_5</sprite>
+      <sprite>sprites\spr_gun_6</sprite>
+      <sprite>sprites\spr_gun_7</sprite>
+      <sprite>sprites\spr_speed_buff</sprite>
+      <sprite>sprites\spr_teleshot</sprite>
     </sprites>
     <sprite>sprites\spr_next_world</sprite>
     <sprite>sprites\spr_next_world_2</sprite>
@@ -382,6 +387,9 @@
       <script>scripts\scr_gun_4.gml</script>
       <script>scripts\scr_health_pack_dropper.gml</script>
       <script>scripts\scr_speed_dropper.gml</script>
+      <script>scripts\scr_gun_6.gml</script>
+      <script>scripts\scr_gun7.gml</script>
+      <script>scripts\scr_speed_buff.gml</script>
     </scripts>
     <scripts name="World">
       <scripts name="Polyomino">
@@ -636,6 +644,11 @@
       <object>objects\obj_health_panel</object>
       <object>objects\obj_speed_area</object>
       <object>objects\obj_speed_zone</object>
+      <object>objects\obj_gun_5</object>
+      <object>objects\obj_gun_6</object>
+      <object>objects\obj_gun_7</object>
+      <object>objects\obj_speed_buff</object>
+      <object>objects\obj_teleshot</object>
     </objects>
     <objects name="Inventory">
       <object>objects\obj_inventory</object>
