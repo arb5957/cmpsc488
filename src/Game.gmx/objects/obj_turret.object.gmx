@@ -99,24 +99,47 @@ with(obj_turret){
             <kind>1</kind>
             <string>///Shoot at the enemy
 
-enemy_in_range = collision_circle(x,y,400,obj_enemy_base, false, true);
-    
-if(enemy_in_range &amp;&amp; alarm[1] &lt;= 0){
-    nearest_enemy = instance_nearest(x, y, obj_enemy_base);
-    fire_direction = point_direction(x, y, nearest_enemy.x, nearest_enemy.y);
+if(owner == owners.CHARACTER)
+{
+    enemy_in_range = collision_circle(x,y,400,obj_enemy_base, false, true);
         
-    with(instance_create(x, y, obj_cannonball)){
-        damage = 10;
-        speed = 6;
-        direction = obj_turret.fire_direction;
-        image_angle = obj_turret.fire_direction;       
-        owner = owners.CHARACTER;     
+    if(enemy_in_range &amp;&amp; alarm[1] &lt;= 0){
+        nearest_enemy = instance_nearest(x, y, obj_enemy_base);
+        fire_direction = point_direction(x, y, nearest_enemy.x, nearest_enemy.y);
+            
+        with(instance_create(x, y, obj_cannonball)){
+            damage = 10;
+            speed = 6;
+            direction = obj_turret.fire_direction;
+            image_angle = obj_turret.fire_direction;       
+            owner = owners.CHARACTER;     
+        }
+         
+        image_angle = obj_turret.fire_direction;
+        direction = obj_turret.fire_direction;   
+        alarm[1] = room_speed * 0.25;
     }
-     
-    image_angle = obj_turret.fire_direction;
-    direction = obj_turret.fire_direction;   
-    alarm[1] = room_speed * 0.25;
 }
+
+if(owner == owners.ENEMY)
+    enemy_in_range = collision_circle(x,y,400,obj_char, false, true);
+        
+    if(enemy_in_range &amp;&amp; alarm[1] &lt;= 0){
+        nearest_enemy = instance_nearest(x, y, obj_char);
+        fire_direction = point_direction(x, y, nearest_enemy.x, nearest_enemy.y);
+            
+        with(instance_create(x, y, obj_cannonball)){
+            damage = 10;
+            speed = 6;
+            direction = obj_turret.fire_direction;
+            image_angle = obj_turret.fire_direction;       
+            owner = owners.ENEMY;     
+        }
+         
+        image_angle = obj_turret.fire_direction;
+        direction = obj_turret.fire_direction;   
+        alarm[1] = room_speed * 0.25;
+    }
 </string>
           </argument>
         </arguments>

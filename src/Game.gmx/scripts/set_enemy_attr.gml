@@ -23,7 +23,7 @@ switch(name)
         
     case "enemy1TEST" :
         hp = 5;
-        weapon = "obj_gun_2";
+        weapon = "obj_turret_maker";
         movement = "speed";
         attack_pattern = "aggressive";
         move_speed_default = 2;
