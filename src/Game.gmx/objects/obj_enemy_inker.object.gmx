@@ -35,6 +35,7 @@ attack_pattern = "inker";
 can_ink = true;
 inking = false;
 
+move_speed = move_speed_default;
 </string>
           </argument>
         </arguments>

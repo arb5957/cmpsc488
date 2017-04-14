@@ -32,6 +32,9 @@ movement = "summoner";
 attack_pattern = "summoner";
 
 can_summon = true;
+
+move_speed = move_speed_default;
+sdb("Summoner move speed: " + string(move_speed));
 </string>
           </argument>
         </arguments>

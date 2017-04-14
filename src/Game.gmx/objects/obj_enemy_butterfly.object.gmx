@@ -32,6 +32,8 @@ movement = "butterfly";
 attack_pattern = "butterfly";
 
 can_cloud = true;
+
+move_speed = move_speed_default;
 </string>
           </argument>
         </arguments>

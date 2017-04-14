@@ -66,7 +66,6 @@ if(instance_number(obj_floor_generator) == 1) {
     with(obj_floor) {
         for(var i=-32; i&lt;=32; i+=32) {
             for(var j=-32; j&lt;=32; j+=32) {
-                //if(place_empty(x+i, y+j)) {
                 if(not place_meeting(x+i, y+j, obj_floor)) {
                     instance_create(x+i, y+j, obj_terrain_wall);
                 }
@@ -523,7 +522,7 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Generate floor and possibly more generators
+            <string>///Generate floor and possibly more generators
 
 for(i=-32; i&lt;=32; i+=32) {
     for(j=-32; j&lt;=32; j+=32) {
@@ -533,7 +532,7 @@ for(i=-32; i&lt;=32; i+=32) {
     }
 }
 
-if(x&lt;=256 || x&gt;=room_width-256 || y&lt;=256 || y&gt;=room_height-1280) {
+if(x&lt;=512 || x&gt;=room_width-512 || y&lt;=512 || y&gt;=room_height-1792) {
     instance_destroy();
 }
 else {

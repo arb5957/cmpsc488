@@ -41,6 +41,7 @@ alarm[1] = 2;
 
 destroy = false;
 
+move_speed = move_speed_default;
 </string>
           </argument>
         </arguments>

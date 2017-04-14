@@ -45,6 +45,7 @@ target = true;
 newPath = true;
 using_item = false;
 
+move_speed_default = 1;
 move_speed = 1;
 
 //This script is used for passive items.
