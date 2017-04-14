@@ -194,6 +194,10 @@
     <sprite>sprites\spr_next_world_arrow</sprite>
     <sprite>sprites\spr_town_key</sprite>
     <sprite>sprites\spr_terrain_save_item</sprite>
+    <sprite>sprites\spr_temple</sprite>
+    <sprite>sprites\spr_piller_flame</sprite>
+    <sprite>sprites\spr_piller_light</sprite>
+    <sprite>sprites\spr_piller_ice</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Menu">
@@ -491,6 +495,7 @@
         <object>objects\obj_next_room</object>
         <object>objects\obj_to_boss_room</object>
         <object>objects\obj_gameroom2_controller</object>
+        <object>objects\obj_fire_boss_goto_fight</object>
       </objects>
       <object>objects\obj_terrain_teleport</object>
       <object>objects\obj_terrain_freeze</object>
@@ -500,6 +505,12 @@
       <object>objects\obj_puzzle_room_entrance</object>
       <object>objects\obj_puzzle_room_teleport</object>
       <object>objects\obj_terrain_save_item</object>
+      <objects name="Boss Room Stuff">
+        <object>objects\obj_piller_flame</object>
+        <object>objects\obj_piller_ice</object>
+        <object>objects\obj_piller_light</object>
+        <object>objects\obj_boss_temple</object>
+      </objects>
     </objects>
     <objects name="Display">
       <object>objects\obj_scaling</object>
@@ -688,6 +699,11 @@
     <room>rooms\rm_create_char</room>
     <room>rooms\rm_titlescreen</room>
     <room>rooms\rm_win_room</room>
+    <rooms name="Boss Rooms">
+      <room>rooms\rm_fire_boss_room</room>
+      <room>rooms\rm_ice_boss_room</room>
+      <room>rooms\rm_fire_boss_fight</room>
+    </rooms>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
