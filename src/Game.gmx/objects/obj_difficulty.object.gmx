@@ -71,6 +71,7 @@ ds_list_add(prizes[1], obj_cloud_maker);
 ds_list_add(prizes[1], obj_quake_boots);
 ds_list_add(prizes[1], obj_flame_gun);
 ds_list_add(prizes[1], obj_pet);
+ds_list_add(prizes[1], obj_map);
 
 ds_list_add(prizes[2], obj_flying_stone);
 ds_list_add(prizes[2], obj_shovel);
@@ -86,6 +87,9 @@ ds_list_add(prizes[3], obj_insta);
 ds_list_add(prizes[3], obj_health_pack_dropper);
 ds_list_add(prizes[3], obj_speed_zone);
 ds_list_add(prizes[3], obj_gun_1);
+ds_list_add(prizes[3], obj_gun_5);
+ds_list_add(prizes[3], obj_gun_6);
+ds_list_add(prizes[3], obj_gun_7);
 
 for(var i = 0; i &lt; 4; i++)
 {
