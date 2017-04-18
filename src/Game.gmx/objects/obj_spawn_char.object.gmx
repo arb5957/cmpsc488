@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -79,6 +79,7 @@ alarm[1] = 2;
     if(object_exists(obj_inventory))
     {
         scr_load(global.save_selected,0);
+        instance_destroy();
         /*if(obj_universal_controller.room_x != -1 &amp;&amp; obj_universal_controller.room_y != -1
             &amp;&amp; not obj_char.using_key) {
             sdb("room-x: " + string(obj_universal_controller.room_x));
