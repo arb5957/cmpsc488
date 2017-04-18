@@ -201,6 +201,7 @@
     <sprite>sprites\spr_piller_flame</sprite>
     <sprite>sprites\spr_piller_light</sprite>
     <sprite>sprites\spr_piller_ice</sprite>
+    <sprite>sprites\spr_piller_power</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Menu">
@@ -510,6 +511,9 @@
         <object>objects\obj_to_boss_room</object>
         <object>objects\obj_gameroom2_controller</object>
         <object>objects\obj_fire_boss_goto_fight</object>
+        <object>objects\obj_ice_boss_goto_fight</object>
+        <object>objects\obj_light_boss_goto_fight</object>
+        <object>objects\obj_power_boss_goto_fight</object>
       </objects>
       <object>objects\obj_terrain_teleport</object>
       <object>objects\obj_terrain_freeze</object>
@@ -523,6 +527,7 @@
         <object>objects\obj_piller_flame</object>
         <object>objects\obj_piller_ice</object>
         <object>objects\obj_piller_light</object>
+        <object>objects\obj_piller_power</object>
         <object>objects\obj_boss_temple</object>
         <object>objects\obj_lava_right_corner</object>
         <object>objects\obj_lava_right_bottom</object>
@@ -730,7 +735,11 @@
       <room>rooms\rm_fire_boss_room</room>
       <room>rooms\rm_ice_boss_room</room>
       <room>rooms\rm_light_boss_room</room>
+      <room>rooms\rm_power_boss_room</room>
       <room>rooms\rm_fire_boss_fight</room>
+      <room>rooms\rm_ice_boss_fight</room>
+      <room>rooms\rm_light_boss_fight</room>
+      <room>rooms\rm_power_boss_fight</room>
     </rooms>
   </rooms>
   <help>

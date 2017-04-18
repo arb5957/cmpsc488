@@ -54,7 +54,26 @@ dir = 0; //0=east, 1=north, 2=west, 3=south
     scr_save_room();
 }
 
-room_goto(rm_fire_boss_room);
+if(obj_universal_controller.world_difficulty == 1)
+{
+    room_goto(rm_power_boss_room);
+}
+
+else if(obj_universal_controller.world_difficulty == 2)
+{
+    room_goto(rm_light_boss_room);
+}
+
+else if(obj_universal_controller.world_difficulty == 3)
+{
+    room_goto(rm_ice_boss_room);
+}
+
+else if(obj_universal_controller.world_difficulty == 4)
+{
+    room_goto(rm_fire_boss_room);
+}
+
 
     if(dir == 0) { //taking east exit
         obj_universal_controller.room_x++;

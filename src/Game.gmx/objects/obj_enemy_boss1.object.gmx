@@ -68,15 +68,21 @@ can_teleport = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with(inst_lazer)
+            <string>if(instance_exists(obj_boss_lazer))
 {
-    instance_destroy();
+    with(inst_lazer)
+    {
+        instance_destroy();
+    }
 }
 
-with(inst_lazer2)
+
+with(obj_universal_controller)
 {
-    instance_destroy();
+    farthest_world = farthest_world + 1;
 }
+
+room_goto(rm_gamescreen);
 
 </string>
           </argument>

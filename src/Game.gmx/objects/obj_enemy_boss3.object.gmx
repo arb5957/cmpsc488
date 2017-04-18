@@ -81,6 +81,13 @@ with(obj_terrain_ice_slip)
 {
     instance_destroy();
 }
+
+with(obj_universal_controller)
+{
+    farthest_world = farthest_world + 1;
+}
+
+room_goto(rm_gamescreen);
 </string>
           </argument>
         </arguments>
