@@ -75,18 +75,28 @@ else if(obj_universal_controller.world_difficulty == 4)
 }
 
 
-    if(dir == 0) { //taking east exit
-        obj_universal_controller.room_x++;
-    }
-    else if(dir == 1) { //taking north exit
-        obj_universal_controller.room_y--;
-    }
-    else if(dir == 2) { // taking west exit
-        obj_universal_controller.room_x--;
-    }
-    else { // taking south exit
-        obj_universal_controller.room_y++;
-    }
+if(dir == 0) { //taking east exit
+    obj_universal_controller.room_x++;
+}
+else if(dir == 1) { //taking north exit
+    obj_universal_controller.room_y--;
+}
+else if(dir == 2) { // taking west exit
+    obj_universal_controller.room_x--;
+}
+else { // taking south exit
+    obj_universal_controller.room_y++;
+}
+
+//Mark boss room as visited.
+with(obj_universal_controller)
+{
+    sdb("room x: " + string(room_x) + " room y: " + string(room_y));
+    ds_grid_set(room_config, room_x, room_y, -abs(ds_grid_get(room_config,room_x,room_y)));
+    sdb("room config: ");
+    print_grid(room_config);
+}
+
 
 switch(dir){
 

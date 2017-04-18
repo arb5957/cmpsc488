@@ -158,7 +158,7 @@ if(opened)
         for(var c = 0; c &lt; room_cols; c++)
         {
             var current_room = ds_grid_get(obj_universal_controller.room_config,c,r);
-            if(current_room == -1 or current_room == -3)
+            if(current_room == -1 or current_room == -3 or current_room == -4)
             {
                 draw_set_alpha(1);
                 if(c == obj_universal_controller.room_x and r == obj_universal_controller.room_y)
