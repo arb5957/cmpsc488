@@ -36,6 +36,20 @@ else
     obj_char.y = room_height/2;
 }
 
+/*scr_load_world(global.save_selected);
+
+if(obj_universal_controller.room_x != -1 &amp;&amp; obj_universal_controller.room_y != -1
+    &amp;&amp; not obj_char.using_key) {
+    sdb("room-x: " + string(obj_universal_controller.room_x));
+    sdb("room-y: " + string(obj_universal_controller.room_y));
+    sdb("loading into gamescreen2");
+    obj_universal_controller.loading_char_position = true;
+    room_goto(rm_gamescreen2);
+}
+else {
+    obj_loading_overlay.loading = false;
+}*/
+
 alarm[1] = 2;
 
 </string>
@@ -65,7 +79,7 @@ alarm[1] = 2;
     if(object_exists(obj_inventory))
     {
         scr_load(global.save_selected,0);
-        if(obj_universal_controller.room_x != -1 &amp;&amp; obj_universal_controller.room_y != -1
+        /*if(obj_universal_controller.room_x != -1 &amp;&amp; obj_universal_controller.room_y != -1
             &amp;&amp; not obj_char.using_key) {
             sdb("room-x: " + string(obj_universal_controller.room_x));
             sdb("room-y: " + string(obj_universal_controller.room_y));
@@ -75,7 +89,7 @@ alarm[1] = 2;
         }
         else {
             obj_loading_overlay.loading = false;
-        }
+        }*/
     }
     else
     {
