@@ -42,10 +42,19 @@ moving_from_town = false;
 loading_char_position = false;
 loading_char_x = 0;
 loading_char_y = 0;
+room_config = -1;
 
 if(not file_exists("room_save.ini")) {
+
+    //Free room_config if it already holds a grid
+    //to avoid memory leaks.
+    if(ds_exists(room_config, ds_type_grid))
+    {
+        ds_grid_destroy(room_config);
+    }
     //room_config = generate_floor(number_of_rooms);
     room_config = generate_floor_with_boss(number_of_rooms);
+    
     grid_height = ds_grid_height(room_config);
     grid_width = ds_grid_width(room_config);
 }
@@ -53,7 +62,15 @@ else {
     ini_open("room_save.ini");
     grid_height = ini_read_real("room_config", "height", 0);
     grid_width = ini_read_real("room_config", "width", 0);
+    //Free room_config if it already holds a grid
+    //to avoid memory leaks.
+    if(ds_exists(room_config, ds_type_grid))
+    {
+        ds_grid_destroy(room_config);
+    }
+    
     room_config = ds_grid_create(grid_width, grid_height);
+    
     for(var row=0; row&lt;grid_height; row++) {
         for(var col=0; col&lt;grid_width; col++) {
             sdb("loading: " + string(row) + ", " + string(col));
@@ -85,6 +102,33 @@ for(var r=0; r&lt;grid_height; r++) {
     }
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Destroy grids.
+if(ds_exists(room_config, ds_type_grid))
+{
+    ds_grid_destroy(room_config);
+}
 </string>
           </argument>
         </arguments>

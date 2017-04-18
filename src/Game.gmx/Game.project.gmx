@@ -407,6 +407,7 @@
       <script>scripts\scr_gun_6.gml</script>
       <script>scripts\scr_gun7.gml</script>
       <script>scripts\scr_speed_buff.gml</script>
+      <script>scripts\scr_map.gml</script>
     </scripts>
     <scripts name="World">
       <scripts name="Polyomino">
@@ -477,6 +478,7 @@
         <object>objects\obj_delete</object>
         <object>objects\obj_spawner_overlay</object>
         <object>objects\obj_loading_overlay</object>
+        <object>objects\obj_map_overlay</object>
       </objects>
     </objects>
     <objects name="Character">
@@ -685,6 +687,7 @@
       <object>objects\obj_gun_7</object>
       <object>objects\obj_speed_buff</object>
       <object>objects\obj_teleshot</object>
+      <object>objects\obj_map</object>
     </objects>
     <objects name="Inventory">
       <object>objects\obj_inventory</object>
