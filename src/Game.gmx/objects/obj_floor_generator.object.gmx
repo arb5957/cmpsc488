@@ -75,14 +75,149 @@ if(instance_number(obj_floor_generator) == 1) {
         mp_grid_destroy(global.grid)
         global.grid = mp_grid_create(0, 0, room_width/32, room_height/32, 32, 32);
         mp_grid_add_instances(global.grid, obj_terrain_wall, 1);
-        
+				
+        // Level 1 difficulty 
+        if(obj_universal_controller.world_difficulty == 1) {
+            spawn_chance = irandom(1000);
+            //terrain
+            if(spawn_chance &gt;= 0 &amp;&amp; spawn_chance &lt;=1) {
+                instance_create(x, y, obj_terrain_spikes);
+            }
+            else if(spawn_chance &gt;= 10 &amp;&amp; spawn_chance &lt;= 11) {
+                instance_create(x, y, obj_terrain_freeze);
+            }
+            else if(spawn_chance &gt;= 20 &amp;&amp; spawn_chance &lt;= 21) {
+                instance_create(x, y, obj_terrain_stickyfloor);
+            }
+            
+            //enemies
+            else if(spawn_chance &gt;= 30 &amp;&amp; spawn_chance &lt;= 31) {
+                instance_create(x, y, obj_enemy1);
+            }
+            else if(spawn_chance &gt;= 40 &amp;&amp; spawn_chance &lt;= 41) {
+                instance_create(x, y, obj_enemy2);
+            }
+            else if(spawn_chance &gt;=50 &amp;&amp; spawn_chance &lt;= 51) {
+                instance_create(x, y, obj_enemy_butterfly);
+            }
+            else if(spawn_chance &gt;=60 &amp;&amp; spawn_chance &lt;=61) {
+                instance_create(x, y, obj_enemy_summoner);
+            }
+        }
+        // level 2 difficulty
+        else if(obj_universal_controller.world_difficulty == 2) {
+            spawn_chance = irandom(1000);
+            //terrain
+            if(spawn_chance &gt;= 0 &amp;&amp; spawn_chance &lt;=1) {
+                instance_create(x, y, obj_terrain_spikes);
+            }
+            else if(spawn_chance &gt;= 10 &amp;&amp; spawn_chance &lt;= 11) {
+                instance_create(x, y, obj_terrain_freeze);
+            }
+            else if(spawn_chance &gt;= 20 &amp;&amp; spawn_chance &lt;= 21) {
+                instance_create(x, y, obj_terrain_stickyfloor);
+            }
+            else if(spawn_chance &gt;= 30 &amp;&amp; spawn_chance &lt;= 31) {
+                instance_create(x, y, obj_terrain_slippery);
+            }
+            else if(spawn_chance &gt;= 40 &amp;&amp; spawn_chance &lt;= 41) { // new to lvl 2
+                instance_create(x, y, obj_puzzle_room_entrance);
+            }
+            else if(spawn_chance &gt;= 50 &amp;&amp; spawn_chance &lt;= 51) { // new to lvl 2
+                instance_create(x, y, obj_dungeon_pit_floor);
+            }
+            else if(spawn_chance &gt;= 60 &amp;&amp; spawn_chance &lt;= 61) { // new to lvl 2
+                instance_create(x, y, obj_terrain_teleport);
+            }
+            
+            //enemies
+            else if(spawn_chance &gt;= 70 &amp;&amp; spawn_chance &lt;= 71) {
+                instance_create(x, y, obj_enemy1);
+            }
+            else if(spawn_chance &gt;= 80 &amp;&amp; spawn_chance &lt;= 81) {
+                instance_create(x, y, obj_enemy2);
+            }
+            else if(spawn_chance &gt;= 90 &amp;&amp; spawn_chance &lt;= 91) {
+                instance_create(x, y, obj_enemy_butterfly);
+            }
+            else if(spawn_chance &gt;= 100 &amp;&amp; spawn_chance &lt;=101) {
+                instance_create(x, y, obj_enemy_summoner);
+            }
+            else if(spawn_chance &gt;= 110 &amp;&amp; spawn_chance &lt;=111) { // new to lvl 2
+                instance_create(x, y, obj_enemy_healer);
+            }
+            else if(spawn_chance &gt;= 120 &amp;&amp; spawn_chance &lt;= 121) { // new to lvl 2
+                instance_create(x, y, obj_enemy_dig);
+            }
+            else if(spawn_chance &gt;= 130 &amp;&amp; spawn_chance &lt;= 131) { // new to lvl 2
+                instance_create(x, y, obj_enemy_inker);
+            }
+        }
+        // level 3 difficulty
+        else {
+            spawn_chance = irandom(1000);
+            //terrain
+            if(spawn_chance &gt;= 0 &amp;&amp; spawn_chance &lt;=1) {
+                instance_create(x, y, obj_terrain_spikes);
+            }
+            else if(spawn_chance &gt;= 10 &amp;&amp; spawn_chance &lt;= 11) {
+                instance_create(x, y, obj_terrain_freeze);
+            }
+            else if(spawn_chance &gt;= 20 &amp;&amp; spawn_chance &lt;= 21) {
+                instance_create(x, y, obj_terrain_stickyfloor);
+            }
+            else if(spawn_chance &gt;= 30 &amp;&amp; spawn_chance &lt;= 31) {
+                instance_create(x, y, obj_terrain_slippery);
+            }
+            else if(spawn_chance &gt;= 40 &amp;&amp; spawn_chance &lt;= 41) {
+                instance_create(x, y, obj_puzzle_room_entrance);
+            }
+            else if(spawn_chance &gt;= 50 &amp;&amp; spawn_chance &lt;= 51) {
+                instance_create(x, y, obj_dungeon_pit_floor);
+            }
+            else if(spawn_chance &gt;= 60 &amp;&amp; spawn_chance &lt;= 61) {
+                instance_create(x, y, obj_terrain_teleport);
+            }
+            
+            //enemies
+            else if(spawn_chance &gt;= 70 &amp;&amp; spawn_chance &lt;= 71) {
+                instance_create(x, y, obj_enemy1);
+            }
+            else if(spawn_chance &gt;= 80 &amp;&amp; spawn_chance &lt;= 81) {
+                instance_create(x, y, obj_enemy2);
+            }
+            else if(spawn_chance &gt;= 90 &amp;&amp; spawn_chance &lt;= 91) {
+                instance_create(x, y, obj_enemy_butterfly);
+            }
+            else if(spawn_chance &gt;= 100 &amp;&amp; spawn_chance &lt;=101) {
+                instance_create(x, y, obj_enemy_summoner);
+            }
+            else if(spawn_chance &gt;= 110 &amp;&amp; spawn_chance &lt;=111) {
+                instance_create(x, y, obj_enemy_healer);
+            }
+            else if(spawn_chance &gt;= 120 &amp;&amp; spawn_chance &lt;= 121) {
+                instance_create(x, y, obj_enemy_dig);
+            }
+            else if(spawn_chance &gt;= 130 &amp;&amp; spawn_chance &lt;= 131) {
+                instance_create(x, y, obj_enemy_inker);
+            }
+            else if(spawn_chance &gt;= 140 &amp;&amp; spawn_chance &lt;= 141) { // new to lvl 3
+                instance_create(x, y, obj_enemy_duplicate_real);
+            }
+            else if(spawn_chance &gt;= 150 &amp;&amp; spawn_chance &lt;= 151) { // new to lvl 3
+                instance_create(x, y, obj_enemy_snake_head);
+            }
+        }
+    }
+}      
+        /* original spawning
         spawn_chance = irandom(1000);
         if(spawn_chance &gt;=0 &amp;&amp; spawn_chance &lt;=2) {
             instance_create(x, y, obj_terrain_stickyfloor);
         }
         else if(spawn_chance &gt;= 3 &amp;&amp; spawn_chance &lt;= 5) {
             instance_create(x, y, obj_terrain_slippery);
-        }//*/
+        }
         else if(spawn_chance &gt;= 6 &amp;&amp; spawn_chance &lt;= 8) {
             instance_create(x, y, obj_terrain_spikes);
         }
@@ -132,7 +267,7 @@ if(instance_number(obj_floor_generator) == 1) {
             instance_create(x+16, y+16, obj_spike);
         }
     }
-}
+}*/
 </string>
           </argument>
         </arguments>
