@@ -55,7 +55,8 @@ script = scr_town_key;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(rm_gamescreen);
+            <string>scr_save_room();
+room_goto(rm_gamescreen);
 if(instance_exists(obj_char)) {
     obj_char.using_key = true;
     obj_universal_controller.room_x = -1;
