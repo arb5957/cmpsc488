@@ -35,11 +35,13 @@ can_shoot = true;
 
 //Health and Invulnerability variables:
 hp = 1000;
-max_hp = 10000000;
+max_hp = 1000;
 invulnerable = false;
 name="";
 invulnerable_time = room_speed/2;
 safe = true;
+damaged = false;
+hdown = false;
 
 //Item pickup
 queue = ds_queue_create();
@@ -205,6 +207,30 @@ invulnerable = false;
             <string>///Set the player's state back to normal.
 sdb("Player state = NORMAL");
 state = states.NORMAL;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///damaged = false;
+damaged = false;
 </string>
           </argument>
         </arguments>
@@ -802,8 +828,9 @@ if(timer &gt; 0){
             <string>///Draw circle around player when invulnerable.
 if(invulnerable)
 {
-    draw_set_color(c_red);
-    draw_circle(x,y,sprite_width*1.5,true);
+    sprite_index = spr_invul;
+}else{
+    sprite_index = spr_char;
 }
 </string>
           </argument>
@@ -849,6 +876,33 @@ if(invulnerable)
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw health
+
+if(damaged || hdown){
+    var pc;
+    pc = (hp / max_hp) * 100;
+    draw_healthbar(obj_char.x-30, obj_char.y-20, obj_char.x+30, obj_char.y-30, pc, c_black, c_red, c_lime, 0, true, true);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="9" enumb="75">
       <action>
@@ -888,6 +942,29 @@ if(invulnerable)
           <argument>
             <kind>0</kind>
             <string></string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="72">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>hdown = !hdown;
+</string>
           </argument>
         </arguments>
       </action>

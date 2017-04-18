@@ -20,6 +20,7 @@
     <sprites name="Character">
       <sprite>sprites\spr_char_temp</sprite>
       <sprite>sprites\spr_char</sprite>
+      <sprite>sprites\spr_invul</sprite>
       <sprites name="effects">
         <sprite>sprites\spr_char_digging</sprite>
       </sprites>

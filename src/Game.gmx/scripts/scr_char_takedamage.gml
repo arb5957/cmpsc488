@@ -4,6 +4,8 @@ var damage = argument0;
 
 if(not invulnerable)
 {
+    obj_char.damaged = true;
+    obj_char.alarm[5] = 60;
     invulnerable = true;
     hp -= damage;
     obj_universal_controller.damage_taken+=damage;
