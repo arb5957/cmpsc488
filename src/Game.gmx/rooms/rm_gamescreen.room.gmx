@@ -67,7 +67,11 @@ with(instance_create(1840, 768, obj_next_world)) {
 with(instance_create(2240, 1008, obj_next_world)) {
     world_difficulty = 3;
     sprite_index = spr_next_world_3;
-}</code>
+}
+
+mp_grid_destroy(global.grid)
+        global.grid = mp_grid_create(0, 0, room_width/32, room_height/32, 32, 32);
+        mp_grid_add_instances(global.grid, obj_terrain_wall, 1);</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -239,7 +243,7 @@ with(instance_create(2240, 1008, obj_next_world)) {
     <instance objName="obj_potion" x="1760" y="1024" name="inst_C6EB9332" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_potion" x="1792" y="1184" name="inst_A373B099" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_blue_gun" x="1728" y="1280" name="inst_A5457E3C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spawn_char" x="1472" y="608" name="inst_491510CB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spawn_char" x="192" y="32" name="inst_491510CB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_recon_remote" x="1600" y="896" name="inst_36E7A1BE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_slower" x="2144" y="1216" name="inst_09C54061" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_slower" x="1792" y="960" name="inst_B4548D81" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -286,12 +290,9 @@ with(instance_create(2240, 1008, obj_next_world)) {
     <instance objName="obj_rain_maker" x="1760" y="1408" name="inst_578AD0BC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_glove_bounce" x="1664" y="1472" name="inst_6EFA899A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_paint_black" x="1440" y="1280" name="inst_2A614A4C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_paint_blue" x="1408" y="1344" name="inst_E8F8FD54" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_paint_green" x="1472" y="1312" name="inst_68C631D6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_paint_green" x="1440" y="1376" name="inst_1A45E3F2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_paint_orange" x="1504" y="1344" name="inst_EBD2BBBC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_paint_purple" x="1504" y="1472" name="inst_66EA8F14" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_paint_red" x="1536" y="1536" name="inst_DA950D5C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_paint_yellow" x="1472" y="1568" name="inst_F92FF701" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_paint_yellow" x="2048" y="1632" name="inst_47F137E2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_health_pack_dropper" x="2176" y="1184" name="inst_240CE4F9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -302,11 +303,26 @@ with(instance_create(2240, 1008, obj_next_world)) {
     <instance objName="obj_firework_maker" x="1824" y="1184" name="inst_3C604231" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_cloud_maker" x="1760" y="1216" name="inst_DFC48F29" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_insta" x="1856" y="1216" name="inst_15F726C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy1Test" x="2112" y="784" name="inst_8762F95F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_gun_5" x="2192" y="928" name="inst_41EA6958" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_gun_6" x="2192" y="976" name="inst_3FA02DEB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_gun_7" x="2192" y="1024" name="inst_8F96E178" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_speed_buff" x="2192" y="1072" name="inst_2E0E1008" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Queue_Control" x="160" y="32" name="inst_B6FDFC24" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy1" x="2512" y="1424" name="inst_6286CCA4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy2" x="2544" y="1552" name="inst_8291296E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_butterfly" x="2272" y="1760" name="inst_4796EEEE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_butterfly" x="2368" y="1584" name="inst_F46B2EB5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_butterfly" x="2656" y="1232" name="inst_ECD5BCAF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_dig" x="2672" y="1040" name="inst_DDD7B68A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_dig" x="2608" y="816" name="inst_E7994FE3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_dig" x="2368" y="640" name="inst_2C2A40C0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_duplicate_real" x="2560" y="1872" name="inst_DF44D674" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_duplicate_real" x="2736" y="1632" name="inst_42C02A39" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_healer" x="2208" y="1552" name="inst_6C7F7342" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_healer" x="2448" y="1328" name="inst_B866096B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_snake_head" x="2144" y="1680" name="inst_F4F988F9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_summoner" x="1840" y="800" name="inst_0400C6DC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_inker" x="2384" y="1456" name="inst_F23D37D2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

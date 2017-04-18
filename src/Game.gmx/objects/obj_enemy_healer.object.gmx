@@ -110,6 +110,8 @@ script_execute(script);
 
 script =  asset_get_index(string_insert(attack_pattern, "attack_", 8));
 script_execute(script);
+
+scr_enemy_hold_item();
 </string>
           </argument>
         </arguments>

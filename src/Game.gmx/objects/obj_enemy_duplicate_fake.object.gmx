@@ -54,7 +54,9 @@ var parent_id;
           <argument>
             <kind>1</kind>
             <string>script =  asset_get_index(string_insert(movement, "movement_", 10));
-    script_execute(script);
+script_execute(script);
+
+scr_enemy_hold_item();
 </string>
           </argument>
         </arguments>

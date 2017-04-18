@@ -52,6 +52,7 @@
       <sprite>sprites\spr_dungeon_pit</sprite>
       <sprite>sprites\spr_puzzle_room_entrance</sprite>
       <sprite>sprites\spr_to_boss_room</sprite>
+      <sprite>sprites\spr_lava</sprite>
     </sprites>
     <sprites name="Enemy">
       <sprite>sprites\spr_enemy1</sprite>
@@ -63,6 +64,7 @@
       <sprite>sprites\spr_enemy_snake_head</sprite>
       <sprite>sprites\spr_enemy_summoner</sprite>
       <sprite>sprites\spr_enemy_inker</sprite>
+      <sprite>sprites\spr_enemy_charmer</sprite>
       <sprite>sprites\spr_enemy_rock_thing</sprite>
       <sprites name="Effects">
         <sprite>sprites\spr_boss2_capture</sprite>
@@ -104,6 +106,7 @@
       <sprite>sprites\spr_sting</sprite>
       <sprite>sprites\spr_cannonball</sprite>
       <sprite>sprites\spr_ink_shot</sprite>
+      <sprite>sprites\spr_charm_bullet</sprite>
     </sprites>
     <sprites name="Weapons">
       <sprite>sprites\spr_blue_gun</sprite>
@@ -236,6 +239,15 @@
         <script>scripts\attack_snake_head.gml</script>
         <script>scripts\attack_summoner.gml</script>
         <script>scripts\attack_inker.gml</script>
+      </scripts>
+      <scripts name="queue movement">
+        <script>scripts\queue_movement_speed.gml</script>
+        <script>scripts\queue_movement_circle.gml</script>
+        <script>scripts\queue_movement_butterfly.gml</script>
+        <script>scripts\queue_movement_healer.gml</script>
+        <script>scripts\queue_movement_snake_head.gml</script>
+        <script>scripts\queue_movement_summoner.gml</script>
+        <script>scripts\queue_movement_inker.gml</script>
       </scripts>
       <scripts name="Movement">
         <script>scripts\movement_circle.gml</script>
@@ -510,6 +522,15 @@
         <object>objects\obj_piller_ice</object>
         <object>objects\obj_piller_light</object>
         <object>objects\obj_boss_temple</object>
+        <object>objects\obj_lava_right_corner</object>
+        <object>objects\obj_lava_right_bottom</object>
+        <object>objects\obj_lava_left_corner</object>
+        <object>objects\obj_lava_left_bottom</object>
+        <object>objects\obj_lava_top</object>
+        <object>objects\obj_lava_right</object>
+        <object>objects\obj_lava_left</object>
+        <object>objects\obj_lava_bottom</object>
+        <object>objects\obj_lava_middle</object>
       </objects>
     </objects>
     <objects name="Display">
@@ -536,6 +557,7 @@
       <object>objects\obj_enemy_snake_head</object>
       <object>objects\obj_enemy_summoner</object>
       <object>objects\obj_enemy_inker</object>
+      <object>objects\obj_enemy_charmer</object>
       <object>objects\obj_enemy_rock_thing</object>
       <objects name="Effects">
         <object>objects\obj_boss2_capture</object>
@@ -559,6 +581,7 @@
           <object>objects\obj_meteor_to_monster</object>
         </objects>
       </objects>
+      <object>objects\Queue_Control</object>
     </objects>
     <objects name="Projectile">
       <object>objects\obj_bullet_base</object>
@@ -580,6 +603,7 @@
       <object>objects\obj_expand_shot</object>
       <object>objects\obj_bounce_ball</object>
       <object>objects\obj_wave</object>
+      <object>objects\obj_charm_bullet</object>
     </objects>
     <objects name="Weapons">
       <object>objects\obj_blue_gun</object>
@@ -702,6 +726,7 @@
     <rooms name="Boss Rooms">
       <room>rooms\rm_fire_boss_room</room>
       <room>rooms\rm_ice_boss_room</room>
+      <room>rooms\rm_light_boss_room</room>
       <room>rooms\rm_fire_boss_fight</room>
     </rooms>
   </rooms>

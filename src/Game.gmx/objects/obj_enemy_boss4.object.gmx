@@ -61,6 +61,7 @@ attack_cooldown = 300;
           <argument>
             <kind>1</kind>
             <string>//need something
+room_goto(rm_win_room);
 </string>
           </argument>
         </arguments>

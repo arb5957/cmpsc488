@@ -64,6 +64,8 @@ enemy_max_hp = 0;
 invulnerable = false;
 invulnerable_time = room_speed/2;
 
+path = path_add();
+
 </string>
           </argument>
         </arguments>
