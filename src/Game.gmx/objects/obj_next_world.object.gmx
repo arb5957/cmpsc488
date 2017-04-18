@@ -84,8 +84,15 @@ with(obj_universal_controller) {
     if(farthest_world &lt; other.world_difficulty) {
         farthest_world = other.world_difficulty;
     }
+    
+    //Mark the starting room as visited.
+    sdb("room x: " + string(room_x) + " room y: " + string(room_y));
+    ds_grid_set(room_config, room_x, room_y, -abs(ds_grid_get(room_config,room_x,room_y)));
+    sdb("room config: ");
+    print_grid(room_config);
 }
 room_goto(rm_gamescreen2);
+
 </string>
           </argument>
         </arguments>

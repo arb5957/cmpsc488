@@ -654,6 +654,16 @@ room_goto(rm_gamescreen2);
             <string>///Save room
 if(room == rm_gamescreen2) {
     scr_save_room();
+    
+}
+
+//Mark room as visited.
+with(obj_universal_controller)
+{
+    sdb("room x: " + string(room_x) + " room y: " + string(room_y));
+    ds_grid_set(room_config, room_x, room_y, -abs(ds_grid_get(room_config,room_x,room_y)));
+    sdb("room config: ");
+    print_grid(room_config);
 }
 </string>
           </argument>
@@ -690,6 +700,15 @@ with(other) {
     else { // taking south exit
         obj_universal_controller.room_y++;
     }
+}
+
+//Mark room as visited.
+with(obj_universal_controller)
+{
+    sdb("room x: " + string(room_x) + " room y: " + string(room_y));
+    ds_grid_set(room_config, room_x, room_y, -abs(ds_grid_get(room_config,room_x,room_y)));
+    sdb("room config: ");
+    print_grid(room_config);
 }
 </string>
           </argument>

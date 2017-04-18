@@ -159,9 +159,9 @@ if(instance_number(obj_floor_generator) == 1) {
 if(instance_number(obj_floor_generator) == 1) {
     //Spawn East Exits
     if(obj_universal_controller.room_x != obj_universal_controller.grid_width-1) {
-        room_type = ds_grid_get(obj_universal_controller.room_config, 
+        room_type = abs(ds_grid_get(obj_universal_controller.room_config, 
             obj_universal_controller.room_x+1,
-            obj_universal_controller.room_y);
+            obj_universal_controller.room_y));
         if(room_type == 1 || room_type == 3) {
             var check_x = room_width;
             var check_y = 0;
@@ -222,9 +222,9 @@ if(instance_number(obj_floor_generator) == 1) {
         
     //Spawn North Exits
     if(obj_universal_controller.room_y != 0) {
-       room_type = ds_grid_get(obj_universal_controller.room_config, 
+       room_type = abs(ds_grid_get(obj_universal_controller.room_config, 
                obj_universal_controller.room_x,
-               obj_universal_controller.room_y-1);
+               obj_universal_controller.room_y-1));
        if(room_type == 1 || room_type == 3) {
             check_x = 0;
             check_y = 0;
@@ -284,9 +284,9 @@ if(instance_number(obj_floor_generator) == 1) {
     }    
     //Spawn West Exits
     if(obj_universal_controller.room_x != 0) {
-        room_type = ds_grid_get(obj_universal_controller.room_config, 
+        room_type = abs(ds_grid_get(obj_universal_controller.room_config, 
             obj_universal_controller.room_x-1,
-            obj_universal_controller.room_y);
+            obj_universal_controller.room_y));
         if(room_type == 1 || room_type == 3) {
             check_x = 0;
             check_y = 0;
@@ -347,9 +347,9 @@ if(instance_number(obj_floor_generator) == 1) {
     
     //Spawn South Exits
     if(obj_universal_controller.room_y != obj_universal_controller.grid_height-1) {
-        room_type = ds_grid_get(obj_universal_controller.room_config, 
+        room_type = abs(ds_grid_get(obj_universal_controller.room_config, 
             obj_universal_controller.room_x,
-            obj_universal_controller.room_y+1);
+            obj_universal_controller.room_y+1));
         if(room_type == 1 || room_type == 3) {
             check_x = 0;
             check_y = room_height-1024;
