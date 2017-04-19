@@ -435,6 +435,7 @@
     <script>scripts\scr_leave_game.gml</script>
     <script>scripts\scr_destroy.gml</script>
     <script>scripts\scr_town_key.gml</script>
+    <script>scripts\scr_print_room_config.gml</script>
   </scripts>
   <fonts name="fonts">
     <fonts name="Menu">

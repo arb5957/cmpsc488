@@ -68,6 +68,12 @@ alarm[1] = 240;
 }
 
 room_goto(rm_gamescreen);
+file_delete("room_save.ini");
+with(obj_universal_controller) {
+    //TODO: chance number of rooms
+    room_config = generate_floor_with_boss(number_of_rooms);
+    scr_print_room_config();
+}
 </string>
           </argument>
         </arguments>
