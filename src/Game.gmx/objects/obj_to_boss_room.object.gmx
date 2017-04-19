@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Initialize
 
-dir = 0; //0=east, 1=north, 2=west, 3=south
+var dir = 0; //0=east, 1=north, 2=west, 3=south
 </string>
           </argument>
         </arguments>
@@ -74,7 +74,7 @@ else if(obj_universal_controller.world_difficulty == 4)
     room_goto(rm_fire_boss_room);
 }
 
-
+sdb("dir: " + string(dir));
 if(dir == 0) { //taking east exit
     obj_universal_controller.room_x++;
 }
