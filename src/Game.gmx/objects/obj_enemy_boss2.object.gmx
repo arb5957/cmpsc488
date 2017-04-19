@@ -73,6 +73,8 @@ with(obj_universal_controller) {
     //TODO: chance number of rooms
     room_config = generate_floor_with_boss(number_of_rooms);
     scr_print_room_config();
+    room_x = -1;
+    room_y = -1;
 }
 </string>
           </argument>
