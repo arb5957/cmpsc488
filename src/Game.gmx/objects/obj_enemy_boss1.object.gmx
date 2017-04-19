@@ -90,6 +90,17 @@ with(obj_universal_controller) {
     scr_print_room_config();
     room_x = -1;
     room_y = -1;
+    var h = ds_grid_height(room_config);
+    var w = ds_grid_width(room_config);
+    for(var r=0; r &lt; h; r++) {
+        for(var c=0; c &lt; w; c++) {
+            if(abs(ds_grid_get(room_config, c, r)) == 3) {
+                starting_room_x = c;
+                starting_room_y = r;
+                break;
+            }
+        }
+    }
 }
 </string>
           </argument>
