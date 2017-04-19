@@ -319,6 +319,7 @@
       <script>scripts\scr_test_load_new2.gml</script>
       <script>scripts\scr_test_load_new3.gml</script>
       <script>scripts\scr_save_room.gml</script>
+      <script>scripts\scr_load_item_array.gml</script>
     </scripts>
     <scripts name="Inventory">
       <scripts name="old">

@@ -73,3 +73,6 @@ global.mute = false;
 
 global.movement_queue = ds_queue_create();
 global.grid = mp_grid_create(0, 0, room_width/32, room_height/32, 32, 32);
+
+global.saved_items_array[0] = obj_bow;
+global.saved_items_array[1] = obj_dagger;

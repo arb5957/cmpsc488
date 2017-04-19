@@ -10,13 +10,16 @@
   <persistent>0</persistent>
   <colour>0</colour>
   <showcolour>-1</showcolour>
-  <code>/*script_execute(scr_test_load_new, 1);
+  <code>Globals_script();
+
+/*script_execute(scr_test_load_new, 1);
 script_execute(scr_test_load_new2, 1);
 script_execute(scr_test_load_new3, 1);*/
 for(var i = 1; i &lt;= 3; i++)
 {
     scr_load(i,1);
 }
+scr_load_item_array();
 
 if(instance_exists(obj_universal_controller)) {
     with(obj_universal_controller) {
