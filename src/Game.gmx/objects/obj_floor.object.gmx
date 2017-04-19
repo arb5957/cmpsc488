@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///Delete if other floor exists
+image_alpha = random_range(0.7,1);
 
 if(place_meeting(x, y, obj_floor)) {
     instance_destroy();
