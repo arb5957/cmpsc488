@@ -13,6 +13,7 @@ var data;
 data = ds_map_create();
 
 data[? "save_name"] = obj_char.name;
+data[? "char_hp"] = obj_char.hp;
 
 var temp = ds_list_create();
 var tempLevels = ds_list_create();

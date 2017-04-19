@@ -162,5 +162,14 @@ if(file_exists("Save" + load_slot + ".dat"))
         }
     }
     
+    if(instance_exists(obj_char))
+    {
+        var save_hp = data[? "char_hp"];
+        if(save_hp > 0)
+        {
+            obj_char.hp = save_hp;
+        }
+    }
+    
     ds_map_destroy(data);
 }
