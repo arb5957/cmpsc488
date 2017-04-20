@@ -41,6 +41,8 @@ with(inst)
 }
 
 children[0] = inst;
+
+move_speed = move_speed_default;
 </string>
           </argument>
         </arguments>

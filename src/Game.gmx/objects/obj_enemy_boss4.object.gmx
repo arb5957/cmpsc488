@@ -62,6 +62,25 @@ attack_cooldown = 300;
             <kind>1</kind>
             <string>//need something
 room_goto(rm_win_room);
+file_delete("room_save.ini");
+with(obj_universal_controller) {
+    //TODO: chance number of rooms
+    room_config = generate_floor_with_boss(number_of_rooms);
+    scr_print_room_config();
+    room_x = -1;
+    room_y = -1;
+    var h = ds_grid_height(room_config);
+    var w = ds_grid_width(room_config);
+    for(var r=0; r &lt; h; r++) {
+        for(var c=0; c &lt; w; c++) {
+            if(abs(ds_grid_get(room_config, c, r)) == 3) {
+                starting_room_x = c;
+                starting_room_y = r;
+                break;
+            }
+        }
+    }
+}
 </string>
           </argument>
         </arguments>

@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(room == rm_gamescreen2)
+            <string>image_alpha = random_range(0.5,1);
+if(room == rm_gamescreen2)
 {
     /*if(not place_empty(x, y)) {
         instance_destroy();

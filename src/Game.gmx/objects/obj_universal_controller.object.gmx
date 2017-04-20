@@ -44,6 +44,20 @@ loading_char_x = 0;
 loading_char_y = 0;
 room_config = -1;
 
+scr_load_world(global.save_selected);
+
+if(room_x != -1 &amp;&amp; room_y != -1
+    &amp;&amp; not obj_char.using_key) {
+    loading_char_position = true;
+    room_goto(rm_gamescreen2);
+}
+else {
+    obj_loading_overlay.loading = false;
+}
+
+
+
+
 if(not file_exists("room_save.ini")) {
 
     //Free room_config if it already holds a grid
@@ -73,7 +87,6 @@ else {
     
     for(var row=0; row&lt;grid_height; row++) {
         for(var col=0; col&lt;grid_width; col++) {
-            sdb("loading: " + string(row) + ", " + string(col));
             ds_grid_add(room_config, col, row, 
                 ini_read_real("room_config", string(row) + "," + string(col), -1));
         }
@@ -83,18 +96,11 @@ else {
 starting_room_x = -1;
 starting_room_y = -1;
 
-var line = "";
-for (var r=0; r&lt;grid_height; r++) {
-    for(var c=0; c&lt;grid_width; c++) {
-        line = line + " " + string(ds_grid_get(room_config, c, r));
-    }
-    sdb(line);
-    line = "";
-}
+scr_print_room_config();
 
 for(var r=0; r&lt;grid_height; r++) {
     for(var c=0; c&lt;grid_width; c++) {
-        if(ds_grid_get(room_config, c, r) == 3) {
+        if(abs(ds_grid_get(room_config, c, r)) == 3) {
             starting_room_x = c;
             starting_room_y = r;
             break;

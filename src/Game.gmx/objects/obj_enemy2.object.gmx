@@ -29,6 +29,8 @@
 name = "enemy2";
 script_execute(set_enemy_attr);
 
+move_speed = move_speed_default;
+
 using_item = false;
 </string>
           </argument>

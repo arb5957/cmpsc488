@@ -25,6 +25,10 @@ for(var i=0; i<instance_number(obj_terrain); i++) {
         key1++;
         ini_write_real(string(room_number), string(key0) + "," + string(key1), terrain.dir);
     }
+    else if(terrain.object_index == obj_to_boss_room) {
+        key1++;
+        ini_write_real(string(room_number), string(key0) + "," + string(key1), terrain.dir);
+    }
     key0++;
     key1=0;
 }

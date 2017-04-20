@@ -30,6 +30,7 @@ else {
     room_number = "room" + string(obj_universal_controller.room_x)
         + "_" + string(obj_universal_controller.room_y);
     ini_open("room_save.ini");
+    sdb("checking for room: " + string(room_number));
     if(not ini_section_exists(string(room_number))) { // new room
         instance_create(room_width/2, room_height/2-1024, obj_floor_generator);
     }
@@ -42,7 +43,7 @@ else {
             key1++;
             spawn_y = ini_read_real(string(room_number), string(key0) + "," + string(key1), -1);
             new_inst = instance_create(spawn_x, spawn_y, spawn_inst);
-            if(spawn_inst == obj_next_room) {
+            if(spawn_inst == obj_next_room || spawn_inst == obj_to_boss_room) {
                 key1++;
                 dir = ini_read_real(string(room_number), string(key0) + "," + string(key1), -1);
                 new_inst.dir = dir;

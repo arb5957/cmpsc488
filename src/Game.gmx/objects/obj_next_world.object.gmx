@@ -87,7 +87,9 @@ with(obj_universal_controller) {
     
     //Mark the starting room as visited.
     sdb("room x: " + string(room_x) + " room y: " + string(room_y));
-    ds_grid_set(room_config, room_x, room_y, -abs(ds_grid_get(room_config,room_x,room_y)));
+    if(room_x != -1 &amp;&amp; room_y != -1) {
+        ds_grid_set(room_config, room_x, room_y, -abs(ds_grid_get(room_config,room_x,room_y)));
+    }
     sdb("room config: ");
     print_grid(room_config);
 }

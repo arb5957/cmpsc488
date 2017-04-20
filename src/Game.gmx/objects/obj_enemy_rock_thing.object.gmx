@@ -33,6 +33,8 @@ hp = 2;
 enemy_max_hp = 2;
 
 using_item = false;
+
+move_speed = move_speed_default;
 </string>
           </argument>
         </arguments>

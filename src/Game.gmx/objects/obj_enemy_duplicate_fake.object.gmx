@@ -31,6 +31,8 @@ script_execute(set_enemy_attr);
 movement = "speed";
 
 var parent_id;
+
+move_speed = move_speed_default;
 </string>
           </argument>
         </arguments>

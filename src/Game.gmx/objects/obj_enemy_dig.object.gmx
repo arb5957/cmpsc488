@@ -34,6 +34,8 @@ attack_pattern = "dig";
 can_quake = true;
 can_dig = true;
 digging = false;
+
+move_speed = move_speed_default;
 </string>
           </argument>
         </arguments>
