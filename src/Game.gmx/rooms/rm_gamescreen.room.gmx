@@ -37,7 +37,37 @@ if(global.newlyCreated == true)
     }else{
         instance_create(obj_char.x, obj_char.y, obj_bow);
     }*/
-    instance_create(obj_char.x, obj_char.y, inven[invenct]);
+    if(instance_exists(obj_inventory))
+    {
+        var item = instance_create(-1, -1, inven[invenct]);
+        with(item)
+        {
+            persistent = true;
+            equipped = true;
+            on_ground = false;
+            visible = false;
+        }
+        
+        if(item.passive)
+        {
+            with(obj_inventory)
+            {
+                loadout[0, first_passive_slot] = item;
+            }
+            with(item)
+            {
+                script_execute(activation_script);
+            }
+        }
+        else
+        {
+            obj_inventory.loadout[0,0] = item;
+        }
+    }
+    else
+    {
+        instance_create(obj_char.x, obj_char.y, inven[invenct]);
+    }
 }
 
 /*
