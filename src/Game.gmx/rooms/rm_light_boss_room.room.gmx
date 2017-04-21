@@ -216,7 +216,7 @@ with(obj_next_room)
     <instance objName="obj_terrain_invisible" x="656" y="236" name="inst_D945D9CA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terrain_invisible" x="677" y="236" name="inst_D77F6160" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_piller_light" x="298" y="287" name="inst_07E8FC5D" locked="0" code="" scaleX="0.620000004768372" scaleY="0.709999978542328" colour="4294967295" rotation="0"/>
-    <instance objName="obj_piller_light" x="388" y="287" name="inst_6A9D6736" locked="0" code="" scaleX="0.699999988079071" scaleY="0.741573035717011" colour="4294967295" rotation="0"/>
+    <instance objName="obj_piller_light" x="388" y="287" name="inst_6A9D6736" locked="0" code="" scaleX="0.699999988079071" scaleY="0.74157303571701" colour="4294967295" rotation="0"/>
     <instance objName="obj_piller_light" x="547" y="288" name="inst_12D5F2C2" locked="0" code="" scaleX="0.682539701461792" scaleY="0.740000009536743" colour="4294967295" rotation="0"/>
     <instance objName="obj_piller_light" x="644" y="290" name="inst_6F1A40CE" locked="0" code="" scaleX="0.609375" scaleY="0.709999978542328" colour="4294967295" rotation="0"/>
     <instance objName="obj_light_boss_goto_fight" x="470" y="273" name="inst_0BA751B7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
