@@ -1,10 +1,11 @@
 var damage = argument0;
+var level = argument1;
 
 if(not invulnerable)
 {
     invulnerable = true;
-    hp -= damage;
-    obj_universal_controller.damage_done+=damage;
+    hp -= (damage + level);
+    obj_universal_controller.damage_done+=(damage + level);
     
     alarm[11] = invulnerable_time;
     

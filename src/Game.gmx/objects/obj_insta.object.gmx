@@ -84,7 +84,7 @@ if(activated){
     if(enemy_in_range &amp;&amp; alarm[0] &lt;= 0){
         nearest_enemy = instance_nearest(x, y, obj_enemy_base);
         with(nearest_enemy){
-            scr_enemy_takedamage(1000);
+            scr_enemy_takedamage(1000, 0);
         }
         
         alarm[0] = room_speed * 0.25;

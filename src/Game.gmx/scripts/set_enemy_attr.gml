@@ -3,8 +3,8 @@ randomize();
 switch(name)
 {
     case "enemy1" : 
-        hp = irandom_range(2, 6);
-        weapon = global.weap_array[irandom_range(1,2)];
+        hp = irandom_range(2, 6) * obj_universal_controller.world_difficulty;
+        weapon = global.weap_array[irandom_range(1,15)];
         movement = global.enemy_movements[irandom_range(1,2)];
         attack_pattern = choose("aggressive", "within_range");
         move_speed_default = 2;
@@ -41,8 +41,8 @@ switch(name)
         break;
     
     case "enemy2" :
-        hp = irandom_range(6, 10);
-        weapon = global.weap_array[irandom_range(1,2)];;
+        hp = irandom_range(6, 10) * obj_universal_controller.world_difficulty;
+        weapon = global.weap_array[irandom_range(1,15)];;
         movement = global.enemy_movements[3];
         attack_pattern = choose("aggressive", "within_range");
         item = global.items_array[1];
@@ -58,7 +58,7 @@ switch(name)
         break;
     
     case "butterfly" :
-        hp = irandom_range(4, 6);
+        hp = irandom_range(4, 6)* obj_universal_controller.world_difficulty;
         movement = "butterfly";
         attack_pattern = "butterfly";
         weapon = "obj_blue_gun";
@@ -77,10 +77,10 @@ switch(name)
         break;
     
     case "dig" :
-        hp = irandom_range(8, 12);
+        hp = irandom_range(8, 12)* obj_universal_controller.world_difficulty;
         movement = "dig";
         attack_pattern = "dig";
-        weapon = global.weap_array[irandom_range(1,5)];
+        weapon = global.weap_array[irandom_range(1,15)];
         item = choose("obj_potion", "obj_shield");
         move_speed_default = 1;
         
@@ -95,10 +95,10 @@ switch(name)
         break;
     
     case "dup_real" :
-        hp = irandom_range(5, 10);
+        hp = irandom_range(5, 10)* obj_universal_controller.world_difficulty;
         movement = "speed";
         attack_pattern = "within_range";
-        weapon = global.weap_array[irandom_range(1, 5)];
+        weapon = global.weap_array[irandom_range(1, 15)];
         item = "obj_pet";
         move_speed_default = 2;
         
@@ -113,10 +113,10 @@ switch(name)
         break;
         
     case "dup_fake" :
-        hp = irandom_range (3, 6);
+        hp = irandom_range (3, 6)* obj_universal_controller.world_difficulty;
         movement = "speed";
-        attack_pattern = "within_range";
-        weapon = global.weap_array[irandom_range(1, 5)];
+        attack_pattern = choose("aggressive", "within_range");
+        weapon = global.weap_array[irandom_range(1, 15)];
         item = "obj_potion";
         move_speed_default = 2;
         
@@ -131,7 +131,7 @@ switch(name)
         break;
     
     case "healer" :
-        hp = irandom_range (3, 6);
+        hp = irandom_range (3, 6)* obj_universal_controller.world_difficulty;
         movement = "healer";
         attack_pattern = "healer";
         weapon = "obj_blue_gun";
@@ -149,7 +149,7 @@ switch(name)
         break;
         
     case "snake" :
-        hp = irandom_range (11, 20);
+        hp = irandom_range (11, 20)* obj_universal_controller.world_difficulty;
         movement = "snake_head";
         attack_pattern = "snake_head";
         weapon = "obj_blue_gun";
@@ -167,12 +167,12 @@ switch(name)
         break;
     
     case "summoner" :
-        hp = irandom_range (4, 8);
+        hp = irandom_range (4, 8)* obj_universal_controller.world_difficulty;
         movement = "summoner";
         attack_pattern = "summoner";
         weapon = "obj_blue_gun";
         item = "obj_potion";
-        move_speed_default = 3;
+        move_speed_default = 6;
         
         common_drop = obj_slower;
         common_drop_rate = 50;
@@ -185,7 +185,7 @@ switch(name)
         break;
         
     case "inker" :
-        hp = irandom_range (10, 12);
+        hp = irandom_range (10, 12)* obj_universal_controller.world_difficulty;
         movement = "inker";
         attack_pattern = "inker";
         weapon = "obj_blue_gun";

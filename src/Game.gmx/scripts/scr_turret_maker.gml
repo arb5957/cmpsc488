@@ -14,7 +14,7 @@ if(owner == owners.ENEMY)
 {
     if(can_activate == true)
     {
-        alarm[1] = 120;
+        alarm[1] = cooldown*5;
         can_activate = false;
         turret_inst = instance_create(x, y, obj_turret);
         with(turret_inst)

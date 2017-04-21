@@ -176,7 +176,7 @@ if(activated and owner == owners.CHARACTER)
 {
     with(other)
     {
-           script_execute(scr_enemy_takedamage, other.damage);
+           script_execute(scr_enemy_takedamage, other.damage, other.level);
     }
     
     script_execute(scr_add_exp);

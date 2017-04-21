@@ -72,9 +72,7 @@
           <argument>
             <kind>1</kind>
             <string>///Testing
-with(obj_turret){
-    instance_destroy();
-}
+instance_destroy();
 </string>
           </argument>
         </arguments>

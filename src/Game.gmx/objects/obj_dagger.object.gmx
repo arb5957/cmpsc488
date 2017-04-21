@@ -125,7 +125,7 @@ if(activated and owner == owners.CHARACTER)
     activated = false;
     with(other)
     {
-           script_execute(scr_enemy_takedamage, other.damage);
+           script_execute(scr_enemy_takedamage, other.damage, other.level);
     }
 }
 </string>

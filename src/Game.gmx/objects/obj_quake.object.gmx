@@ -78,7 +78,14 @@ alarm[1] = 60;
 {
     with(other)
     {
-        script_execute(scr_enemy_takedamage, other.damage);
+       if(other.from_weapon != noone)
+        {
+            script_execute(scr_enemy_takedamage, other.damage, other.from_weapon.level)
+        }
+        else
+        {
+            script_execute(scr_enemy_takedamage, other.damage, 0);
+        }
     }
     
     if(from_weapon != noone)
