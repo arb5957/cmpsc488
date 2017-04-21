@@ -85,7 +85,14 @@ bullets = 0;
         speed = 6;
         direction = other.image_angle;
         damage = 5;
-        owner = owners.CHARACTER;
+        if(other.owner == owners.CHARACTER)
+        {
+            owner = owners.CHARACTER;
+        }
+        else
+        {
+            owner = owners.ENEMY;
+        }
     }
     bullets = bullets + 1;
     if(bullets == 4){

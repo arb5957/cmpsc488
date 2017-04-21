@@ -393,6 +393,9 @@
       <script>scripts\scr_gun_1_position.gml</script>
       <script>scripts\scr_gun_2.gml</script>
       <script>scripts\scr_gun_3.gml</script>
+      <script>scripts\scr_gun_4.gml</script>
+      <script>scripts\scr_gun_6.gml</script>
+      <script>scripts\scr_gun7.gml</script>
       <script>scripts\scr_rain_maker.gml</script>
       <script>scripts\scr_rain_maker_position.gml</script>
       <script>scripts\scr_flame_gun.gml</script>
@@ -404,11 +407,8 @@
       <script>scripts\scr_paint_purple.gml</script>
       <script>scripts\scr_paint_red.gml</script>
       <script>scripts\scr_paint_yellow.gml</script>
-      <script>scripts\scr_gun_4.gml</script>
       <script>scripts\scr_health_pack_dropper.gml</script>
       <script>scripts\scr_speed_dropper.gml</script>
-      <script>scripts\scr_gun_6.gml</script>
-      <script>scripts\scr_gun7.gml</script>
       <script>scripts\scr_speed_buff.gml</script>
       <script>scripts\scr_map.gml</script>
     </scripts>
@@ -632,6 +632,9 @@
       <object>objects\obj_gun_2</object>
       <object>objects\obj_gun_3</object>
       <object>objects\obj_gun_4</object>
+      <object>objects\obj_gun_5</object>
+      <object>objects\obj_gun_6</object>
+      <object>objects\obj_gun_7</object>
       <object>objects\obj_insta</object>
       <object>objects\obj_glove_bounce</object>
       <object>objects\obj_whip</object>
@@ -690,9 +693,6 @@
       <object>objects\obj_health_panel</object>
       <object>objects\obj_speed_area</object>
       <object>objects\obj_speed_zone</object>
-      <object>objects\obj_gun_5</object>
-      <object>objects\obj_gun_6</object>
-      <object>objects\obj_gun_7</object>
       <object>objects\obj_speed_buff</object>
       <object>objects\obj_teleshot</object>
       <object>objects\obj_map</object>
