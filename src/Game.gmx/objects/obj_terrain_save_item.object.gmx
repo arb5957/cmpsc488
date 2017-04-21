@@ -25,19 +25,32 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with(other) {
+            <string>var add = true;
+with(other) {
 
-  
-    global.saved_items_array[array_length_1d(global.saved_items_array)] = object_index;
-    
-    data = ds_map_create();
-    
-    var temp = ds_list_create();
-    temp[| 0] = global.saved_items_array;
-    data[? "saved_items"] = ds_list_write(temp);
-    ds_list_destroy(temp);
-    ds_map_secure_save(data, "saved_items.dat");
-    ds_map_destroy(data);
+    var i;
+    for(i = 0; i &lt; array_length_1d(global.saved_items_array); i++)
+    {
+        if(object_index == global.saved_items_array[i])
+        {
+            add = false;
+            i = array_length_1d(global.saved_items_array);
+        }
+    }
+
+    if(add == true)
+    {
+        global.saved_items_array[array_length_1d(global.saved_items_array)] = object_index;
+        
+        data = ds_map_create();
+        
+        var temp = ds_list_create();
+        temp[| 0] = global.saved_items_array;
+        data[? "saved_items"] = ds_list_write(temp);
+        ds_list_destroy(temp);
+        ds_map_secure_save(data, "saved_items.dat");
+        ds_map_destroy(data);
+    }
     //ini_open("saved_item.ini");
     //ini_write_real("saved_item", "object_index", object_index);
     room_goto(rm_titlescreen);
