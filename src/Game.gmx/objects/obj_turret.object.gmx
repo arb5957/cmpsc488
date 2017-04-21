@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>alarm[0] = room_speed*7;
+nearest_enemy = noone;
+fire_direction = 0;
 </string>
           </argument>
         </arguments>
@@ -103,18 +105,19 @@ if(owner == owners.CHARACTER)
         
     if(enemy_in_range &amp;&amp; alarm[1] &lt;= 0){
         nearest_enemy = instance_nearest(x, y, obj_enemy_base);
+        if(nearest_enemy == noone) exit;
         fire_direction = point_direction(x, y, nearest_enemy.x, nearest_enemy.y);
             
         with(instance_create(x, y, obj_cannonball)){
             damage = 10;
             speed = 6;
-            direction = obj_turret.fire_direction;
-            image_angle = obj_turret.fire_direction;       
+            direction = other.fire_direction;
+            image_angle = other.fire_direction;       
             owner = owners.CHARACTER;     
         }
          
-        image_angle = obj_turret.fire_direction;
-        direction = obj_turret.fire_direction;   
+        image_angle = fire_direction;
+        direction = fire_direction;   
         alarm[1] = room_speed * 0.25;
     }
 }
@@ -124,18 +127,19 @@ if(owner == owners.ENEMY)
         
     if(enemy_in_range &amp;&amp; alarm[1] &lt;= 0){
         nearest_enemy = instance_nearest(x, y, obj_char);
+        if(nearest_enemy == noone) exit;
         fire_direction = point_direction(x, y, nearest_enemy.x, nearest_enemy.y);
             
         with(instance_create(x, y, obj_cannonball)){
             damage = 10;
             speed = 6;
-            direction = obj_turret.fire_direction;
-            image_angle = obj_turret.fire_direction;       
+            direction = other.fire_direction;
+            image_angle = other.fire_direction;       
             owner = owners.ENEMY;     
         }
          
-        image_angle = obj_turret.fire_direction;
-        direction = obj_turret.fire_direction;   
+        image_angle = fire_direction;
+        direction = fire_direction;   
         alarm[1] = room_speed * 0.25;
     }
 </string>
