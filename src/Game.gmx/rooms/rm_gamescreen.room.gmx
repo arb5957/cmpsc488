@@ -32,11 +32,12 @@ if(instance_exists(obj_char)) {
 
 if(global.newlyCreated == true)
 {
-    if(inven[0] == obj_dagger){
+    /*if(inven[0] == obj_dagger){
         instance_create(obj_char.x, obj_char.y, obj_dagger);
     }else{
         instance_create(obj_char.x, obj_char.y, obj_bow);
-    }
+    }*/
+    instance_create(obj_char.x, obj_char.y, inven[invenct]);
 }
 
 /*

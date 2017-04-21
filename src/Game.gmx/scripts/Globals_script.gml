@@ -76,3 +76,52 @@ global.grid = mp_grid_create(0, 0, room_width/32, room_height/32, 32, 32);
 
 global.saved_items_array[0] = obj_bow;
 global.saved_items_array[1] = obj_dagger;
+
+/*
+//For testing.
+global.saved_items_array[2] = obj_blue_gun;
+global.saved_items_array[3] = obj_flame_gun;
+global.saved_items_array[4] = obj_glove;
+global.saved_items_array[5] = obj_dual_sword;
+global.saved_items_array[6] = obj_sword;
+global.saved_items_array[7] = obj_shield;
+global.saved_items_array[8] = obj_spin_blade;
+global.saved_items_array[9] = obj_turret_maker;
+global.saved_items_array[10] = obj_pet;
+global.saved_items_array[11] = obj_gun_1;
+global.saved_items_array[12] = obj_gun_2;
+global.saved_items_array[13] = obj_gun_3;
+global.saved_items_array[14] = obj_gun_4;
+global.saved_items_array[15] = obj_insta;
+global.saved_items_array[16] = obj_glove_bounce;
+global.saved_items_array[17] = obj_whip;
+global.saved_items_array[18] = obj_recon_remote;
+global.saved_items_array[19] = obj_att_remote;
+global.saved_items_array[20] = obj_gun_5;
+global.saved_items_array[21] = obj_gun_6;
+global.saved_items_array[22] = obj_gun_7;
+global.saved_items_array[23] = obj_potion;
+global.saved_items_array[24] = obj_map;
+global.saved_items_array[25] = obj_slower;
+global.saved_items_array[26] = obj_speed_boost;
+global.saved_items_array[27] = obj_flying_stone;
+global.saved_items_array[28] = obj_teleport;
+global.saved_items_array[29] = obj_potion_poison;
+global.saved_items_array[30] = obj_potion_speed;
+global.saved_items_array[31] = obj_quake_boots;
+global.saved_items_array[32] = obj_shovel;
+global.saved_items_array[33] = obj_rain_maker;
+global.saved_items_array[34] = obj_snow_maker;
+global.saved_items_array[35] = obj_firework_maker;
+global.saved_items_array[36] = obj_cloud_maker;
+global.saved_items_array[37] = obj_paint_black;
+global.saved_items_array[38] = obj_paint_blue;
+global.saved_items_array[39] = obj_paint_green;
+global.saved_items_array[40] = obj_paint_orange;
+global.saved_items_array[41] = obj_paint_purple;
+global.saved_items_array[42] = obj_paint_red;
+global.saved_items_array[43] = obj_paint_yellow;
+global.saved_items_array[44] = obj_health_pack_dropper;
+global.saved_items_array[45] = obj_speed_zone;
+
+

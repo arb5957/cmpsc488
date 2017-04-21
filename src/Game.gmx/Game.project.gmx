@@ -483,6 +483,7 @@
         <object>objects\obj_spawner_overlay</object>
         <object>objects\obj_loading_overlay</object>
         <object>objects\obj_map_overlay</object>
+        <object>objects\obj_select_starting_weapon</object>
       </objects>
     </objects>
     <objects name="Character">
