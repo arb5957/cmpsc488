@@ -202,6 +202,13 @@
     <sprite>sprites\spr_piller_light</sprite>
     <sprite>sprites\spr_piller_ice</sprite>
     <sprite>sprites\spr_piller_power</sprite>
+    <sprites name="Tutorial">
+      <sprite>sprites\spr_movement_tutorial</sprite>
+      <sprite>sprites\spr_attack_tutorial</sprite>
+      <sprite>sprites\spr_inventory_tutorial</sprite>
+      <sprite>sprites\spr_loadout1_tutorial</sprite>
+      <sprite>sprites\spr_loadout2_tutorial</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Menu">
@@ -716,6 +723,15 @@
     <object>objects\obj_next_world</object>
     <object>objects\obj_music</object>
     <object>objects\obj_town_key</object>
+    <objects name="Tutorial">
+      <object>objects\obj_movement_tutorial</object>
+      <object>objects\obj_attack_tutorial</object>
+      <object>objects\obj_inventory_tutorial</object>
+      <object>objects\obj_loadout1_tutorial</object>
+      <object>objects\obj_loadout2_tutorial</object>
+      <object>objects\obj_tutorial_enemy</object>
+      <object>objects\obj_goto_tutorail</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
@@ -745,6 +761,9 @@
       <room>rooms\rm_ice_boss_fight</room>
       <room>rooms\rm_light_boss_fight</room>
       <room>rooms\rm_power_boss_fight</room>
+    </rooms>
+    <rooms name="Tutorial">
+      <room>rooms\rm_tutorial</room>
     </rooms>
   </rooms>
   <help>

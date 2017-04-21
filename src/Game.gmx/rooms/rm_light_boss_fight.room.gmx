@@ -297,6 +297,11 @@ with(obj_next_room)
     <instance objName="obj_terrain_wall" x="0" y="1024" name="inst_7D2BC056" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terrain_wall" x="0" y="992" name="inst_BE8C9712" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy_boss2" x="960" y="896" name="inst_642A9987" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1952" y="1600" name="inst_29A47274" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1952" y="1632" name="inst_B5350C92" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1952" y="1664" name="inst_8773E0DB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1952" y="1888" name="inst_8156AF59" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1952" y="1920" name="inst_20E9A3B3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

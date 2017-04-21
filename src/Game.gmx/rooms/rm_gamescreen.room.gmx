@@ -357,6 +357,7 @@ mp_grid_destroy(global.grid)
     <instance objName="obj_enemy_inker" x="2384" y="1456" name="inst_F23D37D2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_map_overlay" x="160" y="32" name="inst_B385A397" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_map" x="1888" y="976" name="inst_3E6FF886" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_goto_tutorail" x="1888" y="1376" name="inst_67A8F027" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

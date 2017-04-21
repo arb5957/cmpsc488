@@ -10,13 +10,8 @@
   <persistent>0</persistent>
   <colour>32896</colour>
   <showcolour>-1</showcolour>
-  <code>obj_char.x = 832;
-obj_char.y = 1888;
-
-with(obj_next_room)
-{
-    dir = global.prev_room;
-}</code>
+  <code>obj_char.x = 160;
+obj_char.y = 1824;</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -296,12 +291,77 @@ with(obj_next_room)
     <instance objName="obj_terrain_wall" x="0" y="1056" name="inst_5B51E500" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terrain_wall" x="0" y="1024" name="inst_7D2BC056" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terrain_wall" x="0" y="992" name="inst_BE8C9712" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_boss3" x="896" y="1024" name="inst_22C337F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terrain_wall" x="1952" y="1600" name="inst_9736317B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terrain_wall" x="1952" y="1632" name="inst_D46AE31D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terrain_wall" x="1952" y="1664" name="inst_7B979C09" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terrain_wall" x="1952" y="1920" name="inst_2529CB4E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terrain_wall" x="1952" y="1888" name="inst_2104DC5A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_movement_tutorial" x="160" y="1760" name="inst_681ACF68" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="32" y="1696" name="inst_4B7BE5FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="64" y="1696" name="inst_7989CA44" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="96" y="1696" name="inst_51ADB059" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="128" y="1696" name="inst_BC5EE8C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="160" y="1696" name="inst_EA0945A4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="192" y="1696" name="inst_2AF44C08" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="224" y="1696" name="inst_FF7B0A73" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="256" y="1696" name="inst_C3DAA50C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="288" y="1696" name="inst_7F102433" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="320" y="1696" name="inst_6B4500F8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="352" y="1696" name="inst_DC804D36" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="384" y="1696" name="inst_D1F021F6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="416" y="1696" name="inst_3C1DCDA1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="448" y="1696" name="inst_69866DBE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="480" y="1696" name="inst_0CCD67F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="512" y="1696" name="inst_E6ED44A3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="544" y="1696" name="inst_22004C75" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="576" y="1696" name="inst_17C5A24F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="608" y="1696" name="inst_8B89FE80" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="640" y="1696" name="inst_78E0F65D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="672" y="1696" name="inst_9FCCE7D8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="704" y="1696" name="inst_ED7B3565" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="736" y="1696" name="inst_ED893880" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="768" y="1696" name="inst_5983BA78" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="800" y="1696" name="inst_857C4E10" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="832" y="1696" name="inst_88B8FC75" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="864" y="1696" name="inst_50EC264B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="896" y="1696" name="inst_02767657" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="928" y="1696" name="inst_4604B429" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="960" y="1696" name="inst_9EBEBE5A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="992" y="1696" name="inst_8E7100C9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1024" y="1696" name="inst_E3DD4C1B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1056" y="1696" name="inst_BD4C3F9B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1088" y="1696" name="inst_FD13FEB7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1120" y="1696" name="inst_2328D0AE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1152" y="1696" name="inst_8E567207" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1184" y="1696" name="inst_447D3BA4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1216" y="1696" name="inst_1B617989" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1248" y="1696" name="inst_236E0DC6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1280" y="1696" name="inst_1AE20C75" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1312" y="1696" name="inst_21BFE82E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1344" y="1696" name="inst_85DC7825" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1376" y="1696" name="inst_CB69BF12" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1408" y="1696" name="inst_4D02F788" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1440" y="1696" name="inst_5CE67FD2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1472" y="1696" name="inst_6F7B75E3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1504" y="1696" name="inst_B00CBAAE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1536" y="1696" name="inst_5680575E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1568" y="1696" name="inst_33D4A40B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1600" y="1696" name="inst_21CAA728" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1632" y="1696" name="inst_2D228341" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1664" y="1696" name="inst_9EEAD66E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1696" y="1696" name="inst_0EDA1CA6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1728" y="1696" name="inst_035E3440" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1760" y="1696" name="inst_2C5E5B85" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1792" y="1696" name="inst_8125976E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1824" y="1696" name="inst_7FE5DD6D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1856" y="1696" name="inst_433C0125" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1888" y="1696" name="inst_FF82194C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="1920" y="1696" name="inst_4784657D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_tutorial_enemy" x="1856" y="1824" name="inst_4B92EA68" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_attack_tutorial" x="1824" y="1760" name="inst_30AE89DA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_inventory_tutorial" x="512" y="1760" name="inst_4F41C2E9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_loadout1_tutorial" x="896" y="1728" name="inst_252856D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_loadout2_tutorial" x="1248" y="1728" name="inst_F0005F86" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
