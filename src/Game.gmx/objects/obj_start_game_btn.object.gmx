@@ -110,6 +110,7 @@ flag = false;
         
         //script_execute(src_test_save);
         global.newlyCreated = true;
+        global.first_time_on_gamescreen = true;
     
     //Delete old world save
     if(file_exists("room_save.ini")) {

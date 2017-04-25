@@ -77,6 +77,12 @@ global.grid = mp_grid_create(0, 0, room_width/32, room_height/32, 32, 32);
 global.saved_items_array[0] = obj_bow;
 global.saved_items_array[1] = obj_dagger;
 
+//This variable is used to check if the player visited the gamescreen
+//for the first time after making a new character or loading a new character.
+//This variable is important so that we don't overwrite the player's loadout
+//after the player defeats a boss and goes back to the gamescreen.
+global.first_time_on_gamescreen = true;
+
 /*
 //For testing.
 global.saved_items_array[2] = obj_blue_gun;
