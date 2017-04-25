@@ -455,6 +455,7 @@
       <objects name="buttons">
         <object>objects\obj_play_btn</object>
         <object>objects\obj_settings_btn</object>
+        <object>objects\obj_fullscreen_btn</object>
         <object>objects\obj_credits</object>
         <object>objects\obj_exit_btn</object>
         <object>objects\obj_save_btn</object>
