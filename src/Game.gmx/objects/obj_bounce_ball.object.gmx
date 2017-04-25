@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited();
+lifetime = 1;
 </string>
           </argument>
         </arguments>
@@ -55,6 +56,13 @@ if(place_meeting(x + hspeed, y, obj_terrain_wall))
 //Vertical bounce
 if(place_meeting(x, y + vspeed, obj_terrain_wall))
     direction = -direction;
+
+lifetime--;
+sdb(string(lifetime));
+if(lifetime &lt; 0)
+{
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>

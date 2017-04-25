@@ -17,6 +17,7 @@ with(inst)
     damage = other.damage;
     owner = other.owner;
     from_weapon = other.id;
+    lifetime = other.level;
 }
 
 with(inst2){
@@ -25,6 +26,7 @@ with(inst2){
     damage = other.damage;
     owner = other.owner;
     from_weapon= other.id;
+    lifetime = other.level;
 }
 
 alarm[COOLDOWN] = cooldown/2;
