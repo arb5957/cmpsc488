@@ -111,51 +111,54 @@ cooldown = room_speed / 4;
             <string>///Toggle inventory
 
 first_opening = false;
-if(keyboard_check_pressed(vk_backspace))
+if(global.debug)
 {
-    opened = !opened;
-    //Say this is the first time opening the escape menu
-    if opened { 
-        first_opening = true;
-        
-        dropping_object = false;
-    }
-}
-if(dropping_object and can_drop)
-{
-    if(mouse_check_button(mb_left))
+    if(keyboard_check_pressed(vk_backspace))
     {
-        sdb("dropping enemy " + object_get_name(enemies[selected_enemy]));
-        instance_create(mouse_x, mouse_y, enemies[selected_enemy]);
-        alarm[0] = cooldown;
-        can_drop = false;
-    }
-}
-if(not opened)
-{
-    if(dropping_object)
-    {
-        if(mouse_check_button_released(mb_right))
-        {
+        opened = !opened;
+        //Say this is the first time opening the escape menu
+        if opened { 
+            first_opening = true;
+            
             dropping_object = false;
         }
     }
-    else
+    if(dropping_object and can_drop)
     {
-        if(instance_exists(obj_escape_overlay))
+        if(mouse_check_button(mb_left))
         {
-            if(not obj_escape_overlay.opened)
+            sdb("dropping enemy " + object_get_name(enemies[selected_enemy]));
+            instance_create(mouse_x, mouse_y, enemies[selected_enemy]);
+            alarm[0] = cooldown;
+            can_drop = false;
+        }
+    }
+    if(not opened)
+    {
+        if(dropping_object)
+        {
+            if(mouse_check_button_released(mb_right))
             {
-                if(instance_exists(obj_inventory) &amp;&amp; not instance_exists(obj_recon_drone)
-                    &amp;&amp; not instance_exists(obj_att_drone)) {
-                    obj_inventory.disabled = false;
-                    obj_inventory.can_use_items = true;
+                dropping_object = false;
+            }
+        }
+        else
+        {
+            if(instance_exists(obj_escape_overlay))
+            {
+                if(not obj_escape_overlay.opened)
+                {
+                    if(instance_exists(obj_inventory) &amp;&amp; not instance_exists(obj_recon_drone)
+                        &amp;&amp; not instance_exists(obj_att_drone)) {
+                        obj_inventory.disabled = false;
+                        obj_inventory.can_use_items = true;
+                    }
                 }
             }
+            
         }
         
     }
-    
 }
 </string>
           </argument>
@@ -180,7 +183,7 @@ if(not opened)
           <argument>
             <kind>1</kind>
             <string>///Save previous alpha
-
+if(not global.debug) exit;
 previous_alpha = draw_get_alpha();
 previous_color = draw_get_colour();
 </string>

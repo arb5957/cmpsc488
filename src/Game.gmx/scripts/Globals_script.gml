@@ -83,6 +83,10 @@ global.saved_items_array[1] = obj_dagger;
 //after the player defeats a boss and goes back to the gamescreen.
 global.first_time_on_gamescreen = true;
 
+//This enables many cheats such as the spawn_overlay,
+//and solving puzzles instantly.
+global.debug = false;
+
 /*
 //For testing.
 global.saved_items_array[2] = obj_blue_gun;
