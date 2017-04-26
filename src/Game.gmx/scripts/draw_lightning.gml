@@ -71,6 +71,18 @@ do //loop through and draw all the segments
     //draw the white center of the lightning
     draw_line_width_colour(xx + difx2,yy + dify2,xx2 + difx,yy2 + dify, size,c_white,c_white);
     
+    if(owner == owners.CHARACTER)
+    {
+        var enemy_hit = collision_line(xx + difx2,yy + dify2,xx2 + difx,yy2 + dify, obj_enemy_base, false, true)
+        if(enemy_hit != noone)
+        {
+            //sdb("hit enemy with lighting");
+            with(enemy_hit)
+            {
+                script_execute(scr_enemy_takedamage, other.from_weapon.damage, other.from_weapon.level);
+            }
+        }
+    }
     i2++;
     difx2 = difx;
     dify2 = dify;
