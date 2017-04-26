@@ -50,7 +50,7 @@ image_speed = .15;
           <argument>
             <kind>1</kind>
             <string>if(obj_universal_controller.farthest_world &lt; world_difficulty) {
-    instance_destroy();
+    //instance_destroy();
 }
 </string>
           </argument>

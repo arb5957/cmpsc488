@@ -28,7 +28,7 @@
             <string>///Initialize
 
 world_difficulty = 1;
-farthest_world = 1;
+farthest_world = 10;
 in_dungeon_pit = false;
 room_x = -1;
 room_y = -1;
