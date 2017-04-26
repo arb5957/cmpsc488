@@ -22,9 +22,10 @@ if(instance_exists(obj_universal_controller)) {
     }
 }
 
-if(file_exists("room_save.ini")) {
-    file_delete("room_save.ini");
-}</code>
+file_delete("room_save1.ini");
+file_delete("room_save2.ini");
+file_delete("room_save3.ini");
+file_delete("room_save4.ini");</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

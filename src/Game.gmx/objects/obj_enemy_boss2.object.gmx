@@ -68,13 +68,15 @@ alarm[1] = 240;
 }
 
 room_goto(rm_gamescreen);
-file_delete("room_save.ini");
+file_delete("room_save" + string(obj_universal_controller.world_difficulty) + ".ini");
 with(obj_universal_controller) {
     //TODO: chance number of rooms
     room_config = generate_floor_with_boss(number_of_rooms);
     grid_height = ds_grid_height(room_config);
     grid_width = ds_grid_width(room_config);
     scr_print_room_config();
+    grid_height = ds_grid_height(room_config);
+    grid_width = ds_grid_width(room_config);
     room_x = -1;
     room_y = -1;
     for(var r=0; r &lt; grid_height; r++) {

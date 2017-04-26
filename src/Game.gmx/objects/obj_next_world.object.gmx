@@ -80,10 +80,56 @@ with(obj_universal_controller) {
     moving_from_town = true;
     room_x = starting_room_x;
     room_y = starting_room_y;
+    if(world_difficulty != other.world_difficulty) {
+        //TODO: save old room config and load or create new one
+        //save room config if not already saved
+        ini_open("room_save" + string(world_difficulty) + ".ini");
+        if(not ini_section_exists("room_config")) {
+            ini_write_real("room_config", "width", grid_width);
+            ini_write_real("room_config", "height", grid_height);
+            for(var row = 0; row &lt; grid_height; row++) {
+                for(var col = 0; col &lt; grid_width; col++) {
+                    ini_write_real("room_config", string(row) + "," + string(col),
+                        ds_grid_get(room_config, col, row));
+                }
+            }
+        }
+        ini_close();
+        ds_grid_destroy(room_config);
+        
+        //load new world config if exists, else create a new one
+        if(file_exists("room_save" + string(other.world_difficulty) + ".ini")) {
+            ini_open("room_save" + string(other.world_difficulty) + ".ini");
+            if(ini_section_exists("room_config")) {
+                grid_height = ini_read_real("room_config", "height", 0);
+                grid_width = ini_read_real("room_config", "width", 0);
+                room_config = ds_grid_create(grid_width, grid_height);
+                for(var row = 0; row &lt; grid_height; row++) {
+                    for(var col = 0; col &lt; grid_width; col++) {
+                        ds_grid_add(room_config, col, row,
+                            ini_read_real("room_config", string(row) + "," + string(col), -1));
+                    }
+                }
+            }
+            else {
+                room_config = generate_floor_with_boss(number_of_rooms);
+                grid_height = ds_grid_height(room_config);
+                grid_width = ds_grid_width(room_config);
+            }
+            ini_close();
+        }
+        else {
+            room_config = generate_floor_with_boss(number_of_rooms);
+            grid_height = ds_grid_height(room_config);
+            grid_width = ds_grid_width(room_config);
+        }
+        scr_print_room_config();
+    }
     world_difficulty = other.world_difficulty;
     if(farthest_world &lt; other.world_difficulty) {
         farthest_world = other.world_difficulty;
     }
+    
     
     //Mark the starting room as visited.
     sdb("room x: " + string(room_x) + " room y: " + string(room_y));

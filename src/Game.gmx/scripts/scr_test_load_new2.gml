@@ -133,12 +133,12 @@ if(file_exists("Save2.dat"))
 
 //Load world
 
-if(file_exists("room_save.ini")) {
-    file_delete("room_save.ini");
+if(file_exists("room_save" + string(obj_universal_controller.world_difficulty) + ".ini")) {
+    file_delete("room_save" + string(obj_universal_controller.world_difficulty) + ".ini");
 }
 
 if(file_exists("room_save_2.ini")) {
-    file_copy("room_save_2.ini", "room_save.ini");
+    file_copy("room_save_2.ini", "room_save" + string(obj_universal_controller.world_difficulty) + ".ini");
     /*ini_open("room_save_1.ini");
     room_x = ini_read_real("char_position", "room_x", -1);
     room_y = ini_read_real("char_position", "room_y", -1);

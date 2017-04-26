@@ -58,7 +58,7 @@ else {
 
 
 
-if(not file_exists("room_save.ini")) {
+if(not file_exists("room_save" + string(world_difficulty) + ".ini")) {
 
     //Free room_config if it already holds a grid
     //to avoid memory leaks.
@@ -73,7 +73,7 @@ if(not file_exists("room_save.ini")) {
     grid_width = ds_grid_width(room_config);
 }
 else {
-    ini_open("room_save.ini");
+    ini_open("room_save" + string(world_difficulty) + ".ini");
     grid_height = ini_read_real("room_config", "height", 0);
     grid_width = ini_read_real("room_config", "width", 0);
     //Free room_config if it already holds a grid

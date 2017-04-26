@@ -49,6 +49,7 @@
           <argument>
             <kind>1</kind>
             <string>scr_save(2);
+scr_save_world(2);
 </string>
           </argument>
         </arguments>

@@ -112,10 +112,11 @@ flag = false;
         global.newlyCreated = true;
         global.first_time_on_gamescreen = true;
     
+    /*
     //Delete old world save
-    if(file_exists("room_save.ini")) {
-        file_delete("room_save.ini");
-    }
+    if(file_exists("room_save" + string(obj_universal_controller.world_difficulty) + ".ini")) {
+        file_delete("room_save" + string(obj_universal_controller.world_difficulty) + ".ini");
+    } */
 }
 </string>
           </argument>

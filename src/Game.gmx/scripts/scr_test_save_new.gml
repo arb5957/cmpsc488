@@ -117,8 +117,8 @@ scr_save_room();
 if(file_exists("room_save_1.ini")) {
     file_delete("room_save_1.ini");
 }
-if(file_exists("room_save.ini")) {
-    file_copy("room_save.ini", "room_save_1.ini");
+if(file_exists("room_save" + string(obj_universal_controller.world_difficulty) + ".ini")) {
+    file_copy("room_save" + string(obj_universal_controller.world_difficulty) + ".ini", "room_save_1.ini");
 }
 
 ini_open("room_save_1.ini");

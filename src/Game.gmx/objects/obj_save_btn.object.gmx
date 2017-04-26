@@ -97,6 +97,7 @@ flag = false;
     }
     */
     scr_save(global.save_selected);
+    scr_save_world(global.save_selected);
     /*
     switch(global.save_selected)
     {

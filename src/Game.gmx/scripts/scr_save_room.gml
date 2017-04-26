@@ -9,7 +9,7 @@ else {
     room_number = "room" + string(obj_universal_controller.room_x)
         + "_" + string(obj_universal_controller.room_y);
 }
-ini_open("room_save.ini");
+ini_open("room_save" + string(obj_universal_controller.world_difficulty) + ".ini");
 ini_section_delete(string(room_number)); // delete the section for this room if it exists
 //Save terrain
 key0 = 0;
