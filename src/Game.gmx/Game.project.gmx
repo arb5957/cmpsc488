@@ -24,6 +24,7 @@
       <sprites name="effects">
         <sprite>sprites\spr_char_digging</sprite>
       </sprites>
+      <sprite>sprites\spr_npc_talk</sprite>
     </sprites>
     <sprites name="Terrain">
       <sprite>sprites\spr_terrain_stickyfloor</sprite>
@@ -72,6 +73,7 @@
         <sprite>sprites\spr_enemy_summoner_summing</sprite>
         <sprite>sprites\spr_flame</sprite>
         <sprite>sprites\spr_heal_aura</sprite>
+        <sprite>sprites\spr_hurt_aura</sprite>
         <sprite>sprites\spr_lightning_strike</sprite>
         <sprite>sprites\spr_lightning_tell</sprite>
         <sprite>sprites\spr_quake</sprite>
@@ -205,9 +207,13 @@
     <sprites name="Tutorial">
       <sprite>sprites\spr_movement_tutorial</sprite>
       <sprite>sprites\spr_attack_tutorial</sprite>
+      <sprite>sprites\spr_attack_tutorial2</sprite>
       <sprite>sprites\spr_inventory_tutorial</sprite>
       <sprite>sprites\spr_loadout1_tutorial</sprite>
       <sprite>sprites\spr_loadout2_tutorial</sprite>
+      <sprite>sprites\spr_what_do1</sprite>
+      <sprite>sprites\spr_what_do2</sprite>
+      <sprite>sprites\spr_what_do3</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -498,6 +504,8 @@
       <object>objects\obj_char</object>
       <object>objects\obj_hud</object>
       <object>objects\obj_spawn_char</object>
+      <object>objects\obj_npc</object>
+      <object>objects\obj_npc_talk</object>
     </objects>
     <objects name="Terrain">
       <objects name="Base Class">
@@ -581,6 +589,7 @@
       <objects name="Effects">
         <object>objects\obj_boss2_capture</object>
         <object>objects\obj_heal_aura</object>
+        <object>objects\obj_hurt_aura</object>
         <object>objects\obj_lightning_tell</object>
         <object>objects\obj_ink_screen</object>
         <object>objects\obj_ice_spike</object>
@@ -726,11 +735,22 @@
     <objects name="Tutorial">
       <object>objects\obj_movement_tutorial</object>
       <object>objects\obj_attack_tutorial</object>
+      <object>objects\obj_attack_tutorial2</object>
       <object>objects\obj_inventory_tutorial</object>
       <object>objects\obj_loadout1_tutorial</object>
       <object>objects\obj_loadout2_tutorial</object>
+      <object>objects\obj_what_do1</object>
+      <object>objects\obj_what_do2</object>
+      <object>objects\obj_what_do3</object>
       <object>objects\obj_tutorial_enemy</object>
+      <object>objects\obj_tutorial_enemy2</object>
+      <object>objects\obj_tutorial_enemy3</object>
+      <object>objects\obj_tutorial_enemy4</object>
+      <object>objects\obj_tutorial_enemy5</object>
+      <object>objects\obj_tutorial_enemy6</object>
       <object>objects\obj_goto_tutorail</object>
+      <object>objects\obj_goto_tutorial2</object>
+      <object>objects\obj_exit_tutorial</object>
     </objects>
   </objects>
   <rooms name="rooms">

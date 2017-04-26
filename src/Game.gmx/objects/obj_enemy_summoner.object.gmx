@@ -60,7 +60,7 @@ move_speed = move_speed_default;
 
 if(casting_x == x)
 {
-    instance_create(x, y, choose(obj_enemy2, obj_enemy_butterfly, obj_enemy_duplicate_real, obj_enemy_healer));
+    instance_create(x, y, choose(obj_enemy_healer, obj_enemy1, obj_enemy2, obj_enemy_butterfly, obj_enemy_dig, obj_enemy_duplicate_real, obj_enemy_inker));
 }
 </string>
           </argument>

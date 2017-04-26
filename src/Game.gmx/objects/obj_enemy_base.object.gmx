@@ -105,6 +105,10 @@ with(item_inst)
     }
 }
 
+if(room == rm_tutorial){
+    instance_create(1888, 1824, obj_goto_tutorial2);
+}
+
 </string>
           </argument>
         </arguments>

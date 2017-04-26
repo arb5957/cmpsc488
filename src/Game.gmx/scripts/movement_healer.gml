@@ -1,6 +1,15 @@
+var n;
+n = 2;
+nearest = noone;
 if(nearest_found == false)
 {
-   nearest = instance_nth_nearest(x, y, obj_enemy_base, 2);
+    while((nearest == noone || nearest.object_index == obj_enemy_healer || nearest.object_index == obj_enemy_summoner) && n < 10)
+    {
+        
+        nearest = instance_nth_nearest(x, y, obj_enemy_base, n);
+        n++;
+    }
+        
 }
 
 if nearest != noone

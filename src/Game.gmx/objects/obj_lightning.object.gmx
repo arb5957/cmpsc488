@@ -49,7 +49,11 @@ damage = 20;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_lightning(obj_char.x, obj_char.y, mouse_x, mouse_y, false, "c_blue");
+            <string>if(owner == owners.CHARACTER)
+{
+    draw_lightning(obj_char.x, obj_char.y, mouse_x, mouse_y, false, "c_blue");
+}
+
 </string>
           </argument>
         </arguments>
