@@ -30,13 +30,12 @@
     var player = instance_create(room_width/2,room_height/2,obj_char);
     player.name = global.character_name;
 }
-else
+if(instance_exists(obj_char)) 
 {
     sdb("obj_spawn_char positioning character");
     obj_char.x = room_width/2;
     obj_char.y = room_height/2;
 }
-sdb("HERE");
 /*scr_load_world(global.save_selected);
 
 if(obj_universal_controller.room_x != -1 &amp;&amp; obj_universal_controller.room_y != -1
