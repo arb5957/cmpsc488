@@ -36,3 +36,17 @@ for(var i = 0; i< 5; i++) {
             "room_save" + string(i) + ".ini");
     }
 }
+
+ini_open("room_save" + string(world_difficulty) + ".ini");
+if(ini_section_exists("room_config")) {
+    grid_height = ini_read_real("room_config", "height", 0);
+    grid_width = ini_read_real("room_config", "width", 0);
+    room_config = ds_grid_create(grid_height, grid_width);
+    for(var row = 0; row < grid_height; row++) {
+        for(var col = 0; col < grid_width; col++) {
+            ds_grid_add(room_config, row, col, 
+                ini_read_real("room_config", string(row) + "_" + string(col), 0));
+        }
+    }
+}
+ini_close();

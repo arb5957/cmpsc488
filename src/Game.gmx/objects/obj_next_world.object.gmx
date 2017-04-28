@@ -50,7 +50,7 @@ image_speed = .15;
           <argument>
             <kind>1</kind>
             <string>if(obj_universal_controller.farthest_world &lt; world_difficulty) {
-    //instance_destroy();
+    instance_destroy();
 }
 </string>
           </argument>
@@ -139,6 +139,18 @@ with(obj_universal_controller) {
             ini_close();
         }
         scr_print_room_config();
+    }
+    else {
+        ini_open("room_save" + string(other.world_difficulty) + ".ini");
+        ini_write_real("room_config", "height", grid_height);
+        ini_write_real("room_config", "width", grid_width);
+        for(var row = 0; row &lt; grid_height; row++) {
+            for(var col = 0; col &lt; grid_width; col++) {
+                ini_write_real("room_config", string(row) + "," + string(col), 
+                    ds_grid_get(room_config, col, row));
+            }
+        }
+        ini_close();
     }
     world_difficulty = other.world_difficulty;
     if(farthest_world &lt; other.world_difficulty) {

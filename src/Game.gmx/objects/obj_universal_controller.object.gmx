@@ -73,6 +73,7 @@ if(not file_exists("room_save" + string(world_difficulty) + ".ini")) {
     grid_width = ds_grid_width(room_config);
 }
 else {
+    sdb("Here");
     ini_open("room_save" + string(world_difficulty) + ".ini");
     grid_height = ini_read_real("room_config", "height", 0);
     grid_width = ini_read_real("room_config", "width", 0);

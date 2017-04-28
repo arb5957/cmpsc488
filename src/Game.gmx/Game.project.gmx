@@ -196,6 +196,7 @@
     <sprite>sprites\spr_next_world</sprite>
     <sprite>sprites\spr_next_world_2</sprite>
     <sprite>sprites\spr_next_world_3</sprite>
+    <sprite>sprites\spr_next_world_4</sprite>
     <sprite>sprites\spr_next_world_arrow</sprite>
     <sprite>sprites\spr_town_key</sprite>
     <sprite>sprites\spr_terrain_save_item</sprite>
