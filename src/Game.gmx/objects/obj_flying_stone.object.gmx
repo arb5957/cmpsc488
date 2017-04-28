@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>event_inherited();
 name = "Fly (Passive)";
-description = "Allows you to fly.";
+description = "Allows you to fly, but not over walls.";
 activation_script = scr_flying_stone_activate
 deactivation_script = scr_flying_stone_deactivate
 passive = true;

@@ -423,7 +423,7 @@ switch(state)
           <argument>
             <kind>1</kind>
             <string>///Move the character
-if(not flying)
+//if(not flying)
 {
     if(place_meeting(x+hspeed, y, obj_terrain_wall)) // if moving horizontally collides with a wall
     {
