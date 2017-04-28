@@ -51,12 +51,11 @@ loading = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if loading {
+            <string>if (loading &amp;&amp; room != rm_gamescreen) {
     draw_rectangle_colour(view_xport[view_current], view_yport[view_current],
         view_xport[view_current] + view_wport[view_current], view_yport[view_current] + view_hport[view_current],
         c_black, c_black, c_black, c_black, false);
         
-    //TODO: set font size/color/whatever
     draw_set_colour(c_white);
     draw_set_font(font_menu);
     draw_set_halign(fa_center);
