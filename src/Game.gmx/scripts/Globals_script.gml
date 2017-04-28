@@ -81,7 +81,7 @@ global.saved_items_array[1] = obj_dagger;
 //for the first time after making a new character or loading a new character.
 //This variable is important so that we don't overwrite the player's loadout
 //after the player defeats a boss and goes back to the gamescreen.
-global.first_time_on_gamescreen = true;
+global.first_time_on_gamescreen = false;
 
 //This enables many cheats such as the spawn_overlay,
 //and solving puzzles instantly.
