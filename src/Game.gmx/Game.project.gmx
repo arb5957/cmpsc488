@@ -278,6 +278,7 @@
         <script>scripts\movement_inker.gml</script>
       </scripts>
       <script>scripts\scr_enemy_takedamage.gml</script>
+      <script>scripts\scr_enemy_damage_particle.gml</script>
       <script>scripts\set_enemy_attr.gml</script>
       <script>scripts\scr_enemy_hold_item.gml</script>
       <script>scripts\scr_drop_item_rate.gml</script>

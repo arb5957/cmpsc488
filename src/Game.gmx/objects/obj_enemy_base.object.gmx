@@ -260,6 +260,7 @@ else
 
 if(not invulnerable)
 {
+    scr_enemy_damage_particle();
     invulnerable = true;
     hp -= other.damage;
     
