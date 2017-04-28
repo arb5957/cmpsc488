@@ -1,6 +1,6 @@
 ///scr_save_current_status()
 
-ini_open("world_status.ini");
+ini_open("world_status" + string(global.save_selected) + ".ini");
 
 // Save universal controller
 ini_section_delete("controller_config");

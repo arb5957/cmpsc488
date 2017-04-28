@@ -5,6 +5,17 @@
 save_slot = string(argument0);
 
 scr_save_room();
+with(obj_universal_controller) {
+    ini_open("room_save" + string(world_difficulty) + ".ini");
+    ini_write_real("room_config", "height", grid_height);
+    ini_write_real("room_config", "width", grid_width);
+    for(var row = 0; row < grid_height; row++) {
+        for(var col = 0; col < grid_width; col++) {
+            ini_write_real("room_config", string(row) + "," + string(col),
+                ds_grid_get(room_config, col, row));
+        }
+    }
+}
 
 file_delete("room_save_persistent" + string(obj_universal_controller.world_difficulty) + "_" + save_slot + ".ini");
 
@@ -13,7 +24,7 @@ for(var i=1; i<=4; i++) {
         file_copy("room_save" + string(i) + ".ini", 
             "room_save_persistent" + string(i) + "_" + save_slot + ".ini");
             
-        ini_open("room_save_persistent" + string(i) + "_" + save_slot + ".ini");
+        /*ini_open("room_save_persistent" + string(i) + "_" + save_slot + ".ini");
         
         // save world configuration 
         ini_section_delete("room_config");
@@ -26,7 +37,7 @@ for(var i=1; i<=4; i++) {
             }
         }
         
-        ini_close();
+        ini_close();*/
     }
 }
 
