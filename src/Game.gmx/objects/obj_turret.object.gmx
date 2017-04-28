@@ -113,7 +113,8 @@ if(owner == owners.CHARACTER)
             speed = 6;
             direction = other.fire_direction;
             image_angle = other.fire_direction;       
-            owner = owners.CHARACTER;     
+            owner = owners.CHARACTER;
+            from_weapon = other.id;     
         }
          
         image_angle = fire_direction;

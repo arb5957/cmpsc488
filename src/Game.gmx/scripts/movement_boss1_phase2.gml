@@ -36,7 +36,7 @@ if(inst != noone)
         scr_char_takedamage(5 * other.speedup);
         state = states.SLIP;
         speed = 5;
-        direction = image_angle;
+        direction = other.image_angle;
     }
     alarm[3] = 60;
     speedup = 3;

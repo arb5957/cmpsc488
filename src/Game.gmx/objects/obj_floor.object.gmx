@@ -52,7 +52,8 @@ if(place_meeting(x, y, obj_floor)) {
           <argument>
             <kind>1</kind>
             <string>///Init variables
-
+image_speed = 0;
+image_index = obj_universal_controller.world_difficulty - 1;
 dungeon_pit = false;
 dungeon_pit_center = false;
 </string>

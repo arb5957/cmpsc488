@@ -209,6 +209,7 @@
       <sprite>sprites\spr_attack_tutorial</sprite>
       <sprite>sprites\spr_attack_tutorial2</sprite>
       <sprite>sprites\spr_inventory_tutorial</sprite>
+      <sprite>sprites\spr_inventory_tutorial2</sprite>
       <sprite>sprites\spr_loadout1_tutorial</sprite>
       <sprite>sprites\spr_loadout2_tutorial</sprite>
       <sprite>sprites\spr_what_do1</sprite>
@@ -292,6 +293,7 @@
           <script>scripts\movement_boss1_phase1.gml</script>
           <script>scripts\movement_boss1_phase2.gml</script>
           <script>scripts\movement_boss1_phase3.gml</script>
+          <script>scripts\attack_boss1_phase1.gml</script>
         </scripts>
         <scripts name="Boss2">
           <script>scripts\attack_boss2_lighting.gml</script>
@@ -632,6 +634,7 @@
       <object>objects\obj_bounce_ball</object>
       <object>objects\obj_wave</object>
       <object>objects\obj_charm_bullet</object>
+      <object>objects\obj_float_bullet</object>
     </objects>
     <objects name="Weapons">
       <object>objects\obj_blue_gun</object>
@@ -737,6 +740,7 @@
       <object>objects\obj_attack_tutorial</object>
       <object>objects\obj_attack_tutorial2</object>
       <object>objects\obj_inventory_tutorial</object>
+      <object>objects\obj_inventory_tutorial2</object>
       <object>objects\obj_loadout1_tutorial</object>
       <object>objects\obj_loadout2_tutorial</object>
       <object>objects\obj_what_do1</object>

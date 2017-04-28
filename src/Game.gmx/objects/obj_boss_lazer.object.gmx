@@ -107,7 +107,7 @@ owner_id = noone;
         script_execute(scr_char_takedamage, other.damage);
     }
     
-    owner_id.rotate_speed = 1;
+    owner_id.rotate_speed = 2;
 }
 </string>
           </argument>

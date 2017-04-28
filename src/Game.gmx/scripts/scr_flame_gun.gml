@@ -7,6 +7,7 @@ with(inst_flame)
     direction = other.angle;
     damage = other.damage;
     owner = other.owner;
+    from_weapon = other.id;
 }
 
 alarm[COOLDOWN] = cooldown;

@@ -360,8 +360,8 @@ obj_char.y = 1824;</code>
     <instance objName="obj_tutorial_enemy" x="1856" y="1824" name="inst_4B92EA68" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_attack_tutorial" x="1824" y="1760" name="inst_30AE89DA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_inventory_tutorial" x="512" y="1760" name="inst_4F41C2E9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_loadout1_tutorial" x="896" y="1728" name="inst_252856D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_loadout2_tutorial" x="1248" y="1728" name="inst_F0005F86" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_loadout1_tutorial" x="1152" y="1728" name="inst_252856D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_loadout2_tutorial" x="1504" y="1728" name="inst_F0005F86" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terrain_wall" x="32" y="256" name="inst_93F7A1F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terrain_wall" x="64" y="256" name="inst_ED47DE44" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terrain_wall" x="96" y="256" name="inst_B0B42AEC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -473,6 +473,7 @@ obj_char.y = 1824;</code>
     <instance objName="obj_what_do2" x="832" y="160" name="inst_6D394E08" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_what_do3" x="1504" y="64" name="inst_53CBB9A7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_exit_tutorial" x="1472" y="160" name="inst_5EDEDA7D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_inventory_tutorial2" x="832" y="1760" name="inst_D5565972" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

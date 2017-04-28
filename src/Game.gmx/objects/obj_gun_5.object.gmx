@@ -93,6 +93,7 @@ bullets = 0;
         }
         damage = 5;
         owner = owners.CHARACTER;
+        from_weapon = other.id;
     }
     bullets = bullets + 1;
     if(bullets == 4){

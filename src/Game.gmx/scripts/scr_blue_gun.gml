@@ -13,7 +13,7 @@ angle = image_angle;
         direction = other.angle;
         damage = other.damage;
         owner = other.owner;
-        
+        from_weapon = other.id;
         //show_debug_message("bullet direction = " + string(other.angle));
     }
     

@@ -90,6 +90,7 @@ alarm[COOLDOWN] = cooldown * 2;
         direction = other.image_angle;
         damage = 5;
         owner = other.owner;
+        from_weapon = other.id;
     }
     bullets = bullets + 1;
 }

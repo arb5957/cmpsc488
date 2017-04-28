@@ -37,6 +37,8 @@ phase3 = "p3";
 
 image_speed = 0;
 
+can_attack = true;
+
 speedup = 3;
 can_speedup = true;
 
@@ -102,6 +104,29 @@ with(obj_universal_controller) {
         }
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>can_attack = true;
 </string>
           </argument>
         </arguments>
@@ -275,6 +300,8 @@ can_speedup = true;
 if(hp &gt;= 35)
 {
     script_execute(movement_boss1_phase1);
+    
+    script_execute(attack_boss1_phase1);
 }
 
 //Phase 2
@@ -288,6 +315,8 @@ else if(hp &lt; 35 &amp;&amp; hp &gt;= 10)
 //Phase 3
 else
 {
+    path_end();
+    script_execute(attack_boss1_phase1);
     if(can_lazer == true)
     {
         can_lazer = false;

@@ -85,6 +85,7 @@ bullets = 0;
         speed = 6;
         direction = other.image_angle;
         damage = 5;
+        from_weapon = other.id;
         if(other.owner == owners.CHARACTER)
         {
             owner = owners.CHARACTER;

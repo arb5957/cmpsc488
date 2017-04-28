@@ -13,6 +13,7 @@ if(owner == owners.CHARACTER)
         image_angle = other.image_angle;
         damage = other.damage;
         owner = other.owner;
+        from_weapon = other.id;
     }
     alarm[COOLDOWN] = cooldown/2;
     can_activate = false;
