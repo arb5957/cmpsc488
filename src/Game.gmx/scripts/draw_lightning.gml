@@ -79,7 +79,7 @@ do //loop through and draw all the segments
             //sdb("hit enemy with lighting");
             with(enemy_hit)
             {
-                script_execute(scr_enemy_takedamage, other.from_weapon.damage, other.from_weapon.level);
+                script_execute(scr_enemy_takedamage, other.from_weapon.damage*0.1, other.from_weapon.level);
             }
         }
     }
