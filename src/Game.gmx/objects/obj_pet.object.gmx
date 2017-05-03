@@ -83,18 +83,25 @@ activated = false;
 if(activated){
     enemy_in_range = collision_circle(x,y,200,obj_enemy_base, false, true);
     
-    if(enemy_in_range &amp;&amp; alarm[0] &lt;= 0){
-        nearest_enemy = instance_nearest(x, y, obj_enemy_base);
-        fire_direction = point_direction(x, y, nearest_enemy.x, nearest_enemy.y);
-        
-        with(instance_create(obj_pet.x, obj_pet.y, obj_string)){
-            speed = 5;
-            direction = obj_pet.fire_direction;
-            image_angle = obj_pet.fire_direction;
+    if(enemy_in_range != noone)
+    {
+        if(enemy_in_range &amp;&amp; alarm[0] &lt;= 0){
+            nearest_enemy = instance_nearest(x, y, obj_enemy_base);
+            fire_direction = point_direction(x, y, nearest_enemy.x, nearest_enemy.y);
             
+            if(nearest_enemy != noone)
+            {
+            
+                with(instance_create(obj_pet.x, obj_pet.y, obj_string)){
+                    speed = 5;
+                    direction = obj_pet.fire_direction;
+                    image_angle = obj_pet.fire_direction;
+                    
+                }
+                
+                alarm[0] = room_speed * 0.25;
+            }
         }
-        
-        alarm[0] = room_speed * 0.25;
     }
 }
 </string>
