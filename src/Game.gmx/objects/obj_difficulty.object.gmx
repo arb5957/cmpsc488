@@ -56,6 +56,14 @@ ds_list_add(prizes[0], obj_potion_poison);
 ds_list_add(prizes[0], obj_potion_speed);
 ds_list_add(prizes[0], obj_sword);
 ds_list_add(prizes[0], obj_blue_gun);
+ds_list_add(prizes[0], obj_paint_black);
+ds_list_add(prizes[0], obj_paint_blue);
+ds_list_add(prizes[0], obj_paint_green);
+ds_list_add(prizes[0], obj_paint_orange);
+ds_list_add(prizes[0], obj_paint_purple);
+ds_list_add(prizes[0], obj_paint_red);
+ds_list_add(prizes[0], obj_paint_yellow);
+ds_list_add(prizes[0], obj_map);
 
 ds_list_add(prizes[1], obj_speed_boost);
 ds_list_add(prizes[1], obj_recon_remote);
@@ -79,11 +87,11 @@ ds_list_add(prizes[2], obj_spin_blade);
 ds_list_add(prizes[2], obj_shield);
 ds_list_add(prizes[2], obj_teleport);
 ds_list_add(prizes[2], obj_glove_bounce);
-//ds_list_add(prizes[2], obj_gun_4);
+ds_list_add(prizes[2], obj_dual_sword);
+ds_list_add(prizes[2], obj_gun_4);
 
 ds_list_add(prizes[3], obj_turret_maker);
 ds_list_add(prizes[3], obj_gun_3);
-ds_list_add(prizes[3], obj_insta);
 ds_list_add(prizes[3], obj_health_pack_dropper);
 ds_list_add(prizes[3], obj_speed_zone);
 ds_list_add(prizes[3], obj_gun_1);
