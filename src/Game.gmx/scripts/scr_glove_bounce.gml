@@ -8,6 +8,9 @@ if(owner == owners.ENEMY)
     angle = (angle + irandom_range(-32, 32)) mod 360;
 }
 
+//play sound
+audio_play_sound(sfx_droplet_hi,0,false);
+
 inst = instance_create(x, y, obj_bounce_ball);
 inst2 = instance_create(x, y, obj_bounce_ball);
 with(inst)

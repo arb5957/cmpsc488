@@ -1,6 +1,7 @@
 ///Fire gun.
 angle = image_angle;
 inst = instance_create(x, y, obj_teleshot);
+
 with(inst)
 {
     speed = 5;
