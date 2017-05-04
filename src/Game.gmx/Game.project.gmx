@@ -485,11 +485,13 @@
         <object>objects\obj_fullscreen_btn</object>
         <object>objects\obj_credits</object>
         <object>objects\obj_exit_btn</object>
+        <object>objects\obj_exit_from_overlay</object>
         <object>objects\obj_save_btn</object>
         <object>objects\obj_save_slot1</object>
         <object>objects\obj_save_slot2</object>
         <object>objects\obj_save_slot3</object>
         <object>objects\obj_back_btn</object>
+        <object>objects\obj_main_menu_btn</object>
         <object>objects\obj_back_char_btn</object>
         <object>objects\obj_create_char_btn</object>
         <object>objects\obj_start_game_btn</object>

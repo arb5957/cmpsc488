@@ -154,20 +154,20 @@ if(opened)
     if(first_opening) {    
         //Exit game button
         //exit_game_button = instance_create(v_x + v_width/2, v_y + 400, obj_exit_btn);
-        exit_game_button = instance_create(v_x + v_width/2, v_y + 321, obj_exit_btn);
+        exit_game_button = instance_create(v_x + v_width/2, v_y + 321, obj_exit_from_overlay);
         exit_game_button.text = "Exit Game";
         exit_game_button.depth = -100;
     
         //Return to main menu button
         //main_menu_button = instance_create(v_x + v_width/2, v_y + 300, obj_back_btn);
-        main_menu_button = instance_create(v_x + v_width/2, v_y + 221, obj_back_btn);
+        main_menu_button = instance_create(v_x + v_width/2, v_y + 221, obj_main_menu_btn);
         main_menu_button.text = "Main Menu";
         main_menu_button.depth = -100;
         
         //Save game button
-        save_game_button = instance_create(v_x + v_width/2, v_y + 121, obj_save_btn);
+        /*save_game_button = instance_create(v_x + v_width/2, v_y + 121, obj_save_btn);
         save_game_button.text = "Save";
-        save_game_button.depth = -100;
+        save_game_button.depth = -100;*/
             
     }
     else {
@@ -181,8 +181,8 @@ if(opened)
         //main_menu_button.y = v_y + 300;
         main_menu_button.y = v_y + 221;
         
-        save_game_button.x = v_x + v_width/2;
-        save_game_button.y = v_y + 121;
+        //save_game_button.x = v_x + v_width/2;
+        //save_game_button.y = v_y + 121;
         
         if(global.save_slots_open == true &amp;&amp; instance_exists(obj_save_slot1))
         {
@@ -207,22 +207,22 @@ else
     }*/
     
     //Remove old buttons
-    if(instance_exists(obj_exit_btn)) {
-        with(obj_exit_btn) {
+    if(instance_exists(obj_exit_from_overlay)) {
+        with(obj_exit_from_overlay) {
             instance_destroy();
         }
     }
-    if(instance_exists(obj_back_btn)) {
-        with(obj_back_btn) {
+    if(instance_exists(obj_main_menu_btn)) {
+        with(obj_main_menu_btn) {
             instance_destroy();
         }
     }
-    if(instance_exists(obj_save_btn)){
+    /*if(instance_exists(obj_save_btn)){
         with(obj_save_btn){
             global.save_slots_open = false;
             instance_destroy();
         }
-    }
+    }*/
     if(instance_exists(obj_save_slot1)){
         with(obj_save_slot1){
             instance_destroy();
