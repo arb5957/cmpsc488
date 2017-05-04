@@ -3,6 +3,9 @@ if(owner == owners.CHARACTER)
     turret_inst = instance_create(x,y,obj_turret);
     with(turret_inst)
     {
+        level = other.level;
+        Exp = other.Exp;
+        exp_for_level = other.exp_for_level;
         owner = other.owner;
     }
     can_activate = false;
@@ -19,6 +22,9 @@ if(owner == owners.ENEMY)
         turret_inst = instance_create(x, y, obj_turret);
         with(turret_inst)
         {
+            level = other.level;
+            Exp = other.Exp;
+            exp_for_level = other.exp_for_level;
             owner = other.owner;
         }
     }

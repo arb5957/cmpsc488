@@ -381,6 +381,7 @@ mp_grid_destroy(global.grid)
     <instance objName="obj_terrain_wall" x="1920" y="1504" name="inst_2A31801E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terrain_wall" x="1888" y="1504" name="inst_998388C4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_npc" x="2048" y="1184" name="inst_D0AF0A82" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_turret_maker" x="1728" y="1280" name="inst_7F82F92E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
