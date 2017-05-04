@@ -75,7 +75,7 @@ if(instance_number(obj_floor_generator) == 1) {
         mp_grid_destroy(global.grid)
         global.grid = mp_grid_create(0, 0, room_width/32, room_height/32, 32, 32);
         mp_grid_add_instances(global.grid, obj_terrain_wall, 1);
-				
+
         // Level 1 difficulty 
         if(obj_universal_controller.world_difficulty == 1) {
             spawn_chance = irandom(1000);
@@ -88,6 +88,9 @@ if(instance_number(obj_floor_generator) == 1) {
             }
             else if(spawn_chance &gt;= 20 &amp;&amp; spawn_chance &lt;= 21) {
                 instance_create(x, y, obj_terrain_stickyfloor);
+            }
+            else if(spawn_chance &gt;= 30 &amp;&amp; spawn_chance &lt;= 31) {
+                instance_create(x, y, obj_puzzle_room_entrance);
             }
             
             //enemies
@@ -120,7 +123,7 @@ if(instance_number(obj_floor_generator) == 1) {
             else if(spawn_chance &gt;= 30 &amp;&amp; spawn_chance &lt;= 31) {
                 instance_create(x, y, obj_terrain_slippery);
             }
-            else if(spawn_chance &gt;= 40 &amp;&amp; spawn_chance &lt;= 41) { // new to lvl 2
+            else if(spawn_chance &gt;= 40 &amp;&amp; spawn_chance &lt;= 41) {
                 instance_create(x, y, obj_puzzle_room_entrance);
             }
             else if(spawn_chance &gt;= 50 &amp;&amp; spawn_chance &lt;= 51) { // new to lvl 2
@@ -153,7 +156,7 @@ if(instance_number(obj_floor_generator) == 1) {
                 instance_create(x, y, obj_enemy_inker);
             }
         }
-        // level 3 difficulty
+        // level 3 and 4 difficulty
         else {
             spawn_chance = irandom(1000);
             //terrain
