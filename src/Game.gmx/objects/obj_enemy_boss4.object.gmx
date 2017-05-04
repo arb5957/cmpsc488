@@ -83,6 +83,10 @@ with(obj_universal_controller) {
         }
     }
 }
+
+if(instance_exists(obj_char)) {
+    obj_char.using_key = true;
+}
 </string>
           </argument>
         </arguments>
