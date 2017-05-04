@@ -6,6 +6,15 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\mus_mystery</sound>
+    <sound>sound\sfx_bluegun_zap</sound>
+    <sound>sound\sfx_droplet_hi</sound>
+    <sound>sound\sfx_droplet_mid</sound>
+    <sound>sound\sfx_wheya</sound>
+    <sound>sound\sfx_rainish</sound>
+    <sound>sound\sfx_dododo</sound>
+    <sound>sound\sfx_lightning_hit</sound>
+    <sound>sound\sfx_lightning_maybe</sound>
+    <sound>sound\sfx_spinblade</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Menu">

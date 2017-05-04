@@ -17,6 +17,9 @@ angle = image_angle;
         //show_debug_message("bullet direction = " + string(other.angle));
     }
     
+    //play sound
+    audio_play_sound(sfx_bluegun_zap,0,false);
+    
     //Initiate cooldown.
     alarm[COOLDOWN] = cooldown;
     //We can't fire until the cooldown is complete.

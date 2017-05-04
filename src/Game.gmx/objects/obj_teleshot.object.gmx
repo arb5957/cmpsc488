@@ -27,6 +27,11 @@
             <kind>1</kind>
             <string>event_inherited();
 counter = 0;
+if(not audio_is_playing(sfx_wheya))
+{
+    audio_play_sound(sfx_wheya,0,false);
+}
+
 
 </string>
           </argument>
@@ -52,6 +57,11 @@ counter = 0;
             <kind>1</kind>
             <string>obj_char.x = x;
 obj_char.y = y;
+
+if(audio_is_playing(sfx_wheya))
+{
+    audio_stop_sound(sfx_wheya);
+}
 </string>
           </argument>
         </arguments>
@@ -76,7 +86,10 @@ obj_char.y = y;
             <kind>1</kind>
             <string>counter++;
 image_angle+=5;
+//play sound
+
 if(counter == 150){
+    
     instance_destroy();
 }
 </string>
