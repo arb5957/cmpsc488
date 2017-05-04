@@ -1348,6 +1348,7 @@ if(inventory_open)
             var tooltip_text = item_name + "##" + item_descrip + "##" + "level: " + string(item_level);
             draw_set_color(c_black);
             draw_set_halign(fa_left);
+            draw_set_valign(fa_top);
             draw_text_ext(mouse_x+10, mouse_y+10, tooltip_text, 15, 160);
         }
     }
@@ -1372,6 +1373,7 @@ if(inventory_open)
                 tooltip_text = item.name + "##" + item.description + "##" + "level: " + string(item.level);
                 draw_set_color(c_black);
                 draw_set_halign(fa_left);
+                draw_set_valign(fa_top);
                 draw_text_ext(mouse_x+10, mouse_y-143, tooltip_text, 15, 160);
             }
         }
@@ -1393,6 +1395,7 @@ if(inventory_open)
                 tooltip_text = item.name + "##" + item.description + "level: " + string(item.level);
                 draw_set_color(c_black);
                 draw_set_halign(fa_left);
+                draw_set_valign(fa_top);
                 draw_text_ext(mouse_x-190, mouse_y-143, tooltip_text, 15, 160);
             }
         }
