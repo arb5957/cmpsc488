@@ -20,6 +20,7 @@ if(instance_exists(obj_char)) {
     if(obj_char.using_key) {
         obj_char.x = room_width/2;
         obj_char.y = room_height/2;
+        obj_char.using_key = false;
     }
     obj_char.going_right = false;
     obj_char.going_up = false;
