@@ -25,6 +25,7 @@
         <sprite>sprites\spr_char_digging</sprite>
       </sprites>
       <sprite>sprites\spr_npc_talk</sprite>
+      <sprite>sprites\spr_char_temps</sprite>
     </sprites>
     <sprites name="Terrain">
       <sprite>sprites\spr_terrain_stickyfloor</sprite>
@@ -67,6 +68,7 @@
       <sprite>sprites\spr_enemy_inker</sprite>
       <sprite>sprites\spr_enemy_charmer</sprite>
       <sprite>sprites\spr_enemy_rock_thing</sprite>
+      <sprite>sprites\spr_enemy_rock_thing_temp</sprite>
       <sprites name="Effects">
         <sprite>sprites\spr_boss2_capture</sprite>
         <sprite>sprites\spr_enemy_digging</sprite>
@@ -96,7 +98,13 @@
         <sprite>sprites\spr_Boss2</sprite>
         <sprite>sprites\spr_boss3</sprite>
         <sprite>sprites\spr_Boss4</sprite>
+        <sprite>sprites\spr_boss_2_temp</sprite>
+        <sprite>sprites\spr_boss_4_temp</sprite>
+        <sprite>sprites\spr_boss_3_temp</sprite>
+        <sprite>sprites\spr_boss_3_fake_temp</sprite>
       </sprites>
+      <sprite>sprites\spr_enemy_temps</sprite>
+      <sprite>sprites\spr_enemy_ghost</sprite>
     </sprites>
     <sprites name="Projectile">
       <sprite>sprites\spr_bullet</sprite>

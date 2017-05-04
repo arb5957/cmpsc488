@@ -627,10 +627,13 @@ if(other.on_ground)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>burning = true;
-image_index = 1;
-
-alarm[4] = 180;
+            <string>if(other.owner == owners.ENEMY)
+{
+    burning = true;
+    image_index = 1;
+    
+    alarm[4] = 180;
+}
 </string>
           </argument>
         </arguments>

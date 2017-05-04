@@ -12,13 +12,13 @@ switch(name)
         item = global.items_array[2];
         
         common_drop = obj_potion;
-        common_drop_rate = 50;
+        common_drop_rate = 25;
         
         rare_drop = obj_pet;
-        rare_drop_rate = 90;
+        rare_drop_rate = 65;
         
         ultra_drop = obj_quake_boots;
-        ultra_drop_rate = 99;
+        ultra_drop_rate = 85;
         break;
         
     case "enemy1TEST" :
@@ -31,13 +31,13 @@ switch(name)
         item = global.items_array[2];
         
         common_drop = obj_potion;
-        common_drop_rate = 50;
+        common_drop_rate = 25;
         
         rare_drop = obj_pet;
-        rare_drop_rate = 90;
+        rare_drop_rate = 65;
         
         ultra_drop = obj_quake_boots;
-        ultra_drop_rate = 99;
+        ultra_drop_rate = 85;
         break;
     
     case "enemy2" :
@@ -48,13 +48,13 @@ switch(name)
         item = global.items_array[1];
         
         common_drop = obj_potion;
-        common_drop_rate = 50;
+        common_drop_rate = 25;
         
         rare_drop = obj_pet;
-        rare_drop_rate = 90;
+        rare_drop_rate = 65;
         
         ultra_drop = obj_quake_boots;
-        ultra_drop_rate = 99;
+        ultra_drop_rate = 85;
         break;
     
     case "butterfly" :
@@ -66,13 +66,13 @@ switch(name)
         move_speed_default = 1;
         
         common_drop = obj_potion_poison;
-        common_drop_rate = 50;
+        common_drop_rate = 25;
         
         rare_drop = obj_speed_boost;
-        rare_drop_rate = 90;
+        rare_drop_rate = 65;
         
         ultra_drop = obj_flying_stone;
-        ultra_drop_rate = 99;
+        ultra_drop_rate = 85;
         
         break;
     
@@ -85,13 +85,13 @@ switch(name)
         move_speed_default = 1;
         
         common_drop = obj_potion;
-        common_drop_rate = 50;
+        common_drop_rate = 25;
         
         rare_drop = obj_shovel;
-        rare_drop_rate = 90;
+        rare_drop_rate = 65;
         
         ultra_drop = obj_quake_boots;
-        ultra_drop_rate = 99;
+        ultra_drop_rate = 85;
         break;
     
     case "dup_real" :
@@ -103,13 +103,13 @@ switch(name)
         move_speed_default = 2;
         
         common_drop = obj_potion;
-        common_drop_rate = 50;
+        common_drop_rate = 25;
         
         rare_drop = obj_pet;
-        rare_drop_rate = 90;
+        rare_drop_rate = 65;
         
         ultra_drop = obj_quake_boots;
-        ultra_drop_rate = 99;
+        ultra_drop_rate = 85;
         break;
         
     case "dup_fake" :
@@ -121,13 +121,13 @@ switch(name)
         move_speed_default = 2;
         
         common_drop = obj_potion;
-        common_drop_rate = 50;
+        common_drop_rate = 25;
         
         rare_drop = obj_pet;
-        rare_drop_rate = 90;
+        rare_drop_rate = 65;
         
         ultra_drop = obj_quake_boots;
-        ultra_drop_rate = 99;
+        ultra_drop_rate = 85;
         break;
     
     case "healer" :
@@ -139,13 +139,13 @@ switch(name)
         mvoe_speed_default = 2;
         
         common_drop = obj_potion;
-        common_drop_rate = 50;
+        common_drop_rate = 25;
         
         rare_drop = obj_shield;
-        rare_drop_rate = 90;
+        rare_drop_rate = 65;
         
         ultra_drop = obj_speed_boost;
-        ultra_drop_rate = 99;
+        ultra_drop_rate = 85;
         break;
         
     case "snake" :
@@ -157,13 +157,13 @@ switch(name)
         move_speed_default = 2;
         
         common_drop = obj_slower;
-        common_drop_rate = 50;
+        common_drop_rate = 25;
         
         rare_drop = obj_sword;
-        rare_drop_rate = 90;
+        rare_drop_rate = 65;
         
         ultra_drop = obj_att_remote;
-        ultra_drop_rate = 99;
+        ultra_drop_rate = 85;
         break;
     
     case "summoner" :
@@ -175,13 +175,13 @@ switch(name)
         move_speed_default = 6;
         
         common_drop = obj_slower;
-        common_drop_rate = 50;
+        common_drop_rate = 25;
         
         rare_drop = obj_sword;
-        rare_drop_rate = 90;
+        rare_drop_rate = 65;
         
         ultra_drop = obj_glove;
-        ultra_drop_rate = 99;
+        ultra_drop_rate = 85;
         break;
         
     case "inker" :
@@ -193,13 +193,13 @@ switch(name)
         move_speed_default = 1;
         
         common_drop = obj_slower;
-        common_drop_rate = 50;
+        common_drop_rate = 25;
         
         rare_drop = obj_dual_sword;
-        rare_drop_rate = 90;
+        rare_drop_rate = 65;
         
         ultra_drop = obj_spin_blade;
-        ultra_drop_rate = 99;
+        ultra_drop_rate = 85;
         break;
         
     case "rock_thing" :
@@ -211,13 +211,13 @@ switch(name)
         move_speed_default = 2;
         
         common_drop = obj_potion;
-        common_drop_rate = 50;
+        common_drop_rate = 25;
         
         rare_drop = obj_potion;
-        rare_drop_rate = 90;
+        rare_drop_rate = 65;
         
         ultra_drop = obj_potion;
-        ultra_drop_rate = 99;
+        ultra_drop_rate = 85;
         break;  
         
 }

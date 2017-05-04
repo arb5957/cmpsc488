@@ -2,6 +2,7 @@ if(can_invisible == true)
 {
     can_invisible = false;
     image_index = 1;
+    show_hp = false;
     alarm[4] = 360;
 }
 

@@ -67,6 +67,8 @@ invulnerable_time = room_speed/2;
 
 path = path_add();
 
+show_hp = true;
+
 </string>
           </argument>
         </arguments>
@@ -92,9 +94,23 @@ path = path_add();
             <string>obj_universal_controller.enemies_killed += 1;
 script_execute(scr_drop_item_rate);
 
-with(weapon_inst)
+i = irandom_range(1, 100);
+
+if(i &lt; 49)
 {
-    instance_destroy();
+    script_execute(scr_drop_item_rate);
+    with(weapon_inst)
+    {
+        instance_destroy();
+    }
+}
+else
+{
+    with(weapon_inst)
+    {
+        instance_create(x, y, object_index);
+        instance_destroy();
+    }
 }
 
 with(item_inst)
@@ -315,9 +331,12 @@ draw_self();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var pc;
-pc = (hp / enemy_max_hp) * 100;
-draw_healthbar(x-15, y-20, x+15, y-25, pc, c_black, c_red, c_red, 0, true, true);
+            <string>if(show_hp == true)
+{
+    var pc;
+    pc = (hp / enemy_max_hp) * 100;
+    draw_healthbar(x-15, y-20, x+15, y-25, pc, c_black, c_red, c_red, 0, true, true);
+}
 </string>
           </argument>
         </arguments>
