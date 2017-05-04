@@ -31,7 +31,7 @@
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="0">
+    <event eventtype="4" ename="obj_char">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -48,9 +48,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(point_distance(x, y, obj_char.x, obj_char.y) &lt; 64)
+            <string>//if(point_distance(x, y, obj_char.x, obj_char.y) &lt; 64)
 {
-    instance_create(x, y - 200, obj_npc_talk);
+    instance_create(x, y - 100, obj_npc_talk);
 }
 </string>
           </argument>
