@@ -6,6 +6,15 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\mus_mystery</sound>
+    <sound>sound\sfx_bluegun_zap</sound>
+    <sound>sound\sfx_droplet_hi</sound>
+    <sound>sound\sfx_droplet_mid</sound>
+    <sound>sound\sfx_wheya</sound>
+    <sound>sound\sfx_rainish</sound>
+    <sound>sound\sfx_dododo</sound>
+    <sound>sound\sfx_lightning_hit</sound>
+    <sound>sound\sfx_lightning_maybe</sound>
+    <sound>sound\sfx_spinblade</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Menu">
@@ -470,6 +479,7 @@
   <fonts name="fonts">
     <fonts name="Menu">
       <font>fonts\font_menu</font>
+      <font>fonts\font_title</font>
     </fonts>
     <fonts name="Inventory">
       <font>fonts\font_inventory</font>
@@ -487,6 +497,7 @@
         <object>objects\obj_settings_btn</object>
         <object>objects\obj_fullscreen_btn</object>
         <object>objects\obj_mute_button</object>
+        <object>objects\obj_mute_sfx_button</object>
         <object>objects\obj_credits</object>
         <object>objects\obj_exit_btn</object>
         <object>objects\obj_exit_from_overlay</object>

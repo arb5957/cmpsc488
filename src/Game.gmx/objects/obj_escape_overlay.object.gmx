@@ -154,15 +154,22 @@ if(opened)
     if(first_opening) {    
         //Exit game button
         //exit_game_button = instance_create(v_x + v_width/2, v_y + 400, obj_exit_btn);
-        exit_game_button = instance_create(v_x + v_width/2, v_y + 321, obj_exit_from_overlay);
+        exit_game_button = instance_create(v_x + v_width/2, v_y + 421, obj_exit_from_overlay);
         exit_game_button.text = "Exit Game";
         exit_game_button.depth = -100;
     
         //Return to main menu button
         //main_menu_button = instance_create(v_x + v_width/2, v_y + 300, obj_back_btn);
-        main_menu_button = instance_create(v_x + v_width/2, v_y + 221, obj_main_menu_btn);
+        main_menu_button = instance_create(v_x + v_width/2, v_y + 321, obj_main_menu_btn);
         main_menu_button.text = "Main Menu";
         main_menu_button.depth = -100;
+        
+        music_mute_button = instance_create(v_x + v_width/2, v_y + 221, obj_mute_button);
+        music_mute_button.depth = -100;
+        
+        sfx_mute_button = instance_create(v_x + v_width/2, v_y + 121, obj_mute_sfx_button);
+        sfx_mute_button.depth = -100;
+        
         
         //Save game button
         /*save_game_button = instance_create(v_x + v_width/2, v_y + 121, obj_save_btn);
@@ -174,12 +181,19 @@ if(opened)
         //Reposition exit game button
         exit_game_button.x = v_x + v_width/2;
         //exit_game_button.y = v_y + 400;
-        exit_game_button.y = v_y + 321;
+        exit_game_button.y = v_y + 421;
         
         //Reposition main menu button
         main_menu_button.x = v_x + v_width/2;
         //main_menu_button.y = v_y + 300;
-        main_menu_button.y = v_y + 221;
+        main_menu_button.y = v_y + 321;
+        
+        music_mute_button.x = v_x + v_width/2;
+        music_mute_button.y = v_y + 221;
+        
+        sfx_mute_button.x = v_x + v_width/2;
+        sfx_mute_button.y = v_y + 121;
+        
         
         //save_game_button.x = v_x + v_width/2;
         //save_game_button.y = v_y + 121;
@@ -214,6 +228,20 @@ else
     }
     if(instance_exists(obj_main_menu_btn)) {
         with(obj_main_menu_btn) {
+            instance_destroy();
+        }
+    }
+    if(instance_exists(obj_mute_button))
+    {
+        with(obj_mute_button)
+        {
+            instance_destroy();
+        }
+    }
+    if(instance_exists(obj_mute_sfx_button))
+    {
+        with(obj_mute_sfx_button)
+        {
             instance_destroy();
         }
     }
