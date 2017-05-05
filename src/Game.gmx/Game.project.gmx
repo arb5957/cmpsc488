@@ -476,6 +476,7 @@
   <fonts name="fonts">
     <fonts name="Menu">
       <font>fonts\font_menu</font>
+      <font>fonts\font_title</font>
     </fonts>
     <fonts name="Inventory">
       <font>fonts\font_inventory</font>

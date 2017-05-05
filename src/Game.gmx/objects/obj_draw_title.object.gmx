@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(room_width/2, 32, title);
+            <string>draw_set_font(font_title);
+draw_text(room_width/2, 32, title);
 </string>
           </argument>
         </arguments>
