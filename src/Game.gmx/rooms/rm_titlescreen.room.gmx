@@ -74,6 +74,7 @@ file_delete("room_save4.ini");</code>
     <instance objName="obj_settings_btn" x="480" y="256" name="inst_046DE02F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_draw_title" x="416" y="64" name="inst_2E879E6D" locked="0" code="title = &quot;Consilium Path&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_loading_overlay" x="96" y="32" name="inst_294E9DD6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_music" x="128" y="32" name="inst_0D347F10" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
