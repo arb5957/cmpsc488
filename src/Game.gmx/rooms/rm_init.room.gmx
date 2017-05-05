@@ -20,8 +20,9 @@ room_goto(rm_test_polyomino);
 
 //*
 script_execute(Globals_script);
-global.mute = true;
-global.mute_sfx = true;
+global.mute = false;
+global.mute_sfx = false;
+scr_load_settings();
 global.testing_world_gen = false;
 global.debug = false; //Set this to false before we finish.
 room_goto(rm_titlescreen);

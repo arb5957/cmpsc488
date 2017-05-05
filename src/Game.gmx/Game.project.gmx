@@ -6,6 +6,9 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\mus_mystery</sound>
+    <sound>sound\mus_converging_blocks</sound>
+    <sound>sound\mus_diety_harp</sound>
+    <sound>sound\mus_techno_lullaby</sound>
     <sound>sound\sfx_bluegun_zap</sound>
     <sound>sound\sfx_droplet_hi</sound>
     <sound>sound\sfx_droplet_mid</sound>
@@ -348,7 +351,9 @@
       <script>scripts\src_test_load.gml</script>
       <script>scripts\src_test_save.gml</script>
       <script>scripts\scr_save.gml</script>
+      <script>scripts\scr_save_settings.gml</script>
       <script>scripts\scr_load.gml</script>
+      <script>scripts\scr_load_settings.gml</script>
       <script>scripts\scr_load_world.gml</script>
       <script>scripts\scr_save_world.gml</script>
       <script>scripts\scr_save_current_status.gml</script>

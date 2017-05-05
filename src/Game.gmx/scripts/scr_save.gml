@@ -2,6 +2,7 @@
 //Consider saving the current_loadout.
 //Valid slots 1,2,3
 var save_slot = argument0;
+scr_save_settings();
 if(save_slot < 1 || save_slot > 3)
 {
     exit;
