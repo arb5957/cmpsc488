@@ -27,9 +27,13 @@
             <kind>1</kind>
             <string>event_inherited();
 counter = 0;
-if(not audio_is_playing(sfx_wheya))
+
+if(not global.mute_sfx)
 {
-    audio_play_sound(sfx_wheya,0,false);
+    if(not audio_is_playing(sfx_wheya))
+    {
+        audio_play_sound(sfx_wheya,0,false);
+    }
 }
 
 

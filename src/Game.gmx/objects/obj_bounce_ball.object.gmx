@@ -50,7 +50,10 @@ lifetime = 1;
           <argument>
             <kind>1</kind>
             <string>//play sound
-audio_play_sound(sfx_droplet_mid,0,false);
+if(not global.mute_sfx)
+{
+    audio_play_sound(sfx_droplet_mid,0,false);
+}
 
 //Horizontal bounce
 if(place_meeting(x + hspeed, y, obj_terrain_wall))

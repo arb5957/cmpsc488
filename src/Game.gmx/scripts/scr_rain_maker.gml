@@ -2,9 +2,12 @@ can_activate = false;
 activated = !activated;
 if(activated)
 {
-    if(not audio_is_playing(sfx_rainish))
+    if(not global.mute_sfx)
     {
-        audio_play_sound(sfx_rainish,1,true);
+        if(not audio_is_playing(sfx_rainish))
+        {
+            audio_play_sound(sfx_rainish,1,true);
+        }
     }
 }
 else

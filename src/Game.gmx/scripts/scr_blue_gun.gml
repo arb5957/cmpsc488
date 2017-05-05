@@ -18,7 +18,10 @@ angle = image_angle;
     }
     
     //play sound
-    audio_play_sound(sfx_bluegun_zap,0,false);
+    if(not global.mute_sfx)
+    {
+        audio_play_sound(sfx_bluegun_zap,0,false);
+    }
     
     //Initiate cooldown.
     alarm[COOLDOWN] = cooldown;

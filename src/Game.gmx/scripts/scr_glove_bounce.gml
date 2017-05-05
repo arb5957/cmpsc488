@@ -9,7 +9,10 @@ if(owner == owners.ENEMY)
 }
 
 //play sound
-audio_play_sound(sfx_droplet_hi,0,false);
+if(not global.mute_sfx)
+{
+    audio_play_sound(sfx_droplet_hi,0,false);
+}
 
 inst = instance_create(x, y, obj_bounce_ball);
 inst2 = instance_create(x, y, obj_bounce_ball);

@@ -29,7 +29,10 @@
 counter = 0;
 sound = -1
 
-sound = audio_play_sound(sfx_dododo,0,false);
+if(not global.mute_sfx)
+{
+    sound = audio_play_sound(sfx_dododo,0,false);
+}
 
 </string>
           </argument>
