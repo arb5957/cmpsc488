@@ -30,8 +30,8 @@ event_inherited();
 cooldown = room_speed/30;
 script = scr_paint_orange;
 position_script = scr_paint_position;
-name = "Black paint";
-description = "You can paint with the color black.";
+name = "Orange paint";
+description = "You can paint with the color orange.";
 </string>
           </argument>
         </arguments>

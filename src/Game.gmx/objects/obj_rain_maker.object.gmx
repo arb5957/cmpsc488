@@ -56,7 +56,30 @@ cooldown = room_speed;
             <kind>1</kind>
             <string>if(activated){
     effect_create_above(ef_rain, 0, 0, 1, c_gray);
+    if(not global.mute_sfx)
+    {
+        if(not audio_is_playing(sfx_rainish))
+        {
+            audio_play_sound(sfx_rainish,1,true);
+        }
+    }
+    else
+    {
+        if(audio_is_playing(sfx_rainish))
+        {
+            audio_stop_sound(sfx_rainish);
+        }
+    }
+    
 }
+else
+{
+    if(audio_is_playing(sfx_rainish))
+    {
+        audio_stop_sound(sfx_rainish);
+    }
+}
+
 </string>
           </argument>
         </arguments>

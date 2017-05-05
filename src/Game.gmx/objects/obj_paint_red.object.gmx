@@ -30,8 +30,8 @@ event_inherited();
 cooldown = room_speed/30;
 script = scr_paint_red;
 position_script = scr_turret_maker_position;
-name = "Black paint";
-description = "You can paint with the color black.";
+name = "Red paint";
+description = "You can paint with the color red.";
 </string>
           </argument>
         </arguments>
