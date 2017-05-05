@@ -26,13 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>song = mus_mystery;
-if(not global.mute)
-{
-    if(not audio_is_playing(song))
-    {
-        audio_play_sound(song, 100, true);
-    }
-}
+
 </string>
           </argument>
         </arguments>
@@ -56,6 +50,43 @@ if(not global.mute)
           <argument>
             <kind>1</kind>
             <string>sdb("***********************Destroying obj_music");
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///play music
+if(not global.mute)
+{
+    if(not audio_is_playing(song))
+    {
+        audio_play_sound(song, 100, true);
+    }
+}
+else
+{
+    if(audio_is_playing(song))
+    {
+        audio_stop_sound(song);
+    }
+}
 </string>
           </argument>
         </arguments>
