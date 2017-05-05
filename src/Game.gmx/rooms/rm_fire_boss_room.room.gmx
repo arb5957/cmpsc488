@@ -163,14 +163,6 @@ with(obj_next_room)
     <instance objName="obj_piller_flame" x="384" y="288" name="inst_78D5054D" locked="0" code="" scaleX="0.5" scaleY="0.644444465637207" colour="4294967295" rotation="0"/>
     <instance objName="obj_piller_flame" x="576" y="288" name="inst_BFF31131" locked="0" code="" scaleX="0.5" scaleY="0.644444465637207" colour="4294967295" rotation="0"/>
     <instance objName="obj_piller_flame" x="640" y="288" name="inst_93DC241B" locked="0" code="" scaleX="0.5" scaleY="0.644444465637207" colour="4294967295" rotation="0"/>
-    <instance objName="obj_next_room" x="352" y="736" name="inst_5AAAE8A7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_next_room" x="384" y="736" name="inst_359B797E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_next_room" x="416" y="736" name="inst_5BBC98EB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_next_room" x="448" y="736" name="inst_0D88B8BE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_next_room" x="480" y="736" name="inst_3050D694" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_next_room" x="512" y="736" name="inst_7ADBCF7C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_next_room" x="544" y="736" name="inst_2749AA07" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_next_room" x="576" y="736" name="inst_C4323021" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_fire_boss_goto_fight" x="470" y="273" name="inst_3A507B6A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_fire_boss_goto_fight" x="484" y="273" name="inst_7E178E06" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terrain_invisible" x="430" y="432" name="inst_4C496AE6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -222,6 +214,14 @@ with(obj_next_room)
     <instance objName="obj_terrain_invisible" x="622" y="236" name="inst_C80062A8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terrain_invisible" x="656" y="236" name="inst_D945D9CA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terrain_invisible" x="677" y="236" name="inst_D77F6160" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="576" y="736" name="inst_682A7323" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="544" y="736" name="inst_F62815B7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="512" y="736" name="inst_8AF968B4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="480" y="736" name="inst_178BCCF4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="448" y="736" name="inst_3E6D6189" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="416" y="736" name="inst_0470F76D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="384" y="736" name="inst_E278D762" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_terrain_wall" x="352" y="736" name="inst_DA47A873" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
