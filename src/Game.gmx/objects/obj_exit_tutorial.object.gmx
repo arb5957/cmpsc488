@@ -26,6 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>room_goto(rm_gamescreen);
+if(instance_exists(obj_char)) {
+    obj_char.using_key = true;
+}
 </string>
           </argument>
         </arguments>
