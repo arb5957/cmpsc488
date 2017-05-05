@@ -74,6 +74,15 @@ fire_direction = 0;
           <argument>
             <kind>1</kind>
             <string>///Testing
+
+if(owner == owners.CHARACTER)
+{
+    with(from_weapon)
+    {
+        Exp += other.Exp;
+        scr_add_exp();
+    }
+}
 instance_destroy();
 </string>
           </argument>
@@ -114,7 +123,7 @@ if(owner == owners.CHARACTER)
             direction = other.fire_direction;
             image_angle = other.fire_direction;       
             owner = owners.CHARACTER;
-            from_weapon = other.id;     
+            from_weapon = other.from_weapon;     
         }
          
         image_angle = fire_direction;

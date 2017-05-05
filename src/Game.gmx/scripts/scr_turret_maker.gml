@@ -7,6 +7,7 @@ if(owner == owners.CHARACTER)
         Exp = other.Exp;
         exp_for_level = other.exp_for_level;
         owner = other.owner;
+        from_weapon = other.id;
     }
     can_activate = false;
     activated = true;
