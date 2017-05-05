@@ -14,10 +14,10 @@ switch(name)
         common_drop = obj_potion;
         common_drop_rate = 25;
         
-        rare_drop = obj_pet;
+        rare_drop = obj_gun_1;
         rare_drop_rate = 65;
         
-        ultra_drop = obj_quake_boots;
+        ultra_drop = obj_gun_2;
         ultra_drop_rate = 85;
         break;
         
@@ -50,10 +50,10 @@ switch(name)
         common_drop = obj_potion;
         common_drop_rate = 25;
         
-        rare_drop = obj_pet;
+        rare_drop = obj_glove;
         rare_drop_rate = 65;
         
-        ultra_drop = obj_quake_boots;
+        ultra_drop = obj_whip;
         ultra_drop_rate = 85;
         break;
     
@@ -105,10 +105,10 @@ switch(name)
         common_drop = obj_potion;
         common_drop_rate = 25;
         
-        rare_drop = obj_pet;
+        rare_drop = obj_gun_3;
         rare_drop_rate = 65;
         
-        ultra_drop = obj_quake_boots;
+        ultra_drop = obj_glove_bounce;
         ultra_drop_rate = 85;
         break;
         
@@ -123,10 +123,10 @@ switch(name)
         common_drop = obj_potion;
         common_drop_rate = 25;
         
-        rare_drop = obj_pet;
+        rare_drop = obj_dagger;
         rare_drop_rate = 65;
         
-        ultra_drop = obj_quake_boots;
+        ultra_drop = obj_sword;
         ultra_drop_rate = 85;
         break;
     
@@ -156,13 +156,13 @@ switch(name)
         item = choose("obj_sword", "obj_att_remote", "obj_slower");
         move_speed_default = 2;
         
-        common_drop = obj_slower;
+        common_drop = obj_gun_4;
         common_drop_rate = 25;
         
-        rare_drop = obj_sword;
+        rare_drop = obj_gun_5;
         rare_drop_rate = 65;
         
-        ultra_drop = obj_att_remote;
+        ultra_drop = obj_gun_6;
         ultra_drop_rate = 85;
         break;
     

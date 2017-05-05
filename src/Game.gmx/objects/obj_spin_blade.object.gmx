@@ -38,6 +38,7 @@ description = "A blade that spins.";
 
 //For enemy
 enemy_can_use = true;
+enemy_spin = false;
 </string>
           </argument>
         </arguments>
