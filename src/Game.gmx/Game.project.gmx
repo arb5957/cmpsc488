@@ -348,7 +348,9 @@
       <script>scripts\src_test_load.gml</script>
       <script>scripts\src_test_save.gml</script>
       <script>scripts\scr_save.gml</script>
+      <script>scripts\scr_save_settings.gml</script>
       <script>scripts\scr_load.gml</script>
+      <script>scripts\scr_load_settings.gml</script>
       <script>scripts\scr_load_world.gml</script>
       <script>scripts\scr_save_world.gml</script>
       <script>scripts\scr_save_current_status.gml</script>

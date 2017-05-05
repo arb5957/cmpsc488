@@ -1,6 +1,7 @@
 ///scr_load(integer_load_slot,check);
 //Valid load slots are 1,2,3.
 var load_slot = argument0;
+scr_load_settings();
 if(load_slot < 1 || load_slot > 3)
 {
     exit;

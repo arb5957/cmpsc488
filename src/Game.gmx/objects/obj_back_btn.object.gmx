@@ -78,6 +78,7 @@ flag = false;
           <argument>
             <kind>1</kind>
             <string>if(flag){
+    scr_save_settings();
     scr_leave_game();
     room_goto(rm_titlescreen);
 }
