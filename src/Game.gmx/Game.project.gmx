@@ -105,6 +105,9 @@
       </sprites>
       <sprite>sprites\spr_enemy_temps</sprite>
       <sprite>sprites\spr_enemy_ghost</sprite>
+      <sprite>sprites\spr_enemy_butterfly_temp</sprite>
+      <sprite>sprites\spr_enemy_summon_temp</sprite>
+      <sprite>sprites\spr_enemy_1_temp</sprite>
     </sprites>
     <sprites name="Projectile">
       <sprite>sprites\spr_bullet</sprite>
