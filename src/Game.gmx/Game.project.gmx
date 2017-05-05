@@ -483,6 +483,7 @@
         <object>objects\obj_play_btn</object>
         <object>objects\obj_settings_btn</object>
         <object>objects\obj_fullscreen_btn</object>
+        <object>objects\obj_mute_button</object>
         <object>objects\obj_credits</object>
         <object>objects\obj_exit_btn</object>
         <object>objects\obj_exit_from_overlay</object>
