@@ -28,6 +28,11 @@
       <sprite>sprites\spr_overlay_weapon_2</sprite>
       <sprite>sprites\spr_overlay_wht</sprite>
       <sprite>sprites\spr_delete</sprite>
+      <sprites name="Credits">
+        <sprite>sprites\spr_gameart</sprite>
+        <sprite>sprites\sprite191</sprite>
+        <sprite>sprites\spr_creators</sprite>
+      </sprites>
     </sprites>
     <sprites name="Character">
       <sprite>sprites\spr_char_temp</sprite>
@@ -505,6 +510,8 @@
         <object>objects\obj_mute_button</object>
         <object>objects\obj_mute_sfx_button</object>
         <object>objects\obj_credits</object>
+        <object>objects\obj_goto_gameart</object>
+        <object>objects\obj_goto_site</object>
         <object>objects\obj_exit_btn</object>
         <object>objects\obj_exit_from_overlay</object>
         <object>objects\obj_save_btn</object>
@@ -521,6 +528,9 @@
         <object>objects\obj_draw_title</object>
         <object>objects\obj_draw_settings</object>
         <object>objects\obj_draw_stats</object>
+        <object>objects\obj_art_work_contri</object>
+        <object>objects\obj_our_site</object>
+        <object>objects\obj_creators</object>
       </objects>
       <objects name="Overlays">
         <object>objects\obj_char1_overlay</object>
