@@ -88,7 +88,7 @@ global.first_time_on_gamescreen = false;
 //and solving puzzles instantly.
 global.debug = false;
 
-
+/*
 //For testing.
 global.saved_items_array[2] = obj_blue_gun;
 global.saved_items_array[3] = obj_flame_gun;

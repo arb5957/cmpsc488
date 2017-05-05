@@ -10,7 +10,9 @@
   <persistent>0</persistent>
   <colour>0</colour>
   <showcolour>-1</showcolour>
-  <code>for(var i = 1; i &lt;= 3; i++)
+  <code>background_hspeed[0] = 3.6;
+background_vspeed[0] = 3.2;
+for(var i = 1; i &lt;= 3; i++)
 {
     scr_load(i,1);
 }
@@ -46,7 +48,7 @@ file_delete("room_save4.ini");</code>
     <yoffset>0</yoffset>
   </makerSettings>
   <backgrounds>
-    <background visible="-1" foreground="0" name="bg_titlescreen" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
+    <background visible="-1" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="-1" foreground="0" name="bg_flames" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -70,7 +72,7 @@ file_delete("room_save4.ini");</code>
     <instance objName="obj_credits" x="480" y="352" name="inst_0CBE28CB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_exit_btn" x="480" y="448" name="inst_AC6CB241" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_settings_btn" x="480" y="256" name="inst_046DE02F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_draw_title" x="416" y="64" name="inst_2E879E6D" locked="0" code="title = &quot;Title Screen&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_draw_title" x="416" y="64" name="inst_2E879E6D" locked="0" code="title = &quot;Consilium Path&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_loading_overlay" x="96" y="32" name="inst_294E9DD6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
